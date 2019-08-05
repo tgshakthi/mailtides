@@ -225,12 +225,18 @@
 	</div>
 </div>
 <script>
-$('#btn').click(function(){
+$(document).ready(function() {
+alert()
+  $('#btn').click(function(){
+	alert();
   $(this).addClass('loader');
   window.setTimeout(function(){
     $('#btn').removeClass('loader').addClass('done');
     
   }, 2000);
 });
+
+});
+
 </script>
 <!-- /page content -->
