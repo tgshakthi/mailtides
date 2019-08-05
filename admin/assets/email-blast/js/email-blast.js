@@ -38,8 +38,7 @@ $(document).ready(function() {
 		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
-            var startDate = new Date(data[3]);
-            alert(startDate);
+			var startDate = new Date(data[3]);
 			if (min == null && max == null) {
 				return true;
 			}
@@ -106,9 +105,6 @@ $(document).ready(function() {
 			var minTwo = $('#min-campaign-users').datepicker('getDate');
 			var maxTwo = $('#min-campaign-users').datepicker('getDate');
 			var startDateTwo = new Date(dataTwo[3]);
-
-			alert(startDateTwo);
-
 			if (minTwo == null && maxTwo == null) {
 				return true;
 			}
@@ -147,6 +143,7 @@ $(document).ready(function() {
 
 		// Event listener to the two range filtering inputs to redraw on input
 		$('#min-campaign-users, #max-campaign-users').change(function() {
+			console.log(tableTwo.draw());
 			tableTwo.draw();
 		});
 	}
