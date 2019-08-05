@@ -277,32 +277,33 @@ $('#preview_template').click(function () {
 			},
 			success: function (data) {
 				if (data != 0) {
-					if (data == 1) {
-						var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/mail-template/digestive-and-liver-disease-consultants-template.png">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
-					}
+					alert(data);
+					// if (data == 1) {
+					// 	var img =
+					// 		'<img class="preview-template-img" src="' +
+					// 		imageUrl +
+					// 		'images/txgidocs/"'+ data+'>';
+					// 	$('#preview-template-modal').modal('show');
+					// 	$('#modal-body-img').html(img);
+					// }
 
-					if (data == 2) {
-						var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/mail-template/google-template.png">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
-					}
+					// if (data == 2) {
+					// 	var img =
+					// 		'<img class="preview-template-img" src="' +
+					// 		imageUrl +
+					// 		'images/txgidocs/mail-template/google-template.png">';
+					// 	$('#preview-template-modal').modal('show');
+					// 	$('#modal-body-img').html(img);
+					// }
 
-					if (data == 3) {
-						var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/mail-template/facebook-template.png">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
-					}
+					// if (data == 3) {
+					// 	var img =
+					// 		'<img class="preview-template-img" src="' +
+					// 		imageUrl +
+					// 		'images/txgidocs/mail-template/facebook-template.png">';
+					// 	$('#preview-template-modal').modal('show');
+					// 	$('#modal-body-img').html(img);
+					// }
 				}
 			}
 		});
