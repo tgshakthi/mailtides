@@ -1,0 +1,40 @@
+/*@font-face {
+	font-family: 'Bliss-Regular';
+	src: url("fonts/Bliss-Regular.eot");
+	src: url('font/Bliss-Regular.eot?#iefix') format('embedded-opentype'),  
+	url('font/Bliss-Regular.woff') format('woff'),  
+	url('font/Bliss-Regular.ttf') format('truetype'),  
+	url('font/Bliss-Regular.svg#Bliss-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Bliss-Medium';
+	src: url("../fonts/Bliss-Medium.eot");
+	src: url('font/Bliss-Medium.eot?#iefix') format('embedded-opentype'),  
+	url('font/Bliss-Medium.woff') format('woff'),  
+	url('font/Bliss-Medium.ttf') format('truetype'),  
+	url('font/Bliss-Medium.svg#Bliss-Medium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}*/
+@font-face {
+  font-family: 'Bliss2-Medium';
+  src: url('Bliss2-Medium/Bliss2-Medium.eot?#iefix') format('embedded-opentype'),  
+  	   url('Bliss2-Medium/Bliss2-Medium.otf')  format('opentype'),
+	   url('Bliss2-Medium/Bliss2-Medium.woff') format('woff'), 
+	   url('Bliss2-Medium/Bliss2-Medium.ttf')  format('truetype'), 
+	   url('Bliss2-Medium/Bliss2-Medium.svg#Bliss2-Medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bliss2-Regular';
+  src: url('Bliss2-Regular/Bliss2-Regular.eot?#iefix') format('embedded-opentype'),  
+       url('Bliss2-Regular/Bliss2-Regular.otf')  format('opentype'),
+	   url('Bliss2-Regular/Bliss2-Regular.woff') format('woff'), 
+	   url('Bliss2-Regular/Bliss2-Regular.ttf')  format('truetype'), 
+	   url('Bliss2-Regular/Bliss2-Regular.svg#Bliss2-Regular') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}

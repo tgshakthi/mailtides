@@ -1,0 +1,2 @@
+// Newsletter
+function newsletterReadMoreHover(e,r,s,t,l,o){$("#newsletter_hover_"+l+o).removeClass(e),$("#newsletter_hover_"+l+o).removeClass(r),$("#newsletter_hover_"+l+o).addClass(s),$("#newsletter_hover_"+l+o).addClass(t)}function newsletterReadMoreHoverOut(e,r,s,t,l,o){$("#newsletter_hover_"+l+o).removeClass(s),$("#newsletter_hover_"+l+o).removeClass(t),$("#newsletter_hover_"+l+o).addClass(e),$("#newsletter_hover_"+l+o).addClass(r)}

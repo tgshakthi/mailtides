@@ -1,0 +1,2 @@
+// Map
+//$(document).ready(function(){$(".map-details").each(function(){var h=0;$(".map-equal-height",this).each(function(){$(this).height()>h&&(h=$(this).height())}),$(".map-equal-height",this).height(h)})});var maxHeight=0;$(".map-list > li").each(function(){$(this).height()>maxHeight&&(maxHeight=$(this).height())}),$(".map-list > li").height(maxHeight);

@@ -1,0 +1,171 @@
+.our-services {
+    padding: 0;
+    margin: 0
+}
+
+.our-services-detail {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0
+}
+
+.our-services-detail li {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 30px 0 0 0;
+    list-style: none;
+    overflow: hidden
+}
+
+.our-services-detail li a {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    transition: ease .5s;
+    -webkit-transition: ease .5s
+}
+
+.our-services-detail li a figure {
+    margin: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+.our-services-detail li a img {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    transition: ease .8s;
+    -webkit-transition: ease .8s
+}
+
+.our-services-detail li:nth-of-type(odd) a:hover img {
+    transform: scale3d(1.2, 1.2, 1.2) rotate(-5deg);
+    -webkit-transform: scale3d(1.2, 1.2, 1.2) rotate(-5deg)
+}
+
+.our-services-detail li:nth-of-type(even) a:hover img {
+    transform: scale3d(1.2, 1.2, 1.2) rotate(5deg);
+    -webkit-transform: scale3d(1.2, 1.2, 1.2) rotate(5deg)
+}
+
+figure.snip1206 {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    width: 100%;
+    color: #000;
+    text-align: center
+}
+
+figure.snip1206 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease
+}
+
+figure.snip1206 img {
+    opacity: 1;
+    width: 100%;
+    -webkit-transition: opacity .35s;
+    transition: opacity .35s
+}
+
+/* figure.snip1206:after {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    opacity: .75;
+    -webkit-transform: skew(-45deg) scaleX(0);
+    transform: skew(-45deg) scaleX(0);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+} */
+
+figure.snip1206 figcaption {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1
+}
+
+figure.snip1206 h4 {
+    margin: 0;
+    width: 100%;
+    opacity: 0;
+    font-size: 25px
+}
+
+figure.snip1206 h4 {
+    padding: 0 30px;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase
+}
+
+figure.snip1206.hover:after,
+figure.snip1206:hover:after {
+    -webkit-transform: skew(-45deg) scaleX(1);
+    transform: skew(-45deg) scaleX(1);
+    transition: all .4s cubic-bezier(.175, .885, .32, 1.275)
+}
+
+figure.snip1206.hover figcaption h4,
+figure.snip1206:hover figcaption h4 {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s
+}
+
+figure.snip1206.hover figcaption h4,
+figure.snip1206:hover figcaption h4 {
+    opacity: 1
+}
+
+@media (min-width:280px) and (max-width:767px) {
+    figure.snip1206 h4 {
+        opacity: 1
+    }
+
+    figure.snip1206:after {
+        /* -webkit-transform: skew(-67deg) scaleX(1);
+        transform: skew(-67deg) scaleX(1);
+        transition: all .4s cubic-bezier(.175, .885, .32, 1.275) */
+    }
+
+    figure.snip1206.hover:after,
+    figure.snip1206:hover:after {
+        -webkit-transform: skew(-45deg) scaleX(1);
+        transform: skew(-67deg) scaleX(1);
+        transition: all .4s cubic-bezier(.175, .885, .32, 1.275)
+    }
+}
+
+@media (min-width:1024px) and (max-width:1199px) {
+    figure.snip1206 h4 {
+        font-size: 19px
+    }
+}
+
+@media (min-width:768px) and (max-width:1199px) {
+    figure.snip1206 h4 {
+        opacity: 1
+    }
+
+    figure.snip1206:after {
+        /* -webkit-transform: skew(-45deg) scaleX(1);
+        transform: skew(-45deg) scaleX(1);
+        transition: all .4s cubic-bezier(.175, .885, .32, 1.275) */
+    }
+}

@@ -1,0 +1,79 @@
+.text-full-width-content {
+	padding: 0;
+	margin: 0
+}
+
+.text-full-width-content h3 {
+	padding: 0 0 15px;
+	margin: 0
+}
+
+.text-full-width-content p {
+	padding: 0 0 15px;
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px
+}
+
+.text-full-width-content ul {
+	padding: 0;
+	margin: 0;
+	display: table
+}
+
+.text-full-width-content ul li {
+	padding: 0 0 8px 22px;
+	margin: 0;
+	position: relative
+}
+
+.text-full-width-content ul li p {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px
+}
+
+.text-full-width-content ul li:before {
+	font-family: "Material Icons";
+	content: "keyboard_arrow_right";
+	font-size: 21px;
+	left: 0;
+	position: absolute;
+	top: -4px
+}
+
+.text-full-width-content ul li {
+	position: relative;
+	padding: 0 0 5px 15px
+}
+
+.text-full-width-content ul li:before {
+	position: absolute;
+	content: "\f101";
+	font-family: FontAwesome;
+	font-size: 18px;
+	left: 0;
+	position: absolute;
+	top: 1px
+}
+@media (min-width:280px) and (max-width:767px)  {
+   .text-full-width-content h4{
+font-size: 18px !important;
+	}
+	.text-full-width p{
+		font-size:14px;
+	}
+	.text-full-width-content h5{
+		font-size:18px;
+	}
+	.text-full-width-content ul li {
+		font-size:14px;
+	}
+}
+@media (min-width:767px) and (max-width:1199px){
+	.text-full-width-content h4{
+		font-size:23px !important;
+		}
+
+}

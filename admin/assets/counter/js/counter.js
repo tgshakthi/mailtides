@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#image").observe_field(1,function(){var e=$("#image_url").val(),a=$("#httpUrl").val(),r=this.value.replace(e,"");$("#image").val(r);var i=r.replace(a+"/images/","thumbs/");$("#image_preview").attr("src",e+i).show(),0==i.length?$("#image_preview2").attr("src",e+"images/noimage.png"):$("#image_preview2").attr("src",e+i)})});

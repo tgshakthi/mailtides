@@ -1,0 +1,100 @@
+#txgidoc-professional {
+    padding: 0px;
+    margin: 0px auto;
+}
+
+#txgidoc-professional .owl-item {
+    padding: 0px;
+    margin: 0px auto;
+    display: inline-flex;
+}
+
+#txgidoc-professional .item {
+    padding: 0px;
+    margin: 0px auto;
+    width: 100%;
+    display: block;
+}
+
+#txgidoc-professional img {
+    padding: 15px;
+    margin: 0px auto;
+    width: 100%;
+    vertical-align: middle;
+  
+    display: table-cell;
+    height: auto;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    
+}
+
+#txgidoc-professional img:hover {
+
+   
+    cursor: auto;
+}
+
+#txgidoc-professional .carousel-wrap {
+    margin: 0px auto;
+    padding: 0px;
+    width: 100%;
+    position: relative;
+}
+
+#txgidoc-professional .owl-nav {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+#txgidoc-professional .owl-nav .owl-prev {
+    padding: 4px 9px;
+    margin-left: 0;
+    color: #000;
+    font-size: 18px;
+    position: absolute;
+    top: -75px;
+    background: #ccc;
+    left: 0px;
+    display: none;
+    border-radius: 50%;
+}
+
+#txgidoc-professional .owl-nav .owl-next {
+    padding: 4px 9px;
+    margin-left: 0;
+    color: #000;
+    font-size: 18px;
+    position: absolute;
+    top: -75px;
+    background: #ccc;
+    right: 0px;
+    display: none;
+    border-radius: 50%;
+}
+
+#txgidoc-professional:hover .owl-nav .owl-prev,
+#txgidoc-professional:hover .owl-nav .owl-next {
+    display: block;
+}
+
+.pro_title strike {
+    padding: 0px;
+    margin: 0px 0px 0px 15px;
+
+}
+#txgidoc-professional .owl-pagination{
+    margin: 0px auto 0px;
+    }
+#txgidoc-professional .owl-pagination .active {
+        background: #68042e !important;
+    }
+#txgidoc-professional .owl-pagination .owl-page {
+        height: 11px;
+        width: 11px;
+        background: #ffffff;
+    }
+

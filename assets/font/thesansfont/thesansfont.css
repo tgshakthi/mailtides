@@ -1,0 +1,59 @@
+/* CSS Document */
+
+/*@font-face {
+	font-family: 'TheSans';
+	src: url('TheSansLight/TheSansLight-Plain.eot?#iefix') format('embedded-opentype'), url('TheSansLight/TheSansLight-Plain.woff') format('woff'), url('TheSansLight/heSansLight-Plain.ttf') format('truetype'), url('TheSansLight/TheSansLight-Plain.svg#TheSansLight-Plain') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TheSans';
+	src: url('TheSans/TheSans-Plain.eot?#iefix') format('embedded-opentype'), url('TheSans/TheSans-Plain.woff') format('woff'), url('TheSans/TheSans-Plain.ttf') format('truetype'), url('TheSans/TheSans-Plain.svg#TheSans-Plain') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TheSans';
+	src: url('TheSansSemiBold/TheSansSemiBold-Plain.eot?#iefix') format('embedded-opentype'), url('TheSansSemiBold/TheSansSemiBold-Plain.woff') format('woff'), url('TheSansSemiBold/TheSansSemiBold-Plain.ttf') format('truetype'), url('TheSansSemiBold/TheSansSemiBold-Plain.svg#TheSansSemiBold-Plain') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TheSans';
+	src: url('TheSansBold/TheSansBold-Plain.eot?#iefix') format('embedded-opentype'), url('TheSansBold/TheSansBold-Plain.woff') format('woff'), url('TheSansBold/TheSansBold-Plain.ttf') format('truetype'), url('TheSansBold/TheSansBold-Plain.svg#TheSansBold-Plain') format('svg');
+	font-weight: 800;
+	font-style: normal;
+}*/
+
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('TheSansLight/TheSansB-W3Light.eot?#iefix') format('embedded-opentype'),  
+  	   url('TheSansLight/TheSansB-W3Light.otf')  format('opentype'),
+	   url('TheSansLight/TheSansB-W3Light.woff') format('woff'), 
+	   url('TheSansLight/TheSansB-W3Light.ttf')  format('truetype'), 
+	   url('TheSansLight/TheSansB-W3Light.svg#TheSansB-W3Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TheSans';
+  src: url('TheSansSemiBold/TheSansB-W6SemiBold.eot?#iefix') format('embedded-opentype'),  
+	   url('TheSansSemiBold/TheSansB-W6SemiBold.otf')  format('opentype'),
+	   url('TheSansSemiBold/TheSansB-W6SemiBold.woff') format('woff'),
+	   url('TheSansSemiBold/TheSansB-W6SemiBold.ttf')  format('truetype'),
+	   url('TheSansSemiBold/TheSansB-W6SemiBold.svg#TheSansB-W6SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('TheSansBold/TheSansB-W7Bold.eot?#iefix') format('embedded-opentype'),
+       url('TheSansBold/TheSansB-W7Bold.otf')  format('opentype'),
+       url('TheSansBold/TheSansB-W7Bold.woff') format('woff'),
+       url('TheSansBold/TheSansB-W7Bold.ttf')  format('truetype'),
+       url('TheSansBold/TheSansB-W7Bold.svg#TheSansB-W7Bold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}

@@ -1,0 +1,431 @@
+.name_review
+{
+	padding:0px;
+	margin:0px;
+	display:table;
+	width:100%;
+}
+.name_review div
+{
+	float:left;
+	width:50%;
+}
+.name_review div:nth-of-type(1)
+{
+	padding-right:15px;
+}
+.review-post_name
+{
+	padding:0px;
+	margin:0px;
+}
+.review-post_name h5
+{
+padding: 0px 0px 8px;
+margin: 0px;
+font-size: 20px;
+font-weight: 600;
+color: #603;
+}
+.review-post_name span
+{
+padding: 0px;
+margin: 0px 0px 10px;
+color: #7c7c7c;
+display: block;
+font-size: 13px;
+}
+.patient-review p
+{
+	font-size:14px;
+	line-height:24px;
+}
+
+.spacer_break
+	{
+		display:table;
+		width:100%;
+	}
+.review_rating_entry { 
+  border: none;
+  padding:0px;
+  margin:0px;
+  float:left;
+}
+
+.review_rating_entry > input { display: none; } 
+.review_rating_entry > label:before { 
+  margin: 0px 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.review_rating_entry > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.review_rating_entry > label { 
+  color: #b9b9b9; 
+  float:right;
+  font-size:15px;
+}
+
+.review_rating_entry > input:checked ~ label, 
+.review_rating_entry:not(:checked) > label:hover, 
+.review_rating_entry:not(:checked) > label:hover ~ label { color: #FFD700;  } 
+
+.review_rating_entry > input:checked + label:hover, 
+.review_rating_entry > input:checked ~ label:hover,
+.review_rating_entry > label:hover  input:checked  label,
+.review_rating_entry > input:checked  label:hover  label { color: #FFED85;  }
+
+
+	
+		.review-socialmedia
+	{
+padding: 0px;
+margin: 30px auto 0px;
+display: table;
+	}
+	.review-socialmedia a
+	{
+padding: 8px 0px;
+margin: 0px 14px 0px 0px;
+float: left;
+display: block;
+width: 40px;
+text-align: center;
+height: 40px;
+font-size: 18px;
+border-radius: 3px;
+	}
+	.facebook-review
+	{
+		background:#3b5998;
+		color:#fff;
+	}
+	.google-review
+	{
+		background:#d43034;
+		color:#fff;
+	}
+	
+		html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    font-family: 'Montserrat', sans-serif !important;
+}
+	
+.review-tiz-form
+	{
+		padding:0px;
+		margin:0px;
+		
+	}
+.review-tiz-form h4
+	{
+font-size:20px;
+padding: 0px;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: #660033;
+margin:0px 0px;
+font-weight:400;
+	}
+	.review-tiz-form .new-re
+	{
+		padding:0px;
+		margin:0px;
+	}
+	.review-tiz-form .new-re li
+	{
+		padding:15px 0px 0px;
+		margin:0px;
+	}
+		.review-tiz-form .new-re li .label-re
+	{
+padding: 0px 0px 8px;
+
+margin: 0px;
+
+font-size: 15px;
+
+color: #000;
+
+display: table;
+
+width: 100%;
+	}
+	
+	.review-tiz-form .new-re li input[type="text"]
+	{
+padding: 0px 10px;
+
+margin: 0px;
+
+border: 1px solid #ccc !important;
+box-sizing:border-box;
+	}
+		.review-tiz-form .new-re li input[type="email"]
+	{
+	padding: 0px 10px;
+
+margin: 0px;
+
+border: 1px solid #ccc !important;
+box-sizing:border-box;
+	}
+			.review-tiz-form .new-re li textarea
+	{
+padding: 10px;
+
+margin: 0px;
+
+border: 1px solid #ccc !important;
+
+min-height:80px;
+box-sizing:border-box;
+	}
+	
+		.review-tiz-form .new-re li p
+	{
+		padding:0px 0px;
+		margin:0px;
+	}
+	
+			.review-tiz-form .new-re li input[type="submit"]
+	{
+padding: 12px 10px;
+margin: 0px;
+width: 100%;
+border: none;
+font-size: 16px;
+letter-spacing: 1px;
+font-weight: 600;
+border-radius: 4px;
+text-transform: uppercase;
+	}
+	.re-post
+	{
+		background-color: #660033;
+		color:#fff;
+	}
+	.re-cancle
+	{
+		background-color:#e63131;
+		color:#fff;
+	}
+	
+	.patient-review-column .modal
+	{
+		width: 40%;
+	}
+	
+.patient-review-column h3
+{
+font-size: 35px;
+padding: 0px;
+letter-spacing: 1px;
+text-transform: uppercase;
+/* font-family: 'Fjalla One', sans-serif !important; */
+color: #660033;
+margin: 0px 0px 20px;
+text-align:center;
+font-weight:400;
+}
+.modal-trigger
+{
+background-color: #660033;
+padding: 8px 10px;
+margin: 0px 0px 15px;
+color: #fff;
+float: right;
+border-radius: 4px;
+}
+.modal-trigger i
+{
+padding-right: 10px;
+font-size: 14px;
+margin: 0px;
+}
+ .txgidoc-review{
+  padding:0px;
+  margin:0px;
+}
+.txgidoc-rating{
+  padding:0px;
+  margin:0px;
+}
+.txgidoc-rating i{
+  padding: 0px 0px 20px 10px;;
+  margin:0px;
+  font-size: 25px;
+ 
+}
+.txgidocs-rating-head{
+  padding: 0px 0px 20px 0px;;
+  margin: 0px;
+  font-size: 24px;
+  font-weight: 600;
+  color:#660033;
+}
+.patient-review-row{
+  padding:5px;
+  margin:0px;
+  font-size:14px;
+  font-weight:600;
+  
+}
+.patient-review-column{
+width: 70%;
+margin: 0px auto;
+display: table;
+}
+.patient-review{
+  padding: 20px;
+  margin: 0px 0px 20px 0px;
+  -webkit-box-shadow: 1px 4px 11px 0px rgba(168, 168, 168, 0.28);
+  -moz-box-shadow: 1px 4px 11px 0px rgba(168, 168, 168, 0.28);
+  box-shadow: 1px 4px 11px 0px rgba(168, 168, 168, 0.28);
+}
+.patient-review-comment{
+padding: 0px 0px 10px 0px;
+margin: 0px;
+font-size: 16px;
+font-weight: 500;
+color: #000;
+}
+.patient-review-name{
+padding: 0px;
+margin: 0px;
+font-weight: 600;
+font-size: 11px !important;
+color: #603
+}
+.patient-review-name span{
+  padding:0px 5px 0px 0px;
+  margin:0px;
+  font-size: 15px;
+    font-weight: 600;
+    
+}
+.new_link_review{
+padding: 5px;
+margin: 0px;
+background: #003954;
+color: #fff;
+font-size: 14px;
+font-weight: 600;
+}
+.customer-rating{
+  padding:0px;
+  margin:0px;
+}
+.customer-rating i{
+  padding: 0px 5px 20px 0px;
+  margin: 0px;
+  font-size: 14px;
+}
+@media (min-width: 290px) and (max-width: 1199px){
+  .patient-review-column{
+    width:100% !important;
+  }
+
+.name_review div:nth-of-type(1)
+{
+	padding-bottom:0px;
+}
+.modal .modal-content
+{
+	padding: 14px;
+}
+.review-tiz-form .new-re li
+{
+	padding: 10px 0px 0px;
+}
+.review-socialmedia a
+{
+	padding:6px 0px;
+	width: 35px;
+	height: 35px;
+	font-size: 15px;
+}
+  	.patient-review-column .modal
+	{
+		width: 80%;
+	}
+
+}
+@media (min-width: 290px) and (max-width: 767px){
+  .patient-review-comment {
+ 
+    font-size: 14px;
+  }
+  .new_link_review{
+
+font-size: 12px;
+font-weight: 500;
+}
+.review-tiz-form .new-re li input[type="submit"]
+{
+	width: 90px;
+	font-size: 14px;
+}
+.review-tiz-form h4
+{
+	font-weight: 600;
+line-height: 24px;
+font-size: 15px;
+}
+
+.review-tiz-form .new-re li input[type="submit"]
+{
+	padding: 10px 0px;
+	float:left;
+}
+.review-socialmedia
+{
+	margin:0px;
+	float:right;
+}
+  	.patient-review-column .modal
+	{
+		width: 95%;
+	}
+.review-tiz-form .new-re li .label-re
+{
+	font-size: 14px;
+	padding: 0px 0px 6px;
+}
+.review-tiz-form .new-re li textarea
+{
+	min-height: 56px;
+	padding: 6px;
+}
+.review-tiz-form .new-re li input[type="text"]
+{
+	height: 40px;
+	padding: 0px 7px;
+}
+
+}
+.review-entry-close{
+    padding: 3px 0px 0px;
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #603;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 0px 0px 0px 12px;
+}
+
+.review-entry-close i{
+    padding:0px;
+    margin:0px;
+
+} 

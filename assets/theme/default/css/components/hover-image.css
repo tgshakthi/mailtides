@@ -1,0 +1,92 @@
+.mouse-over-img-com {
+	display: table;
+	width: 100%;
+}
+
+.mouseover-img {
+	position: relative;
+	margin: 0 auto;
+	padding: 3px;
+	
+}
+
+.hover-img {
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+.hover-img .secondary-image,
+.primary-image {
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+	width: 100%;
+}
+
+.secondary-image {
+	position: absolute;
+	left: 0;
+	top: 0px;
+}
+
+.hover-img .secondary-image:hover {
+	opacity: 0;
+}
+
+
+.hover-img .hover-image-text {
+	padding: 10px 15px;
+	margin: 0px;
+	position: absolute;
+	bottom: 60px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	
+}
+
+.over-four-col .mouseover-img {
+	width: 25%;
+	float: left;
+}
+
+.over-three-col .mouseover-img {
+	width: 33.3%;
+	float: left;
+}
+
+.over-two-col .mouseover-img {
+	width: 50%;
+	float: left;
+}
+
+.over-one-col .mouseover-img {
+	width: 50%;
+	margin: 0px auto;
+	display: table;
+}
+
+@media (min-width:280px) and (max-width:399px) {}
+
+@media (min-width:400px) and (max-width:767px) {}
+
+@media (min-width:280px) and (max-width:767px) {
+
+	.over-four-col .mouseover-img,
+	.over-three-col .mouseover-img,
+	.over-two-col .mouseover-img,
+	.over-one-col .mouseover-img {
+		width: 100%;
+		float: none;
+	}
+}
+
+@media (min-width:768px) and (max-width:1023px) {}
+
+@media (min-width:1024px) and (max-width:1199px) {}
+
+@media (min-width:768px) and (max-width:1199px) {}
+
+@media (min-width:1200px) and (max-width:4000px) {}

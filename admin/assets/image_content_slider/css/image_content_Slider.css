@@ -1,0 +1,30 @@
+#sortable-row {
+	list-style: none;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	width: 100%;
+}
+#sortable-row li {
+	margin: 5px;
+	padding: 10px;
+	background-color: #f8f8f8;
+	cursor: move;
+	border-radius: 4px;
+	float: left;
+	width: 24%;
+	border: 1px solid #dddddd;
+}
+#sortable-row li a {
+	color: #606060;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 0px 0px 0px 10px;
+}
+#sortable-row li.ui-state-highlight {
+	height: 1.0em !important;
+	background-color: #F0F0F0 !important;
+	border: #ccc 2px dotted !important;
+}

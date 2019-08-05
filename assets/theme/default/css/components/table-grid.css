@@ -1,0 +1,50 @@
+#table-grid-float-div {
+	padding: 0px;
+	margin: 0px;
+	overflow-x: auto;
+ 
+	/* display: table;
+	width: 100%; */
+}
+#table-grid-float-div table tbody tr
+{
+	background-color: #fff;
+}
+#table-grid-float-div table tbody tr:nth-child(odd)
+{
+	background-color: #eaeaea !important;
+}
+#table-grid-float-div table tbody tr:hover
+{
+	background-color: #cecdcd !important;
+}
+#table-grid-float-div table tr td
+{
+	padding: 12px 5px !important;
+	text-align: center;
+	border-radius: 0% !important;
+}
+#table-grid-float-div table tr th
+{
+	padding: 10px 5px !important;
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	text-align: center;
+	color:#fff;
+	background-color: #000;
+	border-radius: 0% !important;
+}
+
+/* .table-grid-container{
+	overflow-x : auto;
+} */
+@media (min-width:280px) and (max-width:399px) {
+
+	#table-grid-float-div {
+		padding: 0px;
+		margin: 0px;
+		overflow-x: auto;
+		min-width: 300px;
+		max-width: 361px;
+	}
+}

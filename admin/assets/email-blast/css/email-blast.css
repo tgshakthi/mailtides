@@ -1,0 +1,56 @@
+.btn-right {
+    text-align: right;
+}
+
+.email-blast-date {
+    padding: 0px;
+    margin: 0px;
+    display: table;
+    width: 100%;
+}
+
+.email-blast-date div {
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    width: 50%;
+}
+
+.dt-buttons {
+    float: left;
+}
+
+.btn-group-sm>.btn,
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #ffffff;
+    background: #2196F3;
+    border: none;
+}
+
+#datatable-buttons input {
+    color: black;
+}
+
+#datatable-buttons thead tr:nth-child(2) th:nth-child(1) .icheckbox_flat-green {
+    display: none;
+}
+
+#datatable-buttons thead tr:nth-child(2) th:nth-child(8),
+#datatable-buttons thead tr:nth-child(2) th:nth-child(9) {
+    color: transparent;
+}
+
+#datatable-campaign-users thead tr:nth-child(2) th:nth-child(1) {
+    color: transparent;
+}
+
+.preview-template-img {
+    width: 100%;
+    /* or any custom size */
+    height: 100%;
+    object-fit: contain;
+}

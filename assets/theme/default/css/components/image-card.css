@@ -1,0 +1,288 @@
+/* Image Card */
+.image-card-button {
+	padding: 0;
+margin: 7px 0px 0px 0px;
+	width: 100%;
+	display: table
+}
+
+.image-card-button a {
+	padding: 3px 7px !important;
+	margin: 0;
+	display: table;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 24px;
+  height: auto !important;
+  text-transform: none;
+}
+
+.image-card-button .image-card-button-align-left {
+	float: left !important
+}
+
+.image-card-button .image-card-button-align-center {
+	margin: 0 auto !important;
+	display: table !important
+}
+
+.image-card-button .image-card-button-align-right {
+	float: right !important;
+	display: table
+}
+
+
+
+/* .image-card-position-right {
+	position: absolute;
+	top: 18px;
+	right: 10px
+} */
+.image-card-position-relative {
+    position: absolute;
+    bottom: 42%;
+    left: 25px;
+    text-align: left;
+    opacity: 0;
+  z-index:9;
+  
+  padding: 5px 60px 5px 10px; 
+ 
+}
+figcaption p{
+    padding:0px 0px 30px 0px;
+    line-height: 20px;
+}
+.image-card-position-relative .card-title h5 {
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+	font-weight: 400
+}
+ .sticky-action {
+  
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+ 
+    width: 100%;
+   
+  }
+  .single-image .sticky-action
+  {
+    margin: 0px !important;
+  }
+  figure.sticky-action *,
+figure.sticky-action *:before,
+figure.sticky-action *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.55s ease;
+  transition: all 0.55s ease;
+}
+figure.sticky-action img {
+    width: 100%;
+    backface-visibility: hidden;
+    vertical-align: top;
+    opacity: 0.9;
+  }
+ .float_box:hover .image-card-position-relative {
+
+    opacity: 1;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+ }
+ figure.sticky-action{
+ background: #000;
+}
+figure.sticky-action:hover img {
+    opacity:0.5;
+}
+ /* figure.sticky-action:hover img {
+  zoom: 1;
+ 
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+} */
+figure.sticky-action .image-card-heading:before,
+figure.sticky-action .image-card-heading:after {
+  height: 2px;
+  width: 550px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+  opacity:0;
+}
+/* .image-card-img-effect
+{
+  display: flex;
+} */
+figure.sticky-action .image-card-heading:before {
+    top: 0;
+    left: 10px;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity:0;
+  }
+  figure.sticky-action .image-card-heading:after {
+    bottom: 0;
+    right: 10px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  figure.sticky-action .image-card-heading div:before,
+figure.sticky-action .image-card-heading div:after {
+  width: 2px;
+  height: 400px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+  margin: 0px 0px 0px 6px;
+  opacity:0;
+}
+figure.sticky-action .image-card-heading div:before {
+  top: 10px;
+  right: 0;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  opacity:0;
+  margin: 0px 6px 0px 0px;
+}
+figure.sticky-action .image-card-heading div:after {
+  bottom: 10px;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity:0;
+}
+.heading-of-imgcard{
+position: absolute;
+bottom: 10px;
+z-index: 9;
+padding: 20px;
+}
+
+figure.sticky-action:hover .image-card-heading:before,
+figure.sticky-action.hover .image-card-heading:before,
+figure.sticky-action:hover .image-card-heading:after,
+figure.sticky-action.hover .image-card-heading:after,
+figure.sticky-action:hover .image-card-heading div:before,
+figure.sticky-action.hover .image-card-heading div:before,
+figure.sticky-action:hover .image-card-heading div:after,
+figure.sticky-action.hover .image-card-heading div:after {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity:1;
+}
+figure.sticky-action:hover .image-card-heading:before,
+figure.sticky-action.hover .image-card-heading:before,
+figure.sticky-action:hover .image-card-heading:after,
+figure.sticky-action.hover .image-card-heading:after {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+  opacity:1;
+}
+ .card-image:hover img:after{
+    background: rgba(255, 255, 255, 0.5);
+    height:100%;
+    width:100%;
+    top:0;
+    position: absolute;
+}
+.card-image{
+    position: relative;
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  
+    figcaption p {
+        padding: 0px 0px 47px 0px;
+    }
+    
+  }
+  
+  @media (min-width: 320px) and (max-width: 767px) {
+  
+    .heading-of-imgcard div{
+      font-size: 10px;
+    }
+    .heading-of-imgcard div p{
+      font-size: 10px !important;
+    }
+    .heading-of-imgcard div span{
+      font-size: 10px !important;
+    }
+    .image-card-position-relative{
+      display:none;
+    }
+    .sticky-action{
+width:auto;
+    }
+  }
+
+  @media (min-width:280px) and (max-width:767px) {
+    .single-image
+{
+  width: 100%;
+}
+  .image-card .h1-head h1,
+.image-card .h1-head h2,
+.image-card .h1-head h3,
+.image-card .h1-head h4,
+.image-card .h1-head h5,
+.image-card .h1-head h6,
+.image-card .h1-head h6
+{
+	font-size: 30px !important;
+}
+
+  }
+  @media (min-width:768px) and (max-width:1023px)
+  {
+    .single-image
+{
+  width: 80%;
+}
+}
+  @media (min-width:768px) and (max-width:1199px) {
+    .image-card .h1-head h1,
+  .image-card .h1-head h2,
+  .image-card .h1-head h3,
+  .image-card .h1-head h4,
+  .image-card .h1-head h5,
+  .image-card .h1-head h6,
+  .image-card .h1-head h6
+  {
+  	font-size: 34px !important;
+  }
+  .image-card-heading h1,
+.image-card-heading h2,
+.image-card-heading h3,
+.image-card-heading h4,
+.image-card-heading h5,
+.image-card-heading h6,
+.image-card-heading p
+{
+  font-size: 14px !important;
+}
+.image-card-heading h1 span,
+.image-card-heading h2 span,
+.image-card-heading h3 span,
+.image-card-heading h4 span,
+.image-card-heading h5 span,
+.image-card-heading h6 span,
+.image-card-heading p span
+{
+  font-size: 17px !important;
+}
+    }
+
+    .single-image
+{
+  width: 55%;
+  margin: auto;
+}
+
+.single-image figure.sticky-action {
+  background: #660033;
+}

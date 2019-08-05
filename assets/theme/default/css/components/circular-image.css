@@ -1,0 +1,111 @@
+.circular-image-content ol li:before,
+.circular-image-content ul li:before {
+    content: 'radio_button_checked';
+    left: 0;
+    font-family: "Material Icons";
+    color: #1fb5a6
+}
+.circular-image-title
+{
+    margin-top:12px;
+}
+.circular-image-img {
+    /* width: 292px;
+    height: 300px; */
+    display: table;
+    margin: 10px auto 0px;
+    padding: 0;
+    border: 8px solid #ffffff61;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    /* border:10px solid #603; */
+}
+.circular-image-img:hover img{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
+}
+.circular-image-img img {
+    max-width: 100%;
+    /* height: 100%; */
+    /* border: 10px solid #eeebeb; */
+        -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.circular-image-content {
+    padding: 0;
+    margin: 0
+}
+
+.circular-image-content p {
+    padding: 0 0 10px;
+    margin: 0
+}
+
+.circular-image-content h1,
+.circular-image-content h2,
+.circular-image-content h3,
+.circular-image-content h4,
+.circular-image-content h5,
+.circular-image-content h6 {
+    padding: 0 0 14px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600
+}
+
+.circular-image-content ul {
+    padding: 0;
+    margin: 0
+}
+
+.circular-image-content ul li {
+    padding: 0 0 8px 25px;
+    margin: 0;
+    font-size: 15px;
+    list-style: none;
+    position: relative
+}
+
+.circular-image-content ul li:before {
+    position: absolute
+}
+
+.circular-image-content ol {
+    padding: 0;
+    margin: 0
+}
+
+.circular-image-content ol li {
+    padding: 0 0 8px 25px;
+    margin: 0;
+    font-size: 15px;
+    list-style: none;
+    position: relative
+}
+
+.circular-image-content ol li:before {
+    position: absolute
+}
+
+.right .circular-image-img {
+    margin-left: -3px
+}
+.circular-img-bg{
+    padding:0px 0px !important;
+    /* overflow: hidden; */
+    margin: 0px 0px 0px 0px !important;
+}
+@media (min-width: 320px) and (max-width: 1280px) {
+  
+    /* .circular-image-img {
+        width: 190px;
+        height: 190px;
+    } */
+    
+  }

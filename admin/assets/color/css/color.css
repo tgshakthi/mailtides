@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.color_palette {
+	padding: 0px 0px 30px 0px;
+	margin: 0px;
+	width: 100%;
+	max-height: 500px;
+	min-height: 500px;
+	overflow-y: scroll;
+	display: block;
+}
+.color_palette li {
+	padding: 0px;
+	margin: 4px;
+	width: 48%;
+	float: left;
+	background: #f0f0f0;
+	list-style: none;
+	border: 1px solid #dcdcdc;
+}
+.color_palette li a {
+padding: 8px;
+margin: 0px;
+display: table;
+width: 100%;
+}
+.palettefirst_color a span {
+padding: 0px;
+margin: 0px;
+border: 1px solid #ccc;
+width: 11%;
+height: 20px;
+float: right;
+}
+.color_palette li a p {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 80%;
+	color:#000;
+}
+.color_panel {
+	padding: 0px;
+	margin: 0px;
+}
+.color_panel input[type="text"] {
+	padding: 8px 10px;
+	margin: 0px;
+	float: left;
+	width: 95%;
+	height: auto;
+	background: #fff;
+}
+.color_panel_touch {
+	padding: 10px 6px;
+	margin: 0px;
+	float: left;
+	display: block;
+	width: 5%;
+	background: #f1f1f1;
+	border-top: 1px solid #dcdcdc;
+	border-right: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+}
+.color_panel_touch i {
+	padding: 8px 8px;
+	cursor: pointer;
+	display: block;
+}
+.palettefirst_color {
+	display: table;
+	width: 100%;
+}
+.popup_width {
+	width: 500px;
+}
+.modal-footer {
+	display: table;
+	width: 100%;
+}
+
+

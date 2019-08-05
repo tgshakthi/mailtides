@@ -1,0 +1,471 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body {
+	overflow-y: auto;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	margin: 0px;
+	padding: 0px;
+	/* font-family: 'TheSans'; */
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend {
+	vertical-align: baseline;
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+	outline: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+p,
+span,
+div {
+	font-size: 15px;
+}
+
+.h1-head {
+	font-size: 35px;
+	margin-bottom: 30px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	/*font-family: 'Fjalla One', sans-serif !important;*/
+}
+
+.h2-head {
+	font-size: 35px;
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+.h3-head {
+	font-size: 29px;
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+.h4-head {
+	font-size: 25px;
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+.h5-head {
+	font-size: 23px;
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+.h6-head {
+	font-size: 20px;
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+.bg-img-common {
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+.common-space {
+	padding: 70px 0px;
+	margin: 0px;
+}
+
+.common-btn {
+	padding: 10px 40px 10px 30px;
+	margin: 20px 0px 0px;
+	font-size: 16px;
+	display: table;
+	position: relative;
+}
+
+.common-btn:after {
+	font-family: 'FontAwesome';
+	content: "\f054";
+	font-size: 16px;
+	right: 16px;
+	position: absolute;
+	top: 11px;
+	font-weight: 300;
+}
+
+.spacer {
+	clear: both;
+	font-size: 0;
+	line-height: 0;
+	margin: 0 !important;
+	padding: 0 !important;
+	float: none !important;
+	border: none !important;
+	background: none !important;
+	min-height: 0 !important;
+}
+
+/* Header */
+header {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	display: table;
+	position: relative;
+}
+
+#header {
+	padding: 0px 0px;
+	/* display: table;
+	width: 100%; */
+}
+
+/* Logo */
+
+
+
+
+.logo {
+	padding: 0px;
+	margin: 0px;
+	display: block;
+}
+
+.logo img {
+	padding: 10px;
+	margin: 0px;
+	width: 100%;
+}
+
+
+@media (min-width:400px) and (max-width:767px) {
+
+	.contact-address-res {
+		display: none;
+	}
+
+}
+
+@media (min-width:280px) and (max-width:767px) {
+	.common-space {
+		padding: 40px 0px;
+		margin: 0px;
+	}
+	.h1-head, h1, h1 span {
+		font-size: 22px;
+		font-weight: 500;
+		}
+	
+	.h2-head, h2, h2 span {
+		font-size: 20px;
+		font-weight: 500;
+		}
+	
+	.h3-head, h3, h3 span {
+		font-size: 20px;
+		}
+	
+	.h4-head, h4, h4 span {
+		font-size: 20px;
+		}
+	
+	.h5-head, h5, h5 span {
+		font-size: 19px;
+		font-weight: 500;
+		}
+	
+	.h6-head, h6, h6 span {
+		font-size: 19px;
+		}
+		p {
+			font-size: 14px !important;
+					}
+	.our-slider {
+		padding-top: 20px !important;
+	}
+
+	.logo {
+		width: 120px;
+		/* float: left; */
+		margin: auto;
+	}
+
+	.bg-img-common {
+		background-position: center;
+	}
+}
+/* @media (min-width:768px) and (max-width:1023px) {
+
+} */
+
+@media (min-width:1024px) and (max-width:1199px) {
+
+
+	.logo {
+		width: 150px;
+		/* float: left; */
+		margin: auto;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199px) {
+	.common-space {
+		padding: 50px 0px;
+		margin: 0px;
+	}
+	.h1-head, h1, h1 span {
+		font-size: 24px;
+		font-weight: 500;
+		}
+	
+	.h2-head, h2, h2 span {
+		font-size: 23px;
+		font-weight: 500;
+		}
+	
+	.h3-head, h3, h3 span {
+		font-size: 22px;
+		}
+	
+	.h4-head, h4, h4 span {
+		font-size: 22px;
+		}
+	
+	.h5-head, h5, h5 span {
+		font-size: 20px;
+		font-weight: 500;
+		}
+	
+	.h6-head, h6, h6 span {
+		font-size: 20px;
+		}
+		p {
+font-size: 15px !important;
+		}
+	.our-slider {
+		padding-top: 20px !important;
+	}
+
+	.container {
+		width: 95% !important;
+	}
+
+	/* header {
+	padding: 1% 0% 1%;
+} */
+
+	.bg-img-common {
+		background-position: center;
+	}
+}
+
+@media (min-width:1200px) and (max-width:4000px) {
+
+	/* Logo */
+
+
+	.logo-length-10>.logo {
+		width: 10%;
+	}
+
+	.logo-length-15>.logo {
+		width: 15%;
+	}
+
+	.logo-length-20>.logo {
+		width: 20%;
+	}
+
+	.logo-length-25>.logo {
+		width: 23%;
+	}
+
+	.logo-length-30>.logo {
+		width: 30%;
+	}
+
+	.logo-length-35>.logo {
+		width: 35%;
+	}
+
+	.logo-length-40>.logo {
+		width: 40%;
+	}
+
+	.logo-left .logo {
+		float: left;
+	}
+
+	.logo-center .logo {
+		margin: 0px auto;
+	}
+
+	.logo-right .logo {
+		float: right;
+	}
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+	.logo {
+		width: 160px;
+		/* float: left; */
+		/* style txgidoc*/
+		margin:auto;
+	}
+}
+/* new style for txgidoc website*/
+.header-social {
+	padding: 0px 0px 20px 0px;
+    margin: 0px auto;
+	display: table;
+  
+}
+.header-social > li {
+	padding: 0px 10px 0px 0px;
+    margin: 0px;
+    display: table-cell;
+}
+.header-social > li > a {
+	padding: 2px 7px;
+    margin: 0px;
+    display: block;
+    font-size: 16px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #660033;
+}
+.header-contact-detail{
+	padding: 40px 0px  0px !important;
+    margin: 0px;
+}
+.header-contact-detail h5{
+	padding: 0px 0px 10px 0px;
+    margin: 0px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.header-contact-detail h3{
+	padding: 0px 0px 10px 0px;
+	letter-spacing: 2px;
+	margin: 0px;
+    font-size: 32px;
+    font-weight: 400;
+}
+.facility-title h4{
+    padding: 0px 0px 10px 0px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.header-social p{
+font-size:13px;
+font-weight:400;
+padding: 5px 0px;
+}
+/* end of new style for txgidoc website*/
+@media (min-width: 320px) and (max-width: 767px) {
+.facility-title h4 {
+  
+	font-size: 20px;
+}
+}
+@media (min-width:768px) and (max-width:1199px) {
+	.facility-title h4 {
+  
+		font-size: 26px;
+	}
+
+}

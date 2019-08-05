@@ -1,0 +1,66 @@
+.introduction {
+    padding: 0;
+    margin: 0
+}
+
+.introduction p {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px
+}
+
+.introducation-head h1,
+.introducation-head h2,
+.introducation-head h3,
+.introducation-head h4,
+.introducation-head h5,
+.introducation-head h6 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    font-weight: 400
+}
+
+.introduction ul {
+    padding: 0;
+    margin: 0
+}
+
+.introduction ul li {
+    padding: 0 0 0 20px;
+    margin: 10px 0 0 0;
+    position: relative
+}
+
+.introduction ul li:before {
+    font-family: FontAwesome;
+    content: "\f061";
+    font-size: 14px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    color: #888;
+}
+
+.introduction ul li p {
+    padding: 0;
+    margin: 0
+}
+
+@media (min-width:280px) and (max-width:767px) {
+    .introducation-head h2 span{
+font-size: 20px !important;
+    }
+    .introducation-head h1 span{
+        font-size: 26px !important;
+            }
+            .introduction ul li{
+                font-size: 14px !important;  
+            }
+}
+@media (min-width:768px) and (max-width:1199px) {
+    .introducation-head h2 span{
+font-size: 32px !important;
+    }
+}

@@ -1,0 +1,88 @@
+/**
+	Top Header
+	Author: Shakila
+	Created Date: 19-Sep-18
+*/
+
+.top-header {
+	padding: 0px;
+	margin: 0px;
+}
+
+.top-header-row {
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	width: 100%;
+}
+
+/* left, right control class  */
+.column-detail {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+
+/* Contact Detail style */
+.contact-list {
+	padding: 0px;
+	margin: 0px;
+	display: table;
+}
+
+.contact-list li {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	list-style: none;
+}
+
+.contact-list a {
+	padding: 5px;
+	margin: 0px;
+	display: block;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+}
+
+.contact-list i {
+	padding: 5px;
+	margin: 0px;
+	font-size: 14px;
+}
+
+/* Social Network Icon style */
+.social-icon-top {
+	padding: 0px;
+	margin: 0px;
+	display: table;
+}
+
+.social-icon-top li {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	list-style: none;
+}
+
+.social-icon-top a {
+	padding: 5px;
+	margin: 0px;
+	display: block;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.social-icon-top i {
+	padding: 5px;
+	margin: 0px;
+	font-size: 14px;
+}
+@media (min-width:280px) and (max-width:767px) {
+
+	.contact-address-res{
+		display:none !important;
+	}
+	}

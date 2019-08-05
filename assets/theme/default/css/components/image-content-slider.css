@@ -1,0 +1,123 @@
+
+/* image content slider */
+
+.image-slider-item {
+padding:0px;
+margin:0px 10px !important;
+}
+.image-slider-ntimg {
+	padding: 0px;
+	margin: 0px;
+}
+
+.image-slider-ntimg img {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+.nt-slider-content {
+	padding: 80px;
+	margin: 0px;
+}
+
+.nt-slider-content ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+.nt-slider-content ul li {
+	padding: 0px 0px 15px;
+	margin: 0px;
+}
+@media (min-width:280px) and (max-width:399px) {
+}
+@media (min-width:400px) and (max-width:767px) {
+}
+@media (min-width:280px) and (max-width:767px) {
+ .nt-slider-content 
+{
+    padding: 0px 0px;
+}
+.nt-bottom-space
+{
+	padding-bottom:30px !important; 
+}
+}
+@media (min-width:1024px) and (max-width:1199px) {
+}
+@media (min-width:768px) and (max-width:1199px) {
+	.nt-slider-content 
+{
+    padding: 10px;
+}
+	.nt-bottom-space
+{
+	padding-bottom:30px !important; 
+}
+}
+@media (min-width:1200px) and (max-width:4000px) {
+}
+.slider-content{
+	padding:15px;
+	margin:0px;
+}
+#slide-demo .owl-prev {
+    position: absolute;
+    top: 35%;
+    left: 0%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+#slide-demo .owl-next {
+    position: absolute;
+    top: 35%;
+    right: 0%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.text-image-slider-button{
+    margin:15px 0px 0px 0px ;
+    }
+    
+    .text-image-images
+    {
+        overflow: hidden;
+        overflow: hidden;
+    padding: 0px !important;
+    margin: 0px !important;
+    line-height: 0px;
+    }
+    .text-image-images img {
+        width: 100%;
+        transition: 0.8s ease-in-out;
+       -webkit-transition: 0.8s ease-in-out;
+    }
+    .text-image-images img:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important; 
+        transform: scale(1.1) !important; 
+    }
+    @media (min-width: 320px) and (max-width: 768px) {
+        .text-image-images img {
+            height:auto !important;
+        }
+        #text_image_slider .owl-pagination
+        {
+            margin:-10px auto 0px !important;
+        }
+    }

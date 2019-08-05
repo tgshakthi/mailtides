@@ -1,0 +1,2 @@
+// Gallery
+var groups={};$(".galleryItem").each(function(){var t=parseInt($(this).attr("data-group"),10);groups[t]||(groups[t]=[]),groups[t].push(this)}),$.each(groups,function(){$(this).magnificPopup({type:"image",closeOnContentClick:!0,closeBtnInside:!1,gallery:{enabled:!0}})}),$(document).ready(function(){$(".gallery-tab").tabs()});

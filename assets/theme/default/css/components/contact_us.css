@@ -1,0 +1,242 @@
+/* Contact us */
+
+.contact-information-container,
+.contact-information-list {
+	padding: 0;
+	margin: 0
+}
+
+.contact-information-list li {
+	padding: 0 0 30px;
+	margin: 0;
+	display: table;
+	width: 100%
+}
+
+.contact-information-list li .contact-information-icon {
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 15%;
+	text-align: center;
+	font-size: 30px !important;
+	vertical-align: top;
+}
+
+.contact-information-list li .contact-information-detail {
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 85%;
+}
+
+.contact-information-list li .contact-information-detail h5 {
+	padding: 5px 0px 10px;
+	margin: 0px;
+	font-size: 20px;
+}
+
+.contact-information-list li .contact-information-detail p {
+	padding: 0;
+	margin: 0;
+	font-size: 15px !important;
+}
+
+
+
+
+.captcha-refresh-animate {
+	-webkit-animation: spin 1s linear infinite;
+	-moz-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite
+}
+
+@-moz-keyframes spin {
+	100% {
+		-moz-transform: rotate(360deg)
+	}
+}
+
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg)
+	}
+}
+
+.contact-information-container.col.l12 .contact-information-list {
+	padding: 0px 0px 50px;
+	margin: 0px;
+	display: table;
+	width: 100%;
+}
+
+.contact-information-container.col.l12 .contact-information-list li {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 33%;
+}
+
+.contact-information-container.col.l12 .contact-information-list li .contact-information-icon {
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	font-size: 37px !important;
+	width: 25%;
+}
+
+.contact-information-container.col.l12 .contact-information-list li .contact-information-detail {
+	padding: 0px;
+	margin: 0px;
+	width: 75%;
+}
+
+.contact-information-container.col.l12 .contact-information-list li .contact-information-detail h5 {
+	padding: 12px 0px 10px;
+	margin: 0px;
+}
+
+.contact-information-container.col.l12 .contact-information-list li .contact-information-detail p {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	font-size: 17px !important;
+	text-align: left;
+	font-weight: 400;
+}
+
+.common-btn-contact {
+	padding: 10px 30px;
+	margin: 30px 0px 40px;
+	font-size: 16px;
+	display: table;
+}
+
+.google-captach-right {
+	padding: 0px;
+	margin: 0px;
+	display: table;
+}
+
+.google-captach-right span {
+	padding: 0px;
+	margin: 0px 30px 0px 0px;
+	display: table;
+	float: left;
+}
+
+
+@media (min-width:280px) and (max-width:767px) {
+
+	.contact-information-container {
+		padding: 15px 0 0 !important;
+		margin: 0
+	}
+
+	.contact-information-container.col.l12 .contact-information-list li {
+		width: 100%;
+		padding-bottom: 30px;
+	}
+
+	.contact-information-detail {
+		padding: 0px 0px 0px 10px !important;
+	}
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+
+	.contact-information-container {
+		padding: 15px 0 0 !important;
+		margin: 0
+	}
+
+	.contact-information-detail {
+		padding: 0px 0px 0px 10px !important;
+	}
+}
+
+#contact_form textarea.materialize-textarea {
+
+	background-color: transparent !important;
+}
+
+@media (min-width:280px) and (max-width:399px) {}
+
+.txgidocs-contactus input.invalid:not([type]),
+.txgidocs-contactus input.invalid:not([type]):focus,
+.txgidocs-contactus input[type=text].invalid:not(.browser-default),
+.txgidocs-contactus input[type=text].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=password].invalid:not(.browser-default),
+.txgidocs-contactus input[type=password].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=email].invalid:not(.browser-default),
+.txgidocs-contactus input[type=email].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=url].invalid:not(.browser-default),
+.txgidocs-contactus input[type=url].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=time].invalid:not(.browser-default),
+.txgidocs-contactus input[type=time].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=date].invalid:not(.browser-default),
+.txgidocs-contactus input[type=date].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=datetime].invalid:not(.browser-default),
+.txgidocs-contactus input[type=datetime].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=datetime-local].invalid:not(.browser-default),
+.txgidocs-contactus input[type=datetime-local].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=tel].invalid:not(.browser-default),
+.txgidocs-contactus input[type=tel].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=number].invalid:not(.browser-default),
+.txgidocs-contactus input[type=number].invalid:not(.browser-default):focus,
+.txgidocs-contactus input[type=search].invalid:not(.browser-default),
+.txgidocs-contactus input[type=search].invalid:not(.browser-default):focus,
+.txgidocs-contactus textarea.materialize-textarea.invalid,
+.txgidocs-contactus textarea.materialize-textarea.invalid:focus,
+.txgidocs-contactus .select-wrapper.invalid>input.select-dropdown,
+.txgidocs-contactus .select-wrapper.invalid>input.select-dropdown:focus {
+	border-bottom: 0.5px solid #660033 !important;
+	-webkit-box-shadow: 0 0.5px 0 0 #660033 !important;
+	box-shadow: 0 0.5px 0 0 #660033 !important;
+}
+
+.txgidocs-contactus input:not([type]),
+.txgidocs-contactus input[type=text]:not(.browser-default),
+.txgidocs-contactus input[type=password]:not(.browser-default),
+.txgidocs-contactus input[type=email]:not(.browser-default),
+.txgidocs-contactus input[type=url]:not(.browser-default),
+.txgidocs-contactus input[type=time]:not(.browser-default),
+.txgidocs-contactus input[type=date]:not(.browser-default),
+.txgidocs-contactus input[type=datetime]:not(.browser-default),
+.txgidocs-contactus input[type=datetime-local]:not(.browser-default),
+.txgidocs-contactus input[type=tel]:not(.browser-default),
+.txgidocs-contactus input[type=number]:not(.browser-default),
+.txgidocs-contactus input[type=search]:not(.browser-default),
+.txgidocs-contactus textarea.materialize-textarea {
+	border-bottom: 0.5px solid #660033 !important;
+	-webkit-box-shadow: 0 0.5px 0 0 #660033 !important;
+	box-shadow: 0 0.5px 0 0 #660033 !important;
+}
+
+.txgidocs-contactus input:not([type]):focus:not([readonly]),
+.txgidocs-contactus input[type=text]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=password]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=email]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=url]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=time]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=date]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=datetime]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=tel]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=number]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus input[type=search]:not(.browser-default):focus:not([readonly]),
+.txgidocs-contactus textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom: 0.5px solid #660033 !important;
+	-webkit-box-shadow: 0 0.5px 0 0 #660033 !important;
+	box-shadow: 0 0.5px 0 0 #660033 !important;
+}
+.txgidocs-contactus label{
+	font-weight: 500;
+}
