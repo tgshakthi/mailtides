@@ -143,6 +143,9 @@ $(document).ready(function() {
 			});
 		}
 	});
+
+	// Send Date Datepicker
+	$('#send-date').datepicker();
 });
 
 // Graphical Reports

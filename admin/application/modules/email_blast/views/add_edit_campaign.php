@@ -109,6 +109,15 @@
 												<?php endforeach;?>
 											</select>
 										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="send-date" class="control-label col-md-3 col-sm-3 col-xs-12">
+											Send Date
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<input type="text" name="send-date" id="send-date">
+										</div>
 									</div>							
 
 
