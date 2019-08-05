@@ -413,7 +413,7 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	$('#datatable-email-responsive').DataTable();
+	var table = $('#datatable-email-responsive').DataTable();
 
 	// Clone Previous Row for filter input
 	$('#datatable-email-tracking>thead>tr')
@@ -424,7 +424,14 @@ $(document).ready(function () {
 		var title = $(this).text();
 		if (title.length > 0 && title != 'Action' && title != 'Status') {
 			$(this).html(
-				'<input type="text" placeholder="Search ' + title + '" />'
+				var select = $('<select><option value=""></option></select>')
+				.appendTo($(this).empty())
+				.on('change', function () {
+					table.column(i)
+						.search($(this).val())
+						.draw();
+				});
+				//'<input type="text" placeholder="Search ' + title + '" />'
 			);
 			$('input', this).on('keyup change', function () {
 				if (table.column(i).search() !== this.value) {
@@ -437,13 +444,7 @@ $(document).ready(function () {
 		}
 
 
-		var select = $('<select><option value=""></option></select>')
-			.appendTo($(this).empty())
-			.on('change', function () {
-				table.column(i)
-					.search($(this).val())
-					.draw();
-			});
+		
 
 		table.column(i).data().unique().sort().each(function (d, j) {
 			select.append('<option value="' + d + '">' + d + '</option>')
