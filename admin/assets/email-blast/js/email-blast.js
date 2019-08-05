@@ -77,6 +77,7 @@ $(document).ready(function() {
 
 		//Event listener to the two range filtering inputs to redraw on input
 		$('#min, #max').change(function() {
+            console.log(table.draw());
 			table.draw();
 		});
 	}
