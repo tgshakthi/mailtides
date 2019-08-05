@@ -297,14 +297,17 @@ if ($('#mybarChart').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
-				chart.data = [campaignData.sent,
-					campaignData.opened,
-					campaignData.not_opened,
-					campaignData.txgidocs,
-					campaignData.posted,
-					campaignData.not_posted
-				];
-				chart.update();
+
+				var data = [];
+
+				data.push(campaignData.sent);
+				data.push(campaignData.opened);
+				data.push(campaignData.not_opened);
+				data.push(campaignData.txgidocs);
+				data.push(campaignData.posted);
+				data.push(campaignData.not_posted);
+
+				renderChart(data);
 			}
 		});
 	}
