@@ -307,7 +307,8 @@ if ($('#mybarChart').length) {
 				data.push(campaignData.posted);
 				data.push(campaignData.not_posted);
 
-				renderChart(data);
+				chart.data = data;
+				chart.update();
 			}
 		});
 	}
