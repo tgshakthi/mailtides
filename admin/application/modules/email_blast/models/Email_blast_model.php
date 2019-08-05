@@ -318,6 +318,20 @@ class Email_blast_model extends CI_Model
         return $records;
     }
     
+    function get_email_track_data_by_campaign_id($campaign_id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+            'camapaign_id'=>$camapign_id,
+            'status'=>'1'
+        ));
+        $query   = $this->db->get('email_track');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
     // Get Mail Config
     // Get Mail Configuration
     function get_mail_configuration($website_id)
