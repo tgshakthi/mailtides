@@ -1644,10 +1644,9 @@ class Email_blast extends MX_Controller
      */
 
     function get_campaign_type_table()
-    {
-        
+    {       
       $website_id = $this->admin_header->website_id();
-      $get_campaign_type_data = $this->Email_blast_model->get_campaign_type();   
+      $get_campaign_type_data = $this->Email_blast_model->get_campaign_type($website_id);   
       
       foreach (($get_campaign_type_data ? $get_campaign_type_data : array()) as $get_campaign_type)
       {
