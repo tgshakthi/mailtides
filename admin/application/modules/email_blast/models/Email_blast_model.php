@@ -460,7 +460,7 @@ class Email_blast_model extends CI_Model
         return $records;
     }
      // Get Template
-     function get_campaign()
+     function get_template()
      {
          $this->db->select('*');
          $this->db->where(array(
