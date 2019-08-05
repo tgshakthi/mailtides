@@ -58,7 +58,8 @@
 
                     <textarea id="mail-opened" style="display: none">
                       <?php
-                     
+                         
+
                         echo $opened;
                        ?>
                     </textarea>
