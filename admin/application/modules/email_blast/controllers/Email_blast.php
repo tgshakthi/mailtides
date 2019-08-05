@@ -1328,7 +1328,7 @@ class Email_blast extends MX_Controller
    {
     
       $campaign_id=$this->input->post('campaign_id');
-      if(!empty($campaign_id))
+      if(!empty($campaign_id)):
       $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
        echo"<pre>";
        print_r( $get_email_track);
