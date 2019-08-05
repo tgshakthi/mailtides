@@ -158,7 +158,9 @@ $(document).ready(function() {
 
 // Table Two - Campaign
 $(document).ready(function() {
-	var tableTwo = $('#datatable-campaign-users').DataTable();
+	var tableTwo = $('#datatable-campaign-users').DataTable({
+		responsive: !0
+	});
 
 	// $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 	// 	var min = $('#min-campaign-users').datepicker('getDate');
