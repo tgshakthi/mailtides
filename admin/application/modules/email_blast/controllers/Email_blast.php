@@ -1484,6 +1484,8 @@ class Email_blast extends MX_Controller
    {
        
      $website_id = $this->admin_header->website_id();
+     $website_folder_name = $this->admin_header->website_folder_name();
+		$ImageUrl = $this->admin_header->image_url();
      $get_template_data = $this->Email_blast_model->get_email_template();   
      
      foreach (($get_template_data ? $get_template_data : array()) as $get_template)
@@ -1510,6 +1512,23 @@ class Email_blast extends MX_Controller
        {
          $status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
        }    
+
+       if ($get_template->image != '')
+				{
+					$gallery_img = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $get_template->image;
+
+					$image = img(array(
+						'src' => $gallery_img ,
+						'style' => 'width:145px; height:86px'
+					));
+				}
+				else
+				{
+					$image = img(array(
+						'src' => $ImageUrl . 'images/noimage.png',
+						'style' => 'width:145px; height:86px'
+					));
+				}
          
        $cell = array(
          'class' => 'last',
@@ -1518,7 +1537,7 @@ class Email_blast extends MX_Controller
 
       
      
-       $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->template_name,  $status, $cell);
+       $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->template_name,$image , $status, $cell);
      }
            
      $template = array(
@@ -1532,7 +1551,7 @@ class Email_blast extends MX_Controller
      
      // Table heading row
      
-     $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Status', 'Action');
+     $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Image','Status', 'Action');
      return $this->table->generate();
    }
 
