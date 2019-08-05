@@ -297,34 +297,13 @@ if ($('#mybarChart').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
-				chart.data = {
-					labels: [
-						'Sent',
-						'Opened',
-						'Unopened',
-						'Link Opened',
-						'Comments Posted',
-						'Comments Not Posted'
-					],
-					datasets: [{
-						backgroundColor: [
-							'#26B99A',
-							'#EE82EE',
-							'#DA70D6',
-							'#006600',
-							'#CC0066',
-							'#000099'
-						],
-						data: [
-							campaignData.sent,
-							campaignData.opened,
-							campaignData.not_opened,
-							campaignData.txgidocs,
-							campaignData.posted,
-							campaignData.not_posted
-						]
-					}]
-				};
+				chart.data = [campaignData.sent,
+					campaignData.opened,
+					campaignData.not_opened,
+					campaignData.txgidocs,
+					campaignData.posted,
+					campaignData.not_posted
+				];
 				chart.update();
 			}
 		});
