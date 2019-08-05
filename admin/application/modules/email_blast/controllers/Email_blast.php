@@ -1384,7 +1384,7 @@ class Email_blast extends MX_Controller
       if (!empty($get_email_track)) {
         $sent = count($get_email_track);
       }
-
+  
       $data['opened'] = count($opened); 
       $data['not_opened'] = count($not_opened);       
       $data['txgidocs'] = count($txgidocs); 

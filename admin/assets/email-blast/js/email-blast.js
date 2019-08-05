@@ -262,6 +262,25 @@ if ($('#mybarChart').length) {
 	});
 }
 
+//onchage function for campaign id
+
+function campaign(e)
+{
+	var baseUrl = $('#base_url').val();
+	 var id=e.value;
+	 $.ajax({
+		method: 'POST',
+		url: baseUrl + 'email_blast/graphical_reports', 
+		data: {
+			campaign_id: id
+		},
+		cache: false,
+		success: function (data)
+		{
+			 
+		}
+	});
+}
 // Email Template Preview
 $('#preview_template').click(function () {
 	var campaignId = $('#hidden-selected-id').val();
