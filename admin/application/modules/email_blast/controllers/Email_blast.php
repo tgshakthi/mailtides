@@ -1411,7 +1411,7 @@ class Email_blast extends MX_Controller
 
       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
-      $data['get_email_track_count']=$this->graphical_campaign_id();
+      //$data['get_email_track_count'] = $this->graphical_campaign_id();
    
     
       $get_email_track = $this->Email_blast_model->get_email_track_data();
