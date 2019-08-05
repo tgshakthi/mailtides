@@ -591,7 +591,9 @@ class Email_blast extends MX_Controller
        $campaign_id = $this->input->post('campaign_id');
        $template = $this->Email_blast_model->get_campaign_template($campaign_id);
        if (!empty($template)) :
-        echo $template[0]->template_id;
+        $email_template=$this->Email_blast_model->get_email_template_by_id(  $template[0]->template_id);
+        echo  $email_template[0]->image;
+       
        else :
         echo '0';
        endif;

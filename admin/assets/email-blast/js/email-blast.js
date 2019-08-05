@@ -276,33 +276,24 @@ $('#preview_template').click(function () {
 				campaign_id: campaignId
 			},
 			success: function (data) {
-				if (data != 0) {
-					if (data == 1) {
-						var img =
+				if (data != 0)
+				    {
+						
+				      var img =
 							'<img class="preview-template-img" src="' +
 							imageUrl +
-							'images/txgidocs/mail-template/digestive-and-liver-disease-consultants-template.png">';
+							'images/txgidocs/'+ data+'">';
 						$('#preview-template-modal').modal('show');
 						$('#modal-body-img').html(img);
 					}
-
-					if (data == 2) {
-						var img =
+				else
+				{
+                    var img =
 							'<img class="preview-template-img" src="' +
 							imageUrl +
-							'images/txgidocs/mail-template/google-template.png">';
+							'images/noimage.png">';
 						$('#preview-template-modal').modal('show');
 						$('#modal-body-img').html(img);
-					}
-
-					if (data == 3) {
-						var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/mail-template/facebook-template.png">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
-					}
 				}
 			}
 		});
@@ -422,19 +413,40 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	var table = $('#datatable-email-tracking').DataTable();
+	$('#datatable-email-tracking').DataTable();
 
-	$("#datatable-email-tracking thead th").each(function (i) {
-		var select = $('<select><option value=""></option></select>')
-			.appendTo($(this).empty())
-			.on('change', function () {
-				table.column(i)
-					.search($(this).val())
-					.draw();
-			});
+	// Clone Previous Row for filter input
+	// $('#datatable-email-tracking>thead>tr')
+	// 	.clone(true)
+	// 	.appendTo('#datatable-email-tracking thead');
 
-		table.column(i).data().unique().sort().each(function (d, j) {
-			select.append('<option value="' + d + '">' + d + '</option>')
-		});
-	});
+	// $('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
+	// 	var title = $(this).text();
+	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
+	// 		$(this).html(
+	// 			'<input type="text" placeholder="Search ' + title + '" />'
+	// 		);
+	// 		$('input', this).on('keyup change', function () {
+	// 			if (table.column(i).search() !== this.value) {
+	// 				table
+	// 					.column(i)
+	// 					.search(this.value)
+	// 					.draw();
+	// 			}
+	// 		});
+	// 	}
+
+
+	// 	var select = $('<select><option value=""></option></select>')
+	// 		.appendTo($(this).empty())
+	// 		.on('change', function () {
+	// 			table.column(i)
+	// 				.search($(this).val())
+	// 				.draw();
+	// 		});
+
+	// 	table.column(i).data().unique().sort().each(function (d, j) {
+	// 		select.append('<option value="' + d + '">' + d + '</option>')
+	// 	});
+	// });
 });
