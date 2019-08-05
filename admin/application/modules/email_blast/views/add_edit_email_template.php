@@ -170,7 +170,7 @@
 
 									// Anchor Tag
 									echo anchor(
-										'email_blast',
+										'email_blast/email_template',
 										'Back',
 										array(
 											'title' => 'Back',
