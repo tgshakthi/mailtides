@@ -74,7 +74,7 @@
 								));
 						?>
 					
-						<div class="col-md-6 col-md-offset-3 col-xs-6">
+						<div class="col-md-12 col-md-offset-12 col-xs-12">
 							<div class="x_panel">
 
 								<div class="x_title">
@@ -143,7 +143,7 @@
 											array(
 												'class' => 'btn btn-success',
 												'name' => 'field-mapping',
-												'value' => 'Field Map'
+												'value' => 'Save'
 											)
 										);
 
@@ -152,7 +152,7 @@
 											array(
 												'class' => 'btn btn-success',
 												'name' => 'field-mapping',
-												'value' => 'Field Map'
+												'value' => 'Update'
 											)
 										);
 									endif;																	
