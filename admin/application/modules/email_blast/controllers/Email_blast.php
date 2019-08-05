@@ -1174,7 +1174,8 @@ class Email_blast extends MX_Controller
      // Import Filter Data
      function import_filter_data()
      {
-       $this->Email_blast_model->insert_import_campaign_data();
+       $campaign_id = $this->Email_blast_model->insert_import_campaign_data();
+       echo $campaign_id;
      }
 
 

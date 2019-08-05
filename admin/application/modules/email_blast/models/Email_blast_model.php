@@ -594,6 +594,7 @@ class Email_blast_model extends CI_Model
             'campaign_users' => $campaign_users
         );
 
-        //$this->db->insert($this->);
+        $this->db->insert($this->table_campaign, $insert_array);
+        return $this->db->insert_id();
     }
 }
