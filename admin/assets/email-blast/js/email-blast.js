@@ -501,6 +501,8 @@ if ($('#datatable-email').length) {
 						var val = $.fn.dataTable.util.escapeRegex(
 							$(this).val());
 
+							console.log($(this).val());
+
 						column.search(val ? '^' + val + '$' : '', true, false)
 							.draw();
 					});
