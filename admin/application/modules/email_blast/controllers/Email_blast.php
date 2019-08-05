@@ -1542,7 +1542,7 @@ class Email_blast extends MX_Controller
          $template = $this->Email_blast_model->get_email_template_by_id($id);
          $data['id'] = $template[0]->id;
          $data['template_name'] = $template[0]->template_name;
-         $data['template'] = $campaign[0]->template;
+         $data['template'] = $template[0]->template;
          $data['status'] = $template[0]->status;
        else:
          $data['id'] = "";
