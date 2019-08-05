@@ -14,6 +14,7 @@ class Email_blast_model extends CI_Model
     private $table_track = 'email_track';
     private $table_campaign = 'campaign';
     private $table_campaign_users = 'campaign_users';
+	private $table_campaign_type = 'campaign_type';
 
 
     // Get Users
@@ -452,6 +453,22 @@ class Email_blast_model extends CI_Model
         $this->db->limit(1);
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get($this->table_track);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
+	
+	 // Get Campaign Type
+    function get_campaign_type($website_id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+						    'website_id' => $website_id,
+							'is_deleted' => '0'
+						));
+        $query   = $this->db->get($this->table_campaign_type);
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
