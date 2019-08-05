@@ -422,26 +422,19 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	$('#datatable-email-tracking').DataTable({
-		initComplete: function () {
-			this.api().columns().every(function () {
-				var column = this;
-				var select = $('<select><option value=""></option></select>')
-					.appendTo($(column.footer()).empty())
-					.on('change', function () {
-						var val = $.fn.dataTable.util.escapeRegex(
-							$(this).val()
-						);
+	var table = $('#datatable-email-tracking').DataTable();
 
-						column
-							.search(val ? '^' + val + '$' : '', true, false)
-							.draw();
-					});
-
-				column.data().unique().sort().each(function (d, j) {
-					select.append('<option value="' + d + '">' + d + '</option>')
-				});
+	$("#datatable-email-tracking thead th").each(function (i) {
+		var select = $('<select><option value=""></option></select>')
+			.appendTo($(this).empty())
+			.on('change', function () {
+				table.column(i)
+					.search($(this).val())
+					.draw();
 			});
-		}
+
+		table.column(i).data().unique().sort().each(function (d, j) {
+			select.append('<option value="' + d + '">' + d + '</option>')
+		});
 	});
 });

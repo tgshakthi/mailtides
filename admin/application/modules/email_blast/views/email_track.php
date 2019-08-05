@@ -50,7 +50,8 @@
 						</a>
 
 						<form action="<?php echo base_url()?>email_blast/delete_multiple_user" id="form_selected_record"
-							method="post">						
+							method="post">				
+							<div id="tracking-filter"></div>		
 							<?php echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
