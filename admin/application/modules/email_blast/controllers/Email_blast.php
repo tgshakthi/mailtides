@@ -1373,19 +1373,19 @@ class Email_blast extends MX_Controller
         }
   
         // Sent Status
-        if (!empty($get_email_track)) {
-          $sent = count($get_email_track);
-        }
-        $data['opened'] = count($opened); 
-        $data['not_opened'] = count($not_opened);       
-        $data['txgidocs'] = count($txgidocs); 
-        $data['google'] = count($google); 
-        $data['facebook'] = count($facebook); 
-        $data['sent'] = $sent; 
-        $data['posted'] = count($comments_posted);
-        $data['not_posted'] = count($comments_not_posted); 
+        // if (!empty($get_email_track)) {
+        //   $sent = count($get_email_track);
+        // }
+        // $data['opened'] = count($opened); 
+        // $data['not_opened'] = count($not_opened);       
+        // $data['txgidocs'] = count($txgidocs); 
+        // $data['google'] = count($google); 
+        // $data['facebook'] = count($facebook); 
+        // $data['sent'] = $sent; 
+        // $data['posted'] = count($comments_posted);
+        // $data['not_posted'] = count($comments_not_posted); 
        
-          return $data;
+        //   return $data;
     
    }
 
