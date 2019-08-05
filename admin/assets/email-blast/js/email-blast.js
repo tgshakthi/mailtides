@@ -409,7 +409,7 @@ $(document).ready(function () {
 $('#btn').click(function(){
   $(this).addClass('loader');
   window.setTimeout(function(){
-    $('#btn').removeClass('loader hidden').addClass('done');
+    $('#loader').removeClass('loader hidden').addClass('done');
     
   }, 3000);
 });
