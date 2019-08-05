@@ -473,30 +473,39 @@ $(document).ready(function () {
 
 //
 if ($('#datatable-email').length) {
-	//var table = $('#datatable-email').DataTable();
 
 
 
 	$('#datatable-email').DataTable({
 		initComplete: function () {
-			this.api().columns().every(function () {
 
+
+
+			this.api().columns().every(function () {
 				var column = this;
 
+				if (column.index() == 0) {
+
+					input = $('<input type="text" />').appendTo($(column.header())).on('keyup change', function () {
+						if (column.search() !== this.value) {
+							column.search(this.value)
+								.draw();
+						}
+					});
+					return;
+				}
+
 				var select = $('<select><option value=""></option></select>')
-					.appendTo($(column.header()).empty())
+					.appendTo($("#filters").find("th").eq(column.index()))
 					.on('change', function () {
 						var val = $.fn.dataTable.util.escapeRegex(
-							$(this).val()
-						);
+							$(this).val());
 
-						console.log(val);
-						console.log($(this).val());
-
-						column
-							.search(val ? '^' + val + '$' : '', true, false)
+						column.search(val ? '^' + val + '$' : '', true, false)
 							.draw();
 					});
+
+				console.log(select);
 
 				column.data().unique().sort().each(function (d, j) {
 					select.append('<option value="' + d + '">' + d + '</option>')
@@ -504,6 +513,42 @@ if ($('#datatable-email').length) {
 			});
 		}
 	});
+
+
+
+
+
+	//var table = $('#datatable-email').DataTable();
+
+
+
+	// // $('#datatable-email').DataTable({
+	// // 	initComplete: function () {
+	// // 		this.api().columns().every(function () {
+
+	// // 			var column = this;
+
+	// // 			var select = $('<select><option value=""></option></select>')
+	// // 				.appendTo($(column.header()).empty())
+	// // 				.on('change', function () {
+	// // 					var val = $.fn.dataTable.util.escapeRegex(
+	// // 						$(this).val()
+	// // 					);
+
+	// // 					console.log(val);
+	// // 					console.log($(this).val());
+
+	// // 					column
+	// // 						.search(val ? '^' + val + '$' : '', true, false)
+	// // 						.draw();
+	// // 				});
+
+	// // 			column.data().unique().sort().each(function (d, j) {
+	// // 				select.append('<option value="' + d + '">' + d + '</option>')
+	// // 			});
+	// // 		});
+	// // 	}
+	// });
 
 
 
