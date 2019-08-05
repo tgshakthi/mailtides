@@ -134,6 +134,7 @@ $(document).ready(function() {
 				success: function(data) {
 					if (data.length > 0) {
 						$('#campaign-id').val(data);
+						alert('Successfully Imported. Go to Step - 3');
 					} else {
 						alert('Something Went Wrong!. Please try again!.');
 						window.location.href = baseUrl + 'email_blast/add_edit_campaign';
