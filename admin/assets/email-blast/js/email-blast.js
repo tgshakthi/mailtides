@@ -407,7 +407,7 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function(){
-  $(this).addClass('loader');
+  $(this).addClass('loader hidden');
   window.setTimeout(function(){
     $('#btn').removeClass('loader hidden').addClass('done');
     
