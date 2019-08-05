@@ -491,6 +491,7 @@ if ($('#datatable-email').length) {
 						);
 
 						console.log(val);
+						console.log($(this).val());
 
 						column
 							.search(val ? '^' + val + '$' : '', true, false)
