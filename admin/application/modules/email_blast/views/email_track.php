@@ -124,7 +124,7 @@
 
 									<tr>
 										<td><?php echo $email_track->name;?></td>
-										<td><?php echo $email_track->email;?></td>
+										<td><?php echo trim($email_track->email);?></td>
 										<td><?php echo $camp_name;?></td>
 										<td><?php echo $txgidocs;?></td>
 										<td><?php echo $google;?></td>
