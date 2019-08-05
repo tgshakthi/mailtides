@@ -1388,7 +1388,7 @@ class Email_blast extends MX_Controller
       $data['posted'] = count($comments_posted);
       $data['not_posted'] = count($comments_not_posted); 
 
-      return $data;
+      echo $data;
     
    }
 
