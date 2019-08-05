@@ -498,8 +498,9 @@ if ($('#datatable-email').length) {
 					var select = $('<select><option value=""></option></select>')
 						.appendTo($("#filters").find("th").eq(column.index()))
 						.on('change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val());
+							// var val = $.fn.dataTable.util.escapeRegex(
+							var val = $(this).val()
+							// );
 
 							console.log($(this).val());
 
