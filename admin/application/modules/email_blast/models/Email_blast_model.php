@@ -518,8 +518,17 @@ class Email_blast_model extends CI_Model
      function insert_update_email_template($id=null)
      {
        
-         $status = $this->input->post('status');
-         $status = (isset($status)) ? '1' : '0';
+        $website_folder_name = $this->admin_header->website_folder_name();
+        $status              = $this->input->post('status');
+        $status              = (isset($status)) ? '1' : '0';
+        $image               = $this->input->post('image');
+        $httpUrl             = $this->input->post('httpUrl');
+         // Remove Host URL in image
+        //$find_url = $httpUrl . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR;
+        
+        $find_url = $httpUrl . '/images/' . $website_folder_name . '/';
+        $image    = str_replace($find_url, "", $image);
+        
          if ($id == NULL):
  
              // insert data
@@ -528,6 +537,7 @@ class Email_blast_model extends CI_Model
              
                  'template_name' => $this->input->post('template_name') ,
                   'template'=>$this->input->post('template'),
+                  'image'=>$image,
                
                  'status' => $status
              );
@@ -541,6 +551,7 @@ class Email_blast_model extends CI_Model
                  
                  'template_name' => $this->input->post('template_name') ,
                   'template'=>$this->input->post('template'),
+                  'image'=>$image,
                   'status' => $status
              );
        // Update
