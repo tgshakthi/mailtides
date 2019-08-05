@@ -535,14 +535,14 @@ if ($('#datatable-email').length) {
 							// 	$(this).val()
 							// );
 
-							var val = $(this).val();
+							// var val = $(this).val();
 
-							console.log(column.search());
+							// console.log(column.search());
 
-							column
-								//.search(val ? '^' + val + '$' : '', true, false)
-								.search(val, true, false)
-								.draw();
+							// column
+							// 	//.search(val ? '^' + val + '$' : '', true, false)
+							// 	.search(val, true, false)
+							// 	.draw();
 
 
 						});
