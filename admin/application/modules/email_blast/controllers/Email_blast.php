@@ -654,9 +654,8 @@ class Email_blast extends MX_Controller
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
            
-            foreach ($campaign_users as $get_user) :
-              $get_users = $this->Email_blast_model->get_users_by_id($get_user);
-			  print_r($get_users);die;
+            foreach ($campaign_users as $get_users) :
+              $get_users = $this->Email_blast_model->get_users_by_id($get_users);
               // if ($get_user->status == '1'):
                 
                 $track_code = md5(rand());                    
