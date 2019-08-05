@@ -239,49 +239,7 @@ if ($('#mybarChart').length) {
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
 
-	var chart = new Chart(f, {
-		type: 'bar',
-		data: {
-			labels: [
-				'Sent',
-				'Opened',
-				'Unopened',
-				'Link Opened',
-				'Comments Posted',
-				'Comments Not Posted'
-			],
-			datasets: [{
-				backgroundColor: [
-					'#26B99A',
-					'#EE82EE',
-					'#DA70D6',
-					'#006600',
-					'#CC0066',
-					'#000099'
-				],
-				data: [
-					mailSent,
-					opened,
-					notOpened,
-					txgidocsReviews,
-					commentsPosted,
-					commentsNotPosted
-				]
-			}]
-		},
-		options: {
-			legend: {
-				display: false
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: !0
-					}
-				}]
-			}
-		}
-	});
+
 
 	function campaign(e) {
 		var baseUrl = $('#base_url').val();
@@ -298,17 +256,52 @@ if ($('#mybarChart').length) {
 
 				var campaignData = JSON.parse(data);
 
-				var data = [];
+				var chartData = [];
 
-				data.push(campaignData.sent);
-				data.push(campaignData.opened);
-				data.push(campaignData.not_opened);
-				data.push(campaignData.txgidocs);
-				data.push(campaignData.posted);
-				data.push(campaignData.not_posted);
+				chartData.push(campaignData.sent);
+				chartData.push(campaignData.opened);
+				chartData.push(campaignData.not_opened);
+				chartData.push(campaignData.txgidocs);
+				chartData.push(campaignData.posted);
+				chartData.push(campaignData.not_posted);
 
-				chart.data = data;
-				chart.update();
+				var chart = new Chart(f, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Sent',
+							'Opened',
+							'Unopened',
+							'Link Opened',
+							'Comments Posted',
+							'Comments Not Posted'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#26B99A',
+								'#EE82EE',
+								'#DA70D6',
+								'#006600',
+								'#CC0066',
+								'#000099'
+							],
+							data: chartData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0
+								}
+							}]
+						}
+					}
+				});
+
 			}
 		});
 	}
