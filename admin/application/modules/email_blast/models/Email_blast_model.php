@@ -172,7 +172,7 @@ class Email_blast_model extends CI_Model
                 'campaign_id' => $id
             )
         );
-        $query = $this->db->get($this->table_campaign_users);
+        $query = $this->db->get($this->table_campaign);
         $records = array();
         if ($query->num_rows() > 0 ) :
           $records = $query->result();

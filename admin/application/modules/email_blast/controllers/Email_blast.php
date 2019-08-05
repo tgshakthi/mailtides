@@ -592,6 +592,7 @@ class Email_blast extends MX_Controller
      {
        $campaign_id = $this->input->post('campaign');
        $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
+	   print_r($get_users);die;
         if (!empty($get_users)):
             $this->send_email_blast();
         else:
