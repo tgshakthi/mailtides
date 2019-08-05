@@ -135,28 +135,31 @@
 
 						<!-- Button Group -->
 						<div class="col-md-12 col-sm-12 col-xs-12 ">
-							<div class="input-button-group">
-								<?php
+                            <div class="input-button-group">
+                                <?php
 									// Submit Button
-									if (empty($id)) :										
-
-										echo form_submit(
-											array(
-												'class' => 'btn btn-success',
-												'name' => 'field-mapping',
-												'value' => 'Save'
-											)
-										);
-
+									if (empty($id)) :
+										$submit_value = 'Add';
 									else :
-										echo form_submit(
-											array(
-												'class' => 'btn btn-success',
-												'name' => 'field-mapping',
-												'value' => 'Update'
-											)
-										);
-									endif;																	
+										$submit_value = 'Update';
+									endif;
+
+									echo form_submit(
+										array(
+											'class' => 'btn btn-success',
+											//'id'    => 'btn',
+											'value' => $submit_value
+										)
+									);
+
+									echo form_submit(
+										array(
+											'class' => 'btn btn-success',
+											'id'    => 'btn',
+											'name'  => 'btn_continue',
+											'value' => $submit_value.' & Continue'
+										)
+									);
 
 									// Anchor Tag
 									echo anchor(
@@ -167,11 +170,9 @@
 											'class' => 'btn btn-primary'
 										)
 									);
-
-									echo br(4);
 								?>
-							</div>
-						</div>
+                            </div>
+                        </div>
 
 						<?php 
 							echo form_close(); //Form close 
