@@ -19,6 +19,151 @@
 	  0% { transform: rotate(0deg); }
 	  100% { transform: rotate(360deg); }
 	}
+	
+
+body {
+  font-family: arial;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #454545;
+}
+
+button {
+  margin-left: calc(50% - 40px);
+  margin-top: 150px;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
+
+/* Colors */
+
+$color-primary              : #fff;
+$color-secondary            : #454545;
+$color-tertiary             : #E7483B;
+
+$color-complement           : #4183c4;
+
+$color-text                 : $color-secondary;
+$color-text-secondary       : $color-primary;
+
+$color-neutral              : #dfdfdf;
+$color-neutral-light        : lighten($color-neutral, 7);
+$color-approve              : #4FA86B;
+$color-reject               : $color-tertiary;
+
+$button-bg-color-std        : $color-complement;
+$button-bg-color-approve    : $color-approve;
+$button-bg-color-reject     : $color-reject;
+$button-bg-color-cancel     : #dfdfdf;
+
+/* Border radius */
+
+$border-radius-small    : 2px;
+$border-radius-medium	: 5px;
+$border-radius-large	: 10px;
+
+@mixin button {
+  position: relative;
+  border: none;
+  outline: 0;
+	border-bottom: 2px solid transparent;
+	border-top: 2px solid transparent;
+	padding: 0.5em 1em;
+	display: inline-block;
+	border-radius: $border-radius-small;
+	font-size: 13px;
+	background-color: $button-bg-color-std;
+	color: $color-text-secondary;
+  cursor: pointer;
+	&:hover {
+		border-bottom-color: darken($button-bg-color-std, 15%);
+		background-color: lighten($button-bg-color-std, 5%);
+	}
+	&:active {
+		background-color: darken($button-bg-color-std, 5%);
+		border-top-color: darken($button-bg-color-std, 15%);
+		border-bottom-color: transparent;
+	}
+}
+.hidden {
+  visibility: hidden;
+}
+.button {
+  @include button;
+}
+$grey: #aaa;
+.button:before {
+  visibility: hidden;
+  content: "";
+  top: -2px;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  padding: inherit;
+  background: $grey;
+  border-top: 2px solid $grey;
+  border-bottom: 2px solid $grey;
+  border-radius: 2px;
+  transition: width 0.5s;
+}
+.button:after {
+  visibility: hidden;
+  font-family: FontAwesome;
+  font-size: 16px;
+  line-height: 16px;
+  color: #454545;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 26px;
+  color: #fff;
+}
+.button:after {
+  content: "\f110";
+}
+.button.loading:after {
+  visibility: visible;
+  animation: loader 1s infinite linear;
+}
+.button.loading:before {
+  visibility: visible;
+  border-radius: 26px;
+  width: 33px;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+}
+.button.done {
+  visibility: hidden;
+}
+.button.done:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  visibility: visible;
+  background: #4FA86B;
+  border-color: #4FA86B;
+}
+
+.button.loading, .button.done {
+  cursor: default;
+}
+
+@keyframes loader {
+  0%   { transform: rotate(0deg); }
+  99% { transform: rotate(360deg); }
+}
 </style>
 <!--<div class="loader"></div> -->
 <!-- page content -->
@@ -225,18 +370,13 @@
 	</div>
 </div>
 <script>
-$(document).ready(function() {
-alert()
-  $('#btn').click(function(){
-	alert();
-  $(this).addClass('loader');
+ $('#btn').click(function(){
+	 alert();
+  $(this).addClass('loading hidden');
   window.setTimeout(function(){
-    $('#btn').removeClass('loader').addClass('done');
+    $('#btn').removeClass('loading hidden').addClass('done');
     
   }, 2000);
 });
-
-});
-
 </script>
 <!-- /page content -->
