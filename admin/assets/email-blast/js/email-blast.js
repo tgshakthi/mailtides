@@ -481,6 +481,9 @@ if ($('#datatable-email').length) {
 		initComplete: function () {
 			this.api().columns().every(function () {
 				var column = this;
+
+				console.log(column);
+
 				var select = $('<select><option value=""></option></select>')
 					.appendTo($(column.footer()).empty())
 					.on('change', function () {
