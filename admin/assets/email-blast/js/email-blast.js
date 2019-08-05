@@ -85,20 +85,36 @@ $(document).ready(function() {
 	if ($('#datatable-campaign-users').length) {
 		var tableTwo = $('#datatable-campaign-users').DataTable();
 
-		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-			var min = $('#min-campaign-users').datepicker('getDate');
-			var max = $('#min-campaign-users').datepicker('getDate');
-			var startDate = new Date(data[3]);
-			if (min == null && max == null) {
+		// Datepicker for Campaign
+		$('#min-campaign-users').datepicker({
+			onSelect: function() {
+				tableTwo.draw();
+			},
+			changeMonth: true,
+			changeYear: true
+		});
+		$('#max-campaign-users').datepicker({
+			onSelect: function() {
+				tableTwo.draw();
+			},
+			changeMonth: true,
+			changeYear: true
+		});
+
+		$.fn.dataTable.ext.search.push(function(settings, dataTwo, dataIndex) {
+			var minTwo = $('#min-campaign-users').datepicker('getDate');
+			var maxTwo = $('#min-campaign-users').datepicker('getDate');
+			var startDateTwo = new Date(dataTwo[3]);
+			if (minTwo == null && maxTwo == null) {
 				return true;
 			}
-			if (min == null && startDate <= max) {
+			if (minTwo == null && startDateTwo <= maxTwo) {
 				return true;
 			}
-			if (max == null && startDate >= min) {
+			if (maxTwo == null && startDateTwo >= minTwo) {
 				return true;
 			}
-			if (startDate <= max && startDate >= min) {
+			if (startDateTwo <= maxTwo && startDateTwo >= minTwo) {
 				return true;
 			}
 			return false;
@@ -124,22 +140,10 @@ $(document).ready(function() {
 				});
 			}
 		});
-		$('#min-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-		$('#max-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
+
 		// Event listener to the two range filtering inputs to redraw on input
 		$('#min-campaign-users, #max-campaign-users').change(function() {
+			console.log(tableTwo.draw());
 			tableTwo.draw();
 		});
 	}
