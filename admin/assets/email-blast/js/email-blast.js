@@ -418,13 +418,6 @@ $('#btn').click(function () {
 		$('#loader').removeClass('loader hidden').addClass('done');
 
 	}, 3000);
-	$('#btn').click(function () {
-		$('#loader').addClass('loader');
-		window.setTimeout(function () {
-			$('#loader').removeClass('loader hidden').addClass('done');
-
-		}, 3000);
-	});
 });
 
 // Email Tracking Datatable Filter
