@@ -1,14 +1,14 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	// Datepickers
 	$('#min').datepicker({
-		onSelect: function() {
+		onSelect: function () {
 			table.draw();
 		},
 		changeMonth: true,
 		changeYear: true
 	});
 	$('#max').datepicker({
-		onSelect: function() {
+		onSelect: function () {
 			table.draw();
 		},
 		changeMonth: true,
@@ -16,7 +16,7 @@ $(document).ready(function() {
 	});
 
 	// Datatable - One ( Master Campaign Datepicker Filter)
-	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+	$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 		var min = $('#min').datepicker('getDate');
 		var max = $('#max').datepicker('getDate');
 		var startDate = new Date(data[3]);
@@ -39,17 +39,15 @@ $(document).ready(function() {
 	if ($('#datatable-buttons').length) {
 		var table = $('#datatable-buttons').DataTable({
 			dom: 'Bfrtip',
-			buttons: [
-				{
-					extend: 'csvHtml5',
-					text: 'Export CSV',
-					filename: 'patient-files',
-					className: 'btn-sm',
-					exportOptions: {
-						columns: [1, 2, 3]
-					}
+			buttons: [{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
 				}
-			],
+			}],
 			orderCellsTop: true,
 			responsive: !0
 		});
@@ -58,13 +56,13 @@ $(document).ready(function() {
 		$('#datatable-buttons>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-buttons thead');
-		$('#datatable-buttons>thead>tr:eq(1)>th').each(function(i) {
+		$('#datatable-buttons>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'Action' && title != 'Status') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function() {
+				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -76,7 +74,7 @@ $(document).ready(function() {
 		});
 
 		//Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function() {
+		$('#min, #max').change(function () {
 			table.draw();
 		});
 	}
@@ -88,13 +86,13 @@ $(document).ready(function() {
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
-		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
+		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function() {
+				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -106,19 +104,21 @@ $(document).ready(function() {
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function() {
+		$('#min, #max').change(function () {
 			table.draw();
 		});
 	}
 
 	// Import Filter Data
-	$('#filter-data-import').click(function() {
+	$('#filter-data-import').click(function () {
 		var baseUrl = $('#base-url').val();
 		var campaignName = $('#campaign-name').val();
 		var campaignDesc = CKEDITOR.instances['text'].getData();
+		var campaignType = $('#campaign-type').val();
+		var sendDate = $('#send-date').val();
 
 		var values = $("input[name='row_sort_order[]']")
-			.map(function() {
+			.map(function () {
 				return $(this).val();
 			})
 			.get();
@@ -129,9 +129,11 @@ $(document).ready(function() {
 				data: {
 					campaign_name: campaignName,
 					campaign_desc: campaignDesc,
+					campaign_type: campaignType,
+					send_date: sendDate,
 					user_id: values
 				},
-				success: function(data) {
+				success: function (data) {
 					if (data.length > 0) {
 						$('#campaign-id').val(data);
 						alert('Successfully Imported. Go to Step - 3');
@@ -173,46 +175,42 @@ if ($('#mybarChart').length) {
 				'Comments Posted',
 				'Comments Not Posted'
 			],
-			datasets: [
-				{
-					backgroundColor: [
-						'#26B99A',
-						'#EE82EE',
-						'#DA70D6',
-						'#006600',
-						'#CC0066',
-						'#000099'
-					],
-					data: [
-						mailSent,
-						opened,
-						notOpened,
-						txgidocsReviews,
-						commentsPosted,
-						commentsNotPosted
-					]
-				}
-			]
+			datasets: [{
+				backgroundColor: [
+					'#26B99A',
+					'#EE82EE',
+					'#DA70D6',
+					'#006600',
+					'#CC0066',
+					'#000099'
+				],
+				data: [
+					mailSent,
+					opened,
+					notOpened,
+					txgidocsReviews,
+					commentsPosted,
+					commentsNotPosted
+				]
+			}]
 		},
 		options: {
 			legend: {
 				display: false
 			},
 			scales: {
-				yAxes: [
-					{
-						ticks: {
-							beginAtZero: !0
-						}
+				yAxes: [{
+					ticks: {
+						beginAtZero: !0
 					}
-				]
+				}]
 			}
 		}
 	});
 }
 
 // Email Template Preview
-$('#preview_template').click(function() {
+$('#preview_template').click(function () {
 	var campaignId = $('#hidden-selected-id').val();
 	var baseUrl = $('#base_url').val();
 	var imageUrl = $('#image_url').val();
@@ -224,7 +222,7 @@ $('#preview_template').click(function() {
 			data: {
 				campaign_id: campaignId
 			},
-			success: function(data) {
+			success: function (data) {
 				if (data != 0) {
 					if (data == 1) {
 						var img =
@@ -260,15 +258,15 @@ $('#preview_template').click(function() {
 	}
 });
 
-$(document).ready(function() {
-	$('#campaign_id').on('change', function() {
+$(document).ready(function () {
+	$('#campaign_id').on('change', function () {
 		var selectedId = $(this).val();
 		$('#hidden-selected-id').val(selectedId);
 	});
 
 	// Preview Template Campaign
 
-	$('#preview-template-campaign').click(function() {
+	$('#preview-template-campaign').click(function () {
 		var selectedTemplate = $('#template_id option:selected').val();
 		var imageUrl = $('#image-url').val();
 		if (selectedTemplate.length > 0) {
@@ -303,7 +301,7 @@ $(document).ready(function() {
 });
 
 // Smart Wizard
-$(document).ready(function() {
+$(document).ready(function () {
 	var baseUrl = $('#base-url').val();
 	$('#wizard').smartWizard('fixHeight');
 
