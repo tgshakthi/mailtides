@@ -110,6 +110,33 @@ $(document).ready(function() {
 			table.draw();
 		});
 	}
+
+	// Import Filter Data
+	$('#filter-data-import').click(function() {
+        var baseUrl = $('#base-url').val();
+        var campaignName = $('#campaign-name').val();
+        var campaignDesc = $('#text').val();
+
+		var values = $("input[name='row_sort_order[]']")
+			.map(function() {
+				return $(this).val();
+			})
+			.get();
+		if (values.length > 0) {
+			$.ajax({
+				method: 'POST',
+				url: baseUrl + 'email_blast/import_filter_data',
+				data: {
+                    campaign_name: campaignName,
+                    campaign_desc: campaignDesc,
+					user_id: values
+				},
+				success: function(data) {
+					console.log(data);
+				}
+			});
+		}
+	});
 });
 
 // Graphical Reports
@@ -275,14 +302,4 @@ $(document).ready(function() {
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
 		$('.buttonFinish').addClass('btn btn-default');
-});
-
-$('#filter-data-import').click(function() {
-	var values = $("input[name='row_sort_order[]']")
-		.map(function() {
-			return $(this).val();
-		})
-		.get();
-	// var x = $('input[name="row_sort_order[]"]').val();
-	console.log(values);
 });

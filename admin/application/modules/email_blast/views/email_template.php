@@ -77,7 +77,7 @@
 					<?php
 						echo anchor(
 							'email_blast/add_edit_email_template',
-							'<i class="fa fa-plus" aria-hidden="true"></i> Add Campaign ',
+							'<i class="fa fa-plus" aria-hidden="true"></i> Add Email Template ',
 							array(
 							'class' => 'btn btn-success'
 							)

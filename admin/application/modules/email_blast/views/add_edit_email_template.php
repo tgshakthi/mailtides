@@ -108,6 +108,7 @@
 											echo form_textarea($data);
 										?>
                                     </div>
+									</div>
 									<div class="form-group">
                                         <?php
 											echo form_label(
@@ -117,7 +118,7 @@
 											);
 										?>
 
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 center-align">
                                             <?php
 												// Input checkbox
 												echo form_checkbox(array(
@@ -130,6 +131,7 @@
 											?>
                                         </div>
                                     </div>
+									
 
                                 </div>
                             </div>
