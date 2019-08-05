@@ -417,7 +417,7 @@ $('#btn').click(function () {
 	window.setTimeout(function () {
 		$('#loader').removeClass('loader hidden').addClass('done');
 
-	}, 3000);
+	});
 });
 
 // Email Tracking Datatable Filter
