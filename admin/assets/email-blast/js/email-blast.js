@@ -407,15 +407,16 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function () {
-			$(this).addClass('loader');
-			window.setTimeout(function () {
-				$('#loader').removeClass('loader hidden').addClass('done');
+	$(this).addClass('loader');
+	window.setTimeout(function () {
+		$('#loader').removeClass('loader hidden').addClass('done');
 
-			}, 3000);
-			$('#btn').click(function () {
-				$('#loader').addClass('loader');
-				window.setTimeout(function () {
-					$('#loader').removeClass('loader hidden').addClass('done');
+	}, 3000);
+	$('#btn').click(function () {
+		$('#loader').addClass('loader');
+		window.setTimeout(function () {
+			$('#loader').removeClass('loader hidden').addClass('done');
 
-				}, 3000);
-			});
+		}, 3000);
+	});
+});
