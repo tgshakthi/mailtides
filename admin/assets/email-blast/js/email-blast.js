@@ -532,16 +532,20 @@ if ($('#datatable-email').length) {
 					var select = $('<select><option value=""></option></select>')
 						.appendTo($("#filters").find("th").eq(column.index()))
 						.on('change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
+							// var val = $.fn.dataTable.util.escapeRegex(
+							// 	$(this).val()
+							// );
 
-							var test = column
-								//.search(val ? '^' + val + '$' : '', true, false)
-								.search($(this).val())
-								.draw();
+							// var val = $(this).val();
 
-							console.log(test);
+							// console.log(column.search());
+
+							// column
+							// 	//.search(val ? '^' + val + '$' : '', true, false)
+							// 	.search(val, true, false)
+							// 	.draw();
+
+
 						});
 
 					console.log(select);
