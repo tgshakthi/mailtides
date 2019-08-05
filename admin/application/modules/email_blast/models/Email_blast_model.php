@@ -580,4 +580,16 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
+
+    // Insert Campaign Data
+    function insert_import_campaign_data()
+    {
+        $campaign_name = $this->input->post('campaign_name');
+        $campaign_desc = $this->input->post('campaign_desc');
+        $campaign_users = implode(',', $this->input->post('user_id'));
+
+        echo '<pre>';
+        echo $campaign_users;
+        die;
+    }
 }
