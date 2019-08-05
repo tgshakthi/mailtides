@@ -278,12 +278,13 @@ $('#preview_template').click(function () {
 			success: function (data) {
 				if (data != 0)
 				    {
-				      var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/"'+ data+'>';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
+						alert(data);
+				    //   var img =
+					// 		'<img class="preview-template-img" src="' +
+					// 		imageUrl +
+					// 		'images/txgidocs/"'+ data+'>';
+					// 	$('#preview-template-modal').modal('show');
+					// 	$('#modal-body-img').html(img);
 					}
 				else
 				{
