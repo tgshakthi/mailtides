@@ -549,9 +549,13 @@ class Email_blast extends MX_Controller
       $data['httpUrl'] = $this->admin_header->host_url();
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
-      echo"<pre>";
-      print_r(  $data['campaign_details']);
-      die;
+      if(!empty($data['campaign_details'])):
+        $email_template=$this->Email_blast_model->get_email_template_by_id(  $data['campaign_details'][0]->template_id);
+      
+        $data['preview_image']= $email_template[0]->image;
+      else:
+        $data['preview_image']="";
+      endif;
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
        if(!empty($mail_config)):
@@ -600,6 +604,7 @@ class Email_blast extends MX_Controller
        $campaign_id = $this->input->post('campaign');
        $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
 	   print_r($get_users);die;
+	   print_r(explode(",",$get_users));die;
         if (!empty($get_users)):
             $this->send_email_blast();
         else:
