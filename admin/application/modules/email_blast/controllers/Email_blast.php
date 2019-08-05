@@ -1183,9 +1183,7 @@ class Email_blast extends MX_Controller
      // Insert Campaign
      function insert_campaign_data()
      {
-       echo '<pre>';
-       print_r($_POST);
-       die;
+       $this->Email_blast_model->insert_import_campaign_data();
      }
 
 
