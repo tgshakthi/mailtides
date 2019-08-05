@@ -605,10 +605,9 @@ class Email_blast extends MX_Controller
 	  
         if (!empty($get_users)):
 			$campaign_users = explode(",",$get_users[0]->campaign_users);
-			print_r($campaign_users);die;
-			foreach($campaign_users as $campaign_user):
-				 $this->send_email_blast();
-			endforeach;           
+			
+			$this->send_email_blast();
+			        
         else:
             $this->session->set_flashdata('error', 'Please enable the users');
             redirect('email_blast');
