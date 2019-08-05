@@ -163,14 +163,13 @@ $(document).ready(function () {
 		var campaignDesc = CKEDITOR.instances['text'].getData();
 		var campaignType = $('#campaign-type').val();
 		var sendDate = $('#send-date').val();
+		var emailTemplate = $('#email-template').val();
 
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
 				return $(this).val();
 			})
 			.get();
-
-		alert(values);
 
 		if (values.length > 0) {
 			$.ajax({
@@ -182,7 +181,8 @@ $(document).ready(function () {
 					campaign_desc: campaignDesc,
 					campaign_type: campaignType,
 					send_date: sendDate,
-					user_id: values
+					user_id: values,
+					email_template: emailTemplate
 				},
 				success: function (data) {
 					alert(data);

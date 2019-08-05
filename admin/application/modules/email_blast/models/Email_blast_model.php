@@ -662,22 +662,41 @@ class Email_blast_model extends CI_Model
     // Insert Campaign Data
     function insert_import_campaign_data()
     {
+        $campaign_id = $this->input->post('campaign_id');       
         $campaign_name = $this->input->post('campaign_name');
         $campaign_desc = $this->input->post('campaign_desc');
         $campaign_type = $this->input->post('campaign_type');
         $send_date = $this->input->post('send_date');
         $campaign_users = implode(',', $this->input->post('user_id'));
+        $email_template = $this->input->post('email_template');
 
-        $insert_array = array(
-            'campaign_name' => $campaign_name,
-            'description' => $campaign_desc,
-            'campaign_type' => $campaign_type,
-            'send_date' => $send_date,
-            'campaign_users' => $campaign_users
-        );
+        if (!empty($campaign_id)) {
 
-        $this->db->insert($this->table_campaign, $insert_array);
-        return $this->db->insert_id();
+            $update_array = array(
+                'campaign_name' => $campaign_name,
+                'description' => $campaign_desc,
+                'campaign_type' => $campaign_type,
+                'send_date' => $send_date,
+                'campaign_users' => $campaign_users,
+                'template_id' => $email_template
+            );
+
+            $this->db->where('id', $campaign_id);
+            $this->db->update($this->table_campaign, $update_array);
+
+        } else {
+            $insert_array = array(
+                'campaign_name' => $campaign_name,
+                'description' => $campaign_desc,
+                'campaign_type' => $campaign_type,
+                'send_date' => $send_date,
+                'campaign_users' => $campaign_users,
+                'template_id' => $email_template
+            );
+    
+            $this->db->insert($this->table_campaign, $insert_array);
+            return $this->db->insert_id();
+        }        
     }
 
     // Get Campaign Type - Campaign (By Status)
