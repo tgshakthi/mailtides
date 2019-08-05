@@ -881,18 +881,27 @@ class Email_blast extends MX_Controller
         $email_tracks = $this->Email_blast_model->get_email_track_data();
         
         foreach (($email_tracks ? $email_tracks : array()) as $email_track) {
+
+            $campaign_name = $this->Email_blast_model->get_campaign_by_id($email_track->campaign_id);
+
+            if (!empty($campaign_name)) {
+              $camp_name = $campaign_name[0]->campaign_name;
+            } else {
+              $camp_name = "";
+            }
             
             if ($email_track->status === '1') {
                 $status = '<span class="label label-success">Open</span>';
             } else {
                 $status = '<span class="label label-danger">Not Open</span>';
             }
+
             $reviews_entry= $this->Email_blast_model->get_review_comments($email_track->track_id);
-             if( !empty($reviews_entry[0]->review_user_id)):
-               $comment = '<span class="label label-success">Posted</span>';
-             else:
-                $comment = '<span class="label label-danger">Not Posted</span>';
-             endif;
+            if( !empty($reviews_entry[0]->review_user_id)):
+              $comment = '<span class="label label-success">Posted</span>';
+            else:
+              $comment = '<span class="label label-danger">Not Posted</span>';
+            endif;
 
              // Clicked From
              if ($email_track->txgidocs === '1') {
@@ -911,7 +920,7 @@ class Email_blast extends MX_Controller
                     $facebook = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
                 }
 
-            $this->table->add_row($email_track->name, $email_track->email, $txgidocs, $google, $facebook ,$comment, $status);
+            $this->table->add_row($email_track->name, $email_track->email, $camp_name, $txgidocs, $google, $facebook ,$comment, $status);
         }
         
         // Table open
@@ -926,7 +935,7 @@ class Email_blast extends MX_Controller
         
         // Table heading row
         
-        $this->table->set_heading('Name', 'Email', 'Txgidocs', 'Google', 'Facebook', 'Comments','Status');
+        $this->table->set_heading('Name', 'Email', 'Campaign Name', 'Txgidocs', 'Google', 'Facebook', 'Comments','Status');
         return $this->table->generate();
     }
 
