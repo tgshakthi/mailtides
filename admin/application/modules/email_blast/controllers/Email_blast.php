@@ -242,11 +242,11 @@ class Email_blast extends MX_Controller
       foreach (($get_campaign_data ? $get_campaign_data : array()) as $get_campaign)
       {
           
-        $anchor_edit = anchor(site_url('email_blast/add_edit_campaign/' . $get_campaign->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
-          'data-toggle' => 'tooltip',
-          'data-placement' => 'left',
-            'data-original-title' => 'Edit'
-        ));
+        // $anchor_edit = anchor(site_url('email_blast/add_edit_campaign/' . $get_campaign->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+        //   'data-toggle' => 'tooltip',
+        //   'data-placement' => 'left',
+        //     'data-original-title' => 'Edit'
+        // ));
           
         $anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
           'data-toggle' => 'tooltip',
@@ -264,9 +264,13 @@ class Email_blast extends MX_Controller
           $status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
         }    
           
+        // $cell = array(
+        //   'class' => 'last',
+        //   'data' =>  $anchor_edit.' '.$anchor_delete
+        // );
         $cell = array(
           'class' => 'last',
-          'data' =>  $anchor_edit.' '.$anchor_delete
+          'data' =>  $anchor_delete
         );
 
         $date = $get_campaign->created_at;
@@ -545,6 +549,9 @@ class Email_blast extends MX_Controller
       $data['httpUrl'] = $this->admin_header->host_url();
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
+      echo"<pre>";
+      print_r(  $data['campaign_details']);
+      die;
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
        if(!empty($mail_config)):
