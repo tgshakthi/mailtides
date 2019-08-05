@@ -581,6 +581,60 @@ class Email_blast_model extends CI_Model
         return $records;
     }
 
+	 function insert_update_campaign_type($id=null)
+     {
+       
+        $status = $this->input->post('status');
+        $status = (isset($status)) ? '1' : '0';
+         if ($id == NULL):
+ 
+             // insert data 
+             $insert_data = array(             
+                 'campaign_type' => $this->input->post('campaign_type') ,            
+                 'status' => $status
+             );
+           $this->db->insert($this->table_campaign_type, $insert_data);
+           return $this->db->insert_id();
+            else:
+ 
+             // Update data
+ 
+             $update_data = array(                
+                 'campaign_type' => $this->input->post('campaign_type'),
+                  'status' => $status
+             );
+       // Update
+ 
+             $this->db->where('id', $id);
+             return $this->db->update($this->table_campaign_type, $update_data);
+         endif;
+ 
+     }
+	 
+	 function delete_campaign_type()
+     {
+         $id   = $this->input->post('id');
+         $data = array(
+             'is_deleted' => '1'
+         );
+         $this->db->where('id', $id);
+         return $this->db->update($this->table_campaign_type, $data);
+     }
+     
+     // Delete multiple user
+     function delete_multiple_campaign_type()
+     {
+         $campaign_type = $this->input->post('table_records');
+         foreach ($campaign_type as $campaign_type_id):
+             $data = array(
+                 'is_deleted' => '1'
+             );
+             $this->db->where('id', $campaign_type_id);
+             $this->db->update($this->table_campaign_type, $data);
+         endforeach;
+     }
+
+
     // Insert Campaign Data
     function insert_import_campaign_data()
     {

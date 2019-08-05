@@ -1728,6 +1728,60 @@ class Email_blast extends MX_Controller
 	
 	function insert_update_campaign_type()
 	{
-		
+		$id = $this->input->post('id');
+		$continue = $this->input->post('btn_continue');
+		if (empty($id))
+		{
+			$this->Email_blast_model->insert_update_campaign_type();
+			$this->session->set_flashdata('success', 'Campaign Type details successfully Created');
+			if (isset($continue) && $continue === "Add & Continue")
+			{
+			   $url = 'email_blast/add_edit_campaign_type';
+			}
+			else
+			{
+			   $url = 'email_blast/campaign_type';
+			}
+		}
+		else
+		{
+         
+			$this->Email_blast_model->insert_update_campaign_type($id);
+			$this->session->set_flashdata('success', 'Campaign Type details successfully Created.');
+			if (isset($continue) && $continue === "Update & Continue")
+			{
+				 $url = 'email_blast/add_edit_campaign_type'.$id;
+			}
+			else
+			{
+				 $url = 'email_blast/campaign_type';
+			}
+		}
+		redirect($url);
 	}
+	
+	function delete_campaign_type()
+     {
+       $this->Email_blast_model->delete_campaign_type();
+        $this->session->set_flashdata('success', 'Successfully Deleted');
+     }
+ 
+ 
+     function delete_multiple_campaign_type()
+    {
+     $this->form_validation->set_rules('table_records[]', 'Row', 'required', array(
+       'required' => 'You must select at least one row!'
+     ));
+     if ($this->form_validation->run() == FALSE)
+     {
+       $this->session->set_flashdata('error', validation_errors());
+       redirect('email_blast/campaign_type');
+     }
+     else
+     {
+       $this->Email_blast_model->delete_multiple_campaign_type();
+       $this->session->set_flashdata('success', 'Successfully Deleted');
+       redirect('email_blast/campaign_type');
+     }
+    }
 }
