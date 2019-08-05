@@ -188,26 +188,8 @@
 							</div>
 
 							<div class="modal-body" id="modal-body-img" style="text-align: center;"> 
-							<?php  
-							  if ($preview_image != '') :
-								$image = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $preview_image;
-								  
-								  echo img(array(
-									  'src'   => $image,
-									  'alt'   => $image,
-									  'title' => $image,
-									  'id'    => 'image_preview',
-									  'style' => 'width:168px; height:114px'
-								  ));
-								else:
-									echo img(array(
-										'src'   => $ImageUrl.'images/noimage.png',
-										'alt'   => 'No Image',
-										'id'    => 'image_preview',
-										'style' => 'width:168px; height:114px'
-									));
-								endif;
-							?>					
+							
+								
 							</div>
 
 							<div class="modal-footer">								
