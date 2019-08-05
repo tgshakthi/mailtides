@@ -90,7 +90,7 @@
 
 								<div class="x_content">
 
-									<div class="form-group">
+									<div class="form-group col-md-6 col-md-6 col-xs-6">
 
 										<?php
 											echo form_label('Campaign Name','name');
