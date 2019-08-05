@@ -466,44 +466,31 @@ $('#btn').click(function () {
 });
 
 // Email Tracking Datatable Filter
-$(document).ready(function () {
-	$('#datatable-email-tracking').DataTable();
+if ($('#datatable-email').length) {
 
-	// Clone Previous Row for filter input
-	// $('#datatable-email-tracking>thead>tr')
-	// 	.clone(true)
-	// 	.appendTo('#datatable-email-tracking thead');
+	$('#datatable-email').DataTable({
+		initComplete: function () {
+			this.api().columns(1).every(function () {
+				var column = this;
+				if (column.index() == 1) {
+					var select = $('<select><option value=""></option></select>')
+						.appendTo($("#filters").find("th").eq(column.index()))
+						.on('change', function () {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val()
+							);
 
-	// $('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
-	// 	var title = $(this).text();
-	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
-	// 		$(this).html(
-	// 			'<input type="text" placeholder="Search ' + title + '" />'
-	// 		);
-	// 		$('input', this).on('keyup change', function () {
-	// 			if (table.column(i).search() !== this.value) {
-	// 				table
-	// 					.column(i)
-	// 					.search(this.value)
-	// 					.draw();
-	// 			}
-	// 		});
-	// 	}
+							column
+								.search(val ? '^' + val + '$' : '', true, false)
+								.draw();
 
+						});
 
-	// 	var select = $('<select><option value=""></option></select>')
-	// 		.appendTo($(this).empty())
-	// 		.on('change', function () {
-	// 			table.column(i)
-	// 				.search($(this).val())
-	// 				.draw();
-	// 		});
-
-	// 	table.column(i).data().unique().sort().each(function (d, j) {
-	// 		select.append('<option value="' + d + '">' + d + '</option>')
-	// 	});
-	// });
-});
-
-
-//
+					column.data().unique().sort().each(function (d, j) {
+						select.append('<option value="' + d + '">' + d + '</option>')
+					});
+				}
+			});
+		}
+	});
+}
