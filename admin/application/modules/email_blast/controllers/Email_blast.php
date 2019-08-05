@@ -1414,7 +1414,14 @@ class Email_blast extends MX_Controller
       $data['get_email_track_count']=$this->graphical_campaign_id();
       $campaign_id=$this->graphical_campaign_id();
        
-      
+      $data['opened']= $campaign_id['opened'];
+      $data['not_opened']=$campaign_id['not_opened'];
+      $data['txgidocs']=$campaign_id['txgidocs'];
+      $data['google']=$campaign_id['google'];
+      $data['facebook']=$campaign_id['facebook'];
+      $data['sent']=$campaign_id['sent'];
+      $data['posted']=$campaign_id['posted'];
+      $data['not_posted']$campaign_id['not_posted'];
     
       // $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id($campaign_id);
     
