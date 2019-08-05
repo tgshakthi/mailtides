@@ -456,15 +456,6 @@ $(document).ready(function () {
 	if ($('#datatable-email').length) {
 		var table = $('#datatable-email').DataTable({
 			dom: 'Bfrtip',
-			buttons: [{
-				extend: 'csvHtml5',
-				text: 'Export CSV',
-				filename: 'patient-files',
-				className: 'btn-sm',
-				exportOptions: {
-					columns: [1, 2, 3]
-				}
-			}],
 			orderCellsTop: true,
 			responsive: !0
 		});
