@@ -515,6 +515,18 @@ class Email_blast_model extends CI_Model
          endforeach;
      }
  
+
+       // Remove Image
+    
+    function remove_email_template_image()
+    {
+        $id           = $this->input->post('id');
+        $remove_image = array(
+            'image' => ""
+        );
+        $this->db->where('id', $id);
+        $this->db->update($this->table_template, $remove_image);
+    }
      function insert_update_email_template($id=null)
      {
        
