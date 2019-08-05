@@ -20,7 +20,7 @@
 	  100% { transform: rotate(360deg); }
 	}
 </style>
-<div class="loader"></div>
+<!--<div class="loader"></div> -->
 <!-- page content -->
 <div class="right_col" role="main">
 	<div class="">
@@ -224,4 +224,13 @@
 		</div>
 	</div>
 </div>
+<script>
+$('#btn').click(function(){
+  $(this).addClass('loader');
+  window.setTimeout(function(){
+    $('#btn').removeClass('loader').addClass('done');
+    
+  }, 2000);
+});
+</script>
 <!-- /page content -->
