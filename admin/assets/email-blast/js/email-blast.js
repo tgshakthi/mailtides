@@ -470,9 +470,9 @@ if ($('#datatable-email').length) {
 
 	$('#datatable-email').DataTable({
 		initComplete: function () {
-			this.api().columns(1).every(function () {
+			this.api().columns(2).every(function () {
 				var column = this;
-				if (column.index() == 1) {
+				if (column.index() == 2) {
 					var select = $('<select><option value=""></option></select>')
 						.appendTo($("#filters").find("th").eq(column.index()))
 						.on('change', function () {
