@@ -109,6 +109,142 @@
 										?>
                                     </div>
 									</div>
+									 <div class="form-group">
+
+												<?php
+
+                        // label
+                        echo form_label(
+                            'Image',
+                            'imgInp',
+                            'class="control-label col-md-3 col-sm-3 col-xs-12"'
+                        );
+                        ?>
+
+                        <div class="img-thumbnail sepH_a" id="show_image1">
+                            <?php
+                            if ($image != '') :
+                              $image = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $image;
+                                
+                                echo img(array(
+                                    'src'   => $image,
+                                    'alt'   => $image,
+                                    'title' => $image,
+                                    'id'    => 'image_preview',
+                                    'style' => 'width:168px; height:114px'
+                                ));
+
+                            else :
+
+                                echo img(array(
+                                    'src'   => $ImageUrl.'images/noimage.png',
+                                    'alt'   => 'No Image',
+                                    'id'    => 'image_preview',
+                                    'style' => 'width:168px; height:114px'
+                                ));
+
+                            endif;
+                            ?>
+                        </div>
+
+                        <div style="display:none" class="img-thumbnail sepH_a" id="show_image2">
+                            <?php
+                            echo img(array(
+                                'src'   => $ImageUrl.'images/noimage.png',
+                                'alt'   => 'No Image',
+                                'id'    => 'image_preview2',
+                                'style' => 'width:168px; height:114px'
+                            ));
+                            ?>
+                        </div>
+
+                        <?php
+                        echo form_input(array(
+                            'type'  => 'hidden',
+                            'name'  => 'image',
+                            'id'    => 'image',
+                            'value' => $image
+                        ));
+
+                        echo form_input(array(
+                            'type'  => 'hidden',
+                            'name'  => 'image_url',
+                            'id'    => 'image_url',
+                            'value' => $ImageUrl
+                        ));
+
+                        echo form_input(array(
+                            'type'  => 'hidden',
+                            'name'  => 'httpUrl',
+                            'id'    => 'httpUrl',
+                            'value' => $httpUrl
+                        ));
+                        ?>
+
+                        <a data-toggle="modal" class="btn btn-primary" data-target="#ImagePopUp" href="javascript:;" type="button">
+                            Select Image
+                        </a>
+
+                        <?php if($image != "") :?>
+                        <a data-toggle="modal" class="btn btn-primary" id="imageRemove" data-target="#confirm-delete" href="javascript:;">
+                            Remove Image
+                        </a>
+                        <?php endif;?>
+                    </div>
+
+                    <!-- FileManager -->
+                    <div class="modal fade" id="ImagePopUp">
+                        <div class="modal-dialog popup-width">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <?php
+                                    echo form_button(array(
+                                        'name'         => '',
+                                        'type'         => 'button',
+                                        'class'        => 'close',
+                                        'data-dismiss' => 'modal',
+                                        'aria-hidden'  => 'true',
+                                        'content'      => '&times;'
+                                    ));
+                                    ?>
+                                </div>
+
+                                <div class="modal-body">
+                                    <iframe width="880" height="400" src="<?php echo $ImageUrl ;?>filemanager/dialog.php?type=1&field_id=image&rootfldr=<?php echo $website_folder_name?>/" frameborder="0" style="overflow: scroll; overflow-x: hidden; overflow-y: scroll; "></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Delete Modal -->
+                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    Confirm Delete
+                                </div>
+
+                                <div class="modal-body">
+                                    <p>You are about to delete this Image</p>
+                                    <p>Do you want to proceed?</p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <?php
+                                    echo form_button(array(
+                                        'type'         => 'button',
+                                        'class'        => 'btn btn-default',
+                                        'data-dismiss' => 'modal',
+                                        'content'      => 'Cancel'
+                                    ));
+                                    ?>
+                                    <a class="btn btn-danger" id="btn_ok">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 									<div class="form-group">
                                         <?php
 											echo form_label(

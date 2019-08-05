@@ -1544,15 +1544,20 @@ class Email_blast extends MX_Controller
          $data['id'] = $template[0]->id;
          $data['template_name'] = $template[0]->template_name;
          $data['template'] = $template[0]->template;
+         $data['image']=$template[0]->image;
          $data['status'] = $template[0]->status;
        else:
          $data['id'] = "";
          $data['template_name'] = "";
          $data['template'] = "";
+         $data['image']="";
         $data['status'] = "";
        endif;
  
        $data['website_id'] = $this->admin_header->website_id();
+       $data['httpUrl'] = $this->admin_header->host_url();
+	  	$data['ImageUrl'] = $this->admin_header->image_url();
+	  	$data['website_folder_name'] = $this->admin_header->website_folder_name();
        $data['title'] = ($id != null) ? 'Edit Template' : 'Add Template' . ' | Administrator';
        $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Template';
        $data['ImageUrl'] = $this->admin_header->image_url();
