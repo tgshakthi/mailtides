@@ -322,7 +322,7 @@ class Email_blast_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->where(array(
-            'campaign_id'=>$camapign_id,
+            'campaign_id'=>$campaign_id,
             'status'=>'1'
         ));
         $query   = $this->db->get('email_track');
