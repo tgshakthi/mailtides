@@ -42,7 +42,7 @@
 
 							// Form Tag
 							echo form_open_multipart(
-								'introduction/insert_update_email_template',
+								'email_blast/insert_update_email_template',
 								'class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate'
 							);
 
