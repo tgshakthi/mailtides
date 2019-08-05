@@ -151,7 +151,7 @@
 <!-- page content -->
 
 <style>
-.sorting_desc select {
+.#filters th select {
 	color: black !important;
 }
 </style>
