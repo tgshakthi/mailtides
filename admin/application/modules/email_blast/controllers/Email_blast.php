@@ -651,11 +651,13 @@ class Email_blast extends MX_Controller
             $email_subject = $this->input->post('subject');
 
             $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
+			$campaign_users = explode(",",$get_users[0]->campaign_users);
+			
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
            
-            foreach ($get_users as $get_user) :
-              
+            foreach ($campaign_users as $get_users) :
+              $get_user = $this->Email_blast_model->get_users_by_id($get_users);
               // if ($get_user->status == '1'):
                 
                 $track_code = md5(rand());                    
@@ -731,7 +733,7 @@ class Email_blast extends MX_Controller
                                                             <td align="left" class="esd-block-text es-p15b">
                                                               <h2
                                                                 style="color: rgb(102, 0, 51); font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif;font-size: 21px;font-weight: 600;">
-                                                                Dear '. $get_user->name .',</h2>
+                                                                Dear '. $get_user[0]->name .',</h2>
                                                             </td>
                                                           </tr>
                                                           <tr>
@@ -740,7 +742,7 @@ class Email_blast extends MX_Controller
                                                                 style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
                                                                 Thank you for visiting Digestive & Liver Disease Consultants, P.A . Your
                                                                 wellbeing is very important to us. To help serve you and others more
-                                                                effectively, please take a moment to let us know about your experience on <strong>'. $get_user->visited_date .'</strong>.
+                                                                effectively, please take a moment to let us know about your experience on <strong>'. $get_user[0]->visited_date .'</strong>.
                                                               </pre>
                                                             </td>
                                                           </tr>
@@ -760,19 +762,19 @@ class Email_blast extends MX_Controller
                                                              if($template_id=='1'):
                                                            
                                                                $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-                                                                    <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user->id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+                                                                    <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
                                                                     Digestive & Liver Disease Consultants, P.A.  Reviews
                                                                     </a>
                                                                  </td>';
                                                              elseif($template_id=='2'):
                                                               $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
-                                                              <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user->id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+                                                              <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
                                                                 Google
                                                               </a>
                                                            </td>';
                                                               else:
                                                                 $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#3b5998">
-                                                                <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user->id.'&type=facebook" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+                                                                <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'&type=facebook" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
                                                                   Facebook
                                                                 </a>
                                                              </td>';
@@ -839,7 +841,7 @@ class Email_blast extends MX_Controller
                     $mail->clearAddresses();
 
                      // Add a recipient
-                    $mail->addAddress($get_user->email);
+                    $mail->addAddress($get_user[0]->email);
                     
                     
                     // $this->email->clear();
@@ -853,7 +855,7 @@ class Email_blast extends MX_Controller
                         echo 'Mailer Error: ' . $mail->ErrorInfo;
                     } else {
 
-                        $this->Email_blast_model->insert_track($campaign_id, $get_user->id, $get_user->name, $get_user->email, $get_user->visited_date, $track_code, $email_subject, $from_name, $from_email);
+                        $this->Email_blast_model->insert_track($campaign_id, $get_user[0]->id, $get_user[0]->name, $get_user[0]->email, $get_user[0]->visited_date, $track_code, $email_subject, $from_name, $from_email);
                     }
                     $this->session->set_flashdata('success', 'Mail sent Successfully.');
                 // else:

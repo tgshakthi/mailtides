@@ -414,7 +414,7 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function () {
-	$(this).addClass('loader');
+	$('#loader').addClass('loader');
 	window.setTimeout(function () {
 		$('#loader').removeClass('loader hidden').addClass('done');
 
@@ -423,26 +423,40 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	$('#datatable-email-tracking').DataTable({
-		initComplete: function () {
-			this.api().columns().every(function () {
-				var column = this;
-				var select = $('<select><option value=""></option></select>')
-					.appendTo($(column.footer()).empty())
-					.on('change', function () {
-						var val = $.fn.dataTable.util.escapeRegex(
-							$(this).val()
-						);
+	$('#datatable-email-tracking').DataTable();
 
-						column
-							.search(val ? '^' + val + '$' : '', true, false)
-							.draw();
-					});
+	// Clone Previous Row for filter input
+	// $('#datatable-email-tracking>thead>tr')
+	// 	.clone(true)
+	// 	.appendTo('#datatable-email-tracking thead');
 
-				column.data().unique().sort().each(function (d, j) {
-					select.append('<option value="' + d + '">' + d + '</option>')
-				});
-			});
-		}
-	});
+	// $('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
+	// 	var title = $(this).text();
+	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
+	// 		$(this).html(
+	// 			'<input type="text" placeholder="Search ' + title + '" />'
+	// 		);
+	// 		$('input', this).on('keyup change', function () {
+	// 			if (table.column(i).search() !== this.value) {
+	// 				table
+	// 					.column(i)
+	// 					.search(this.value)
+	// 					.draw();
+	// 			}
+	// 		});
+	// 	}
+
+
+	// 	var select = $('<select><option value=""></option></select>')
+	// 		.appendTo($(this).empty())
+	// 		.on('change', function () {
+	// 			table.column(i)
+	// 				.search($(this).val())
+	// 				.draw();
+	// 		});
+
+	// 	table.column(i).data().unique().sort().each(function (d, j) {
+	// 		select.append('<option value="' + d + '">' + d + '</option>')
+	// 	});
+	// });
 });

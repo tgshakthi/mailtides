@@ -31,6 +31,21 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;      
     }
+	// Get Users by id
+    function get_users_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+							'id' => $id,
+							'is_deleted' => '0'
+						));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;      
+    }
 
     // Get Existing Users
     function get_existing_users()
