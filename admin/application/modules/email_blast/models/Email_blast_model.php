@@ -470,7 +470,12 @@ class Email_blast_model extends CI_Model
 							'is_deleted' => '0'
 						));
         $query   = $this->db->get($this->table_campaign_type);
-
+		 $records = array();
+         if ($query->num_rows() > 0):
+             $records = $query->result();
+         endif;
+         return $records;
+	}
      // Get Template
      function get_email_template()
      {
@@ -529,7 +534,6 @@ class Email_blast_model extends CI_Model
      function insert_update_email_template($id=null)
      {
        
-      
          $status = $this->input->post('status');
          $status = (isset($status)) ? '1' : '0';
          if ($id == NULL):
@@ -562,5 +566,4 @@ class Email_blast_model extends CI_Model
          endif;
  
      }
- 
 }
