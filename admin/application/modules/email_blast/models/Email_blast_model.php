@@ -641,11 +641,15 @@ class Email_blast_model extends CI_Model
     {
         $campaign_name = $this->input->post('campaign_name');
         $campaign_desc = $this->input->post('campaign_desc');
+        $campaign_type = $this->input->post('campaign_type');
+        $send_date = $this->input->post('send_date');
         $campaign_users = implode(',', $this->input->post('user_id'));
 
         $insert_array = array(
             'campaign_name' => $campaign_name,
             'description' => $campaign_desc,
+            'campaign_type' => $campaign_type,
+            'send_date' => $send_date,
             'campaign_users' => $campaign_users
         );
 
