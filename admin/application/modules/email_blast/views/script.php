@@ -73,7 +73,9 @@
 
     							var val = $(this).val();
 
-    							console.log(column.search());
+                                console.log(column.search());
+                                
+                                console.log('^' + val + '$');
 
     							column
     								//.search(val ? '^' + val + '$' : '', true, false)
