@@ -1596,7 +1596,7 @@ class Email_blast extends MX_Controller
        redirect($url);
      }
  
-     function delete_template()
+     function delete_eamil_template()
      {
        $this->Email_blast_model->delete_template_data();
         $this->session->set_flashdata('success', 'Successfully Deleted');
