@@ -83,7 +83,23 @@ $(document).ready(function() {
 
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
-		var tableTwo = $('#datatable-campaign-users').DataTable();
+        var tableTwo = $('#datatable-campaign-users').DataTable();
+        
+        // Datepicker for Campaign
+        $('#min-campaign-users').datepicker({
+			onSelect: function() {
+				tableTwo.draw();
+			},
+			changeMonth: true,
+			changeYear: true
+		});
+		$('#max-campaign-users').datepicker({
+			onSelect: function() {
+				tableTwo.draw();
+			},
+			changeMonth: true,
+			changeYear: true
+		});
 
 		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 			var min = $('#min-campaign-users').datepicker('getDate');
@@ -124,20 +140,7 @@ $(document).ready(function() {
 				});
 			}
 		});
-		$('#min-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-		$('#max-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
+		
 		// Event listener to the two range filtering inputs to redraw on input
 		$('#min-campaign-users, #max-campaign-users').change(function() {
 			tableTwo.draw();
