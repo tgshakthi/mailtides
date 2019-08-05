@@ -75,7 +75,6 @@
 								<form class="form-horizontal form-label-left">
 									<input type="hidden" name="base-url" id="base-url" value="<?php echo base_url();?>">						
 
-<<<<<<< HEAD
 					<?php if ($this->session->flashdata('success')!='') : // Display session data ?>
 					<div class="alert alert-success alert-dismissible fade in text-center" id="success-alert" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -156,14 +155,12 @@
 												'value'    => $campaign_name
 											));
 										?>
-=======
 									<div class="form-group">
 
 										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="campaign-name">
 											Campaign Name 
 											<span class="required">*</span>
 										</label>
->>>>>>> 4fd15703ccfd76aba0bc31074759275cbfaca982
 
 										<div class="col-md-6 col-sm-6 col-xs-12">
 											<input type="text" name="campaign_name" id="campaign-name" required="required" class="form-control col-md-7 col-xs-12">
