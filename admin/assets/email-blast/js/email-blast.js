@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if ($('#datatable-campaign-users').length) {
+	if ($('#datatable-buttons').length) {
 		// Datatable - One ( Master Campaign )
 		var table = $('#datatable-buttons').DataTable({
 			dom: 'Bfrtip',
