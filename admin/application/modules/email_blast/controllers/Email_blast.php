@@ -1370,7 +1370,7 @@ class Email_blast extends MX_Controller
         //   endif;
         echo $get_email_track;
           
-        }
+        // }
   
         // Sent Status
         // if (!empty($get_email_track)) {
