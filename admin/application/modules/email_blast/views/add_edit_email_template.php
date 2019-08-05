@@ -113,15 +113,15 @@
 
 												<?php
 
-                        // label
-                        echo form_label(
+                            // label
+                                echo form_label(
                             'Image',
                             'imgInp',
                             'class="control-label col-md-3 col-sm-3 col-xs-12"'
-                        );
-                        ?>
+                             );
+                            ?>
 
-                        <div class="img-thumbnail sepH_a" id="show_image1">
+                           <div class="img-thumbnail sepH_a" id="show_image1">
                             <?php
                             if ($image != '') :
                               $image = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $image;
@@ -145,9 +145,9 @@
 
                             endif;
                             ?>
-                        </div>
+                          </div>
 
-                        <div style="display:none" class="img-thumbnail sepH_a" id="show_image2">
+                           <div style="display:none" class="img-thumbnail sepH_a" id="show_image2">
                             <?php
                             echo img(array(
                                 'src'   => $ImageUrl.'images/noimage.png',
@@ -156,41 +156,41 @@
                                 'style' => 'width:168px; height:114px'
                             ));
                             ?>
-                        </div>
+                          </div>
 
-                        <?php
-                        echo form_input(array(
+                           <?php
+                           echo form_input(array(
                             'type'  => 'hidden',
                             'name'  => 'image',
                             'id'    => 'image',
                             'value' => $image
-                        ));
+                            ));
 
-                        echo form_input(array(
+                          echo form_input(array(
                             'type'  => 'hidden',
                             'name'  => 'image_url',
                             'id'    => 'image_url',
                             'value' => $ImageUrl
-                        ));
+                          ));
 
-                        echo form_input(array(
+                          echo form_input(array(
                             'type'  => 'hidden',
                             'name'  => 'httpUrl',
                             'id'    => 'httpUrl',
                             'value' => $httpUrl
-                        ));
-                        ?>
+                          ));
+                         ?>
 
-                        <a data-toggle="modal" class="btn btn-primary" data-target="#ImagePopUp" href="javascript:;" type="button">
+                          <a data-toggle="modal" class="btn btn-primary" data-target="#ImagePopUp" href="javascript:;" type="button">
                             Select Image
-                        </a>
+                          </a>
 
-                        <?php if($image != "") :?>
-                        <a data-toggle="modal" class="btn btn-primary" id="imageRemove" data-target="#confirm-delete" href="javascript:;">
+                          <?php if($image != "") :?>
+                          <a data-toggle="modal" class="btn btn-primary" id="imageRemove" data-target="#confirm-delete" href="javascript:;">
                             Remove Image
-                        </a>
-                        <?php endif;?>
-                    </div>
+                          </a>
+                           <?php endif;?>
+                      </div>
 
                     <!-- FileManager -->
                     <div class="modal fade" id="ImagePopUp">

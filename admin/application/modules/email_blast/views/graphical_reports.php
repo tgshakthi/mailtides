@@ -12,7 +12,44 @@
               <div class="clearfix"></div>
             </div>
 
-            <div class="row">            
+            <div class="row">       
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                 	<div class="x_panel">
+
+							     	<div class="x_title">
+								     	<?php
+									    	echo heading('Details', '2');
+									    	$list = array('<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>');
+										    $attributes = array('class' => 'nav navbar-right panel_toolbox');
+										    echo ul($list,$attributes);
+									     ?>
+									       <div class="clearfix"></div>
+							     	</div>
+
+								    <div class="x_content">
+                    <div class="form-group">
+                          <label for="campaign-id" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                  Select Campaign
+												  </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+												     <input type="hidden" id="hidden-selected-id">
+                              <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_id" required="required"  >
+                                  <option value="">Select Campaign</option>                                                   
+													            <?php foreach($campaign_details as $campaign):
+													          ?>
+													        <option value="<?php echo $campaign->id ?>"><?php echo $campaign->campaign_name; ?></option>
+													           <?php endforeach; ?>
+                              </select>
+                          </div>
+                                    
+									</div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>     
 
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">                  
