@@ -308,7 +308,12 @@ $(document).ready(function () {
 	var baseUrl = $('#base-url').val();
 	$('#wizard').smartWizard({
 		autoAdjustHeight: true, // Automatically adjust content height
+		onFinish: onFinishCallback
 	});
+
+	function onFinishCallback() {
+		alert('testing');
+	}
 
 	// Add classes to buttons
 	$('.buttonNext').addClass('btn btn-success'),
