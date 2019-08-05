@@ -108,6 +108,28 @@
 											echo form_textarea($data);
 										?>
                                     </div>
+									<div class="form-group">
+                                        <?php
+											echo form_label(
+												'Status',
+												'status',
+												'class="control-label col-md-3 col-sm-3 col-xs-12"'
+											);
+										?>
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <?php
+												// Input checkbox
+												echo form_checkbox(array(
+													'id'      => 'status',
+													'name'    => 'status',
+													'class'   => 'js-switch',
+													'checked' => ($status === '1') ? TRUE : FALSE,
+													'value'   => $status
+												));
+											?>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
