@@ -14,7 +14,11 @@ class Email_blast_model extends CI_Model
     private $table_track = 'email_track';
     private $table_campaign = 'campaign';
     private $table_campaign_users = 'campaign_users';
+<<<<<<< HEAD
 	private $table_campaign_type = 'campaign_type';
+=======
+    private $table_template ='email_template';
+>>>>>>> 5b7b2c98276b50a64d7c8285eb5faa668c0b4451
 
 
     // Get Users
@@ -459,6 +463,7 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
+<<<<<<< HEAD
 	
 	 // Get Campaign Type
     function get_campaign_type($website_id)
@@ -469,10 +474,101 @@ class Email_blast_model extends CI_Model
 							'is_deleted' => '0'
 						));
         $query   = $this->db->get($this->table_campaign_type);
+=======
+     // Get Template
+     function get_email_template()
+     {
+         $this->db->select('*');
+         $this->db->where(array(
+            'is_deleted' => '0'
+         ));
+         $query   = $this->db->get($this->table_template);
+         $records = array();
+         if ($query->num_rows() > 0):
+             $records = $query->result();
+         endif;
+         return $records;
+     }
+
+     // Get Campaign By Id
+    function get_email_template_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+            'id' => $id,
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_template);
+>>>>>>> 5b7b2c98276b50a64d7c8285eb5faa668c0b4451
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
         endif;
         return $records;
     }
+<<<<<<< HEAD
+=======
+
+
+     function delete_template_data()
+     {
+         $id   = $this->input->post('id');
+         $data = array(
+             'is_deleted' => '1'
+         );
+         $this->db->where('id', $id);
+         return $this->db->update($this->table_template, $data);
+     }
+     
+     // Delete multiple user
+     function delete_multiple_template_data()
+     {
+         $ids = $this->input->post('table_records');
+         foreach ($ids as $media_id):
+             $data = array(
+                 'is_deleted' => '1'
+             );
+             $this->db->where('id', $media_id);
+             $this->db->update($this->table_template, $data);
+         endforeach;
+     }
+ 
+     function insert_update_email_template($id=null)
+     {
+       
+      
+         $status = $this->input->post('status');
+         $status = (isset($status)) ? '1' : '0';
+         if ($id == NULL):
+ 
+             // insert data
+ 
+             $insert_data = array(
+             
+                 'template_name' => $this->input->post('template_name') ,
+                  'template'=>$this->input->post('template'),
+               
+                 'status' => $status
+             );
+           $this->db->insert($this->table_template, $insert_data);
+           return $this->db->insert_id();
+            else:
+ 
+             // Update data
+ 
+             $update_data = array(
+                 
+                 'template_name' => $this->input->post('template_name') ,
+                  'template'=>$this->input->post('template'),
+                  'status' => $status
+             );
+       // Update
+ 
+             $this->db->where('id', $id);
+             return $this->db->update($this->table_template, $update_data);
+         endif;
+ 
+     }
+ 
+>>>>>>> 5b7b2c98276b50a64d7c8285eb5faa668c0b4451
 }
