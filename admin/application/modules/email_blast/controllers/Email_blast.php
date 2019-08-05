@@ -1628,7 +1628,13 @@ class Email_blast extends MX_Controller
        redirect('email_blast/email_template');
      }
     }
-	
+  
+    
+	function remove_email_template_image()
+	{
+		$this->Email_blast_model->remove_eamil_template_image();
+		echo '1';
+	}
 	 // Campaign Type
     function campaign_type()
     {

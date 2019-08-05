@@ -298,35 +298,93 @@ $(document).ready(function () {
 			}
 		}
 	});
+
+
+
 });
 
 // Smart Wizard
 $(document).ready(function () {
 	var baseUrl = $('#base-url').val();
-	$('#wizard').smartWizard('fixHeight');
+	$('#wizard').smartWizard({
+		autoAdjustHeight: true, // Automatically adjust content height
+		lang: { // Language variables
+			next: 'Next',
+			previous: 'Previous'
+		},
+		toolbarSettings: {
+			toolbarPosition: 'bottom', // none, top, bottom, both
+			toolbarButtonPosition: 'right', // left, right
+			showNextButton: true, // show/hide a Next button
+			showPreviousButton: true, // show/hide a Previous button
+			toolbarExtraButtons: [
+				$('<button></button>').text('Save')
+				.addClass('btn btn-info')
+				.on('click', function () {
+					alert('Finsih button click');
+				}),
+				$('<button></button>').text('Cancel')
+				.addClass('btn btn-danger')
+				.on('click', function () {
+					alert('Cancel button click');
+				})
+			]
+		},
+	});
 
 	// Add classes to buttons
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
 		$('.buttonFinish').addClass('btn btn-default');
 });
-// CKEDITOR.replace("text", {
-//     toolbarGroups: [{
-//         name: "basicstyles",
-//         groups: ["basicstyles"]
-//     }, {
-//         name: "styles",
-//         groups: ["styles"]
-//     }, {
-//         name: "about",
-//         groups: ["about"]
-//     }],
-//     extraPlugins: "wordcount",
-//     wordcount: {
-//         showCharCount: !0,
-//         showWordCount: !0,
-//         maxCharCount: 180
-//     },
-// 	removeButtons: "Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar",
-// 	allowedContent = true
-// });
+
+$(document).ready(function () {
+	// Logo Preview
+	$(function () {
+		$('#image').observe_field(1, function () {
+			var image_url = $('#image_url').val();
+			var httpUrl = $('#httpUrl').val();
+			var res = this.value.replace(image_url, "");
+			$("#image").val(res);
+			var res1 = res.replace(httpUrl + '/images/', "thumbs/");
+			$('#image_preview').attr('src', image_url + res1).show();
+			if (res1.length == 0) {
+				$('#image_preview2').attr('src', image_url + 'images/no-logo.png');
+			} else {
+				$('#image_preview2').attr('src', image_url + res1);
+			}
+		});
+	});
+	// Remove logo
+	$('#btn_ok').click(function () {
+		var id = $('#text-image-id').val();
+		var image_url = $('#image_url').val();
+		var siteUrl = image_url.replace('assets/', 'admin/');
+		$.ajax({
+			type: 'POST',
+			url: siteUrl + 'email_blast/remove_email_template_image',
+			data: {
+				id: id
+			},
+			cache: false,
+			success: function (data) {
+				$('#image').val("");
+				$('#show_image1').hide();
+				$('#show_image2').show();
+				$('#imageRemove').hide();
+				$('#confirm-delete').modal('hide');
+				$('#image_preview2').attr('src', image_url + 'images/no-logo.png');
+				if (data == 1) {
+					new PNotify({
+						title: 'Image Deleted',
+						text: 'Just to let you know, Logo Deleted Successfully.',
+						type: 'info',
+						styling: 'bootstrap3'
+					});
+				}
+			}
+		});
+	});
+
+
+});
