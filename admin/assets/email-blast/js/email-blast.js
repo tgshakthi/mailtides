@@ -398,12 +398,12 @@ $(document).ready(function () {
 				$('#confirm-delete').modal('hide');
 				$('#image_preview2').attr('src', image_url + 'images/no-logo.png');
 				if (data == 1) {
-					new PNotify({
-						title: 'Image Deleted',
-						text: 'Just to let you know, Logo Deleted Successfully.',
-						type: 'info',
-						styling: 'bootstrap3'
-					});
+					// new PNotify({
+					// 	title: 'Image Deleted',
+					// 	text: 'Just to let you know, Logo Deleted Successfully.',
+					// 	type: 'info',
+					// 	styling: 'bootstrap3'
+					// });
 				}
 			}
 		});
@@ -413,18 +413,11 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function () {
-	$(this).addClass('loader');
+	$('#loader').addClass('loader');
 	window.setTimeout(function () {
 		$('#loader').removeClass('loader hidden').addClass('done');
 
 	}, 3000);
-	$('#btn').click(function () {
-		$('#loader').addClass('loader');
-		window.setTimeout(function () {
-			$('#loader').removeClass('loader hidden').addClass('done');
-
-		}, 3000);
-	});
 });
 
 // Email Tracking Datatable Filter
