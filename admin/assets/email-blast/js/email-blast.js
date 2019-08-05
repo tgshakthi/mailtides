@@ -531,13 +531,15 @@ if ($('#datatable-email').length) {
 					var select = $('<select><option value=""></option></select>')
 						.appendTo($("#filters").find("th").eq(column.index()))
 						.on('change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
+							// var val = $.fn.dataTable.util.escapeRegex(
+							// 	$(this).val()
+							// );
 
-							var test = column
+							var val = $(this).val();
+
+							column
 								//.search(val ? '^' + val + '$' : '', true, false)
-								.search($(this).val())
+								.search(val, true, false)
 								.draw();
 
 							console.log(test);
