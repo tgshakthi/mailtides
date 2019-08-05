@@ -158,69 +158,69 @@ $(document).ready(function() {
 
 // Table Two - Campaign
 $(document).ready(function() {
-	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-		var min = $('#min-campaign-users').datepicker('getDate');
-		var max = $('#min-campaign-users').datepicker('getDate');
-		var startDate = new Date(data[3]);
-		if (min == null && max == null) {
-			return true;
-		}
-		if (min == null && startDate <= max) {
-			return true;
-		}
-		if (max == null && startDate >= min) {
-			return true;
-		}
-		if (startDate <= max && startDate >= min) {
-			return true;
-		}
-		return false;
-	});
+	// $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+	// 	var min = $('#min-campaign-users').datepicker('getDate');
+	// 	var max = $('#min-campaign-users').datepicker('getDate');
+	// 	var startDate = new Date(data[3]);
+	// 	if (min == null && max == null) {
+	// 		return true;
+	// 	}
+	// 	if (min == null && startDate <= max) {
+	// 		return true;
+	// 	}
+	// 	if (max == null && startDate >= min) {
+	// 		return true;
+	// 	}
+	// 	if (startDate <= max && startDate >= min) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// });
 
 	var tableTwo = $('#datatable-campaign-users').DataTable();
 
 	// Table Two
-	$('#datatable-campaign-users>thead>tr')
-		.clone(true)
-		.appendTo('#datatable-campaign-users thead');
+	// $('#datatable-campaign-users>thead>tr')
+	// 	.clone(true)
+	// 	.appendTo('#datatable-campaign-users thead');
 
-	$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
-		var title = $(this).text();
+	// $('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
+	// 	var title = $(this).text();
 
-		if (title.length > 0 && title != 'S.No') {
-			$(this).html('<input type="text" placeholder="Search ' + title + '" />');
+	// 	if (title.length > 0 && title != 'S.No') {
+	// 		$(this).html('<input type="text" placeholder="Search ' + title + '" />');
 
-			$('input', this).on('keyup change', function() {
-				console.log(this.value);
-				if (tableTwo.column(i).search() !== this.value) {
-					tableTwo
-						.column(i)
-						.search(this.value)
-						.draw();
-				}
-			});
-		}
-	});
+	// 		$('input', this).on('keyup change', function() {
+	// 			console.log(this.value);
+	// 			if (tableTwo.column(i).search() !== this.value) {
+	// 				tableTwo
+	// 					.column(i)
+	// 					.search(this.value)
+	// 					.draw();
+	// 			}
+	// 		});
+	// 	}
+	// });
 
-	$('#min-campaign-users').datepicker({
-		onSelect: function() {
-			tableTwo.draw();
-		},
-		changeMonth: true,
-		changeYear: true
-	});
-	$('#max-campaign-users').datepicker({
-		onSelect: function() {
-			tableTwo.draw();
-		},
-		changeMonth: true,
-		changeYear: true
-	});
+	// $('#min-campaign-users').datepicker({
+	// 	onSelect: function() {
+	// 		tableTwo.draw();
+	// 	},
+	// 	changeMonth: true,
+	// 	changeYear: true
+	// });
+	// $('#max-campaign-users').datepicker({
+	// 	onSelect: function() {
+	// 		tableTwo.draw();
+	// 	},
+	// 	changeMonth: true,
+	// 	changeYear: true
+	// });
 
-	// Event listener to the two range filtering inputs to redraw on input
-	$('#min-campaign-users, #max-campaign-users').change(function() {
-		tableTwo.draw();
-	});
+	// // Event listener to the two range filtering inputs to redraw on input
+	// $('#min-campaign-users, #max-campaign-users').change(function() {
+	// 	tableTwo.draw();
+	// });
 });
 
 $('#preview_template').click(function() {
