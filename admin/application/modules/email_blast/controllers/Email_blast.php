@@ -298,10 +298,14 @@ class Email_blast extends MX_Controller
         $campaign = $this->Email_blast_model->get_campaign_by_id($id);
         $data['id'] = $campaign[0]->id;
         $data['campaign_name'] = $campaign[0]->campaign_name;
+        $data['description'] = $campaign[0]->description;
+        $data['template'] = $campaign[0]->template_id;
         $data['status'] = $campaign[0]->status;
       else:
         $data['id'] = "";
         $data['campaign_name'] = "";
+        $data['description'] = "";
+        $data['template'] = "";
         $data['status'] = "";
       endif;
 
