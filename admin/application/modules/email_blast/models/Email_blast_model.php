@@ -583,7 +583,7 @@ class Email_blast_model extends CI_Model
 
 	 function insert_update_campaign_type($id=null)
      {
-		$website_id =  $this->input->post('website_id')
+		$website_id =  $this->input->post('website_id');
         $status = $this->input->post('status');
         $status = (isset($status)) ? '1' : '0';
          if ($id == NULL):
