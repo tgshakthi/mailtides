@@ -551,10 +551,8 @@ class Email_blast extends MX_Controller
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
       if(!empty($data['campaign_details'])):
         $email_template=$this->Email_blast_model->get_email_template_by_id(  $data['campaign_details'][0]->template_id);
-        echo"<pre>";
-        print_r( $email_template);
       
-        $data['preview_image']="";
+        $data['preview_image']= $email_template[0]->image;
       else:
         $data['preview_image']="";
       endif;
