@@ -105,6 +105,9 @@ $(document).ready(function() {
 			var minTwo = $('#min-campaign-users').datepicker('getDate');
 			var maxTwo = $('#min-campaign-users').datepicker('getDate');
 			var startDateTwo = new Date(data[3]);
+
+			alert(startDateTwo);
+
 			if (minTwo == null && maxTwo == null) {
 				return true;
 			}
