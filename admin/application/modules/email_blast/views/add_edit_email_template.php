@@ -58,7 +58,7 @@
 						?>
 
                         <!-- <div class="col-md-6 offset-md-3"> -->
-						<div class="col-md-6 col-sm-6 offset-md-3">
+						<div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
 
@@ -76,13 +76,13 @@
 
                                     <div class="form-group">
                                         <?php
-											echo form_label('Template Name','template_name');
+											echo form_label('Template Name','template_name','class="control-label col-md-3 col-sm-3 col-xs-12"');
 
 											// Input tag
 											echo form_input(array(
 											'id'       => 'template_name',
 											'name'     => 'template_name',
-											'class'    => 'form-control',
+											'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
 											'value'    => $template_name
 											));
 										?>
@@ -90,12 +90,13 @@
 
                                     <div class="form-group">
                                         <?php
-											echo form_label('Template <span class="required">*</span>','template');
+											echo form_label('Template <span class="required">*</span>','template','class="control-label col-md-3 col-sm-3 col-xs-12"');
 
 											// TextArea
 											$data = array(
 											'name'        => 'template',
 											'id'          => 'template',
+											'class'       => 'form-control col-md-6 col-sm-6 col-xs-12',
 											'value'       => $template
 											);
 
