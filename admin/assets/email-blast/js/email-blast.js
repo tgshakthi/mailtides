@@ -289,7 +289,7 @@ function campaign(e) {
 			           '<textarea id="mail-google" style="display: none">'+sent+'</textarea>'+
 			            '<textarea id="mail-facebook" style="display: none">'+posted+'</textarea>'+
 						'<textarea id="mail-sent" style="display: none">'+not_posted+'</textarea>';
-						$('#text_area').html(html);
+						aler($('#text_area').html(html));
 
 		}
 	});
