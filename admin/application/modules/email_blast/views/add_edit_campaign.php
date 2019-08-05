@@ -102,12 +102,13 @@
 										<label for="campaign-type" class="control-label col-md-3 col-sm-3 col-xs-12">
 											Campaign Type
 										</label>
-
-										<select name="campaign-type" id="campaign-type" class="form-control">
-											<?php foreach (($campaign_type ? $campaign_type : array()) as $camp_type) :?>
-											<option value="<?php echo $camp_type->id;?>"><?php echo $camp_type->campaign_type;?></option>
-											<?php endforeach;?>
-										</select>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<select name="campaign-type" id="campaign-type" class="form-control">
+												<?php foreach (($campaign_type ? $campaign_type : array()) as $camp_type) :?>
+												<option value="<?php echo $camp_type->id;?>"><?php echo $camp_type->campaign_type;?></option>
+												<?php endforeach;?>
+											</select>
+										</div>
 									</div>							
 
 
