@@ -1421,7 +1421,7 @@ class Email_blast extends MX_Controller
       $data['facebook']=$campaign_id['facebook'];
       $data['sent']=$campaign_id['sent'];
       $data['posted']=$campaign_id['posted'];
-      $data['not_posted']$campaign_id['not_posted'];
+      $data['not_posted']=$campaign_id['not_posted'];
     
       // $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id($campaign_id);
     
