@@ -299,20 +299,14 @@ function campaign(e) {
 		cache: false,
 		success: function (data) {
 
-			var test = JSON.parse(data);
-			console.log(test);
+			var campaignData = JSON.parse(data);
 
-			//var html = '<textarea id="mail-opened" style="display: none">' + opened + '</textarea>' +
-			// '<textarea id="mail-unopened" style="display: none">' + not_opened + ' </textarea>' +
-			// '<textarea id="mail-comments-posted" style="display: none">' + txgidocs + '</textarea>' +
-			// '<textarea id="mail-comments-not-posted" style="display: none">' + google + '</textarea>' +
-			// '<textarea id="mail-txgidocs" style="display: none">' + facebook + '</textarea>' +
-			// '<textarea id="mail-google" style="display: none">' + sent + '</textarea>' +
-			// '<textarea id="mail-facebook" style="display: none">' + posted + '</textarea>' +
-			// '<textarea id="mail-sent" style="display: none">' + not_posted + '</textarea>';
-			//$('#text_area').html(html);
-
-
+			$('#mail-comments-posted').val(campaignData.posted);
+			$('#mail-comments-not-posted').val(campaignData.not_posted);
+			$('#mail-txgidocs').val(campaignData.txgidocs);
+			$('#mail-google').val(campaignData.google);
+			$('#mail-facebook').val(campaignData.facebook);
+			$('#mail-sent').val(campaignData.sent);
 		}
 	});
 }
