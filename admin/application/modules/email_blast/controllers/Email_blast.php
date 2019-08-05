@@ -1614,4 +1614,110 @@ class Email_blast extends MX_Controller
        redirect('email_blast/email_template');
      }
     }
+	
+	 // Campaign Type
+    function campaign_type()
+    {
+      $data['website_id'] = $this->admin_header->website_id();
+      $data['table']      = $this->get_campaign_type_table();
+      $data['heading']    = 'Campaign Type';
+      $data['title']      = "Campaign Type | Administrator";
+      $this->load->view('template/meta_head', $data);
+      $this->load->view('email_blast_header');
+      $this->admin_header->index();
+      $this->load->view('campaign_type', $data);
+      $this->load->view('template/footer_content');
+      $this->load->view('script');
+      $this->load->view('template/footer');
+    }
+
+    /**
+     * Campaign Type Table
+     */
+
+    function get_campaign_type_table()
+    {
+        
+      $website_id = $this->admin_header->website_id();
+      $get_campaign_type_data = $this->Email_blast_model->get_campaign_type();   
+      
+      foreach (($get_campaign_type_data ? $get_campaign_type_data : array()) as $get_campaign_type)
+      {
+          
+        $anchor_edit = anchor(site_url('email_blast/add_edit_campaign_type/' . $get_campaign_type->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+          'data-toggle' => 'tooltip',
+          'data-placement' => 'left',
+            'data-original-title' => 'Edit'
+        ));
+          
+        $anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+          'data-toggle' => 'tooltip',
+          'data-placement' => 'right',
+          'data-original-title' => 'Delete',
+          'onclick' => 'return delete_record(' . $get_campaign_type->id . ', \'' . base_url('email_blast/delete_campaign_type/' . $website_id) . '\')'
+        ));
+          
+        if ($get_campaign_type->status === '1') 
+        {
+          $status = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+        } 
+        else
+        {
+          $status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+        }    
+          
+        $cell = array(
+          'class' => 'last',
+          'data' =>  $anchor_edit.' '.$anchor_delete
+        );
+
+        $date = $get_campaign_type->created_at;
+      
+        $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_campaign_type->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_campaign_type->id . '">', $get_campaign_type->campaign_type, date("m-d-Y", strtotime($date)), $status, $cell);
+      }
+            
+      $template = array(
+        'table_open' => '<table
+        id="datatable-responsive"
+        class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+        width="100%" cellspacing="0">'
+        );
+
+      $this->table->set_template($template);
+      
+      // Table heading row
+      
+      $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Campaign Type', 'Date', 'Status', 'Action');
+      return $this->table->generate();
+    }
+
+    // Add/Edit Campaign Type
+    function add_edit_campaign_type($id = null)
+    {
+      $data['page_status'] = 1;
+
+      if ($id != null):
+        $campaign_type = $this->Email_blast_model->get_campaign_type_by_id($id);
+        $data['id'] = $campaign_type[0]->id;
+        $data['campaign_type'] = $campaign_type[0]->campaign_type;
+        $data['status'] = $campaign_type[0]->status;
+      else:
+        $data['id'] = "";
+        $data['campaign_type'] = "";
+        $data['status'] = "";
+      endif;
+
+      $data['website_id'] = $this->admin_header->website_id();
+      $data['title'] = ($id != null) ? 'Edit Campaign Type' : 'Add Campaign Type' . ' | Administrator';
+      $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign Type';
+    
+      $data['table'] = $this->get_table_campaign_users();
+      $this->load->view('template/meta_head', $data);
+      $this->load->view('email_blast_header');
+      $this->admin_header->index();
+      $this->load->view('add_edit_campaign_type', $data);
+      $this->load->view('template/footer_content');
+      $this->load->view('script');
+      $this->load->view('template/footer');
+    }
 }
