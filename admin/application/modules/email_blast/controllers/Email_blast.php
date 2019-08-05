@@ -1557,7 +1557,7 @@ class Email_blast extends MX_Controller
       $this->load->view('template/footer');
     }
   
-=======
+
    function email_template()
    {
     $data['website_id'] = $this->admin_header->website_id();
@@ -1716,5 +1716,5 @@ class Email_blast extends MX_Controller
        redirect('email_blast/email_template');
      }
     }
->>>>>>> 5b7b2c98276b50a64d7c8285eb5faa668c0b4451
+
 }
