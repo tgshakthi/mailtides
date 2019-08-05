@@ -649,12 +649,14 @@ class Email_blast extends MX_Controller
             $email_subject = $this->input->post('subject');
 
             $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
-			print_r($get_users);die;
+			$campaign_users = explode(",",$get_users[0]->campaign_users);
+			
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
            
-            foreach ($get_users as $get_user) :
-              
+            foreach ($campaign_users as $get_user) :
+              $get_users = $this->Email_blast_model->get_users_by_id($get_user);
+			  print_r($get_users);die;
               // if ($get_user->status == '1'):
                 
                 $track_code = md5(rand());                    
