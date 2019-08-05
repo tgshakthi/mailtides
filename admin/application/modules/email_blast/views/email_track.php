@@ -151,7 +151,7 @@
 <!-- page content -->
 
 <style>
-.#filters th select {
+#filters th select {
 	color: black !important;
 }
 </style>
