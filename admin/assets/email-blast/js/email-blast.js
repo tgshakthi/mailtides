@@ -309,3 +309,23 @@ $(document).ready(function() {
 		$('.buttonPrevious').addClass('btn btn-primary'),
 		$('.buttonFinish').addClass('btn btn-default');
 });
+CKEDITOR.replace("text", {
+    toolbarGroups: [{
+        name: "basicstyles",
+        groups: ["basicstyles"]
+    }, {
+        name: "styles",
+        groups: ["styles"]
+    }, {
+        name: "about",
+        groups: ["about"]
+    }],
+    extraPlugins: "wordcount",
+    wordcount: {
+        showCharCount: !0,
+        showWordCount: !0,
+        maxCharCount: 180
+    },
+	removeButtons: "Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar",
+	allowedContent = true
+});
