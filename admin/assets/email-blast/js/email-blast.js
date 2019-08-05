@@ -535,9 +535,11 @@ if ($('#datatable-email').length) {
 								$(this).val()
 							);
 
-							column
+							var test = column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
+
+							console.log(test);
 						});
 
 					console.log(select);
