@@ -280,6 +280,7 @@ function campaign(e) {
 		},
 		cache: false,
 		success: function (data) {
+			 alert(data);
 
 		}
 	});

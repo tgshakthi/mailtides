@@ -55,6 +55,8 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">                  
                   <div class="x_content">
+                  <div id="text_area">
+                  </div>
 
                     <textarea id="mail-opened" style="display: none">
                       <?php
