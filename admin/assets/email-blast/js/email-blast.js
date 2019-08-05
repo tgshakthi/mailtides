@@ -282,7 +282,7 @@ $('#preview_template').click(function () {
 				      var img =
 							'<img class="preview-template-img" src="' +
 							imageUrl +
-							'images/txgidocs/"'+ data+'>';
+							'images/txgidocs/'+ data+'">';
 						$('#preview-template-modal').modal('show');
 						$('#modal-body-img').html(img);
 					}
