@@ -1337,37 +1337,38 @@ class Email_blast extends MX_Controller
       $campaign_id=$this->input->post('campaign_id');
         $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
 
-        foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
+        // foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
 
-          // if status == 1
-          if ($email_track->status == '1'){
-            $opened[] = $email_track->status;
-          } else {
-            $not_opened[] = $email_track->status;
-          }
+        //   // if status == 1
+        //   if ($email_track->status == '1'){
+        //     $opened[] = $email_track->status;
+        //   } else {
+        //     $not_opened[] = $email_track->status;
+        //   }
   
-          // txgidocs
-          if ($email_track->txgidocs == '1') {
-            $txgidocs[] = $email_track->txgidocs;
-          } 
+        //   // txgidocs
+        //   if ($email_track->txgidocs == '1') {
+        //     $txgidocs[] = $email_track->txgidocs;
+        //   } 
   
-          // Google
-          if ($email_track->google == '1') {
-            $google[] = $email_track->google;
-          }
+        //   // Google
+        //   if ($email_track->google == '1') {
+        //     $google[] = $email_track->google;
+        //   }
   
-          // Facebook
-          if ($email_track->facebook == '1') {
-            $facebook[] = $email_track->facebook;
-          }
+        //   // Facebook
+        //   if ($email_track->facebook == '1') {
+        //     $facebook[] = $email_track->facebook;
+        //   }
   
-          // Comments Posted
-          $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
-          if( !empty($reviews_entry[0]->review_user_id)):
-            $comments_posted[] = $reviews_entry[0]->review_user_id;
-          else :
-            $comments_not_posted[] = $email_track->id;
-          endif;
+        //   // Comments Posted
+        //   $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
+        //   if( !empty($reviews_entry[0]->review_user_id)):
+        //     $comments_posted[] = $reviews_entry[0]->review_user_id;
+        //   else :
+        //     $comments_not_posted[] = $email_track->id;
+        //   endif;
+        echo $get_email_track;
           
         }
   
