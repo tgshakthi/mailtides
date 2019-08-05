@@ -148,6 +148,51 @@ $(document).ready(function () {
 
 	// Send Date Datepicker
 	$('#send-date').datepicker();
+
+	// Smart Wizard
+	var baseUrl = $('#base-url').val();
+	$('#wizard').smartWizard({
+		autoAdjustHeight: true, // Automatically adjust content height
+		onFinish: onFinishCallback
+	});
+
+	function onFinishCallback() {
+		var baseUrl = $('#base-url').val();
+		var campaignId = $('#campaign-id').val();
+		var campaignName = $('#campaign-name').val();
+		var campaignDesc = CKEDITOR.instances['text'].getData();
+		var campaignType = $('#campaign-type').val();
+		var sendDate = $('#send-date').val();
+
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+
+		if (values.length > 0) {
+			$.ajax({
+				method: 'POST',
+				url: baseUrl + 'email_blast/insert_campaign',
+				data: {
+					campaign_id: campaignId,
+					campaign_name: campaignName,
+					campaign_desc: campaignDesc,
+					campaign_type: campaignType,
+					send_date: sendDate,
+					user_id: values
+				},
+				success: function (data) {
+					console.log(data);
+				}
+			});
+		}
+	}
+
+	// Add classes to buttons
+	$('.buttonNext').addClass('btn btn-success'),
+		$('.buttonPrevious').addClass('btn btn-primary'),
+		$('.buttonFinish').addClass('btn btn-default').text('Save');
 });
 
 // Graphical Reports
@@ -305,20 +350,7 @@ $(document).ready(function () {
 
 // Smart Wizard
 $(document).ready(function () {
-	var baseUrl = $('#base-url').val();
-	$('#wizard').smartWizard({
-		autoAdjustHeight: true, // Automatically adjust content height
-		onFinish: onFinishCallback
-	});
 
-	function onFinishCallback() {
-		alert('testing');
-	}
-
-	// Add classes to buttons
-	$('.buttonNext').addClass('btn btn-success'),
-		$('.buttonPrevious').addClass('btn btn-primary'),
-		$('.buttonFinish').addClass('btn btn-default').text('Save');
 });
 
 $(document).ready(function () {
