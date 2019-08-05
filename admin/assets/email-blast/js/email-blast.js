@@ -413,40 +413,85 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	$('#datatable-email').DataTable();
+	$('#datatable-email-tracking').DataTable();
 
 	// Clone Previous Row for filter input
-	$('#datatable-email-tracking>thead>tr')
-		.clone(true)
-		.appendTo('#datatable-email-tracking thead');
+	// $('#datatable-email-tracking>thead>tr')
+	// 	.clone(true)
+	// 	.appendTo('#datatable-email-tracking thead');
 
-	$('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
-		var title = $(this).text();
-		if (title.length > 0 && title != 'Action' && title != 'Status') {
-			$(this).html(
-				'<input type="text" placeholder="Search ' + title + '" />'
-			);
-			$('input', this).on('keyup change', function () {
-				if (table.column(i).search() !== this.value) {
-					table
-						.column(i)
-						.search(this.value)
-						.draw();
-				}
-			});
-		}
+	// $('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
+	// 	var title = $(this).text();
+	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
+	// 		$(this).html(
+	// 			'<input type="text" placeholder="Search ' + title + '" />'
+	// 		);
+	// 		$('input', this).on('keyup change', function () {
+	// 			if (table.column(i).search() !== this.value) {
+	// 				table
+	// 					.column(i)
+	// 					.search(this.value)
+	// 					.draw();
+	// 			}
+	// 		});
+	// 	}
 
 
-		var select = $('<select><option value=""></option></select>')
-			.appendTo($(this).empty())
-			.on('change', function () {
-				table.column(i)
-					.search($(this).val())
-					.draw();
-			});
+	// 	var select = $('<select><option value=""></option></select>')
+	// 		.appendTo($(this).empty())
+	// 		.on('change', function () {
+	// 			table.column(i)
+	// 				.search($(this).val())
+	// 				.draw();
+	// 		});
 
-		table.column(i).data().unique().sort().each(function (d, j) {
-			select.append('<option value="' + d + '">' + d + '</option>')
-		});
-	});
+	// 	table.column(i).data().unique().sort().each(function (d, j) {
+	// 		select.append('<option value="' + d + '">' + d + '</option>')
+	// 	});
+	// });
 });
+
+
+//
+	if ($('#datatable-email').length) {
+		var table = $('#datatable-email').DataTable({
+			dom: 'Bfrtip',
+			buttons: [{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
+				}
+			}],
+			orderCellsTop: true,
+			responsive: !0
+		});
+
+		// Clone Previous Row for filter input
+		$('#datatable-email>thead>tr')
+			.clone(true)
+			.appendTo('#datatable-email thead');
+		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'Action' && title != 'Status') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		//Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
