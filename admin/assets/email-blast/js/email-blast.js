@@ -180,14 +180,14 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#min').datepicker({
+	$('#min-campaign-users').datepicker({
 		onSelect: function() {
 			tableTwo.draw();
 		},
 		changeMonth: true,
 		changeYear: true
 	});
-	$('#max').datepicker({
+	$('#max-campaign-users').datepicker({
 		onSelect: function() {
 			tableTwo.draw();
 		},
