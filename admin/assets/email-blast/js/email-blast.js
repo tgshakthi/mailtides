@@ -13,6 +13,7 @@ $(document).ready(function() {
 	});
 });
 
+// Graphical Reports
 if ($('#mybarChart').length) {
 	var f = document.getElementById('mybarChart');
 
@@ -76,7 +77,6 @@ if ($('#mybarChart').length) {
 }
 
 // Datatable
-
 $(document).ready(function() {
 	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 		var min = $('#min').datepicker('getDate');
@@ -134,26 +134,26 @@ $(document).ready(function() {
 	});
 
 	var table = $('#datatable-buttons').DataTable({
-		dom: 'Bfrtip',
-		buttons: [
-			{
-				extend: 'csvHtml5',
-				text: 'Export CSV',
-				filename: 'patient-files',
-				className: 'btn-sm',
-				exportOptions: {
-					columns: [1, 2, 3]
-				}
-			}
-		],
-		orderCellsTop: true,
+		// dom: 'Bfrtip',
+		// buttons: [
+		// 	{
+		// 		extend: 'csvHtml5',
+		// 		text: 'Export CSV',
+		// 		filename: 'patient-files',
+		// 		className: 'btn-sm',
+		// 		exportOptions: {
+		// 			columns: [1, 2, 3]
+		// 		}
+		// 	}
+		// ],
+		// orderCellsTop: true,
 		responsive: !0
 	});
 
 	// Event listener to the two range filtering inputs to redraw on input
-	$('#min, #max').change(function() {
-		table.draw();
-	});
+	// $('#min, #max').change(function() {
+	// 	table.draw();
+	// });
 });
 
 // Table Two - Campaign
@@ -176,20 +176,15 @@ $(document).ready(function() {
 	// 	}
 	// 	return false;
 	// });
-
-	var tableTwo = $('#datatable-campaign-users').DataTable();
-
+	//var tableTwo = $('#datatable-campaign-users').DataTable();
 	// Table Two
 	// $('#datatable-campaign-users>thead>tr')
 	// 	.clone(true)
 	// 	.appendTo('#datatable-campaign-users thead');
-
 	// $('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
 	// 	var title = $(this).text();
-
 	// 	if (title.length > 0 && title != 'S.No') {
 	// 		$(this).html('<input type="text" placeholder="Search ' + title + '" />');
-
 	// 		$('input', this).on('keyup change', function() {
 	// 			console.log(this.value);
 	// 			if (tableTwo.column(i).search() !== this.value) {
@@ -201,7 +196,6 @@ $(document).ready(function() {
 	// 		});
 	// 	}
 	// });
-
 	// $('#min-campaign-users').datepicker({
 	// 	onSelect: function() {
 	// 		tableTwo.draw();
@@ -216,13 +210,13 @@ $(document).ready(function() {
 	// 	changeMonth: true,
 	// 	changeYear: true
 	// });
-
 	// // Event listener to the two range filtering inputs to redraw on input
 	// $('#min-campaign-users, #max-campaign-users').change(function() {
 	// 	tableTwo.draw();
 	// });
 });
 
+// Email Template Preview
 $('#preview_template').click(function() {
 	var campaignId = $('#hidden-selected-id').val();
 	var baseUrl = $('#base_url').val();
