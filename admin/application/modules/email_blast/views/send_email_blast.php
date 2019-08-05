@@ -226,6 +226,7 @@
 </div>
 <script>
 $('#btn').click(function(){
+	alert();
   $(this).addClass('loader');
   window.setTimeout(function(){
     $('#btn').removeClass('loader').addClass('done');
