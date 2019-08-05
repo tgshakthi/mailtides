@@ -109,11 +109,11 @@
 									<div class="email-blast-date">
 										<div>
 											<label>From Date:</label>
-											<input type="text" id="min-campaign-users">
+											<input type="text" id="min">
 										</div>
 										<div>
 											<label>To Date:</label>
-											<input type="text" id="max-campaign-users">
+											<input type="text" id="max">
 										</div>
 									</div>
 								</div>
