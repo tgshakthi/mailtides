@@ -544,7 +544,7 @@ if ($('#datatable-email').length) {
 								.search(val, true, false)
 								.draw();
 
-							console.log(test);
+
 						});
 
 					console.log(select);
