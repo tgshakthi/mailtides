@@ -10,30 +10,32 @@
 			<div class="btn-right">	
 
 				<a href="<?php echo base_url();?>email_blast/import_master_file" class="btn btn-success">
-				<i class="fa fa-upload"></i> Import Patient Master File
+					<i class="fa fa-upload"></i> Import Patient Master File
 				</a>
+				
 				<a href="<?php echo base_url();?>email_blast/email_template" class="btn btn-success">
-				<i class="fa fa-inbox" aria-hidden="true"></i>  Email Template
+					<i class="fa fa-inbox" aria-hidden="true"></i> Email Template
+				</a>
+
+				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
+					<i class="fa fa-drumstick-bite" aria-hidden="true"></i> Campaign Type
 				</a>
 
 				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
 					<i class="fa fa-bomb" aria-hidden="true"></i> Campaign
 				</a>
-				
-				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
-					<i class="fa fa-drumstick-bite" aria-hidden="true"></i> Campaign Type
-				</a>
+
 				<a href="<?php echo base_url();?>email_blast/send_email_blast_status" class="btn btn-success">
 					<i class="fa fa-envelope"></i> Send Mail
 				</a>
 
 				<a href="<?php echo base_url();?>email_blast/email_tracking" class="btn btn-success">
-				  <i class="fa fa-flag"></i> Reports
+					<i class="fa fa-flag"></i> Reports
 				</a>
 
 				<a href="<?php echo base_url();?>email_blast/graphical_reports" class="btn btn-success">
 					<i class="fa fa-bar-chart"></i> Graphical Reports
-				</a>	
+				</a>
 
 			</div>
 
