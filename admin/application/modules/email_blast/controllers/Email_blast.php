@@ -649,6 +649,7 @@ class Email_blast extends MX_Controller
             $email_subject = $this->input->post('subject');
 
             $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
+			print_r($get_users);die;
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
            
