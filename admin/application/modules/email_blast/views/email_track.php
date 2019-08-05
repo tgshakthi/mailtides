@@ -152,6 +152,6 @@
 
 <style>
 .sorting_desc select {
-	color: black;
+	color: black !important;
 }
 </style>
