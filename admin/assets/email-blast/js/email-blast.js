@@ -113,9 +113,9 @@ $(document).ready(function() {
 
 	// Import Filter Data
 	$('#filter-data-import').click(function() {
-        var baseUrl = $('#base-url').val();
-        var campaignName = $('#campaign-name').val();
-        var campaignDesc = $('#text').val();
+		var baseUrl = $('#base-url').val();
+		var campaignName = $('#campaign-name').val();
+		var campaignDesc = CKEDITOR.instances['text'].getData();
 
 		var values = $("input[name='row_sort_order[]']")
 			.map(function() {
@@ -127,8 +127,8 @@ $(document).ready(function() {
 				method: 'POST',
 				url: baseUrl + 'email_blast/import_filter_data',
 				data: {
-                    campaign_name: campaignName,
-                    campaign_desc: campaignDesc,
+					campaign_name: campaignName,
+					campaign_desc: campaignDesc,
 					user_id: values
 				},
 				success: function(data) {
