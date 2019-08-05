@@ -51,8 +51,92 @@
 
 						<form action="<?php echo base_url()?>email_blast/delete_multiple_user" id="form_selected_record"
 							method="post">				
-							<div id="tracking-filter"></div>		
-							<?php echo $table;?>
+									
+							<?php //echo //$table;?>
+
+
+							<table id="datatable-email"
+								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
+								cellspacing="0">
+
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Campaign Name</th>
+										<th>Txgidocs</th>
+										<th>Google</th>
+										<th>Facebook</th>
+										<th>Comments</th>
+										<th>Status</th>
+									</tr>
+									<tr id="filters">
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach (($email_tracks ? $email_tracks : array()) as $email_track) : 
+											$campaign_name = $this->Email_blast_model->get_campaign_by_id($email_track->campaign_id);
+
+											if (!empty($campaign_name)) {
+											  $camp_name = $campaign_name[0]->campaign_name;
+											} else {
+											  $camp_name = "";
+											}
+											
+											if ($email_track->status === '1') {
+												$status = '<span class="label label-success">Open</span>';
+											} else {
+												$status = '<span class="label label-danger">Not Open</span>';
+											}
+								
+											$reviews_entry= $this->Email_blast_model->get_review_comments($email_track->track_id);
+											if( !empty($reviews_entry[0]->review_user_id)):
+											  $comment = '<span class="label label-success">Posted</span>';
+											else:
+											  $comment = '<span class="label label-danger">Not Posted</span>';
+											endif;
+								
+											 // Clicked From
+											 if ($email_track->txgidocs === '1') {
+													$txgidocs = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+												} else {
+													$txgidocs = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+												}
+												if ($email_track->google === '1') {
+													$google = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+												} else {
+													$google = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+												}
+												if ($email_track->facebook === '1') {
+													$facebook = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+												} else {
+													$facebook = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+												}									
+										?>
+
+									<tr>
+										<td><?php echo $email_track->name;?></td>
+										<td><?php echo $email_track->email;?></td>
+										<td><?php echo $camp_name;?></td>
+										<td><?php echo $txgidocs;?></td>
+										<td><?php echo $google;?></td>
+										<td><?php echo $facebook;?></td>
+										<td><?php echo $comment;?></td>
+										<td><?php echo $status;?></td>
+									</tr>
+
+									<?php endforeach;?>
+								</tbody>
+
+							</table>
+
+
 						</form>
 						<!-- Confirm Delete Modal -->
 					
@@ -63,9 +147,3 @@
 	</div>
 </div>
 <!-- page content -->
-
-<style>
-.btn-right{
-    text-align: right;
-}
-</style>

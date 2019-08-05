@@ -871,6 +871,7 @@ class Email_blast extends MX_Controller
     {
         $data['website_id'] = $this->admin_header->website_id();
         $data['table']      = $this->get_email_track();
+        $data['email_tracks'] = $this->Email_blast_model->get_email_track_data();
         $data['heading']    = 'Email Tracking';
         $data['title']      = "Email Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
