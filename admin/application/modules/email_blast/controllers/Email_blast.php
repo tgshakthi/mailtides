@@ -1343,7 +1343,7 @@ class Email_blast extends MX_Controller
       $comments_not_posted = array();
 
       $data['website_id'] = $this->admin_header->website_id();
-
+      $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_by_status($data['website_id']);  
       $get_email_track = $this->Email_blast_model->get_email_track_data();
       
       foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
