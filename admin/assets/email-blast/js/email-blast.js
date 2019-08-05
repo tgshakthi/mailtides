@@ -281,6 +281,14 @@ function campaign(e) {
 		cache: false,
 		success: function (data) {
 			 alert(data);
+			  var html='<textarea id="mail-opened" style="display: none">'+data[opened]+'</textarea>'+
+						'<textarea id="mail-unopened" style="display: none">'+data[not_opened]+' </textarea>'+
+						'<textarea id="mail-comments-posted" style="display: none">'+data[txgidocs]+'</textarea>'+
+		             	'<textarea id="mail-comments-not-posted" style="display: none">'+data[opened]+'</textarea>'+
+                        '<textarea id="mail-txgidocs" style="display: none">'+data[opened]+'</textarea>'+
+			           '<textarea id="mail-google" style="display: none">'+data[opened]+'</textarea>'+
+			            '<textarea id="mail-facebook" style="display: none">'+data[opened]+'</textarea>'+
+			            '<textarea id="mail-sent" style="display: none">'+data[opened]+'</textarea>';
 
 		}
 	});
