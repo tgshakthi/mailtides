@@ -479,6 +479,7 @@ if ($('#datatable-email').length) {
 	$('#datatable-email>thead>tr')
 		.clone(true)
 		.appendTo('#datatable-email thead');
+
 	$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
 		var title = $(this).text();
 		if (title.length > 0 && title != 'Action' && title != 'Status') {
@@ -492,6 +493,10 @@ if ($('#datatable-email').length) {
 						.search($(this).val())
 						.draw();
 				});
+
+			table.column(i).data().unique().sort().each(function (d, j) {
+				select.append('<option value="' + d + '">' + d + '</option>')
+			});
 
 		}
 	});
