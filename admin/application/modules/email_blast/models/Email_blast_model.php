@@ -580,8 +580,7 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
-<<<<<<< HEAD
-	
+
 	 function insert_update_campaign_type($id=null)
      {
        
@@ -634,7 +633,7 @@ class Email_blast_model extends CI_Model
              $this->db->update($this->table_campaign_type, $data);
          endforeach;
      }
-=======
+
 
     // Insert Campaign Data
     function insert_import_campaign_data()
@@ -652,5 +651,4 @@ class Email_blast_model extends CI_Model
         $this->db->insert($this->table_campaign, $insert_array);
         return $this->db->insert_id();
     }
->>>>>>> 0fffcefbf901c10ee19274b25cfe1bc7993529ba
 }
