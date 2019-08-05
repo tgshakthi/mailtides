@@ -482,13 +482,16 @@ if ($('#datatable-email').length) {
 			this.api().columns().every(function () {
 
 				var column = this;
-				
+
 				var select = $('<select><option value=""></option></select>')
 					.appendTo($(column.header()).empty())
 					.on('change', function () {
 						var val = $.fn.dataTable.util.escapeRegex(
 							$(this).val()
 						);
+
+						console.log(val);
+						console.log($(this).val());
 
 						column
 							.search(val ? '^' + val + '$' : '', true, false)
