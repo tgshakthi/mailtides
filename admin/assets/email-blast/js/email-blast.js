@@ -413,7 +413,7 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function () {
-	$(this).addClass('loader');
+	$('#loader').addClass('loader');
 	window.setTimeout(function () {
 		$('#loader').removeClass('loader hidden').addClass('done');
 
