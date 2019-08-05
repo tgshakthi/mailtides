@@ -175,7 +175,7 @@ $(document).ready(function () {
 		if (values.length > 0) {
 			$.ajax({
 				method: 'POST',
-				url: baseUrl + 'email_blast/insert_campaign',
+				url: baseUrl + 'email_blast/insert_campaign_data',
 				data: {
 					campaign_id: campaignId,
 					campaign_name: campaignName,
@@ -185,7 +185,7 @@ $(document).ready(function () {
 					user_id: values
 				},
 				success: function (data) {
-					console.log(data);
+					alert(data);
 				}
 			});
 		}
