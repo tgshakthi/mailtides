@@ -480,12 +480,11 @@ if ($('#datatable-email').length) {
 	$('#datatable-email').DataTable({
 		initComplete: function () {
 			this.api().columns().every(function () {
+
 				var column = this;
-
-				console.log(column);
-
+				
 				var select = $('<select><option value=""></option></select>')
-					.appendTo($(column.footer()).empty())
+					.appendTo($(column.header()).empty())
 					.on('change', function () {
 						var val = $.fn.dataTable.util.escapeRegex(
 							$(this).val()
