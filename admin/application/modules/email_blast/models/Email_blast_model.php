@@ -169,7 +169,7 @@ class Email_blast_model extends CI_Model
         $this->db->select('*');
         $this->db->where(
             array(
-                'campaign_id' => $id
+                'id' => $id
             )
         );
         $query = $this->db->get($this->table_campaign);
