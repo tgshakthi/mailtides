@@ -1640,7 +1640,7 @@ class Email_blast extends MX_Controller
     
 	function remove_email_template_image()
 	{
-		$this->Email_blast_model->remove_eamil_template_image();
+		$this->Email_blast_model->remove_email_template_image();
 		echo '1';
 	}
 	 // Campaign Type
