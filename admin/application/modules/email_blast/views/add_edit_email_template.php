@@ -101,7 +101,7 @@
 											$data = array(
 											'name'        => 'template',
 											'id'          => 'template',
-											'class'       => 'form-control',
+											'class'       => 'form-control col-md-7 col-xs-12',
 											'value'       => $template
 											);
 
