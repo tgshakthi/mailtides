@@ -76,6 +76,24 @@ $(document).ready(function() {
 	$('#min, #max').change(function() {
 		table.draw();
 	});
+
+	// Datatable - Two ( Campaign )
+	var table = $('#datatable-campaign-users').DataTable({
+		dom: 'Bfrtip',
+		buttons: [
+			{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
+				}
+			}
+		],
+		orderCellsTop: true,
+		responsive: !0
+	});
 });
 
 // Graphical Reports
@@ -143,10 +161,9 @@ if ($('#mybarChart').length) {
 
 // Table Two - Campaign
 $(document).ready(function() {
-	var tableTwo = $('#datatable-campaign-users').DataTable({
-		responsive: !0
-	});
-
+	// var tableTwo = $('#datatable-campaign-users').DataTable({
+	// 	responsive: !0
+	// });
 	// $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 	// 	var min = $('#min-campaign-users').datepicker('getDate');
 	// 	var max = $('#min-campaign-users').datepicker('getDate');
@@ -165,7 +182,6 @@ $(document).ready(function() {
 	// 	}
 	// 	return false;
 	// });
-
 	// Table Two
 	// $('#datatable-campaign-users>thead>tr')
 	// 	.clone(true)
