@@ -264,20 +264,18 @@ if ($('#mybarChart').length) {
 
 //onchage function for campaign id
 
-function campaign(e)
-{
+function campaign(e) {
 	var baseUrl = $('#base_url').val();
-	 var id=e.value;
-	 $.ajax({
+	var id = e.value;
+	$.ajax({
 		method: 'POST',
-		url: baseUrl + 'email_blast/graphical_campaign_id', 
+		url: baseUrl + 'email_blast/graphical_campaign_id',
 		data: {
 			campaign_id: id
 		},
 		cache: false,
-		success: function (data)
-		{
-			 
+		success: function (data) {
+
 		}
 	});
 }
@@ -295,24 +293,21 @@ $('#preview_template').click(function () {
 				campaign_id: campaignId
 			},
 			success: function (data) {
-				if (data != 0)
-				    {
-						
-				      var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/txgidocs/'+ data+'">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
-					}
-				else
-				{
-                    var img =
-							'<img class="preview-template-img" src="' +
-							imageUrl +
-							'images/noimage.png">';
-						$('#preview-template-modal').modal('show');
-						$('#modal-body-img').html(img);
+				if (data != 0) {
+
+					var img =
+						'<img class="preview-template-img" src="' +
+						imageUrl +
+						'images/txgidocs/' + data + '">';
+					$('#preview-template-modal').modal('show');
+					$('#modal-body-img').html(img);
+				} else {
+					var img =
+						'<img class="preview-template-img" src="' +
+						imageUrl +
+						'images/noimage.png">';
+					$('#preview-template-modal').modal('show');
+					$('#modal-body-img').html(img);
 				}
 			}
 		});
@@ -472,20 +467,20 @@ $(document).ready(function () {
 
 
 //
-	if ($('#datatable-email').length) {
-		var table = $('#datatable-email').DataTable();
+if ($('#datatable-email').length) {
+	var table = $('#datatable-email').DataTable();
 
-		// Clone Previous Row for filter input
-		$('#datatable-email>thead>tr')
-			.clone(true)
-			.appendTo('#datatable-email thead');
-		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
-			var title = $(this).text();
-			if (title.length > 0 && title != 'Action' && title != 'Status') {
-				$(this).html(
-					'<input type="text" placeholder="Search ' + title + '" />'
-				);
-				var select = $('<select><option value=""></option></select>')
+	// Clone Previous Row for filter input
+	$('#datatable-email>thead>tr')
+		.clone(true)
+		.appendTo('#datatable-email thead');
+	$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+		var title = $(this).text();
+		if (title.length > 0 && title != 'Action' && title != 'Status') {
+			// $(this).html(
+			// 	'<input type="text" placeholder="Search ' + title + '" />'
+			// );
+			var select = $('<select><option value=""></option></select>')
 				.appendTo($(this).empty())
 				.on('change', function () {
 					table.column(i)
@@ -493,11 +488,6 @@ $(document).ready(function () {
 						.draw();
 				});
 
-			}
-		});
-
-		//Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function () {
-			table.draw();
-		});
-	}
+		}
+	});
+}
