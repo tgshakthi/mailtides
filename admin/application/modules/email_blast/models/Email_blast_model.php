@@ -133,7 +133,7 @@ class Email_blast_model extends CI_Model
     // Get Campaign Details
     function get_campaign_detials()
     {
-        $this->db->select('id, campaign_name');
+        $this->db->select('id, campaign_name,template_id');
         $this->db->where(array(
             'status'=>'1',
             'is_deleted'=>'0'
