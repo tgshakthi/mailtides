@@ -1326,13 +1326,55 @@ class Email_blast extends MX_Controller
 
    function graphical_campaign_id()
    {
-    
+    $sent = "";
+    $opened = array();
+    $not_opened = array();
+    $txgidocs = array();
+    $google = array();
+    $facebook = array();
+    $comments_posted = array();
+    $comments_not_posted = array();
       $campaign_id=$this->input->post('campaign_id');
-      if(!empty($campaign_id)):
+      if(!empty($campaign_id))
       $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
-       echo"<pre>";
-       print_r( $get_email_track);
-       die;
+      foreach ( ($get_email_track ? $get_email_track : array()) as $email_track )
+       {
+        if ($email_track->status == '1'){
+          $opened[] = $email_track->status;
+        } else {
+          $not_opened[] = $email_track->status;
+        }
+
+        // txgidocs
+        if ($email_track->txgidocs == '1') {
+          $txgidocs[] = $email_track->txgidocs;
+        } 
+
+        // Google
+        if ($email_track->google == '1') {
+          $google[] = $email_track->google;
+        }
+
+        // Facebook
+        if ($email_track->facebook == '1') {
+          $facebook[] = $email_track->facebook;
+        }
+
+        // Comments Posted
+        $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
+        if( !empty($reviews_entry[0]->review_user_id)):
+          $comments_posted[] = $reviews_entry[0]->review_user_id;
+        else :
+          $comments_not_posted[] = $email_track->id;
+        endif;
+        
+      }
+
+      // Sent Status
+      if (!empty($get_email_track)) {
+        $sent = count($get_email_track);
+      }
+      }
       endif;
    }
 
