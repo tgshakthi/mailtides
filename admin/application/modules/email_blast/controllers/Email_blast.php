@@ -554,9 +554,9 @@ class Email_blast extends MX_Controller
         echo"<pre>";
         print_r( $email_template);
       
-        $data['preview_image']=""
+        $data['preview_image']="";
       else:
-        $data['preview_image']=""
+        $data['preview_image']="";
       endif;
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
