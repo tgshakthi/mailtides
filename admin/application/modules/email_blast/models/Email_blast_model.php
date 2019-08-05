@@ -540,7 +540,7 @@ class Email_blast_model extends CI_Model
              $update_data = array(
                  
                  'template_name' => $this->input->post('template_name') ,
-                  'description'=>$this->input->post('description')
+                  'description'=>$this->input->post('description'),
                   'status' => $status
              );
        // Update
