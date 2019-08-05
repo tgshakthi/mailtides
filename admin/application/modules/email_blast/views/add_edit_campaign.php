@@ -75,6 +75,86 @@
 								<form class="form-horizontal form-label-left">
 									<input type="hidden" name="base-url" id="base-url" value="<?php echo base_url();?>">						
 
+					<?php if ($this->session->flashdata('success')!='') : // Display session data ?>
+					<div class="alert alert-success alert-dismissible fade in text-center" id="success-alert" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+						<strong>Success!</strong>
+						<?php echo $this->session->flashdata('success');?>
+					</div>
+					<?php endif; ?>
+
+					<?php if ($this->session->flashdata('error') != '') : // Display session data ?>
+					<div class="alert alert-warning alert-dismissible fade in text-center" id="warning-alert" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+						<strong>
+							<?php echo $this->session->flashdata('error');?>
+						</strong>
+					</div>
+					<?php endif; ?>
+
+					<div class="x_content">						
+
+						<?php
+							// Break tag
+							echo br();
+
+							if ($page_status == '1') :
+
+								// Form Tag
+								echo form_open_multipart(
+									'email_blast/field_map_campaign_users',
+									'class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate autocomplete="off"'
+								);
+
+								// Input tag hidden
+								echo form_input(array(
+									'type'  => 'hidden',
+									'name'  => 'id',
+									'id'    => 'id',
+									'value' => $id
+								));
+
+								// Input tag hidden
+								echo form_input(array(
+									'type'  => 'hidden',
+									'name'  => 'website_id',
+									'id'    => 'website_id',
+									'value' => $website_id
+								));
+						?>
+					
+						<div class="col-md-12 col-md-12 col-xs-12">
+							<div class="x_panel">
+
+								<div class="x_title">
+									<?php
+										echo heading('Campaign Details', '2');
+										$list = array('<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>');
+										$attributes = array('class' => 'nav navbar-right panel_toolbox');
+										echo ul($list,$attributes);
+									?>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="x_content">
+
+									<div class="form-group ">
+
+										<?php
+											echo form_label('Campaign Name','name');
+
+											// Input tag
+											echo form_input(array(
+												'id'       => 'name',
+												'name'     => 'name',
+												'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
+												'value'    => $campaign_name
+											));
+										?>
 									<div class="form-group">
 
 										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="campaign-name">
@@ -122,7 +202,7 @@
 
 								<br />
 
-								<?php echo $table;?>
+								<?php //echo $table;?>
 								<br/>
 							</div>
 
