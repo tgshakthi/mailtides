@@ -19,7 +19,10 @@
 				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
 					<i class="fa fa-bomb" aria-hidden="true"></i> Campaign
 				</a>
-
+				
+				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
+					<i class="fa fa-drumstick-bite" aria-hidden="true"></i> Campaign Type
+				</a>
 				<a href="<?php echo base_url();?>email_blast/send_email_blast_status" class="btn btn-success">
 					<i class="fa fa-envelope"></i> Send Mail
 				</a>

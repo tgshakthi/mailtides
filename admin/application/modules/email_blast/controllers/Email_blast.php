@@ -311,6 +311,7 @@ class Email_blast extends MX_Controller
 
       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_by_status($data['website_id']);  
+      $data['email_templates'] = $this->Email_blast_model->get_email_template_by_status();  
       $data['title'] = ($id != null) ? 'Edit Campaign' : 'Add Campaign' . ' | Administrator';
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign';
       $data['ImageUrl'] = $this->admin_header->image_url();

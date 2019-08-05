@@ -652,11 +652,15 @@ class Email_blast_model extends CI_Model
     {
         $campaign_name = $this->input->post('campaign_name');
         $campaign_desc = $this->input->post('campaign_desc');
+        $campaign_type = $this->input->post('campaign_type');
+        $send_date = $this->input->post('send_date');
         $campaign_users = implode(',', $this->input->post('user_id'));
 
         $insert_array = array(
             'campaign_name' => $campaign_name,
             'description' => $campaign_desc,
+            'campaign_type' => $campaign_type,
+            'send_date' => $send_date,
             'campaign_users' => $campaign_users
         );
 
@@ -664,14 +668,15 @@ class Email_blast_model extends CI_Model
         return $this->db->insert_id();
     }
 
-    // Get Campaign Type - Campaign 
+    // Get Campaign Type - Campaign (By Status)
     function get_campaign_type_by_status($website_id)
     {
         $this->db->select('*');
         $this->db->where(
             array(
                 'website_id' => $website_id,
-                'status' => '1'
+                'status' => '1',
+                'is_deleted' => '0'
             )            
         );
         $query = $this->db->get($this->table_campaign_type);
@@ -680,5 +685,21 @@ class Email_blast_model extends CI_Model
           $records = $query->result();
         endif;
         return $records;
+    }
+
+    // Get Email Template - campaign (By Status)
+    function get_email_template_by_status()
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+            'status' => '1',
+            'is_deleted' => '0'
+        ));
+        $query = $this->db->get($this->table_template);
+        $records = array();
+        if ($query->num_rows() > 0 ) :
+          $records = $query->result();
+        endif;
+        return $records;        
     }
 }
