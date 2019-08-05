@@ -132,7 +132,12 @@ $(document).ready(function() {
 					user_id: values
 				},
 				success: function(data) {
-					console.log(data);
+					if (data.length > 0) {
+						$('#campaign-id').val(data);
+					} else {
+						alert('Something Went Wrong!. Please try again!.');
+						window.location.href = baseUrl + 'email_blast/add_edit_campaign';
+					}
 				}
 			});
 		}

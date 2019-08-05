@@ -74,6 +74,7 @@
 
 								<form class="form-horizontal form-label-left">
 									<input type="hidden" name="base-url" id="base-url" value="<?php echo base_url();?>">						
+									<input type="hidden" name="campaign-id" id="campaign-id">
 
 									<div class="form-group">
 
