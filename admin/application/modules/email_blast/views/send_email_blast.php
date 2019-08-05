@@ -19,11 +19,8 @@
 	  0% { transform: rotate(0deg); }
 	  100% { transform: rotate(360deg); }
 	}
-	
-
-
 </style>
-<div class="loader"></div>
+<!--<div class="loader"></div>-->
 <!-- page content -->
 <div class="right_col" role="main">
 	<div class="">

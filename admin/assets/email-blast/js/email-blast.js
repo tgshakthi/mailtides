@@ -407,5 +407,9 @@ $(document).ready(function () {
 });
 
 $('#btn').click(function(){
-	 alert();
+  $(this).addClass('loader');
+  window.setTimeout(function(){
+    $('#btn').removeClass('loader hidden').addClass('done');
+    
+  }, 2000);
 });
