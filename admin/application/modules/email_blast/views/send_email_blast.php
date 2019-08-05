@@ -372,11 +372,6 @@ $grey: #aaa;
 <script>
  $('#btn').click(function(){
 	 alert();
-  $(this).addClass('loading hidden');
-  window.setTimeout(function(){
-    $('#btn').removeClass('loading hidden').addClass('done');
-    
-  }, 2000);
 });
 </script>
 <!-- /page content -->
