@@ -239,7 +239,7 @@ if ($('#mybarChart').length) {
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
 
-	new Chart(f, {
+	var chart = new Chart(f, {
 		type: 'bar',
 		data: {
 			labels: [
@@ -282,34 +282,58 @@ if ($('#mybarChart').length) {
 			}
 		}
 	});
+
+	function campaign(e) {
+		var baseUrl = $('#base_url').val();
+		var id = e.value;
+		$.ajax({
+
+			method: 'POST',
+			url: baseUrl + 'email_blast/graphical_campaign_id',
+			data: {
+				campaign_id: e
+			},
+			cache: false,
+			success: function (data) {
+
+				var campaignData = JSON.parse(data);
+				chart.data = {
+					labels: [
+						'Sent',
+						'Opened',
+						'Unopened',
+						'Link Opened',
+						'Comments Posted',
+						'Comments Not Posted'
+					],
+					datasets: [{
+						backgroundColor: [
+							'#26B99A',
+							'#EE82EE',
+							'#DA70D6',
+							'#006600',
+							'#CC0066',
+							'#000099'
+						],
+						data: [
+							campaignData.sent,
+							campaignData.opened,
+							campaignData.not_opened,
+							campaignData.txgidocs,
+							campaignData.posted,
+							campaignData.not_posted
+						]
+					}]
+				};
+				chart.update();
+			}
+		});
+	}
 }
 
 //onchage function for campaign id
 
-function campaign(e) {
-	var baseUrl = $('#base_url').val();
-	var id = e.value;
-	$.ajax({
 
-		method: 'POST',
-		url: baseUrl + 'email_blast/graphical_campaign_id',
-		data: {
-			campaign_id: e
-		},
-		cache: false,
-		success: function (data) {
-
-			var campaignData = JSON.parse(data);
-
-			$('#mail-comments-posted').val(campaignData.posted);
-			$('#mail-comments-not-posted').val(campaignData.not_posted);
-			$('#mail-txgidocs').val(campaignData.txgidocs);
-			$('#mail-google').val(campaignData.google);
-			$('#mail-facebook').val(campaignData.facebook);
-			$('#mail-sent').val(campaignData.sent);
-		}
-	});
-}
 // Email Template Preview
 $('#preview_template').click(function () {
 	var campaignId = $('#hidden-selected-id').val();
