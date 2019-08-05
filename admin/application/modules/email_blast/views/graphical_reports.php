@@ -58,27 +58,7 @@
                   <div id="text_area">
                   </div>
 
-                    <textarea id="mail-opened" style="display: none">
-                      <?php
-                         
-
-                        echo $opened;
-                       ?>
-                    </textarea>
-                    <textarea id="mail-unopened" style="display: none">
-                      <?php
-                     
-                       echo $not_opened;
-                      ?>
-                    </textarea>
-
-                    <textarea id="mail-comments-posted" style="display: none"><?php echo $posted;?></textarea>
-                    <textarea id="mail-comments-not-posted" style="display: none"><?php echo $not_posted;?></textarea>
-
-                    <textarea id="mail-txgidocs" style="display: none"><?php echo $txgidocs;?></textarea>
-                    <textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
-                    <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
-                    <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
+                   
 
                     <canvas id="mybarChart"></canvas>                    
                   </div>
