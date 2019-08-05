@@ -1174,9 +1174,7 @@ class Email_blast extends MX_Controller
      // Import Filter Data
      function import_filter_data()
      {
-       echo '<pre>';
-       print_r($_POST);
-       die;
+       $this->
      }
 
 

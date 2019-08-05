@@ -113,7 +113,10 @@ $(document).ready(function() {
 
 	// Import Filter Data
 	$('#filter-data-import').click(function() {
-		var baseUrl = $('#base-url').val();
+        var baseUrl = $('#base-url').val();
+        var campaignName = $('#campaign-name').val();
+        var campaignDesc = $('#text').val();
+
 		var values = $("input[name='row_sort_order[]']")
 			.map(function() {
 				return $(this).val();
@@ -124,6 +127,8 @@ $(document).ready(function() {
 				method: 'POST',
 				url: baseUrl + 'email_blast/import_filter_data',
 				data: {
+                    campaign_name: campaignName,
+                    campaign_desc: campaignDesc,
 					user_id: values
 				},
 				success: function(data) {
