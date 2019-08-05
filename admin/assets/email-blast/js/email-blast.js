@@ -308,34 +308,17 @@ $(document).ready(function () {
 	var baseUrl = $('#base-url').val();
 	$('#wizard').smartWizard({
 		autoAdjustHeight: true, // Automatically adjust content height
-		lang: { // Language variables
-			next: 'Next',
-			previous: 'Previous'
-		},
-		toolbarSettings: {
-			toolbarPosition: 'bottom', // none, top, bottom, both
-			toolbarButtonPosition: 'right', // left, right
-			showNextButton: true, // show/hide a Next button
-			showPreviousButton: true, // show/hide a Previous button
-			toolbarExtraButtons: [
-				$('<button></button>').text('Save')
-				.addClass('btn btn-info')
-				.on('click', function () {
-					alert('Finsih button click');
-				}),
-				$('<button></button>').text('Cancel')
-				.addClass('btn btn-danger')
-				.on('click', function () {
-					alert('Cancel button click');
-				})
-			]
-		},
+		onFinish: onFinishCallback
 	});
+
+	function onFinishCallback() {
+		alert('testing');
+	}
 
 	// Add classes to buttons
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
-		$('.buttonFinish').addClass('btn btn-default');
+		$('.buttonFinish').addClass('btn btn-default').text('Save');
 });
 
 $(document).ready(function () {
