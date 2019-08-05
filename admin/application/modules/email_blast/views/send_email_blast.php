@@ -225,7 +225,9 @@
 	</div>
 </div>
 <script>
-$('#btn').click(function(){
+$(document).ready(function() {
+alert()
+  $('#btn').click(function(){
 	alert();
   $(this).addClass('loader');
   window.setTimeout(function(){
@@ -233,5 +235,8 @@ $('#btn').click(function(){
     
   }, 2000);
 });
+
+});
+
 </script>
 <!-- /page content -->
