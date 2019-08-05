@@ -549,6 +549,9 @@ class Email_blast extends MX_Controller
       $data['httpUrl'] = $this->admin_header->host_url();
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
+      echo"<pre>";
+      print_r(  $data['campaign_details']);
+      die;
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
        if(!empty($mail_config)):
