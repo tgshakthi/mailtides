@@ -473,38 +473,70 @@ $(document).ready(function () {
 
 //
 if ($('#datatable-email').length) {
-	var table = $('#datatable-email').DataTable();
+	//var table = $('#datatable-email').DataTable();
 
-	// Clone Previous Row for filter input
-	$('#datatable-email>thead>tr')
-		.clone(true)
-		.appendTo('#datatable-email thead');
 
-	$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
-		var title = $(this).text();
-		if (title.length > 0 && title != 'Action' && title != 'Status') {
-			// $(this).html(
-			// 	'<input type="text" placeholder="Search ' + title + '" />'
-			// );
-			var select = $('<select><option value=""></option></select>')
-				.appendTo($(this).empty())
-				.on('change', function () {
-					var val = $.fn.dataTable.util.escapeRegex(
-						$(this).val()
-					);
 
-					console.log(val)
+	$('#datatable-email').DataTable({
+		initComplete: function () {
+			this.api().columns().every(function () {
+				var column = this;
 
-					table.column(i)
-						.search(val ? '^' + val + '$' : '', true, false)
-						.draw();
+				console.log(column);
 
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(column.footer()).empty())
+					.on('change', function () {
+						var val = $.fn.dataTable.util.escapeRegex(
+							$(this).val()
+						);
+
+						column
+							.search(val ? '^' + val + '$' : '', true, false)
+							.draw();
+					});
+
+				column.data().unique().sort().each(function (d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
 				});
-
-			table.column(i).data().unique().sort().each(function (d, j) {
-				select.append('<option value="' + d + '">' + d + '</option>')
 			});
-
 		}
 	});
+
+
+
+
+
+	// // Clone Previous Row for filter input
+	// $('#datatable-email>thead>tr')
+	// 	.clone(true)
+	// 	.appendTo('#datatable-email thead');
+
+	// $('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+	// 	var title = $(this).text();
+	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
+	// 		// $(this).html(
+	// 		// 	'<input type="text" placeholder="Search ' + title + '" />'
+	// 		// );
+	// 		var select = $('<select><option value=""></option></select>')
+	// 			.appendTo($(this).empty())
+	// 			.on('change', function () {
+	// 				var val = $.fn.dataTable.util.escapeRegex(
+	// 					$(this).val()
+	// 				);
+
+	// 				console.log(val)
+
+	// 				table.column(i)
+	// 					.search(val ? '^' + val + '$' : '', true, false)
+	// 					.draw();
+
+	// 			});
+
+	// 		table.column(i).data().unique().sort().each(function (d, j) {
+	// 			select.append('<option value="' + d + '">' + d + '</option>')
+	// 		});
+
+	// 	}
+	// });
 }
