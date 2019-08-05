@@ -489,9 +489,14 @@ if ($('#datatable-email').length) {
 			var select = $('<select><option value=""></option></select>')
 				.appendTo($(this).empty())
 				.on('change', function () {
+					var val = $.fn.dataTable.util.escapeRegex(
+						$(this).val()
+					);
+
 					table.column(i)
-						.search($(this).val())
+						.search(val ? '^' + val + '$' : '', true, false)
 						.draw();
+
 				});
 
 			table.column(i).data().unique().sort().each(function (d, j) {
