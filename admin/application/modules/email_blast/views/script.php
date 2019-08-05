@@ -61,7 +61,7 @@
 
     	$('#datatable-email').DataTable({
     		initComplete: function () {
-    			this.api().columns().every(function () {
+    			this.api().columns(1).every(function () {
     				var column = this;
     				if (column.index() == 1) {
     					var select = $('<select><option value=""></option></select>')
@@ -71,15 +71,14 @@
     								$(this).val()
     							);
 
-    							var val = $(this).val();
+    							// var val = $(this).val();
 
-                                console.log(column.search());
+                                // console.log(column.search());
                                 
-                                console.log('^' + val + '$');
+                                // console.log('^' + val + '$');
 
     							column
-    								//.search(val ? '^' + val + '$' : '', true, false)
-    								.search(val, true, false)
+    								.search(val ? '^' + val + '$' : '', true, false)
     								.draw();
 
     						});
