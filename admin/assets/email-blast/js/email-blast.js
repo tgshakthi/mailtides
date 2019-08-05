@@ -267,12 +267,12 @@ if ($('#mybarChart').length) {
 function campaign(e)
 {
 	var baseUrl = $('#base_url').val();
-	 var id=e.value;
+	
 	 $.ajax({
 		method: 'POST',
 		url: baseUrl + 'email_blast/graphical_campaign_id', 
 		data: {
-			campaign_id: id
+			campaign_id: e
 		},
 		cache: false,
 		success: function (data)
