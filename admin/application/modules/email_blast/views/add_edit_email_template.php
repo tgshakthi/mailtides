@@ -100,7 +100,7 @@
 											// TextArea
 											$data = array(
 											'name'        => 'template',
-											'id'          => 'template',
+											'id'          => 'text',
 											'class'       => 'form-control',
 											'value'       => $template
 											);
