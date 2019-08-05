@@ -1456,5 +1456,162 @@ class Email_blast extends MX_Controller
           redirect('email_blast');
       }     
    }
-  
+   function email_template()
+   {
+    $data['website_id'] = $this->admin_header->website_id();
+    $data['table']      = $this->get_email_template();
+    $data['heading']    = 'Email Template';
+    $data['title']      = "Email Template | Administrator";
+    $this->load->view('template/meta_head', $data);
+    $this->load->view('email_blast_header');
+    $this->admin_header->index();
+    $this->load->view('email_template', $data);
+    $this->load->view('template/footer_content');
+    $this->load->view('script');
+    $this->load->view('template/footer');
+   }
+   
+   function get_email_template()
+   {
+       
+     $website_id = $this->admin_header->website_id();
+     $get_template_data = $this->Email_blast_model->get_email_template();   
+     
+     foreach (($get_template_data ? $get_template_data : array()) as $get_template)
+     {
+         
+       $anchor_edit = anchor(site_url('email_blast/add_edit_email_template/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+         'data-toggle' => 'tooltip',
+         'data-placement' => 'left',
+           'data-original-title' => 'Edit'
+       ));
+         
+       $anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+         'data-toggle' => 'tooltip',
+         'data-placement' => 'right',
+         'data-original-title' => 'Delete',
+         'onclick' => 'return delete_record(' . $get_template->id . ', \'' . base_url('email_blast/delete_email_template/' . $website_id) . '\')'
+       ));
+         
+       if ($get_template->status === '1') 
+       {
+         $status = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+       } 
+       else
+       {
+         $status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+       }    
+         
+       $cell = array(
+         'class' => 'last',
+         'data' =>  $anchor_edit.' '.$anchor_delete
+       );
+
+      
+     
+       $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->campaign_name,  $status, $cell);
+     }
+           
+     $template = array(
+       'table_open' => '<table
+       id="datatable-responsive"
+       class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+       width="100%" cellspacing="0">'
+       );
+
+     $this->table->set_template($template);
+     
+     // Table heading row
+     
+     $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Status', 'Action');
+     return $this->table->generate();
+   }
+
+     // Add/Edit Campaign
+     function add_edit_email_template($id = null)
+     {
+      
+        if ($id != null):
+         $template = $this->Email_blast_model->get_email_template_by_id($id);
+         $data['id'] = $template[0]->id;
+         $data['template_name'] = $template[0]->template_name;
+         $data['description'] = $campaign[0]->description;
+         $data['status'] = $template[0]->status;
+       else:
+         $data['id'] = "";
+         $data['template_name'] = "";
+         $data['description'] = "";
+        $data['status'] = "";
+       endif;
+ 
+       $data['website_id'] = $this->admin_header->website_id();
+       $data['title'] = ($id != null) ? 'Edit Template' : 'Add Template' . ' | Administrator';
+       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Template';
+       $data['ImageUrl'] = $this->admin_header->image_url();
+       $this->load->view('template/meta_head', $data);
+       $this->load->view('email_blast_header');
+       $this->admin_header->index();
+       $this->load->view('add_edit_email_template', $data);
+       $this->load->view('template/footer_content');
+       $this->load->view('script');
+       $this->load->view('template/footer');
+     }
+     function insert_update_email_template()
+     {
+       $id = $this->input->post('id');
+       $continue = $this->input->post('btn_continue');
+       if (empty($id))
+       {
+         $this->Email_blast_model->insert_update_email_template();
+          $this->session->set_flashdata('success', 'Eamil Teemplate details successfully Created');
+         if (isset($continue) && $continue === "Add & Continue")
+         {
+           $url = 'email_blast/add_edit_email_template';
+         }
+         else
+         {
+           $url = 'email_blast/email_template';
+         }
+       }
+       else
+       {
+         
+         $this->Email_blast_model->insert_update_email_template($id);
+         $this->session->set_flashdata('success', 'Email Template details Successfully Updated.');
+         if (isset($continue) && $continue === "Update & Continue")
+         {
+           $url = 'email_blast/add_edit_email_template/' . $id;
+         }
+         else
+         {
+           $url = 'email_blast/email_template';
+         }
+       }
+       redirect($url);
+     }
+ 
+     function delete_template()
+     {
+       $this->Email_blast_model->delete_template_data();
+        $this->session->set_flashdata('success', 'Successfully Deleted');
+     }
+ 
+ 
+     function delete_multiple_template()
+    {
+     $this->form_validation->set_rules('table_records[]', 'Row', 'required', array(
+       'required' => 'You must select at least one row!'
+     ));
+     if ($this->form_validation->run() == FALSE)
+     {
+       $this->session->set_flashdata('error', validation_errors());
+       redirect('email_blast/email_template');
+     }
+     else
+     {
+       $this->Email_blast_model->delete_multiple_template_data();
+       $this->session->set_flashdata('success', 'Successfully Deleted');
+       redirect('email_blast/email_template');
+     }
+    }
 }
