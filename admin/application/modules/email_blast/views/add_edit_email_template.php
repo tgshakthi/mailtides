@@ -108,6 +108,7 @@
 											echo form_textarea($data);
 										?>
                                     </div>
+									</div>
 									<div class="form-group">
                                         <?php
 											echo form_label(
@@ -130,6 +131,7 @@
 											?>
                                         </div>
                                     </div>
+									
 
                                 </div>
                             </div>
