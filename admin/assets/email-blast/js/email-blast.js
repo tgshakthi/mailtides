@@ -454,11 +454,7 @@ $(document).ready(function () {
 
 //
 	if ($('#datatable-email').length) {
-		var table = $('#datatable-email').DataTable({
-			dom: 'Bfrtip',
-			orderCellsTop: true,
-			responsive: !0
-		});
+		var table = $('#datatable-email').DataTable();
 
 		// Clone Previous Row for filter input
 		$('#datatable-email>thead>tr')
