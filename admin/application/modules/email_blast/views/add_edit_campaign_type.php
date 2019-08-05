@@ -97,7 +97,7 @@
 											echo form_input(array(
 												'id'       => 'campaign_type',
 												'name'     => 'campaign_type',
-												'class'    => 'form-control col-md-6 col-md-6 col-xs-6',
+												'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
 												'value'    => $campaign_type
 											));
 										?>
