@@ -536,7 +536,8 @@ if ($('#datatable-email').length) {
 							);
 
 							var test = column
-								.search(val ? '^' + val + '$' : '', true, false)
+								//.search(val ? '^' + val + '$' : '', true, false)
+								.search($(this).val())
 								.draw();
 
 							console.log(test);
