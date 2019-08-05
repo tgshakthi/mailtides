@@ -413,7 +413,7 @@ $('#btn').click(function () {
 
 // Email Tracking Datatable Filter
 $(document).ready(function () {
-	$('#datatable-email-tracking').DataTable();
+	$('#datatable-email').DataTable();
 
 	// Clone Previous Row for filter input
 	$('#datatable-email-tracking>thead>tr')
