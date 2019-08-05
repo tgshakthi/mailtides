@@ -493,6 +493,8 @@ if ($('#datatable-email').length) {
 						$(this).val()
 					);
 
+					console.log(val)
+
 					table.column(i)
 						.search(val ? '^' + val + '$' : '', true, false)
 						.draw();
