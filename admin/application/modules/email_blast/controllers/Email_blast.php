@@ -1709,8 +1709,7 @@ class Email_blast extends MX_Controller
       $data['website_id'] = $this->admin_header->website_id();
       $data['title'] = ($id != null) ? 'Edit Campaign Type' : 'Add Campaign Type' . ' | Administrator';
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign Type';
-    
-      $data['table'] = $this->get_table_campaign_users();
+   
       $this->load->view('template/meta_head', $data);
       $this->load->view('email_blast_header');
       $this->admin_header->index();
@@ -1719,4 +1718,9 @@ class Email_blast extends MX_Controller
       $this->load->view('script');
       $this->load->view('template/footer');
     }
+	
+	function insert_update_campaign_type()
+	{
+		
+	}
 }
