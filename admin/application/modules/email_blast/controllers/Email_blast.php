@@ -1334,8 +1334,8 @@ class Email_blast extends MX_Controller
     $facebook = array();
     $comments_posted = array();
     $comments_not_posted = array();
-      $campaign_id=$this->input->post('campaign_id');
-        $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
+    echo   $campaign_id=$this->input->post('campaign_id');
+        // $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
 
         // foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
 
@@ -1368,7 +1368,7 @@ class Email_blast extends MX_Controller
         //   else :
         //     $comments_not_posted[] = $email_track->id;
         //   endif;
-        print_r($get_email_track);
+        // print_r($get_email_track);
           
         // }
   
