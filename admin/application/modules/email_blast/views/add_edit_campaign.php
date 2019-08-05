@@ -150,7 +150,7 @@
 							</div>
 
 							<div id="step-3">
-								<h2 class="StepTitle">Choose Email Template</h2>
+								<h2 class="StepTitle col-md-6 col-md-offset-3 col-xs-6">Choose Email Template</h2>
 								<select name="email-template" id="email-template" class="col-md-6 col-md-offset-3 col-xs-6" style="padding: 10px;">
 									<option value="">Select Template</option>
 									<?php foreach (($email_templates ? $email_templates : array()) as $email_template) :?>
