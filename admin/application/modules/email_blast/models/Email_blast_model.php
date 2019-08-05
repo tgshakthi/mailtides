@@ -531,7 +531,7 @@ class Email_blast_model extends CI_Model
                
                  'status' => $status
              );
-           $this->db->insert($this->table_campaign, $insert_data);
+           $this->db->insert($this->table_template, $insert_data);
            return $this->db->insert_id();
             else:
  
