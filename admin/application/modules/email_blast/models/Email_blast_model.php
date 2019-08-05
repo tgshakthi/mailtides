@@ -583,13 +583,14 @@ class Email_blast_model extends CI_Model
 
 	 function insert_update_campaign_type($id=null)
      {
-       
+		$website_id =  $this->input->post('website_id')
         $status = $this->input->post('status');
         $status = (isset($status)) ? '1' : '0';
          if ($id == NULL):
  
              // insert data 
-             $insert_data = array(             
+             $insert_data = array(
+				 'website_id' => $website_id,
                  'campaign_type' => $this->input->post('campaign_type') ,            
                  'status' => $status
              );
@@ -601,11 +602,11 @@ class Email_blast_model extends CI_Model
  
              $update_data = array(                
                  'campaign_type' => $this->input->post('campaign_type'),
-                  'status' => $status
+                 'status' => $status
              );
        // Update
  
-             $this->db->where('id', $id);
+             $this->db->where(array('id'=>$id,'website_id'=>$website_id));
              return $this->db->update($this->table_campaign_type, $update_data);
          endif;
  
