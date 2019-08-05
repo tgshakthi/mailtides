@@ -14,7 +14,11 @@ class Email_blast_model extends CI_Model
     private $table_track = 'email_track';
     private $table_campaign = 'campaign';
     private $table_campaign_users = 'campaign_users';
+<<<<<<< HEAD
+	private $table_campaign_type = 'campaign_type';
+=======
     private $table_template ='email_template';
+>>>>>>> 5b7b2c98276b50a64d7c8285eb5faa668c0b4451
 
 
     // Get Users
@@ -459,6 +463,18 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
+
+	
+	 // Get Campaign Type
+    function get_campaign_type($website_id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+						    'website_id' => $website_id,
+							'is_deleted' => '0'
+						));
+        $query   = $this->db->get($this->table_campaign_type);
+
      // Get Template
      function get_email_template()
      {
@@ -483,13 +499,13 @@ class Email_blast_model extends CI_Model
             'is_deleted' => '0'
         ));
         $query   = $this->db->get($this->table_template);
+
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
         endif;
         return $records;
     }
-
 
      function delete_template_data()
      {

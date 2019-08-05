@@ -57,7 +57,7 @@
 						
 						?>
 
-                        <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-md-6 offset-md-3">
                             <div class="x_panel">
                                 <div class="x_title">
 
