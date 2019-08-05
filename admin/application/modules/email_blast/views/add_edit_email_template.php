@@ -74,7 +74,7 @@
 
                                 <div class="x_content">
 
-                                    <div class="form-group">
+                                    <div class="form-group  col-md-6 col-sm-6 col-xs-12">
                                         <?php
 											echo form_label('Template Name','template_name','class="control-label col-md-3 col-sm-3 col-xs-12"');
 
@@ -82,13 +82,13 @@
 											echo form_input(array(
 											'id'       => 'template_name',
 											'name'     => 'template_name',
-											'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
+											'class'    => 'form-control',
 											'value'    => $template_name
 											));
 										?>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group  col-md-6 col-sm-6 col-xs-12">
                                         <?php
 											echo form_label('Template <span class="required">*</span>','template','class="control-label col-md-3 col-sm-3 col-xs-12"');
 
@@ -96,7 +96,7 @@
 											$data = array(
 											'name'        => 'template',
 											'id'          => 'template',
-											'class'       => 'form-control col-md-6 col-sm-6 col-xs-12',
+											'class'       => 'form-control',
 											'value'       => $template
 											);
 
