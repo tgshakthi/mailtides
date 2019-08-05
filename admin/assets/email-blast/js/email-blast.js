@@ -170,6 +170,8 @@ $(document).ready(function () {
 			})
 			.get();
 
+		alert(values);
+
 		if (values.length > 0) {
 			$.ajax({
 				method: 'POST',
