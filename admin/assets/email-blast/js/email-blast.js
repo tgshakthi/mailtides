@@ -1,4 +1,40 @@
 $(document).ready(function() {
+	// Datepickers
+	$('#min').datepicker({
+		onSelect: function() {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+	$('#max').datepicker({
+		onSelect: function() {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+
+	// Datatable - One ( Master Campaign Datepicker Filter)
+	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		var min = $('#min').datepicker('getDate');
+		var max = $('#max').datepicker('getDate');
+		var startDate = new Date(data[3]);
+		if (min == null && max == null) {
+			return true;
+		}
+		if (min == null && startDate <= max) {
+			return true;
+		}
+		if (max == null && startDate >= min) {
+			return true;
+		}
+		if (startDate <= max && startDate >= min) {
+			return true;
+		}
+		return false;
+	});
+
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
 		var table = $('#datatable-buttons').DataTable({
@@ -16,42 +52,6 @@ $(document).ready(function() {
 			],
 			orderCellsTop: true,
 			responsive: !0
-		});
-
-		// Datepicker - Master Campaign
-		$('#min').datepicker({
-			onSelect: function() {
-				table.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-		$('#max').datepicker({
-			onSelect: function() {
-				table.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-
-		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-			var min = $('#min').datepicker('getDate');
-			var max = $('#max').datepicker('getDate');
-			var startDate = new Date(data[3]);
-			if (min == null && max == null) {
-				return true;
-			}
-			if (min == null && startDate <= max) {
-				return true;
-			}
-			if (max == null && startDate >= min) {
-				return true;
-			}
-			if (startDate <= max && startDate >= min) {
-				return true;
-			}
-			return false;
 		});
 
 		// Clone Previous Row for filter input
@@ -77,49 +77,13 @@ $(document).ready(function() {
 
 		//Event listener to the two range filtering inputs to redraw on input
 		$('#min, #max').change(function() {
-            console.log(table.draw());
 			table.draw();
 		});
 	}
 
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
-		var tableTwo = $('#datatable-campaign-users').DataTable();
-
-		// Datepicker for Campaign
-		$('#min-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-		$('#max-campaign-users').datepicker({
-			onSelect: function() {
-				tableTwo.draw();
-			},
-			changeMonth: true,
-			changeYear: true
-		});
-
-		$.fn.dataTable.ext.search.push(function(settings, dataTwo, dataIndex) {
-			var minTwo = $('#min-campaign-users').datepicker('getDate');
-			var maxTwo = $('#min-campaign-users').datepicker('getDate');
-			var startDateTwo = new Date(dataTwo[3]);
-			if (minTwo == null && maxTwo == null) {
-				return true;
-			}
-			if (minTwo == null && startDateTwo <= maxTwo) {
-				return true;
-			}
-			if (maxTwo == null && startDateTwo >= minTwo) {
-				return true;
-			}
-			if (startDateTwo <= maxTwo && startDateTwo >= minTwo) {
-				return true;
-			}
-			return false;
-		});
+		var table = $('#datatable-campaign-users').DataTable();
 
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
@@ -131,9 +95,8 @@ $(document).ready(function() {
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
 				$('input', this).on('keyup change', function() {
-					console.log(this.value);
-					if (tableTwo.column(i).search() !== this.value) {
-						tableTwo
+					if (table.column(i).search() !== this.value) {
+						table
 							.column(i)
 							.search(this.value)
 							.draw();
@@ -143,9 +106,8 @@ $(document).ready(function() {
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
-		$('#min-campaign-users, #max-campaign-users').change(function() {
-			console.log(tableTwo.draw());
-			tableTwo.draw();
+		$('#min, #max').change(function() {
+			table.draw();
 		});
 	}
 });
