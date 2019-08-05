@@ -1326,6 +1326,7 @@ class Email_blast extends MX_Controller
 
    function graphical_campaign_id()
    {
+     echo"<pre>";
      print_r($_POST);
      die;
    }
