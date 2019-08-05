@@ -15,28 +15,29 @@ $(document).ready(function () {
 		changeYear: true
 	});
 
-	// Datatable - One ( Master Campaign Datepicker Filter)
-	// $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-	// 	var min = $('#min').datepicker('getDate');
-	// 	var max = $('#max').datepicker('getDate');
-	// 	var startDate = new Date(data[3]);
-	// 	if (min == null && max == null) {
-	// 		return true;
-	// 	}
-	// 	if (min == null && startDate <= max) {
-	// 		return true;
-	// 	}
-	// 	if (max == null && startDate >= min) {
-	// 		return true;
-	// 	}
-	// 	if (startDate <= max && startDate >= min) {
-	// 		return true;
-	// 	}
-	// 	return false;
-	// });
-
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
+
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			var startDate = new Date(data[3]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
 		var table = $('#datatable-buttons').DataTable({
 			dom: 'Bfrtip',
 			buttons: [{
@@ -81,6 +82,27 @@ $(document).ready(function () {
 
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
+
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			var startDate = new Date(data[3]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
 		var table = $('#datatable-campaign-users').DataTable();
 
 		$('#datatable-campaign-users>thead>tr')
@@ -281,17 +303,17 @@ function campaign(e) {
 		cache: false,
 		success: function (data) {
 
-			
-			 alert(data);
-			  var html='<textarea id="mail-opened" style="display: none">'+opened+'</textarea>'+
-						'<textarea id="mail-unopened" style="display: none">'+not_opened+' </textarea>'+
-						'<textarea id="mail-comments-posted" style="display: none">'+txgidocs+'</textarea>'+
-		             	'<textarea id="mail-comments-not-posted" style="display: none">'+google+'</textarea>'+
-                        '<textarea id="mail-txgidocs" style="display: none">'+facebook+'</textarea>'+
-			           '<textarea id="mail-google" style="display: none">'+sent+'</textarea>'+
-			            '<textarea id="mail-facebook" style="display: none">'+posted+'</textarea>'+
-						'<textarea id="mail-sent" style="display: none">'+not_posted+'</textarea>';
-						$('#text_area').html(html);
+
+			alert(data);
+			var html = '<textarea id="mail-opened" style="display: none">' + opened + '</textarea>' +
+				'<textarea id="mail-unopened" style="display: none">' + not_opened + ' </textarea>' +
+				'<textarea id="mail-comments-posted" style="display: none">' + txgidocs + '</textarea>' +
+				'<textarea id="mail-comments-not-posted" style="display: none">' + google + '</textarea>' +
+				'<textarea id="mail-txgidocs" style="display: none">' + facebook + '</textarea>' +
+				'<textarea id="mail-google" style="display: none">' + sent + '</textarea>' +
+				'<textarea id="mail-facebook" style="display: none">' + posted + '</textarea>' +
+				'<textarea id="mail-sent" style="display: none">' + not_posted + '</textarea>';
+			$('#text_area').html(html);
 
 
 		}

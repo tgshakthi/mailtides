@@ -83,8 +83,6 @@
 
     						});
 
-    					console.log(select);
-
     					column.data().unique().sort().each(function (d, j) {
     						select.append('<option value="' + d + '">' + d + '</option>')
     					});
