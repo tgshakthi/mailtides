@@ -1180,6 +1180,14 @@ class Email_blast extends MX_Controller
        echo $campaign_id;
      }
 
+     // Insert Campaign
+     function insert_campaign_data()
+     {
+       echo '<pre>';
+       print_r($_POST);
+       die;
+     }
+
 
 
 
