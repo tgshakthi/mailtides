@@ -28,16 +28,20 @@
 
 								    <div class="x_content">
                     <div class="form-group">
-										<label for="campaign-type" class="control-label col-md-3 col-sm-3 col-xs-12">
-											Campaign Type
-										</label>
-										<div class="col-md-6 col-sm-6 col-xs-12">
-											<select name="campaign-type" id="campaign-type" class="form-control">
-												<?php foreach (($campaign_type ? $campaign_type : array()) as $camp_type) :?>
-												<option value="<?php echo $camp_type->id;?>"><?php echo $camp_type->campaign_type;?></option>
-												<?php endforeach;?>
-											</select>
-										</div>
+                          <label for="campaign-id" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                  Select Campaign
+												  </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+												     <input type="hidden" id="hidden-selected-id">
+                              <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_id" required="required"  >
+                                  <option value="">Select Campaign</option>                                                   
+													            <?php foreach($campaign_details as $campaign):
+													          ?>
+													        <option value="<?php echo $campaign->id ?>"><?php echo $campaign->campaign_name; ?></option>
+													           <?php endforeach; ?>
+                              </select>
+                          </div>
+                                    
 									</div>
 
 
