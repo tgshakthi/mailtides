@@ -171,24 +171,30 @@ $(document).ready(function () {
 			})
 			.get();
 
-		if (values.length > 0) {
-			$.ajax({
-				method: 'POST',
-				url: baseUrl + 'email_blast/insert_campaign_data',
-				data: {
-					campaign_id: campaignId,
-					campaign_name: campaignName,
-					campaign_desc: campaignDesc,
-					campaign_type: campaignType,
-					send_date: sendDate,
-					user_id: values,
-					email_template: emailTemplate
-				},
-				success: function (data) {
-					window.location.href = baseUrl + 'email_blast/campaign';
-				}
-			});
+		if (campaignName.length > 0 && emailTemplate.length > 0) {
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: baseUrl + 'email_blast/insert_campaign_data',
+					data: {
+						campaign_id: campaignId,
+						campaign_name: campaignName,
+						campaign_desc: campaignDesc,
+						campaign_type: campaignType,
+						send_date: sendDate,
+						user_id: values,
+						email_template: emailTemplate
+					},
+					success: function (data) {
+						window.location.href = baseUrl + 'email_blast/campaign';
+					}
+				});
+			}
+		} else {
+			alert('Something Went Wrong!. Please try again!.');
+			window.location.href = baseUrl + 'email_blast/add_edit_campaign';
 		}
+
 	}
 
 	// Add classes to buttons
