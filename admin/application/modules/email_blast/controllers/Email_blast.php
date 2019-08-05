@@ -1540,7 +1540,7 @@ class Email_blast extends MX_Controller
        else:
          $data['id'] = "";
          $data['template_name'] = "";
-         $data['description'] = "";
+         $data['template'] = "";
         $data['status'] = "";
        endif;
  
