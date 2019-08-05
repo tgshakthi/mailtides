@@ -1456,8 +1456,7 @@ class Email_blast extends MX_Controller
           redirect('email_blast');
       }     
    }
-<<<<<<< HEAD
-   
+
    //Campaign Type
    
    function campaign_type()
