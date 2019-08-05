@@ -1324,7 +1324,11 @@ class Email_blast extends MX_Controller
     
      
 
-   
+   function graphical_campaign_id()
+   {
+     print_r($_POST);
+     die;
+   }
 
     
 
@@ -1333,9 +1337,7 @@ class Email_blast extends MX_Controller
     // Graphical Reports
     function graphical_reports()
     {
-      echo"<pre>";
-      print_r($_POST);
-      die;
+     
       $sent = "";
       $opened = array();
       $not_opened = array();

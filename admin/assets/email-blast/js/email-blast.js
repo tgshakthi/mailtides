@@ -270,7 +270,7 @@ function campaign(e)
 	 var id=e.value;
 	 $.ajax({
 		method: 'POST',
-		url: baseUrl + 'email_blast/graphical_reports', 
+		url: baseUrl + 'email_blast/graphical_campaign_id', 
 		data: {
 			campaign_id: id
 		},
