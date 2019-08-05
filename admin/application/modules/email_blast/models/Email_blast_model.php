@@ -588,8 +588,12 @@ class Email_blast_model extends CI_Model
         $campaign_desc = $this->input->post('campaign_desc');
         $campaign_users = implode(',', $this->input->post('user_id'));
 
-        echo '<pre>';
-        echo $campaign_users;
-        die;
+        $insert_array = array(
+            'campaign_name' => $campaign_name,
+            'description' => $campaign_desc,
+            'campaign_users' => $campaign_users
+        );
+
+        //$this->db->insert($this->);
     }
 }
