@@ -58,7 +58,9 @@
 
                     <textarea id="mail-opened" style="display: none">
                       <?php
-                     
+                          echo"<pre>";
+                          print_r($get_email_track_count);
+
                         echo $opened;
                        ?>
                     </textarea>
