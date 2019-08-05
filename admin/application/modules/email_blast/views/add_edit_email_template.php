@@ -118,7 +118,7 @@
 											);
 										?>
 
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 center-align">
                                             <?php
 												// Input checkbox
 												echo form_checkbox(array(
