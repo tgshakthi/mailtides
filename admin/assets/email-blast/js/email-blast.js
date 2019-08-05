@@ -1,15 +1,80 @@
-// Multi Select
 $(document).ready(function() {
-	$(function() {
-		$('select[multiple="multiple"]').multiselect({
-			columns: 4,
-			placeholder: 'Select Options',
-			search: true,
-			searchOptions: {
-				default: 'Search Options'
-			},
-			selectAll: true
-		});
+	// Datatable - One ( Master Campaign )
+	var table = $('#datatable-buttons').DataTable({
+		dom: 'Bfrtip',
+		buttons: [
+			{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
+				}
+			}
+		],
+		orderCellsTop: true,
+		responsive: !0
+	});
+
+	// Datepicker - Master Campaign
+	$('#min').datepicker({
+		onSelect: function() {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+	$('#max').datepicker({
+		onSelect: function() {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+
+	// Datatable - One ( Master Campaign Datepicker Filter)
+	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		var min = $('#min').datepicker('getDate');
+		var max = $('#max').datepicker('getDate');
+		var startDate = new Date(data[3]);
+		if (min == null && max == null) {
+			return true;
+		}
+		if (min == null && startDate <= max) {
+			return true;
+		}
+		if (max == null && startDate >= min) {
+			return true;
+		}
+		if (startDate <= max && startDate >= min) {
+			return true;
+		}
+		return false;
+	});
+
+	// Clone Previous Row for filter input
+	$('#datatable-buttons>thead>tr')
+		.clone(true)
+		.appendTo('#datatable-buttons thead');
+	$('#datatable-buttons>thead>tr:eq(1)>th').each(function(i) {
+		var title = $(this).text();
+		if (title.length > 0 && title != 'Action' && title != 'Status') {
+			$(this).html('<input type="text" placeholder="Search ' + title + '" />');
+			$('input', this).on('keyup change', function() {
+				if (table.column(i).search() !== this.value) {
+					table
+						.column(i)
+						.search(this.value)
+						.draw();
+				}
+			});
+		}
+	});
+
+	//Event listener to the two range filtering inputs to redraw on input
+	$('#min, #max').change(function() {
+		table.draw();
 	});
 });
 
@@ -75,79 +140,6 @@ if ($('#mybarChart').length) {
 		}
 	});
 }
-
-// Datatable
-$(document).ready(function() {
-	// $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-	// 	var min = $('#min').datepicker('getDate');
-	// 	var max = $('#max').datepicker('getDate');
-	// 	var startDate = new Date(data[3]);
-	// 	if (min == null && max == null) {
-	// 		return true;
-	// 	}
-	// 	if (min == null && startDate <= max) {
-	// 		return true;
-	// 	}
-	// 	if (max == null && startDate >= min) {
-	// 		return true;
-	// 	}
-	// 	if (startDate <= max && startDate >= min) {
-	// 		return true;
-	// 	}
-	// 	return false;
-	// });
-	// $('#min').datepicker({
-	// 	onSelect: function() {
-	// 		table.draw();
-	// 	},
-	// 	changeMonth: true,
-	// 	changeYear: true
-	// });
-	// $('#max').datepicker({
-	// 	onSelect: function() {
-	// 		table.draw();
-	// 	},
-	// 	changeMonth: true,
-	// 	changeYear: true
-	// });
-	// $('#datatable-buttons>thead>tr')
-	// 	.clone(true)
-	// 	.appendTo('#datatable-buttons thead');
-	// $('#datatable-buttons>thead>tr:eq(1)>th').each(function(i) {
-	// 	var title = $(this).text();
-	// 	if (title.length > 0 && title != 'Action' && title != 'Status') {
-	// 		$(this).html('<input type="text" placeholder="Search ' + title + '" />');
-	// 		$('input', this).on('keyup change', function() {
-	// 			if (table.column(i).search() !== this.value) {
-	// 				table
-	// 					.column(i)
-	// 					.search(this.value)
-	// 					.draw();
-	// 			}
-	// 		});
-	// 	}
-	// });
-	// var table = $('#datatable-buttons').DataTable({
-	// 	// dom: 'Bfrtip',
-	// 	// buttons: [
-	// 	// 	{
-	// 	// 		extend: 'csvHtml5',
-	// 	// 		text: 'Export CSV',
-	// 	// 		filename: 'patient-files',
-	// 	// 		className: 'btn-sm',
-	// 	// 		exportOptions: {
-	// 	// 			columns: [1, 2, 3]
-	// 	// 		}
-	// 	// 	}
-	// 	// ],
-	// 	// orderCellsTop: true,
-	// 	responsive: !0
-	// });
-	// Event listener to the two range filtering inputs to redraw on input
-	// $('#min, #max').change(function() {
-	// 	table.draw();
-	// });
-});
 
 // Table Two - Campaign
 $(document).ready(function() {
