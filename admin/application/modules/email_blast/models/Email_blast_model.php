@@ -652,4 +652,22 @@ class Email_blast_model extends CI_Model
         $this->db->insert($this->table_campaign, $insert_array);
         return $this->db->insert_id();
     }
+
+    // Get Campaign Type - Campaign 
+    function get_campaign_type_by_status($website_id)
+    {
+        $this->db->select('*');
+        $this->db->where(
+            array(
+                'website_id' => $website_id,
+                'status' => '1'
+            )            
+        );
+        $query = $this->db->get($this->table_campaign_type);
+        $records = array();
+        if ($query->num_rows() > 0 ) :
+          $records = $query->result();
+        endif;
+        return $records;
+    }
 }
