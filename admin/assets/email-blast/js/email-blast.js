@@ -503,6 +503,8 @@ if ($('#datatable-email').length) {
 
 							console.log($(this).val());
 
+							console.log(val);
+
 							column.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
 						});
