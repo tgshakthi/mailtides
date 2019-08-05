@@ -10,10 +10,10 @@
 			<div class="btn-right">	
 
 				<a href="<?php echo base_url();?>email_blast/import_master_file" class="btn btn-success">
-				<i class="far fa-envelope-open"></i> Import Patient Master File
+					 Import Patient Master File
 				</a>
 				<a href="<?php echo base_url();?>email_blast/email_template" class="btn btn-success">
-					<i class="fa fa-upload"></i> Email Template
+				<i class="fa fa-envelope-open"></i> Email Template
 				</a>
 
 				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
