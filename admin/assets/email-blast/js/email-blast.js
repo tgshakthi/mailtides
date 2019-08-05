@@ -154,6 +154,28 @@ $(document).ready(function() {
 	$('#min, #max').change(function() {
 		table.draw();
 	});
+});
+
+// Table Two - Campaign
+$(document).ready(function() {
+	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		var min = $('#min-campaign-users').datepicker('getDate');
+		var max = $('#min-campaign-users').datepicker('getDate');
+		var startDate = new Date(data[3]);
+		if (min == null && max == null) {
+			return true;
+		}
+		if (min == null && startDate <= max) {
+			return true;
+		}
+		if (max == null && startDate >= min) {
+			return true;
+		}
+		if (startDate <= max && startDate >= min) {
+			return true;
+		}
+		return false;
+	});
 
 	var tableTwo = $('#datatable-campaign-users').DataTable();
 
