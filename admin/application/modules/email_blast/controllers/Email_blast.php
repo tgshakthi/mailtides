@@ -1184,6 +1184,7 @@ class Email_blast extends MX_Controller
      function insert_campaign_data()
      {
        $this->Email_blast_model->insert_import_campaign_data();
+       $this->session->set_flashdata('success', 'Record Successfully Saved');
      }
 
 

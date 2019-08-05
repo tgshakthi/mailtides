@@ -185,7 +185,7 @@ $(document).ready(function () {
 					email_template: emailTemplate
 				},
 				success: function (data) {
-					alert(data);
+					window.location.href = baseUrl + 'email_blast/add_edit_campaign';
 				}
 			});
 		}
@@ -406,10 +406,10 @@ $(document).ready(function () {
 
 });
 
-$('#btn').click(function(){
-  $(this).addClass('loader');
-  window.setTimeout(function(){
-    $('#loader').removeClass('loader hidden').addClass('done');
-    
-  }, 3000);
+$('#btn').click(function () {
+	$(this).addClass('loader');
+	window.setTimeout(function () {
+		$('#loader').removeClass('loader hidden').addClass('done');
+
+	}, 3000);
 });
