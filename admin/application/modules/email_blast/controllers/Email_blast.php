@@ -310,6 +310,7 @@ class Email_blast extends MX_Controller
       endif;
 
       $data['website_id'] = $this->admin_header->website_id();
+      $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_by_status($data['website_id']);  
       $data['title'] = ($id != null) ? 'Edit Campaign' : 'Add Campaign' . ' | Administrator';
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign';
       $data['ImageUrl'] = $this->admin_header->image_url();
@@ -1542,7 +1543,7 @@ class Email_blast extends MX_Controller
          $template = $this->Email_blast_model->get_email_template_by_id($id);
          $data['id'] = $template[0]->id;
          $data['template_name'] = $template[0]->template_name;
-         $data['template'] = $campaign[0]->template;
+         $data['template'] = $template[0]->template;
          $data['status'] = $template[0]->status;
        else:
          $data['id'] = "";
