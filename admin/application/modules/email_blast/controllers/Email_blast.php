@@ -1368,7 +1368,7 @@ class Email_blast extends MX_Controller
         //   else :
         //     $comments_not_posted[] = $email_track->id;
         //   endif;
-        echo $get_email_track;
+        print_r($get_email_track);
           
         // }
   
