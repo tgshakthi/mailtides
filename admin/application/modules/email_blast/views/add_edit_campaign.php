@@ -90,7 +90,7 @@
 
 								<div class="x_content">
 
-									<div class="form-group col-md-6 col-sm-6 col-xs-12">
+									<div class="form-group ">
 
 										<?php
 											echo form_label('Campaign Name','name');
@@ -99,7 +99,7 @@
 											echo form_input(array(
 												'id'       => 'name',
 												'name'     => 'name',
-												'class'    => 'form-control',
+												'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
 												'value'    => $campaign_name
 											));
 										?>
