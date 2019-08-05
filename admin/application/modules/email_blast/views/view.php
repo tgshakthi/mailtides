@@ -17,7 +17,7 @@
 					<i class="fa fa-inbox" aria-hidden="true"></i> Email Template
 				</a>
 
-				<a href="<?php echo base_url();?>email_blast/campaign" class="btn btn-success">
+				<a href="<?php echo base_url();?>email_blast/campaign_type" class="btn btn-success">
 					<i class="fa fa-drumstick-bite" aria-hidden="true"></i> Campaign Type
 				</a>
 
