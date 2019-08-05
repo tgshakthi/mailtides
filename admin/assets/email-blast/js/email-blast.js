@@ -185,7 +185,7 @@ $(document).ready(function () {
 					email_template: emailTemplate
 				},
 				success: function (data) {
-					window.location.href = baseUrl + 'email_blast/add_edit_campaign';
+					window.location.href = baseUrl + 'email_blast/campaign';
 				}
 			});
 		}
