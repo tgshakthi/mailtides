@@ -1174,12 +1174,8 @@ class Email_blast extends MX_Controller
      // Import Filter Data
      function import_filter_data()
      {
-       
-       //$this->
-
-       echo '<pre>';
-       print_r($_POST);
-       die;
+       $campaign_id = $this->Email_blast_model->insert_import_campaign_data();
+       echo $campaign_id;
      }
 
 
@@ -1520,7 +1516,7 @@ class Email_blast extends MX_Controller
 
       
      
-       $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->campaign_name,  $status, $cell);
+       $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->template_name,  $status, $cell);
      }
            
      $template = array(
@@ -1601,7 +1597,7 @@ class Email_blast extends MX_Controller
        redirect($url);
      }
  
-     function delete_template()
+     function delete_email_template()
      {
        $this->Email_blast_model->delete_template_data();
         $this->session->set_flashdata('success', 'Successfully Deleted');
