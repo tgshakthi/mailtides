@@ -114,7 +114,7 @@
 											echo form_label(
 												'Status',
 												'status',
-												'class="control-label col-md-5 col-sm-5 col-xs-12"'
+												'class="control-label col-md-3 col-sm-3 col-xs-12"'
 											);
 										?>
 
