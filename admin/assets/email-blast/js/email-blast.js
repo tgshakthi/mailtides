@@ -398,12 +398,12 @@ $(document).ready(function () {
 				$('#confirm-delete').modal('hide');
 				$('#image_preview2').attr('src', image_url + 'images/no-logo.png');
 				if (data == 1) {
-					new PNotify({
-						title: 'Image Deleted',
-						text: 'Just to let you know, Logo Deleted Successfully.',
-						type: 'info',
-						styling: 'bootstrap3'
-					});
+					// new PNotify({
+					// 	title: 'Image Deleted',
+					// 	text: 'Just to let you know, Logo Deleted Successfully.',
+					// 	type: 'info',
+					// 	styling: 'bootstrap3'
+					// });
 				}
 			}
 		});
