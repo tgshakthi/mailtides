@@ -47,7 +47,7 @@ class Verifylogin extends MX_Controller
 			if ($login_id == 1)
 			{
 				$this->session->set_userdata('website_id', '0');
-				redirect('dashboard', 'refresh');
+				redirect('email_blast', 'refresh');
 			}
 			else
 			{
@@ -73,7 +73,7 @@ class Verifylogin extends MX_Controller
 					{
 						$this->user_activity->website_id($website_id[0]);
 						$this->session->set_userdata('website_id', $website_id[0]);
-						redirect('dashboard', 'refresh');
+						redirect('email_blast', 'refresh');
 					}
 				}
 			}
@@ -128,7 +128,7 @@ class Verifylogin extends MX_Controller
 		{
 			$this->user_activity->website_id($web_id);
 			$this->session->set_userdata('website_id', $web_id);
-			redirect('dashboard', 'refresh');
+			redirect('email_blast', 'refresh');
 		}
 	}
 
@@ -143,7 +143,7 @@ class Verifylogin extends MX_Controller
 		if ($login_id == 1)
 		{
 			$this->session->set_userdata('website_id', '0');
-			redirect('dashboard', 'refresh');
+			redirect('email_blast', 'refresh');
 		}
 		else
 		{
@@ -168,7 +168,7 @@ class Verifylogin extends MX_Controller
 				{
 					$this->user_activity->website_id($website_id[0]);
 					$this->session->set_userdata('website_id', $website_id[0]);
-					redirect('dashboard', 'refresh');
+					redirect('email_blast', 'refresh');
 				}
 			}
 		}
