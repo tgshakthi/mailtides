@@ -116,7 +116,7 @@
 											Send Date
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">
-											<input type="text" name="send-date" class="form-conrol col-md-7 col-xs-12" id="send-date">
+											<input type="text" name="send-date" class="form-control col-md-7 col-xs-12" id="send-date">
 										</div>
 									</div>							
 
