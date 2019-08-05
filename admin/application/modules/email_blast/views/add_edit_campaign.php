@@ -150,24 +150,12 @@
 							</div>
 
 							<div id="step-3">
-								<h2 class="StepTitle">Step 3 Content</h2>
-								<p>
-									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-									veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-									dolore
-									eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-									culpa qui officia deserunt mollit anim id est laborum.
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-									irure dolor
-									in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-									Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-									mollit anim id est laborum.
-								</p>
+								<h2 class="StepTitle">Choose Email Template</h2>
+								<select name="email-template" id="email-template">
+									<?php foreach (($email_templates ? $email_templates : array()) as $email_template) :?>
+										<option value="<?php echo $email_template->id;?>"><?php echo $email_template->template_name;?></option>
+									<?php endforeach;?>
+								</select>
 							</div>
 
 							<!-- <div id="step-4">

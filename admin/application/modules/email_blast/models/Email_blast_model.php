@@ -657,14 +657,15 @@ class Email_blast_model extends CI_Model
         return $this->db->insert_id();
     }
 
-    // Get Campaign Type - Campaign 
+    // Get Campaign Type - Campaign (By Status)
     function get_campaign_type_by_status($website_id)
     {
         $this->db->select('*');
         $this->db->where(
             array(
                 'website_id' => $website_id,
-                'status' => '1'
+                'status' => '1',
+                'is_deleted' => '0'
             )            
         );
         $query = $this->db->get($this->table_campaign_type);
@@ -673,5 +674,21 @@ class Email_blast_model extends CI_Model
           $records = $query->result();
         endif;
         return $records;
+    }
+
+    // Get Email Template - campaign (By Status)
+    function get_email_template_by_status()
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+            'status' => '1',
+            'is_deleted' => '0'
+        ));
+        $query = $this->db->get($this->table_template);
+        $records = array();
+        if ($query->num_rows() > 0 ) :
+          $records = $query->result();
+        endif;
+        return $records;        
     }
 }
