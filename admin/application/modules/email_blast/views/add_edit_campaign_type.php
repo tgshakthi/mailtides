@@ -73,7 +73,7 @@
 								));
 						?>
 					
-						<div class="col-md-12 col-md-12 col-xs-12">
+						<div class="col-md-6 col-md-offset-3 col-xs-6">
 							<div class="x_panel">
 
 								<div class="x_title">
