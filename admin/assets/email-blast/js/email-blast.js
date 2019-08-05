@@ -416,11 +416,11 @@ $(document).ready(function () {
 	$('#datatable-email').DataTable();
 
 	// Clone Previous Row for filter input
-	$('#email-tracking>thead>tr')
+	$('#datatable-email-tracking>thead>tr')
 		.clone(true)
-		.appendTo('#email-tracking thead');
+		.appendTo('#datatable-email-tracking thead');
 
-	$('#email-tracking>thead>tr:eq(1)>th').each(function (i) {
+	$('#datatable-email-tracking>thead>tr:eq(1)>th').each(function (i) {
 		var title = $(this).text();
 		if (title.length > 0 && title != 'Action' && title != 'Status') {
 			$(this).html(
