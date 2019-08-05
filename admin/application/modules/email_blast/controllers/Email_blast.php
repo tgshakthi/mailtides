@@ -1327,13 +1327,13 @@ class Email_blast extends MX_Controller
    function graphical_campaign_id()
    {
     
-       $campaign_id=$this->input->post('campaign_id');
-       if(!mepty( $campaign_id)):
-        echo $campaign_id;
-       else:
-        echo 0;
-       endif;
-     
+      $campaign_id=$this->input->post('campaign_id');
+      if(!empty($campaign_id))
+      $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id( $campaign_id);
+       echo"<pre>";
+       print_r();
+       die;
+      endif;
    }
 
     
@@ -1355,11 +1355,7 @@ class Email_blast extends MX_Controller
 
       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
-      $Campaign_details=$this->graphical_campaign_id();
-      echo"<pre>";
-      print_r($Campaign_details);
-      $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id();
-    
+      $get_email_track = $this->Email_blast_model->get_email_track_data();
       
       foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
 
