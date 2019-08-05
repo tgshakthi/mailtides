@@ -16,24 +16,24 @@ $(document).ready(function () {
 	});
 
 	// Datatable - One ( Master Campaign Datepicker Filter)
-	$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-		var min = $('#min').datepicker('getDate');
-		var max = $('#max').datepicker('getDate');
-		var startDate = new Date(data[3]);
-		if (min == null && max == null) {
-			return true;
-		}
-		if (min == null && startDate <= max) {
-			return true;
-		}
-		if (max == null && startDate >= min) {
-			return true;
-		}
-		if (startDate <= max && startDate >= min) {
-			return true;
-		}
-		return false;
-	});
+	// $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+	// 	var min = $('#min').datepicker('getDate');
+	// 	var max = $('#max').datepicker('getDate');
+	// 	var startDate = new Date(data[3]);
+	// 	if (min == null && max == null) {
+	// 		return true;
+	// 	}
+	// 	if (min == null && startDate <= max) {
+	// 		return true;
+	// 	}
+	// 	if (max == null && startDate >= min) {
+	// 		return true;
+	// 	}
+	// 	if (startDate <= max && startDate >= min) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// });
 
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
@@ -280,6 +280,8 @@ function campaign(e) {
 		},
 		cache: false,
 		success: function (data) {
+
+			
 			 alert(data);
 			  var html='<textarea id="mail-opened" style="display: none">'+opened+'</textarea>'+
 						'<textarea id="mail-unopened" style="display: none">'+not_opened+' </textarea>'+
@@ -290,6 +292,7 @@ function campaign(e) {
 			            '<textarea id="mail-facebook" style="display: none">'+posted+'</textarea>'+
 						'<textarea id="mail-sent" style="display: none">'+not_posted+'</textarea>';
 						aler($('#text_area').html(html));
+
 
 		}
 	});
