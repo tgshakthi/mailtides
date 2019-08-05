@@ -278,7 +278,7 @@ $('#preview_template').click(function () {
 			success: function (data) {
 				if (data != 0)
 				    {
-						alert(data);
+						
 				      var img =
 							'<img class="preview-template-img" src="' +
 							imageUrl +
