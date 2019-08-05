@@ -122,7 +122,7 @@
 
 								<br />
 
-								<?php //echo //$table;?>
+								<?php echo $table;?>
 								<br/>
 							</div>
 
