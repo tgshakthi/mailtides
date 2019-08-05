@@ -151,11 +151,14 @@
 
 							<div id="step-3">
 								<h2 class="StepTitle">Choose Email Template</h2>
-								<select name="email-template" id="email-template">
+								<select name="email-template" id="email-template" class="col-md-6 col-md-offset-3 col-xs-6" style="padding: 10px;">
+									<option value="">Select Template</option>
 									<?php foreach (($email_templates ? $email_templates : array()) as $email_template) :?>
 										<option value="<?php echo $email_template->id;?>"><?php echo $email_template->template_name;?></option>
 									<?php endforeach;?>
 								</select>
+								<div class="clearfix"></div>
+								<div class="preview-template-container"></div>
 							</div>
 
 							<!-- <div id="step-4">
