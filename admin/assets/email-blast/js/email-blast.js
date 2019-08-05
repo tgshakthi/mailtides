@@ -288,11 +288,7 @@ if ($('#mybarChart').length) {
 
 function campaign(e) {
 	var baseUrl = $('#base_url').val();
-
 	var id = e.value;
-
-
-
 	$.ajax({
 
 		method: 'POST',
@@ -303,8 +299,9 @@ function campaign(e) {
 		cache: false,
 		success: function (data) {
 
+			var test = JSON.parse(data);
+			console.log(test);
 
-			alert(data);
 			var html = '<textarea id="mail-opened" style="display: none">' + opened + '</textarea>' +
 				'<textarea id="mail-unopened" style="display: none">' + not_opened + ' </textarea>' +
 				'<textarea id="mail-comments-posted" style="display: none">' + txgidocs + '</textarea>' +

@@ -1335,7 +1335,7 @@ class Email_blast extends MX_Controller
     $facebook = array();
     $comments_posted = array();
     $comments_not_posted = array();
-    echo   $campaign_id=$this->input->post('campaign_id');
+    $campaign_id=$this->input->post('campaign_id');
        
     
       $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id($campaign_id);
@@ -1388,7 +1388,7 @@ class Email_blast extends MX_Controller
       $data['posted'] = count($comments_posted);
       $data['not_posted'] = count($comments_not_posted); 
 
-      print_r($data);
+     echo json_encode($data);
     
    }
 
