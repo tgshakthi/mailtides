@@ -314,6 +314,11 @@ class Email_blast extends MX_Controller
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign';
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['table'] = $this->get_table_campaign_users();
+
+      echo '<pre>';
+      print_r($data['table']);
+      die;
+
       $this->load->view('template/meta_head', $data);
       $this->load->view('email_blast_header');
       $this->admin_header->index();
@@ -329,10 +334,6 @@ class Email_blast extends MX_Controller
         $website_id = $this->admin_header->website_id();
         $get_users  = $this->Email_blast_model->get_users();
 
-        echo '<pre>';
-        print_r($get_users);
-        die;
-       
         $i = 1;
         foreach (($get_users ? $get_users : array()) as $get_user) {
             
