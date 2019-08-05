@@ -149,3 +149,9 @@
 	</div>
 </div>
 <!-- page content -->
+
+<style>
+.sorting_desc select {
+	color: black;
+}
+</style>
