@@ -101,10 +101,10 @@ $(document).ready(function() {
 			changeYear: true
 		});
 
-		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		$.fn.dataTable.ext.search.push(function(settings, dataTwo, dataIndex) {
 			var minTwo = $('#min-campaign-users').datepicker('getDate');
 			var maxTwo = $('#min-campaign-users').datepicker('getDate');
-			var startDateTwo = new Date(data[3]);
+			var startDateTwo = new Date(dataTwo[3]);
 
 			alert(startDateTwo);
 
