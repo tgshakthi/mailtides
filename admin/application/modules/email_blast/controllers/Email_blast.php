@@ -319,8 +319,8 @@ class Email_blast extends MX_Controller
         $data['template'] = "";
         $data['status'] = "";
       endif;
-
-      $data['website_id'] = $this->admin_header->website_id();
+       $data['email_blast_users']=$this->Email_blast_model->get_users();
+       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_by_status($data['website_id']);  
       $data['email_templates'] = $this->Email_blast_model->get_email_template_by_status();  
       $data['title'] = ($id != null) ? 'Edit Campaign' : 'Add Campaign' . ' | Administrator';
