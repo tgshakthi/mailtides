@@ -520,7 +520,11 @@ class Email_blast_model extends CI_Model
     
 	function get_campaign_data($id)
     {
-		$query = 'SELECT `*` FROM '.$this->table_campaign.' WHERE FIND_IN_SET('.$id.', campaign_users)';
+		$this->db->select('*');
+        $where = "FIND_IN_SET('".$id."', campaign_users)";  
+		$this->db->where($where);     
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get($this->table_campaign);
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
