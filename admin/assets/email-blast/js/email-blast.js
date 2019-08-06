@@ -485,3 +485,31 @@ if ($('#datatable-email').length) {
 		}
 	});
 } */
+
+
+// Datatable - One ( Master Campaign )
+	if ($('#datatable-email').length) {
+
+		var table = $('#datatable-email').DataTable();
+
+		// Clone Previous Row for filter input
+		$('#datatable-email>thead>tr')
+			.clone(true)
+			.appendTo('#datatable-email thead');
+		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'Action' && title != 'Status') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+	}
