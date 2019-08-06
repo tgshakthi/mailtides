@@ -511,14 +511,17 @@ $('#campaign-name').blur(function () {
 			},
 			success: function (data) 
 			{
+				alert(data);
 				if (data == 0) 
 				{
+					alert('test');
 					$('#error').html('<p style="color:green;font-size: 16px;font-weight:bold">Campaign Name is Available.</p>');
 					$('input[name="campaign-name"]').prop('disabled', false);
 					  
 				} 
 				else 
 				{
+					alert('test1');
 					$('#error').html('<p style="color:red;font-size: 16px; font-weight:bold;"> Campaign Name Already Exists.</p>');
 				
 					$('input[name="campaign-name"]').prop('enable', true);
