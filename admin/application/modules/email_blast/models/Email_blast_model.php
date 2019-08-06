@@ -517,7 +517,17 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
-
+    
+	function get_campaign_data($id)
+    {
+		$query = 'SELECT `*` FROM '.$this->table_campaign.' WHERE FIND_IN_SET('.$id.', campaign_users) order_by `id` Desc';
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
+	
      // Get Template
      function get_email_template()
      {
