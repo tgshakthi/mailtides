@@ -506,7 +506,7 @@ $('#campaign-name').blur(function () {
 			type: 'POST',
 			url:base_url+'email_blast/check_campaign_name' ,
 			data: {
-				camapign_name: Name
+				campaign_name: Name
 			
 			},
 			success: function (data) 
