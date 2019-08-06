@@ -48,7 +48,7 @@ class Email_blast extends MX_Controller
     {
         $website_id = $this->admin_header->website_id();
         $get_users  = $this->Email_blast_model->get_users();
-       
+		$campaign_name = "";
     
         foreach (($get_users ? $get_users : array()) as $get_user) {
             
