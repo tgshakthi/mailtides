@@ -526,7 +526,7 @@ $('#campaign-name').blur(function () {
 				
 					$('input[name="campaign-name"]').prop('enable', true);
 					document.getElementById("campaign-name").value = "";
-				
+					document.getElementById("campaign-name").focus();
 				}
 			}
 		});
