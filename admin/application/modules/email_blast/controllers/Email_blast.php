@@ -58,6 +58,7 @@ class Email_blast extends MX_Controller
           $campaign_table[] =	$campaign->campaign_name;
         endforeach;
 
+        echo '<pre>';
 
         foreach (($get_users ? $get_users : array()) as $get_user) {
 
@@ -97,9 +98,12 @@ class Email_blast extends MX_Controller
             $row = array_merge($row, $camp);
             $row = array_merge($row, $cell);
 
-            $this->table->add_row($row);
+            print_r($row);
+
+            //$this->table->add_row($row);
         }       
       
+        die;
 	
         // Table open
         
