@@ -458,7 +458,7 @@ $('#btn').click(function () {
 
 
 
-/* // Datatable - One ( Master Campaign )
+ // Datatable - One ( Master Campaign )
 	if ($('#datatable-email').length) {
 
 		var table = $('#datatable-email').DataTable();
@@ -483,4 +483,4 @@ $('#btn').click(function () {
 				});
 			}
 		});
-	} */
+	} 
