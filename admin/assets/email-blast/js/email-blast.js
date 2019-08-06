@@ -487,3 +487,40 @@ if ($('#datatable-email').length) {
 		}
 	});
 } 
+
+$('#campaign-name').blur(function () {
+	$('#error').html('');
+	var base_url=$('#base-url').val();
+	var Name = $(this).val();
+
+	if (Name.length != 0) 
+	{
+		
+	   $.ajax({
+			type: 'POST',
+			url:base_url+'email_blast/check_campaign_name' ,
+			data: {
+				camapign_name: Name
+			
+			},
+			success: function (data) 
+			{
+				if (data == 0) 
+				{
+					$('#error').html('<p style="color:green;font-size: 12px; position: absolute;">Grade code Available.</p>');
+					$('input[name="campaign-name"]').prop('disabled', false);
+					  
+				} 
+				else 
+				{
+					$('#error').html('<p style="color:red;font-size: 12px; position: absolute;"> Grade codeAlready Exists.</p>');
+				
+					$('input[name="campaign-name"]').prop('enable', true);
+					document.getElementById("campaign-name").value = "";
+				
+				}
+			}
+		});
+	}
+	
+});
