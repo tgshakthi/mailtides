@@ -144,31 +144,36 @@ $(document).ready(function () {
 				return $(this).val();
 			})
 			.get();
-		if (values.length > 0) {
-			$.ajax({
-				method: 'POST',
-				url: baseUrl + 'email_blast/import_filter_data',
-				data: {
-					campaign_name: campaignName,
-					campaign_desc: campaignDesc,
-					campaign_type: campaignType,
-					send_date: sendDate,
-					user_id: values
-				},
-				success: function (data) {
-					if (data.length > 0) {
-						$('#campaign-id').val(data);
-						alert('Successfully Imported. Go to Step - 3');
-						document.getElementById('filter-data-import').disabled = true;
-					} else {
-						alert('Something Went Wrong!. Please try again!.');
-						window.location.href = baseUrl + 'email_blast/add_edit_campaign';
+		if (campaignName.length > 0) {
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: baseUrl + 'email_blast/import_filter_data',
+					data: {
+						campaign_name: campaignName,
+						campaign_desc: campaignDesc,
+						campaign_type: campaignType,
+						send_date: sendDate,
+						user_id: values
+					},
+					success: function (data) {
+						if (data.length > 0) {
+							$('#campaign-id').val(data);
+							alert('Successfully Imported. Go to Step - 3');
+							document.getElementById('filter-data-import').disabled = true;
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = baseUrl + 'email_blast/add_edit_campaign';
+						}
 					}
-				}
-			});
+				});
+			} else {
+				alert('please upload some users!');
+			}
 		} else {
-			alert('please upload some users!');
+			alert('Please Enter Campaign Name.');
 		}
+
 	});
 
 	// Send Date Datepicker
