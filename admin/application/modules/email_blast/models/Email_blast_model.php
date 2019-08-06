@@ -85,6 +85,21 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
+	
+	 // Get Campaign
+    function get_campaign_name()
+    {
+        $this->db->select('campaign_name');
+        $this->db->where(array(
+           'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_campaign);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
 
     // Get Campaign users
     function get_campaign_users()
