@@ -159,6 +159,7 @@ $(document).ready(function () {
 					if (data.length > 0) {
 						$('#campaign-id').val(data);
 						alert('Successfully Imported. Go to Step - 3');
+						document.getElementById('filter-data-import').disabled = true;
 					} else {
 						alert('Something Went Wrong!. Please try again!.');
 						window.location.href = baseUrl + 'email_blast/add_edit_campaign';
@@ -505,24 +506,27 @@ $('#campaign-name').blur(function () {
 			type: 'POST',
 			url:base_url+'email_blast/check_campaign_name' ,
 			data: {
-				camapign_name: Name
+				campaign_name: Name
 			
 			},
 			success: function (data) 
 			{
+				
 				if (data == 0) 
 				{
-					$('#error').html('<p style="color:green;font-size: 12px;">Campaign Name is Available.</p>');
+					
+					$('#error').html('<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>');
 					$('input[name="campaign-name"]').prop('disabled', false);
 					  
 				} 
 				else 
 				{
-					$('#error').html('<p style="color:red;font-size: 12px; position: absolute;"> Campaign Name Already Exists.</p>');
-				
-					$('input[name="campaign-name"]').prop('enable', true);
+					$("input").focus(); 
+					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
+				   $('input[name="campaign-name"]').prop('enable', true);
 					document.getElementById("campaign-name").value = "";
-				
+					
+					
 				}
 			}
 		});
