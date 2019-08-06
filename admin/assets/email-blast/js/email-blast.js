@@ -178,7 +178,8 @@ $(document).ready(function () {
 	var baseUrl = $('#base-url').val();
 	$('#wizard').smartWizard({
 		autoAdjustHeight: true, // Automatically adjust content height
-		onFinish: onFinishCallback
+		onFinish: onFinishCallback,
+		hideButtonsOnDisabled: true,
 	});
 
 	function onFinishCallback() {
