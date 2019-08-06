@@ -136,7 +136,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							
 									<div class="email-blast-date">
-									<input type="hidden" name="email_blast_users" id="email_blast_uesrs" value="<?php echo $email_blast_users ;?>">
+								
 										<div>
 											<label>From Date:</label>
 											<input type="text" id="min">
@@ -147,7 +147,7 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<button class="btn btn-default" id="filter-data-import">Import</button>
 
 								<br />
