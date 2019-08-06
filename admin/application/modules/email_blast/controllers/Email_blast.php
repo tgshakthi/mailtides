@@ -550,6 +550,8 @@ class Email_blast extends MX_Controller
       $data['website_folder_name'] = $this->admin_header->website_folder_name();
       $data['httpUrl'] = $this->admin_header->host_url();
       $data['ImageUrl'] = $this->admin_header->image_url();
+
+      $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
     
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
