@@ -95,7 +95,7 @@ class Email_blast extends MX_Controller
         }
         $campaigns = $this->Email_blast_model->get_campaign();
 		foreach($campaigns as $campaign):
-			$campaign_name[] = $campaign->campaign_name;
+			$campaign_name = $campaign->campaign_name;
 		endforeach;
 	
         // Table open
