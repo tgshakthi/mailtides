@@ -112,9 +112,13 @@ class Email_blast extends MX_Controller
 			$campaign_name = $campaign->campaign_name;
 			$campaign_table[] = $campaign_name;			
 		endforeach;
-		$campaign = implode(",",$campaign_table);
+    //$campaign = implode(",",$campaign_table);
+    
+    $heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
+    $heading = array_merge($heading, $campaign_table);
+    $heading = array_merge($heading, array('Action'));
 	
-        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',implode(",",$campaign_table), 'Action');
+        $this->table->set_heading($heading);
         return $this->table->generate();
     }
 
@@ -655,7 +659,7 @@ class Email_blast extends MX_Controller
             $email_subject = $this->input->post('subject');
 
             $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
-			$campaign_users = explode(",",$get_users[0]->campaign_users);
+			      $campaign_users = explode(",",$get_users[0]->campaign_users);
 			
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
