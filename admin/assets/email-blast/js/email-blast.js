@@ -168,7 +168,7 @@ $(document).ready(function () {
 		}
 		else
 		{
-            alert('test');
+            alert('please upload some users!');
 		}
 	});
 
