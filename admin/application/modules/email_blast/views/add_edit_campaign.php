@@ -85,8 +85,9 @@
 
 										<div class="col-md-6 col-sm-6 col-xs-12">
 											<input type="text" name="campaign_name" id="campaign-name" required="required" class="form-control col-md-7 col-xs-12">
+											<span id="error"></span>
 										</div>
-										<span id="error"></span>
+										
 									</div>
 									
 
