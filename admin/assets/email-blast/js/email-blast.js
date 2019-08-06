@@ -166,8 +166,10 @@ $(document).ready(function () {
 					}
 				}
 			});
-		} else {
-			alert('please upload some users!');
+		}
+		else
+		{
+            alert('please upload some users!');
 		}
 	});
 
@@ -226,15 +228,6 @@ $(document).ready(function () {
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
 		$('.buttonFinish').addClass('btn btn-default').text('Save');
-
-	if ($('.buttonFinish').hasClass('buttonDisabled')) {
-		$('.buttonFinish').hide();
-	} else if ($('.buttonNext').hasClass('buttonDisabled')) {
-		$('.buttonNext').hide();
-	} else {
-		$('.buttonFinish').show();
-		$('.buttonNext').show();
-	}
 });
 
 // Graphical Reports
@@ -498,32 +491,42 @@ if ($('#datatable-email').length) {
 			});
 		}
 	});
-}
+} 
 
 
 $('#campaign-name').blur(function () {
 	$('#error').html('');
-	var base_url = $('#base-url').val();
+	var base_url=$('#base-url').val();
 	var Name = $(this).val();
 
-	if (Name.length != 0) {
-
-		$.ajax({
+	if (Name.length != 0) 
+	{
+		
+	   $.ajax({
 			type: 'POST',
-			url: base_url + 'email_blast/check_campaign_name',
+			url:base_url+'email_blast/check_campaign_name' ,
 			data: {
 				campaign_name: Name
-
+			
 			},
-			success: function (data) {
-
-				if (data == 0) {
-
+			success: function (data) 
+			{
+				
+				if (data == 0) 
+				{
+					
 					$('#error').html('<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>');
 					$('input[name="campaign-name"]').prop('disabled', false);
+<<<<<<< HEAD
 
 
 				} else {
+=======
+					  
+				} 
+				else 
+				{
+>>>>>>> parent of bebd1cb1... Update email-blast.js
 					$(this).focus();
 
 
@@ -531,15 +534,15 @@ $('#campaign-name').blur(function () {
 					$("input").focus();
 
 					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
-					$('input[name="campaign-name"]').prop('enable', true);
+				   $('input[name="campaign-name"]').prop('enable', true);
 					document.getElementById("campaign-name").value = "";
-
-
+					
+					
 				}
 			}
 		});
 	}
-
+	
 });
 // //import butto in campaign
 // $('#filter-data-import').click(function () {
