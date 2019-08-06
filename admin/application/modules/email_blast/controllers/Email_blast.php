@@ -329,9 +329,7 @@ class Email_blast extends MX_Controller
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign';
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['table'] = $this->get_table_campaign_users();
-      echo"<pre>";
-      echo  count($data['table']);
-      die;
+      
       $this->load->view('template/meta_head', $data);
       $this->load->view('email_blast_header');
       $this->admin_header->index();
