@@ -105,7 +105,7 @@ class Email_blast extends MX_Controller
             width="100%" cellspacing="0">'
         );
         $this->table->set_template($template);
-        
+        print_r($campaigns);
         // Table heading row
         foreach($campaigns as $campaign):
 			$campaign_name = $campaign->campaign_name;
