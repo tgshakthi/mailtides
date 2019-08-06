@@ -516,12 +516,8 @@ $('#campaign-name').blur(function () {
 				} else {
 
 					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
-
-					$('input[name="campaign-name"]').prop('enable', true);
 					$('#campaign-name').val('');
 					$('#campaign-name').focus();
-
-
 				}
 			}
 		});
