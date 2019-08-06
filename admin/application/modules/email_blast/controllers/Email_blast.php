@@ -1919,7 +1919,8 @@ class Email_blast extends MX_Controller
     function check_campaign_name()
     {
        $campaign_name=$this->input->post('campaign_name');
-    
+      echo $campaign_name;
+      die;
         $campaign=$this->Email_blast_model->check_campaign_name($campaign_name);
          echo "<pre>";
          print_r( $campaign);
