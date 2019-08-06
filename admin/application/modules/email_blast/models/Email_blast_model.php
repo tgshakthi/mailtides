@@ -126,11 +126,11 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
-    
+
 //check_campaign_name
    function check_campaign_name($campaign_name)
    {
-     $this->db->select('camapaign_name');
+     $this->db->select('campaign_name');
      $this->db->where(array(
          'campaign_name'=>$campaign_name,
          'is_deleted'=>'0'
