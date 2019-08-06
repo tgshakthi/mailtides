@@ -109,9 +109,10 @@ class Email_blast extends MX_Controller
         
 		// Table heading row
         foreach($campaigns as $campaign):
-			$campaign_name = $campaign->campaign_name;			
+			$campaign_name = $campaign->campaign_name;
+			$campaign_table[] = $campaign_name;			
 		endforeach;
-		$campaign_table[] = $campaign_name;
+		
 		print_r($campaign_table);
         $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign_name, 'Action');
         return $this->table->generate();
