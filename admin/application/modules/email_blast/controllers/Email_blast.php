@@ -94,9 +94,7 @@ class Email_blast extends MX_Controller
             $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
         }
         $campaigns = $this->Email_blast_model->get_campaign();
-		/* foreach($campaigns as $campaign):
-			$campaign_name = $campaign->campaign_name;
-		endforeach; */
+		
 	
         // Table open
         
@@ -109,8 +107,11 @@ class Email_blast extends MX_Controller
         $this->table->set_template($template);
         
         // Table heading row
+        foreach($campaigns as $campaign):
+			$campaign_name = $campaign->campaign_name;
+			$this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign_name, 'Action');
+		endforeach;
         
-        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',foreach($campaigns as $campaign):$campaign_name = $campaign->campaign_name;endforeach;, 'Action');
         return $this->table->generate();
     }
 
