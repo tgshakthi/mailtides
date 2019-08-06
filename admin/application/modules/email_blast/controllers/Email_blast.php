@@ -48,7 +48,7 @@ class Email_blast extends MX_Controller
     {
         $website_id = $this->admin_header->website_id();
         $get_users  = $this->Email_blast_model->get_users();
-       
+		$campaign_name = "";
     
         foreach (($get_users ? $get_users : array()) as $get_user) {
             
@@ -69,7 +69,7 @@ class Email_blast extends MX_Controller
               'class' => 'last',
               'data' => $anchor_delete
             );
-
+		
             $email_track_data = $this->Email_blast_model->get_email_track($get_user->email);
 
             // Clicked From
@@ -93,7 +93,9 @@ class Email_blast extends MX_Controller
         
             $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
         }
-        
+        $campaigns = $this->Email_blast_model->get_campaign_name();
+		
+	
         // Table open
         
         $template = array(
@@ -102,11 +104,17 @@ class Email_blast extends MX_Controller
             class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
             width="100%" cellspacing="0">'
         );
-        $this->table->set_template($template);
         
-        // Table heading row
+		$this->table->set_template($template);
         
-        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date','Txgidocs', 'Google', 'Facebook', 'Action');
+		// Table heading row
+        foreach($campaigns as $campaign):
+			$campaign_name = $campaign->campaign_name;
+			$campaign_table[] = $campaign_name;			
+		endforeach;
+		$campaign = implode(',',$campaign_table);
+	
+        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign, 'Action');
         return $this->table->generate();
     }
 
@@ -312,14 +320,16 @@ class Email_blast extends MX_Controller
         $data['template'] = "";
         $data['status'] = "";
       endif;
-
-      $data['website_id'] = $this->admin_header->website_id();
+       $data['email_blast_users']=$this->Email_blast_model->get_users();
+      
+       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_by_status($data['website_id']);  
       $data['email_templates'] = $this->Email_blast_model->get_email_template_by_status();  
       $data['title'] = ($id != null) ? 'Edit Campaign' : 'Add Campaign' . ' | Administrator';
       $data['heading'] = (($id != null) ? 'Edit' : 'Add') . ' Campaign';
       $data['ImageUrl'] = $this->admin_header->image_url();
       $data['table'] = $this->get_table_campaign_users();
+      
       $this->load->view('template/meta_head', $data);
       $this->load->view('email_blast_header');
       $this->admin_header->index();
@@ -377,7 +387,7 @@ class Email_blast extends MX_Controller
                 $facebook = 'NO';
             }           
         
-            $this->table->add_row($i.' <input type="hidden" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook);
+            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook);
 
             $i++;
         }
@@ -548,13 +558,7 @@ class Email_blast extends MX_Controller
       $data['website_folder_name'] = $this->admin_header->website_folder_name();
       $data['httpUrl'] = $this->admin_header->host_url();
       $data['ImageUrl'] = $this->admin_header->image_url();
-      $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();
-      if(!empty($data['campaign_details'])):
-        $email_template=$this->Email_blast_model->get_email_template_by_id(  $data['campaign_details'][0]->template_id);
-       $data['preview_image']= $email_template[0]->image;
-      else:
-        $data['preview_image']="";
-      endif;
+    
       $mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
         
        if(!empty($mail_config)):
@@ -1919,5 +1923,16 @@ class Email_blast extends MX_Controller
        $this->session->set_flashdata('success', 'Successfully Deleted');
        redirect('email_blast/campaign_type');
      }
+    }
+    function check_campaign_name()
+    {
+       $campaign_name=$this->input->post('campaign_name');
+        $campaign=$this->Email_blast_model->check_campaign_name($campaign_name);
+      
+        if(!empty($campaign)):
+          echo '1';
+        else:
+          echo '0';
+        endif;
     }
 }

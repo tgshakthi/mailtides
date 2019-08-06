@@ -52,7 +52,7 @@
 						<form action="<?php echo base_url()?>email_blast/delete_multiple_user" id="form_selected_record"
 							method="post">				
 									
-							<?php //echo //$table;?>
+							<?php //echo $table;?>
 
 
 							<table id="datatable-email"

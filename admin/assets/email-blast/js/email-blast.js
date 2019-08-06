@@ -166,6 +166,10 @@ $(document).ready(function () {
 				}
 			});
 		}
+		else
+		{
+            alert('test');
+		}
 	});
 
 	// Send Date Datepicker
@@ -456,6 +460,8 @@ $('#btn').click(function () {
 	});
 });
 
+
+
 // Email Tracking Datatable Filter
 if ($('#datatable-email').length) {
 
@@ -484,4 +490,52 @@ if ($('#datatable-email').length) {
 			});
 		}
 	});
-}
+} 
+
+
+$('#campaign-name').blur(function () {
+	$('#error').html('');
+	var base_url=$('#base-url').val();
+	var Name = $(this).val();
+
+	if (Name.length != 0) 
+	{
+		
+	   $.ajax({
+			type: 'POST',
+			url:base_url+'email_blast/check_campaign_name' ,
+			data: {
+				camapign_name: Name
+			
+			},
+			success: function (data) 
+			{
+				if (data == 0) 
+				{
+					$('#error').html('<p style="color:green;font-size: 12px;">Campaign Name is Available.</p>');
+					$('input[name="campaign-name"]').prop('disabled', false);
+					  
+				} 
+				else 
+				{
+					$('#error').html('<p style="color:red;font-size: 12px; position: absolute;"> Campaign Name Already Exists.</p>');
+				
+					$('input[name="campaign-name"]').prop('enable', true);
+					document.getElementById("campaign-name").value = "";
+				
+				}
+			}
+		});
+	}
+	
+});
+// //import butto in campaign
+// $('#filter-data-import').click(function () {
+
+// 	var blast_users=$('#email_blast_user').val();
+// 	alert(blast_users);
+// 	if(blast_users.length==0)
+// 	{
+//        alert('please upload somae users');
+// 	}
+// });

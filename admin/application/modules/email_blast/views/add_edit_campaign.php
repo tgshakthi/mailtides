@@ -85,8 +85,13 @@
 
 										<div class="col-md-6 col-sm-6 col-xs-12">
 											<input type="text" name="campaign_name" id="campaign-name" required="required" class="form-control col-md-7 col-xs-12">
+											
 										</div>
+
+										<span id='error' class="control-label col-md-2 col-sm-2 col-xs-12"></span>
+										
 									</div>
+									
 
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="text">
@@ -127,9 +132,11 @@
 
 							<div id="step-2">
 								<h2 class="StepTitle">Campaign Users</h2>
-
+								
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							
 									<div class="email-blast-date">
+								
 										<div>
 											<label>From Date:</label>
 											<input type="text" id="min">
@@ -140,9 +147,9 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<button class="btn btn-default" id="filter-data-import">Import</button>
-
+                                 
 								<br />
 
 								<?php echo $table;?>
