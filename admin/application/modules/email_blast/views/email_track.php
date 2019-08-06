@@ -52,10 +52,10 @@
 						<form action="<?php echo base_url()?>email_blast/delete_multiple_user" id="form_selected_record"
 							method="post">				
 									
-							<?php echo $table;?>
+							<?php //echo $table;?>
 
 
-							<!--<table id="datatable-email"
+							<table id="datatable-email"
 								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
 								cellspacing="0">
 
@@ -136,7 +136,7 @@
 									<?php endforeach;?>
 								</tbody>
 
-							</table> -->
+							</table>
 
 
 						</form>

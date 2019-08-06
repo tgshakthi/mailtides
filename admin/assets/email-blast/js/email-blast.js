@@ -458,27 +458,32 @@ $('#btn').click(function () {
 
 
 
- $(document).ready(function() {
-    $('#datatable-email').DataTable( {
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo($("#datatable-email").find("th").eq(column.index()))
-                    .on('change', function () {
+// Email Tracking Datatable Filter
+if ($('#datatable-email').length) {
+
+	$('#datatable-email').DataTable({
+		initComplete: function () {
+			this.api().columns(2).every(function () {
+				var column = this;
+				if (column.index() == 2) {
+					var select = $('<select><option value=""></option></select>')
+						.appendTo($("#filters").find("th").eq(column.index()))
+						.on('change', function () {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
+
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
+
 						});
 
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
-    } );
-} );
+					column.data().unique().sort().each(function (d, j) {
+						select.append('<option value="' + d + '">' + d + '</option>')
+					});
+				}
+			});
+		}
+	});
+} 
