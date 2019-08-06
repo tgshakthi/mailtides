@@ -508,7 +508,7 @@ $('#campaign-name').blur(function () {
 			{
 				if (data == 0) 
 				{
-					$('#error').html('<p style="color:green;font-size: 12px; position: absolute;">Campaign Name is Available.</p>');
+					$('#error').html('<p style="color:green;font-size: 12px;">Campaign Name is Available.</p>');
 					$('input[name="campaign-name"]').prop('disabled', false);
 					  
 				} 
