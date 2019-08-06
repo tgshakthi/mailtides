@@ -456,7 +456,7 @@ $('#btn').click(function () {
 	});
 });
 
-// Email Tracking Datatable Filter
+/* // Email Tracking Datatable Filter
 if ($('#datatable-email').length) {
 
 	$('#datatable-email').DataTable({
@@ -484,4 +484,4 @@ if ($('#datatable-email').length) {
 			});
 		}
 	});
-}
+} */
