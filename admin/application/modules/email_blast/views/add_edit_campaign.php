@@ -88,7 +88,7 @@
 											
 										</div>
 
-										<span id='error' class="control-label col-md-3 col-sm-3 col-xs-12"></span>
+										<span id='error' class="control-label col-md-2 col-sm-2 col-xs-12"></span>
 										
 									</div>
 									
