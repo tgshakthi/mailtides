@@ -53,6 +53,9 @@ class Email_blast extends MX_Controller
         $campaigns = $this->Email_blast_model->get_campaign_name();
         $get_campaigns = $this->Email_blast_model->get_campaign();
         foreach (($get_users ? $get_users : array()) as $get_user) {
+
+          echo '<pre>';
+          print_r($campaigns);
             
             // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
             //     'data-toggle' => 'tooltip',
@@ -96,10 +99,9 @@ class Email_blast extends MX_Controller
 		$this->table->set_template($template);
         
 		// Table heading row
-        foreach($campaigns as $campaign):
-          $campaign_name = $campaign->campaign_name;
-          $campaign_table[] = $campaign_name;			
-        endforeach;
+    foreach($campaigns as $campaign):        
+      $campaign_table[] =	$campaign->campaign_name;
+    endforeach;
 		//$campaign = implode(",",$campaign_table);
 		
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
