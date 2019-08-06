@@ -521,10 +521,11 @@ $('#campaign-name').blur(function () {
 				} 
 				else 
 				{
-		            $('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
+					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
+					$('input[name="campaign-name"]').focus();
 				    $('input[name="campaign-name"]').prop('enable', true);
 					document.getElementById("campaign-name").value = "";
-					input.focus();
+					
 					
 				}
 			}
