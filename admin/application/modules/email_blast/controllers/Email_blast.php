@@ -46,93 +46,68 @@ class Email_blast extends MX_Controller
     // Get Users Table
     function get_table_users()
     {
-        $campaign_table = [];
-        $camp = [];
-        $website_id = $this->admin_header->website_id();
-        $get_users  = $this->Email_blast_model->get_users();
-        $campaign_name = "";
-        $campaigns = $this->Email_blast_model->get_campaign_name();
-        $get_campaigns = $this->Email_blast_model->get_campaign();
+      $website_id = $this->admin_header->website_id();
+      $get_users  = $this->Email_blast_model->get_users();
+     
+  
+      foreach (($get_users ? $get_users : array()) as $get_user) {
+          
+          // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+          //     'data-toggle' => 'tooltip',
+          //     'data-placement' => 'left',
+          //     'data-original-title' => 'Edit'
+          // ));
+          
+          $anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+              'data-toggle' => 'tooltip',
+              'data-placement' => 'right',
+              'data-original-title' => 'Delete',
+              'onclick' => 'return delete_record(' . $get_user->id . ', \'' . base_url('email_blast/delete_user/' . $website_id) . '\')'
+          ));
+          
+          $cell = array(
+            'class' => 'last',
+            'data' => $anchor_delete
+          );
 
-        foreach($campaigns as $campaign):        
-          $campaign_table[] =	$campaign->campaign_name;
-        endforeach;
+          $email_track_data = $this->Email_blast_model->get_email_track($get_user->email);
 
-        echo '<pre>';
+          // Clicked From
+          if (!empty($email_track_data) && $email_track_data[0]->txgidocs === '1') {
+              $txgidocs = 'YES';
+          } else {
+              $txgidocs = 'NO';
+          }
 
-        foreach (($get_users ? $get_users : array()) as $get_user) {
+          if (!empty($email_track_data) && $email_track_data[0]->google === '1') {
+              $google = 'YES';
+          } else {
+              $google = 'NO';
+          }
 
-            // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
-            //     'data-toggle' => 'tooltip',
-            //     'data-placement' => 'left',
-            //     'data-original-title' => 'Edit'
-            // ));
-            
-            $anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
-                'data-toggle' => 'tooltip',
-                'data-placement' => 'right',
-                'data-original-title' => 'Delete',
-                'onclick' => 'return delete_record(' . $get_user->id . ', \'' . base_url('email_blast/delete_user/' . $website_id) . '\')'
-            ));
-            
-            $cell = array(
-              'class' => 'last',
-              'data' => $anchor_delete
-            );
-		
-            $campaign_data = $this->Email_blast_model->get_campaign_data($get_user->id);
-
-            if (in_array($campaign_data[0]->campaign_name, $campaign_table)) {
-              $camp[] = 'Yes';
-            } elseif (!in_array($campaign_data[0]->campaign_name, $campaign_table)) {
-              $camp[] = 'No';
-            }
-
-            $row = array(
-              '<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">',
-              $get_user->name,
-              $get_user->email,
-              $get_user->visited_date
-            );
-
-
-            $row = array_merge($row, $camp);
-            $row = array_merge($row, $cell);
-
-            print_r($row);
-
-            //$this->table->add_row($row);
-        }       
+          if (!empty($email_track_data) && $email_track_data[0]->facebook === '1') {
+              $facebook = 'YES';
+          } else {
+              $facebook = 'NO';
+          }           
       
-        die;
-	
-
-            if (!empty($email_track_data) && $email_track_data[0]->facebook === '1') {
-                $facebook = 'YES';
-            } else {
-                $facebook = 'NO';
-            }           
-        
-            $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
-        // }
-        $campaigns = $this->Email_blast_model->get_campaign();
-	    	print_r($campaigns);die;
-
-        // Table open
-        
-        $template = array(
+          $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
+      }
+      
+      // Table open
+      
+      $template = array(
           'table_open' => '<table
-          id="datatable-email"
+          id="datatable-buttons"
           class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
           width="100%" cellspacing="0">'
       );
       $this->table->set_template($template);
-        
-
-		// Table heading row
-    
-        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date','Txgidocs', 'Google', 'Facebook', 'Action');
-        return $this->table->generate();
+      
+      // Table heading row
+      
+      $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date','Txgidocs', 'Google', 'Facebook', 'Action');
+      return $this->table->generate();
     }
 
     // Import Master File
