@@ -134,6 +134,7 @@
 								<h2 class="StepTitle">Campaign Users</h2>
 								
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<input type="hidden" name="email_blast_users" id="email_blast_uesrs" value="<?php echo $email_blast_users ;?>">
 									<div class="email-blast-date">
 										<div>
 											<label>From Date:</label>
