@@ -509,10 +509,7 @@ $('#campaign-name').blur(function () {
 			success: function (data) {
 
 				if (data == 0) {
-
 					$('#error').html('<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>');
-					$('#campaign-name').prop('disabled', false);
-
 				} else {
 
 					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
