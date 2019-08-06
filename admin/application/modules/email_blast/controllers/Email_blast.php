@@ -46,6 +46,7 @@ class Email_blast extends MX_Controller
     // Get Users Table
     function get_table_users()
     {
+        $campaign_table = [];
         $website_id = $this->admin_header->website_id();
         $get_users  = $this->Email_blast_model->get_users();
         $campaign_name = "";
@@ -96,9 +97,9 @@ class Email_blast extends MX_Controller
         
 		// Table heading row
         foreach($campaigns as $campaign):
-			$campaign_name = $campaign->campaign_name;
-			$campaign_table[] = $campaign_name;			
-		endforeach;
+          $campaign_name = $campaign->campaign_name;
+          $campaign_table[] = $campaign_name;			
+        endforeach;
 		//$campaign = implode(",",$campaign_table);
 		
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
