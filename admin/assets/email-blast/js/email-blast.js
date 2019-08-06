@@ -521,9 +521,9 @@ $('#campaign-name').blur(function () {
 				} 
 				else 
 				{
+					$(this).focus();
 					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
-					
-				    $('input[name="campaign-name"]').prop('enable', true);
+				   $('input[name="campaign-name"]').prop('enable', true);
 					document.getElementById("campaign-name").value = "";
 					
 					
