@@ -488,6 +488,7 @@ if ($('#datatable-email').length) {
 	});
 } 
 
+
 $('#campaign-name').blur(function () {
 	$('#error').html('');
 	var base_url=$('#base-url').val();
