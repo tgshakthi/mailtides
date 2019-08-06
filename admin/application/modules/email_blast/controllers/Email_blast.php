@@ -48,9 +48,9 @@ class Email_blast extends MX_Controller
     {
         $website_id = $this->admin_header->website_id();
         $get_users  = $this->Email_blast_model->get_users();
-		$campaign_name = "";
-		$campaigns = $this->Email_blast_model->get_campaign_name();
-		$get_campaigns = $this->Email_blast_model->get_campaign();
+        $campaign_name = "";
+        $campaigns = $this->Email_blast_model->get_campaign_name();
+        $get_campaigns = $this->Email_blast_model->get_campaign();
         foreach (($get_users ? $get_users : array()) as $get_user) {
             
             // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
@@ -72,6 +72,11 @@ class Email_blast extends MX_Controller
             );
 		
             $campaign_data = $this->Email_blast_model->get_campaign_data($get_user->id);
+
+            echo '<pre>';
+            print_r($campaign_data);
+            die;
+
 			// print_r($campaign_data);
             $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $cell);
         }        	
