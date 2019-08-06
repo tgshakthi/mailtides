@@ -473,14 +473,6 @@ $('#btn').click(function () {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function () {
-					if (table.column(i).search() !== this.value) {
-						table
-							.column(i)
-							.search(this.value)
-							.draw();
-					}
-				});
 			}
 		});
 	} 
