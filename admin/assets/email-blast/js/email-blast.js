@@ -166,6 +166,10 @@ $(document).ready(function () {
 				}
 			});
 		}
+		else
+		{
+            alert('test');
+		}
 	});
 
 	// Send Date Datepicker
@@ -525,13 +529,13 @@ $('#campaign-name').blur(function () {
 	}
 	
 });
-//import butto in campaign
-$('#filter-data-import').click(function () {
+// //import butto in campaign
+// $('#filter-data-import').click(function () {
 
-	var blast_users=('#email_blast_user').val();
-	alert(blast_users);
-	if(blast_users.length==0)
-	{
-       alert('please upload somae users');
-	}
-});
+// 	var blast_users=$('#email_blast_user').val();
+// 	alert(blast_users);
+// 	if(blast_users.length==0)
+// 	{
+//        alert('please upload somae users');
+// 	}
+// });
