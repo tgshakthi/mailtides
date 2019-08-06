@@ -114,20 +114,19 @@ class Email_blast extends MX_Controller
             }           
         
             $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
-        }
+        // }
     //     $campaigns = $this->Email_blast_model->get_campaign();
 		// print_r($campaigns);die;
 
         // Table open
         
         $template = array(
-            'table_open' => '<table
-            id="datatable-buttons"
-            class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
-            width="100%" cellspacing="0">'
-        );
-        
-		$this->table->set_template($template);
+          'table_open' => '<table
+          id="datatable-email"
+          class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+          width="100%" cellspacing="0">'
+      );
+      $this->table->set_template($template);
         
 
 		// Table heading row
