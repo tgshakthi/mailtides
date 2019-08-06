@@ -1921,4 +1921,15 @@ class Email_blast extends MX_Controller
        redirect('email_blast/campaign_type');
      }
     }
+    function check_campaign_name()
+    {
+       $campaign_name=$this->input->post('campaign_name');
+        $campaign=$this->Email_blast_model->check_campaign_name($campaign_name);
+      
+        if(!empty($campaign)):
+          echo '1';
+        else:
+          echo '0';
+        endif;
+    }
 }
