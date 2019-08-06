@@ -759,7 +759,7 @@ class Email_blast_model extends CI_Model
     //campaign users
     function  campaign_type_users($campign_type,$campaign_users)
     {
-     $this->db->select('cmapaign_type,campaign_users');
+     $this->db->select('campaign_type,campaign_users');
      $this->db->where(array(
          'campaign_type'=>$campign_type,
          'campaign_users'=>$campaign_users
