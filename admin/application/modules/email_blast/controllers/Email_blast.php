@@ -387,7 +387,7 @@ class Email_blast extends MX_Controller
                 $facebook = 'NO';
             }           
         
-            $this->table->add_row($i.' <input type="hidden" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook);
+            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook);
 
             $i++;
         }

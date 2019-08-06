@@ -528,7 +528,8 @@ $('#campaign-name').blur(function () {
 //import butto in campaign
 $('#filter-data-import').click(function () {
 
-	var blast_users=('#email_blast_uesrs').val();
+	var blast_users=('#email_blast_user').val();
+	alert(blast_users);
 	if(blast_users.length==0)
 	{
        alert('please upload somae users');
