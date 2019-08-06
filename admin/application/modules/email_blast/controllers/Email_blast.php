@@ -104,14 +104,14 @@ class Email_blast extends MX_Controller
             class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
             width="100%" cellspacing="0">'
         );
-        $this->table->set_template($template);
-        print_r($campaigns);
-        // Table heading row
-        foreach($campaigns as $campaign):
-			$campaign_name = $campaign->campaign_name;
-			$this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign_name, 'Action');
-		endforeach;
         
+		$this->table->set_template($template);
+        
+		// Table heading row
+        foreach($campaigns as $campaign):
+			$campaign_name = $campaign->campaign_name;			
+		endforeach;
+        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign_name, 'Action');
         return $this->table->generate();
     }
 
