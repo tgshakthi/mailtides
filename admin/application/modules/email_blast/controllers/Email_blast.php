@@ -114,8 +114,7 @@ class Email_blast extends MX_Controller
 		endforeach;
 		$campaign = implode("', '",$campaign_table);
 	
-        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date');
-		$this->table->set_heading('Action', 'Name', 'Email','Visited Date');
+        $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date',$campaign_table, 'Action');
         return $this->table->generate();
     }
 
