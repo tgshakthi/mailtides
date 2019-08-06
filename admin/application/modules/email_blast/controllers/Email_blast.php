@@ -95,7 +95,7 @@ class Email_blast extends MX_Controller
               $get_user->visited_date
             );
 
-<<<<<<< HEAD
+
             $row = array_merge($row, $camp);
             $row = array_merge($row, $cell);
 
@@ -106,7 +106,7 @@ class Email_blast extends MX_Controller
       
         die;
 	
-=======
+
             if (!empty($email_track_data) && $email_track_data[0]->facebook === '1') {
                 $facebook = 'YES';
             } else {
@@ -117,7 +117,7 @@ class Email_blast extends MX_Controller
         }
         $campaigns = $this->Email_blast_model->get_campaign();
 		print_r($campaigns);die;
->>>>>>> parent of c7f408e1... update email blast
+
         // Table open
         
         $template = array(
@@ -129,19 +129,10 @@ class Email_blast extends MX_Controller
         
 		$this->table->set_template($template);
         
-<<<<<<< HEAD
+
 		// Table heading row
     
-		//$campaign = implode(",",$campaign_table);
-		
-		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
-		$heading = array_merge($heading, $campaign_table);
-		$heading = array_merge($heading, array('Action'));
-	
-        $this->table->set_heading($heading);
-=======
         $this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date','Txgidocs', 'Google', 'Facebook', 'Action');
->>>>>>> parent of c7f408e1... update email blast
         return $this->table->generate();
     }
 
