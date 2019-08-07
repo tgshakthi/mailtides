@@ -1894,7 +1894,7 @@ class Email_blast extends MX_Controller
 			$this->session->set_flashdata('success', 'Campaign Type details successfully Created.');
 			if (isset($continue) && $continue === "Update & Continue")
 			{
-				 $url = 'email_blast/add_edit_campaign_type'.$id;
+				 $url = 'email_blast/add_edit_campaign_type/'.$id;
 			}
 			else
 			{
