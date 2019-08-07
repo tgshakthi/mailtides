@@ -1934,9 +1934,7 @@ class Email_blast extends MX_Controller
 
     function check_campaign_type_name()
     {
-      echo"<pre>";
-      print_r($_POST);
-      die;
+     
        $campaign_name=$this->input->post('campaign_name');
        $website_id=$this->input->post('website_id');
     
