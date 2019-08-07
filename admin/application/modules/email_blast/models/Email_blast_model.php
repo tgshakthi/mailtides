@@ -537,7 +537,7 @@ class Email_blast_model extends CI_Model
     
 	function get_campaign_data($id)
     {
-		$this->db->select('*');
+		$this->db->select('campaign_users');
         $where = "FIND_IN_SET('".$id."', campaign_users)";  
 		$this->db->where($where);     
         $this->db->order_by('id', 'DESC');
