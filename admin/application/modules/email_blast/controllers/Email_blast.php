@@ -1367,6 +1367,11 @@ class Email_blast extends MX_Controller
           $facebook[] = $email_track->facebook;
         }
 
+        //link open
+        if($email_track->link_opened=='1')
+        {
+            $link[]=$email_track->link_opened;
+        }
         // Comments Posted
         $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
         if( !empty($reviews_entry[0]->review_user_id)):
@@ -1387,7 +1392,7 @@ class Email_blast extends MX_Controller
       $data['txgidocs'] = count($txgidocs); 
       $data['google'] = count($google); 
       $data['facebook'] = count($facebook); 
-      // $data['link_opened']=$data['txgidocs']+ $data['google']+ $data['facebook'];
+      $data['link_open']=count($link); 
       $data['sent'] = $sent; 
       $data['posted'] = count($comments_posted);
       $data['not_posted'] = count($comments_not_posted); 
@@ -1442,10 +1447,7 @@ class Email_blast extends MX_Controller
         if ($email_track->facebook == '1') {
           $facebook[] = $email_track->facebook;
         }
-         if($email_track->link_opened=='1')
-         {
-             $link[]=$email_track->link_opened;
-         }
+      
         // Comments Posted
         $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
         if( !empty($reviews_entry[0]->review_user_id)):
