@@ -72,19 +72,12 @@ class Email_blast extends MX_Controller
 		  
 		  $campaign_users = $this->Email_blast_model->get_campaign_data($get_user->id);
 		  foreach($campaign_users as $campaign_user):
-		  print_r($campaign_user);
-			$campaign_user_name = $campaign_user->campaign_name;
-			/* 
-			if (in_array($label_name, $fields))
-					{
-						$tbl_record[] = $registration->$label_name;
-					} */
-			if(!empty($campaign_user_name)):
+			$campaign_user_name = $campaign_user->campaign_users;			
+			if (in_array($campaign_user_name, $get_user->id)):
 				$campaign_name[] = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
 			else:
 				$campaign_name[] = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
 			endif;
-			
 		  endforeach;
 		 
 		  $heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date);
