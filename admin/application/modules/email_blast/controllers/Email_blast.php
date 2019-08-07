@@ -79,9 +79,9 @@ class Email_blast extends MX_Controller
 		  $heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date);
 		  $heading_data = array_merge($heading_data,$campaign_name);
 		  $heading_data = array_merge($heading_data,$cell);
-		  print_r($heading_data);die;
+		  print_r($heading_data);
          
-		  $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date);
+		  $this->table->add_row($heading_data);
       }
       
 	  foreach($campaign_name_datas as $campaign_name_data):
