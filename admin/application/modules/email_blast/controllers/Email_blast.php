@@ -100,7 +100,6 @@ class Email_blast extends MX_Controller
 	  endforeach;
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date');
 		$heading = array_merge($heading,$campaign);
-		$heading = array_merge($heading,'Action');
       // Table open
       
       $template = array(
@@ -113,7 +112,7 @@ class Email_blast extends MX_Controller
       
       // Table heading row
       
-      $this->table->set_heading($heading);
+      $this->table->set_heading($heading,'Action');
       return $this->table->generate();
     }
 
