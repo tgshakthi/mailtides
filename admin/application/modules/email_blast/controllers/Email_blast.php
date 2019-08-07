@@ -1410,6 +1410,7 @@ class Email_blast extends MX_Controller
       $txgidocs = array();
       $google = array();
       $facebook = array();
+      $link=array();
       $comments_posted = array();
       $comments_not_posted = array();
 
@@ -1441,7 +1442,10 @@ class Email_blast extends MX_Controller
         if ($email_track->facebook == '1') {
           $facebook[] = $email_track->facebook;
         }
-
+         if($email_track->link_opened=='1')
+         {
+             $link[]=$email_track->link_opened;
+         }
         // Comments Posted
         $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
         if( !empty($reviews_entry[0]->review_user_id)):
@@ -1458,7 +1462,8 @@ class Email_blast extends MX_Controller
       }
   
       $data['opened'] = count($opened); 
-      $data['not_opened'] = count($not_opened);       
+      $data['not_opened'] = count($not_opened);
+      $data['link_open']=count($link);       
       $data['txgidocs'] = count($txgidocs); 
       $data['google'] = count($google); 
       $data['facebook'] = count($facebook); 

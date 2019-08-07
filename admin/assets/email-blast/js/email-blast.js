@@ -272,7 +272,7 @@ if ($('#mybarChart').length) {
 				chartData.push(campaignData.opened);
 				chartData.push(campaignData.not_opened);
 			
-				chartData.push(campaignData.txgidocs);
+				chartData.push(campaignData.link_open);
 			
 				
 				chartData.push(campaignData.posted);
