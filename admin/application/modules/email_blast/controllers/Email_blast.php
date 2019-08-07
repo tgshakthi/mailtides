@@ -93,9 +93,13 @@ class Email_blast extends MX_Controller
       
           $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook, $cell);
       }
-      foreach($campaign_name_datas as $campaign_name_data):
-	  print_r($campaign_name_data);die;
+      
+	  foreach($campaign_name_datas as $campaign_name_data):
+		// print_r($campaign_name_data);die;
+		$campaign_name = $campaign_name_data->campaign_name;
+		$campaign[]=$campaign_name;
 	  endforeach;
+	  print_r($campaign);die;
       // Table open
       
       $template = array(
