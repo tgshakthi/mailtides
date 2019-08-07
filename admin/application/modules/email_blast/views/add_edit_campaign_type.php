@@ -111,7 +111,7 @@
 										?>
                                         <span id='error' class="control-label col-md-5 col-sm-5 col-xs-12"></span>
 									</div>
-
+                                     <br class='spacer'>
 									 
 									<div class="form-group">
 										<?php
