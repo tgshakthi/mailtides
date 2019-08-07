@@ -98,10 +98,10 @@ class Email_blast extends MX_Controller
 		$campaign_name = $campaign_name_data->campaign_name;
 		$campaign[]=$campaign_name;
 	  endforeach;
-		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Visited Date');
-		$heading = array_merge($heading,$campaign);
-      // Table open
-      
+		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
+		$heading = array_merge($heading, $campaign_table);
+		$heading = array_merge($heading, array('Action'));
+	
       $template = array(
           'table_open' => '<table
           id="datatable-buttons"
@@ -112,7 +112,7 @@ class Email_blast extends MX_Controller
       
       // Table heading row
       
-      $this->table->set_heading($heading,'Action');
+      $this->table->set_heading($heading);
       return $this->table->generate();
     }
 
