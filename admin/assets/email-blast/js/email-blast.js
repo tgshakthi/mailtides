@@ -263,7 +263,7 @@ if ($('#mybarChart').length) {
 			},
 			cache: false,
 			success: function (data) {
-
+                    
 				var campaignData = JSON.parse(data);
                 
 				var chartData = [];
@@ -273,7 +273,7 @@ if ($('#mybarChart').length) {
 				chartData.push(campaignData.not_opened);
 			
 				chartData.push(campaignData.txgidocs);
-				// chartData.push(campaignData.google);
+			
 				
 				chartData.push(campaignData.posted);
 				chartData.push(campaignData.not_posted);
