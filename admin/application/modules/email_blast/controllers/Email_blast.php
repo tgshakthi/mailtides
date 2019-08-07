@@ -69,8 +69,7 @@ class Email_blast extends MX_Controller
             'class' => 'last',
             'data' => $anchor_delete
           );
-		  
-		  $campaign_users = $this->Email_blast_model->get_campaign_data($get_user->id);
+		  $heading_data = array();
 		  foreach($campaign_name_datas as $campaign_user):
 			$campaign_user_name = $campaign_user->campaign_users;
 			$campaign_array = explode(",",$campaign_user_name);
