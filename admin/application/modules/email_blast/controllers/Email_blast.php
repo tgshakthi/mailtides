@@ -88,7 +88,7 @@ class Email_blast extends MX_Controller
          
 		  $this->table->add_row($heading_data);
       }
-      die;
+      // die;
 	  foreach($campaign_name_datas as $campaign_name_data):
 		$campaign_name = $campaign_name_data->campaign_name;
 		$campaign[]=$campaign_name;
