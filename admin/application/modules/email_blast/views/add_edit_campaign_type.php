@@ -109,7 +109,7 @@
 												'value'    => $campaign_type
 											));
 										?>
-                                        <span id='error' class="control-label col-md-4 col-sm-4 col-xs-12"></span>
+                                        <span id='error' class="control-label col-md-5 col-sm-5 col-xs-12"></span>
 									</div>
 
 									 
