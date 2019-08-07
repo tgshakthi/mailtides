@@ -80,8 +80,8 @@ class Email_blast extends MX_Controller
 		  print_r($heading_data);
 		  $heading_data = array_merge($heading_data,$campaign_name);
 		  print_r($heading_data);die;
-		  $heading_data = array_merge($heading_data,$cell);
-           */
+		  // $heading_data = array_merge($heading_data,$cell);
+         
 		  $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date);
       }
       
