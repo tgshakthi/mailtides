@@ -532,7 +532,7 @@ $('#campaign_type').blur(function () {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
-    var website_id=$('website_id').val();
+    var website_id=$('#website_id').val();
 	if (Name.length != 0) {
 
 		$.ajax({
