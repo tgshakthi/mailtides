@@ -253,7 +253,7 @@ if ($('#mybarChart').length) {
 
 	function campaign(e) {
 		var baseUrl = $('#base_url').val();
-		var id = e.value;
+		alert(e);
 		$.ajax({
 
 			method: 'POST',
@@ -263,7 +263,7 @@ if ($('#mybarChart').length) {
 			},
 			cache: false,
 			success: function (data) {
-                    alert(data);
+                    // alert(data);
 				var campaignData = JSON.parse(data);
                 
 				var chartData = [];
