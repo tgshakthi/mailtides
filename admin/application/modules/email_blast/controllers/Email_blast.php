@@ -49,7 +49,8 @@ class Email_blast extends MX_Controller
       $website_id = $this->admin_header->website_id();
       $get_users  = $this->Email_blast_model->get_users();
       $campaign_name_datas = $this->Email_blast_model->get_campaign_name();
-	  	
+		echo '<pre>';	 
+		print_r($campaign_name_datas);die;	
       foreach (($get_users ? $get_users : array()) as $get_user) {
           
           // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
@@ -71,7 +72,7 @@ class Email_blast extends MX_Controller
           );
 		  
 		  $campaign_users = $this->Email_blast_model->get_campaign_data($get_user->id);
-			echo '<pre>';
+			
 			print_r($get_user->id);
 			print_r($campaign_users);
 		  foreach($campaign_users as $campaign_user):
