@@ -236,6 +236,7 @@ $(document).ready(function () {
 
 // Graphical Reports
 if ($('#mybarChart').length) {
+	
 	var f = document.getElementById('mybarChart');
 
 	var opened = document.getElementById('mail-opened').value;
@@ -247,7 +248,7 @@ if ($('#mybarChart').length) {
 	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
-
+    alert(googleReviews);
 
 
 	function campaign(e) {
