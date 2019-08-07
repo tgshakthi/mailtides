@@ -75,7 +75,7 @@ class Email_blast extends MX_Controller
 			$campaign_user_name = $campaign_user->campaign_name;
 			$campaign_name[] = $campaign_user_name;
 		  endforeach;
-		  
+		  print_r($campaign_name);
 		 $heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date);
 		  print_r($heading_data);die;
 		  /*  $heading_data = array_merge($heading_data,$campaign_name);
