@@ -549,7 +549,7 @@ $('#campaign_type').blur(function () {
 					$('#error').html('<p style="color:green;font-size: 12px;position:absolute;font-weight:bold">Campaign Name is Available.</p>');
 				} else {
 
-					$('#error').html('<p  style="color:red;font-size: 12px;position:absolute;font-weight:bold; padding-bottom:10px;"> Campaign Name Already Exists.</p>');
+					$('#error').html('<p  style="color:red;font-size: 12px;position:absolute;font-weight:bold; margin-bottom:10px;"> Campaign Name Already Exists.</p>');
 					$('#campaign_type').val('');
 					$('#campaign_type').focus();
 				}
