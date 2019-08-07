@@ -1341,9 +1341,7 @@ class Email_blast extends MX_Controller
     
       $get_email_track = $this->Email_blast_model->get_email_track_data_by_campaign_id($campaign_id);
 
-    echo"<pre>";
-    print_r( $get_email_track);
-    die;    
+      
       foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
 
         // if status == 1
@@ -1388,6 +1386,7 @@ class Email_blast extends MX_Controller
       $data['txgidocs'] = count($txgidocs); 
       $data['google'] = count($google); 
       $data['facebook'] = count($facebook); 
+      // $data['link_opened']=$data['txgidocs']+ $data['google']+ $data['facebook'];
       $data['sent'] = $sent; 
       $data['posted'] = count($comments_posted);
       $data['not_posted'] = count($comments_not_posted); 
