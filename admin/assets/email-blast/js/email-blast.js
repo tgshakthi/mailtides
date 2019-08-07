@@ -253,7 +253,7 @@ if ($('#mybarChart').length) {
 
 	function campaign(e) {
 		var baseUrl = $('#base_url').val();
-		alert(e);
+		
 		$.ajax({
 
 			method: 'POST',
