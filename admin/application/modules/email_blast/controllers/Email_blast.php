@@ -546,6 +546,9 @@ class Email_blast extends MX_Controller
     // Send Mail
     function send_email_blast_status()
     {
+      echo"<pre>";
+      print_r($_POST);
+      die;
       $website_id = $this->admin_header->website_id();
       $data['website_folder_name'] = $this->admin_header->website_folder_name();
       $data['httpUrl'] = $this->admin_header->host_url();
