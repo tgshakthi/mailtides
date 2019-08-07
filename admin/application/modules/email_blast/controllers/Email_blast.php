@@ -74,9 +74,9 @@ class Email_blast extends MX_Controller
 		  foreach($campaign_users as $campaign_user):
 			$campaign_user_name = $campaign_user->campaign_users;
 			$campaign_array = explode(",",$campaign_user_name);
-			$get_user[] = '1';
+			// $get_user[] = '1';
 			print_r($campaign_array);
-			print_r($get_user);
+			// print_r($get_user);
 			if (in_array('1',$campaign_array)):
 				echo 'test';die;
 				$campaign_name[] = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
