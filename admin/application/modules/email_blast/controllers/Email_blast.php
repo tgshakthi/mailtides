@@ -601,11 +601,12 @@ class Email_blast extends MX_Controller
      // Send Mail
      function send_mail_based_on_campaign()
      {
-       echo"<pre>";
-       print_r($_POST);
-       die;
+     
        $campaign_id = $this->input->post('campaign');
        $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
+       echo"<pre>";
+       print_r($get_users);
+       die;
 	  
         if (!empty($get_users)):
 			$campaign_users = explode(",",$get_users[0]->campaign_users);			
