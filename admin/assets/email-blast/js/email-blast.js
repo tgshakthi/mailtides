@@ -244,7 +244,7 @@ if ($('#mybarChart').length) {
 	var commentsNotPosted = document.getElementById('mail-comments-not-posted')
 		.value;
 	var txgidocsReviews = document.getElementById('mail-txgidocs').value;
-	var googleReviews = document.getElementById('mail-google');
+	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
 
