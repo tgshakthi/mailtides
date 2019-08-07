@@ -657,9 +657,7 @@ class Email_blast extends MX_Controller
 			
             $get_template_id = $this->Email_blast_model->get_campaign_template($campaign_id);
             $template_id= $get_template_id[0]->template_id;             
-            echo"<pre>";
-            print_r($get_template_id);
-            die;
+           
             foreach ($campaign_users as $get_users) :
               $get_user = $this->Email_blast_model->get_users_by_id($get_users);
               // if ($get_user->status == '1'):
