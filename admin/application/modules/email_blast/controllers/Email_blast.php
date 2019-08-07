@@ -46,13 +46,14 @@ class Email_blast extends MX_Controller
     // Get Users Table
     function get_table_users()
     {
-      $website_id = $this->admin_header->website_id();
-      $get_users  = $this->Email_blast_model->get_users();
-      $campaign_name_datas = $this->Email_blast_model->get_campaign();
-    $heading=array();
-    $campaign=array();
-      foreach (($get_users ? $get_users : array()) as $get_user) {
-          
+		$website_id = $this->admin_header->website_id();
+		$get_users  = $this->Email_blast_model->get_users();
+		$campaign_name_datas = $this->Email_blast_model->get_campaign();
+		$heading=array();
+		$campaign=array();
+      
+		foreach (($get_users ? $get_users : array()) as $get_user) 
+		{         
           // $anchor_edit = anchor(site_url('email_blast/add_edit_users/' . $get_user->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
           //     'data-toggle' => 'tooltip',
           //     'data-placement' => 'left',
@@ -70,11 +71,14 @@ class Email_blast extends MX_Controller
             'class' => 'last',
             'data' => $anchor_delete
           );
+		  
 		  $campaign_name = array();
 		  $heading_data = array();
+		  
 		  foreach($campaign_name_datas as $campaign_user):
 			$campaign_user_name = $campaign_user->campaign_users;
 			$campaign_array = explode(",",$campaign_user_name);
+			
 			if(in_array($get_user->id,$campaign_array)):				
 				$campaign_name[] = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
 			else:
