@@ -72,7 +72,7 @@ class Email_blast extends MX_Controller
 		  
 		  $campaign_users = $this->Email_blast_model->get_campaign_data($get_user->id);
 		  foreach($campaign_users as $campaign_user):
-			print_r($campaign_user);die;
+			print_r($campaign_user->campaign_name);die;
 		  
 		  endforeach;
 		  
