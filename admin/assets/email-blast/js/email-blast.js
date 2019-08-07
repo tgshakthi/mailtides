@@ -241,10 +241,9 @@ if ($('#mybarChart').length) {
 	var opened = document.getElementById('mail-opened').value;
 	var notOpened = document.getElementById('mail-unopened').value;
 	var commentsPosted = document.getElementById('mail-comments-posted').value;
-	var commentsNotPosted = document.getElementById('mail-comments-not-posted')
-		.value;
+	var commentsNotPosted = document.getElementById('mail-comments-not-posted').value;
 	var txgidocsReviews = document.getElementById('mail-txgidocs').value;
-	var googleReviews = document.getElementById('mail-google');
+	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
 
