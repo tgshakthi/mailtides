@@ -75,7 +75,7 @@ class Email_blast extends MX_Controller
 			$campaign_user_name = $campaign_user->campaign_users;
 			print_r(explode(",",$campaign_user_name));
 			print_r(array($get_user->id));
-			if (in_array(explode(",",$campaign_user_name),'1')):
+			if (in_array(array($get_user->id),explode(",",$campaign_user_name))):
 				echo 'test';die;
 				$campaign_name[] = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
 			else:
