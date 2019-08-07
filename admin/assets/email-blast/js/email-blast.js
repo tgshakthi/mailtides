@@ -236,6 +236,7 @@ $(document).ready(function () {
 
 // Graphical Reports
 if ($('#mybarChart').length) {
+	
 	var f = document.getElementById('mybarChart');
 
 	var opened = document.getElementById('mail-opened').value;
@@ -244,10 +245,10 @@ if ($('#mybarChart').length) {
 	var commentsNotPosted = document.getElementById('mail-comments-not-posted')
 		.value;
 	var txgidocsReviews = document.getElementById('mail-txgidocs').value;
-	var googleReviews = document.getElementById('mail-google');
+	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
-
+  
 
 
 	function campaign(e) {
@@ -262,15 +263,18 @@ if ($('#mybarChart').length) {
 			},
 			cache: false,
 			success: function (data) {
-
+                    alert(data);
 				var campaignData = JSON.parse(data);
-
+                
 				var chartData = [];
 
 				chartData.push(campaignData.sent);
 				chartData.push(campaignData.opened);
 				chartData.push(campaignData.not_opened);
+			
 				chartData.push(campaignData.txgidocs);
+			
+				
 				chartData.push(campaignData.posted);
 				chartData.push(campaignData.not_posted);
 
