@@ -71,6 +71,14 @@
 									'id'    => 'website_id',
 									'value' => $website_id
 								));
+
+								// Input tag hidden
+								echo form_input(array(
+									'type'  => 'hidden',
+									'name'  => 'base-url',
+									'id'    => 'base-url',
+									'value' =>  base_url()
+								));
 						?>
 					
 						<div class="col-md-6 col-md-offset-3 col-xs-6">
@@ -101,7 +109,7 @@
 												'value'    => $campaign_type
 											));
 										?>
-
+                                        <span id='error' class="control-label col-md-2 col-sm-2 col-xs-12"></span>
 									</div>
 
 									 

@@ -527,13 +527,34 @@ $('#campaign-name').blur(function () {
 	}
 
 });
-// //import butto in campaign
-// $('#filter-data-import').click(function () {
 
-// 	var blast_users=$('#email_blast_user').val();
-// 	alert(blast_users);
-// 	if(blast_users.length==0)
-// 	{
-//        alert('please upload somae users');
-// 	}
-// });
+$('#campaign_type').blur(function () {
+	$('#error').html('');
+	var base_url = $('#base-url').val();
+	var Name = $(this).val();
+    var website_id=$('website_id').val();
+	if (Name.length != 0) {
+
+		$.ajax({
+			type: 'POST',
+			url: base_url + 'email_blast/check_campaign_type_name',
+			data: {
+				campaign_name: Name,
+				website_id:website_id
+
+			},
+			success: function (data) {
+
+				if (data == 0) {
+					$('#error').html('<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>');
+				} else {
+
+					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
+					$('#campaign_type').val('');
+					$('#campaign_type').focus();
+				}
+			}
+		});
+	}
+
+});

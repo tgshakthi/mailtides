@@ -240,7 +240,24 @@ class Email_blast_model extends CI_Model
          return $records;
      }
 
-    
+    //
+    //check_campaign type name
+   function check_campaign_type_name($campaign_name,$website_id)
+   {
+     $this->db->select('*');
+     $this->db->where(array(
+         'website_id'=>$website_id,
+         'campaign_type'=>$campaign_name,
+
+         'is_deleted'=>'0'
+     ));
+     $query   = $this->db->get($this->campaign_type);
+     $records = array();
+     if ($query->num_rows() > 0):
+         $records = $query->result();
+     endif;
+     return $records;
+   }
 
 
 
