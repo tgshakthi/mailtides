@@ -71,7 +71,9 @@ class Email_blast extends MX_Controller
           );
 		  
 		  $campaign_users = $this->Email_blast_model->get_campaign_data($get_user->id);
-		  print_r($campaign_users);die;
+			echo '<pre>';
+			print_r($get_user->id);
+			print_r($campaign_users);die;
 		  foreach($campaign_users as $campaign_user):
 			$campaign_user_name = $campaign_user->campaign_users;
 			$campaign_array = explode(",",$campaign_user_name);
@@ -88,7 +90,7 @@ class Email_blast extends MX_Controller
          
 		  $this->table->add_row($heading_data);
       }
-      
+      // die;
 	  foreach($campaign_name_datas as $campaign_name_data):
 		$campaign_name = $campaign_name_data->campaign_name;
 		$campaign[]=$campaign_name;
