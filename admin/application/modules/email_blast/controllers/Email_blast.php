@@ -546,9 +546,7 @@ class Email_blast extends MX_Controller
     // Send Mail
     function send_email_blast_status()
     {
-      echo"<pre>";
-      print_r($_POST);
-      die;
+     
       $website_id = $this->admin_header->website_id();
       $data['website_folder_name'] = $this->admin_header->website_folder_name();
       $data['httpUrl'] = $this->admin_header->host_url();
@@ -603,6 +601,9 @@ class Email_blast extends MX_Controller
      // Send Mail
      function send_mail_based_on_campaign()
      {
+       echo"<pre>";
+       print_r($_POST);
+       die;
        $campaign_id = $this->input->post('campaign');
        $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
 	  
