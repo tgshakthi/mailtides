@@ -265,7 +265,7 @@ if ($('#mybarChart').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
-                   alert(campaignData);
+                   alert(data);
 				var chartData = [];
 
 				chartData.push(campaignData.sent);
