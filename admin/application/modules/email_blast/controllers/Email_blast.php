@@ -604,9 +604,7 @@ class Email_blast extends MX_Controller
      
        $campaign_id = $this->input->post('campaign');
        $get_users = $this->Email_blast_model->get_campaign_users_by_campaign_id($campaign_id);
-       echo"<pre>";
-       print_r($get_users);
-       die;
+     
 	  
         if (!empty($get_users)):
 			$campaign_users = explode(",",$get_users[0]->campaign_users);			
@@ -620,6 +618,9 @@ class Email_blast extends MX_Controller
       // Send Email    
     function send_email_blast()
     {
+      echo"<pre>";
+      print_r($_POST);
+      die;
        
         $website_id          = $this->admin_header->website_id();
         $mail_configurations = $this->Email_blast_model->get_mail_configuration($website_id);
@@ -762,7 +763,7 @@ class Email_blast extends MX_Controller
                                                             <table cellspacing="0" cellpadding="0">
                                                             <tr>';
 
-                                                             if($template_id=='1'):
+                                                             if($template_id =='1'):
                                                            
                                                                $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
                                                                     <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
