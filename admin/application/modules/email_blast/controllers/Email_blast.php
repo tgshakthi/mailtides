@@ -1970,7 +1970,7 @@ class Email_blast extends MX_Controller
    
     $campaign_users=array();
     $campaign_type_id=$this->input->post('campaign_type_id');
-    $get_campaign_name=$this->Email_blast_model->get_campaign_name();
+    $get_campaign_name=$this->Email_blast_model->get_campaign_name__Bi_reports();
     echo"<pre>";
     print_r( $get_campaign_name);
     die;

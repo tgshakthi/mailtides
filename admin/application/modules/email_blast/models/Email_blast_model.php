@@ -85,7 +85,7 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;
     }
-    function get_campaign_name()
+    function get_campaign_name__Bi_reports()
     {
         $this->db->select('*');
         $this->db->where(array(
