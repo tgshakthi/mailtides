@@ -1972,6 +1972,7 @@ class Email_blast extends MX_Controller
     $campaign_name=array();
     $campaign_id=array();
     $campaign_value="";
+    $background_color="";
     $campaign_type_id = $this->input->post('campaign_type_id');
     $get_campaign_names=$this->Email_blast_model->get_campaign_name_Bi_reports();
 
@@ -1987,14 +1988,17 @@ class Email_blast extends MX_Controller
         endif;
           if(in_array($get_campaign_name->campaign_name, $campaign_id )):
              $campaign_value .=count(  $campaign_user);
+             $background_color .='#EE82EE'
           else:
             $campaign_value .= '0';
+            $background_color .='';
           endif;
       endforeach;
            
       $data['campaign_name'] = $campaign_name;
       $data['campaign_id']=$campaign_id;
       $data['campaign_values']=  str_split($campaign_value);
+      $data['campaign_color']=str_split($background_color);
       $data['campaign_users']=count(  $campaign_user);
 
      echo json_encode($data);

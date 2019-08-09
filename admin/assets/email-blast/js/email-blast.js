@@ -591,7 +591,7 @@ if ($('#mybarChart_type').length) {
 						labels: campaignData.campaign_name,
 
 						datasets:[{ 
-                            backgroundColor: ['#EE82EE'],
+                            backgroundColor: [],
 							data: campaignData.campaign_values
 						}]
 					},
