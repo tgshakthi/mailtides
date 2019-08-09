@@ -584,7 +584,7 @@ if ($('#mybarChart_type').length) {
 				var campaignData = JSON.parse(data);
 
 				var chartData = [];
-				var campaignData = [];
+				//var campaignData = [];
 
 				console.log(campaignData);
 
