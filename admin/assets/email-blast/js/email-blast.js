@@ -582,7 +582,7 @@ if ($('#mybarChart_type').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
-				 var count=campaignData.campaign_users;
+				 var count=;
                   
 
              	var chart = new Chart(f, {
@@ -591,12 +591,7 @@ if ($('#mybarChart_type').length) {
 						labels: campaignData.campaign_name,
 
 						datasets: [{
-							data:
-							if(campaignData.campaign_name==campaignData.campaign_id)
-							{
-								count
-							}
-						,
+							data: campaignData.campaign_users,
 							backgroundColor: ['#EE82EE'],
 						}]
 					},
