@@ -628,7 +628,7 @@ if ($('#mybarChart_type').length) {
 					data: {
 						labels: [
 							// 'Sent'
-						      'Opened'
+						      'users'
 							// 'Unopened',
 							// 'Link Opened',
 							// 'Comments Posted',
