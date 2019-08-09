@@ -38,7 +38,7 @@
 						              	<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url();?>">
                               <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_id" required="required" onchange="campaign(this.value)"  >
                                   <option value="">Select Campaign</option>                                                   
-													            <?php foreach($campaign_details as $campaign):
+													            <?php foreach($campaign_type as $campaign):
 													          ?>
 													        <option value="<?php echo $campaign->id ?>"><?php echo $campaign->campaign_name; ?></option>
 													           <?php endforeach; ?>

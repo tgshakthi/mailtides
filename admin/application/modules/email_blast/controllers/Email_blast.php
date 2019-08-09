@@ -1978,10 +1978,7 @@ class Email_blast extends MX_Controller
 
       $data['website_id'] = $this->admin_header->website_id();
       $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_status( $data['website_id']);   
-      echo"<pre>";
-      print_r( $data['campaign_type']);
-      die;
-    
+  
       $get_email_track = $this->Email_blast_model->get_email_track_data();
     
       foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
