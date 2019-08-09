@@ -587,14 +587,16 @@ if ($('#mybarChart_type').length) {
 			cache: false,
 			success: function(data) {
 				
-				var chartData = JSON.parse(data);
-				var campaign=[];
-				campaign.push(chartData.campaign_name);
-				   
+				var campaignData = JSON.parse(data);
+			    
+				var chartData = [];
+				var Campaigndata=[];
+               chartData.push(campaignData.campaign_name);
+				
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-					     labels: [campaign],
+					     labels: [chartData],
 						
 						datasets: [
 							{
