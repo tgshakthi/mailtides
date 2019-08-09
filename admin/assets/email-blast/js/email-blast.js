@@ -591,16 +591,16 @@ if ($('#mybarChart_type').length) {
 			    var chartdetails=[];
 				var chartData = [];
 				var Campaigndata=[];
-                var count=campaignData.campaign_name_count;
+                var count=campaignData.campaign_name;
 				chartData.push(campaignData.users);
 				chartdetails.push(campaignData.campaign_name);
-				for (var i = 0; i < chartdetails.length; i++){
-					Campaigndata.push(parseFloat(chartdetails[i]));
+				for (var i = 0; i < count.length; i++){
+					chartdetails.push(parseFloat(campaignData.campaign_name[i]));
 				 }
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-					     labels: [Campaigndata],
+					     labels: [chartdetails],
 						
 						datasets: [
 							{
