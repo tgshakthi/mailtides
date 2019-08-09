@@ -1984,8 +1984,9 @@ class Email_blast extends MX_Controller
              $campaign_user[]=  $get_users[0]->name;
           endfor;
         endif;
+       
       endforeach;
-     
+           
       $data['campaign_name'] = $campaign_name;
       $data['campaign_id']=$campaign_id;
       
