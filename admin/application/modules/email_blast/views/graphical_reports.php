@@ -16,7 +16,7 @@
                <div class="col-md-12 col-sm-12 col-xs-12">
                  	<div class="x_panel">
 
-							     	<div class="x_title">
+							     	<!-- <div class="x_title">
 								     	<?php
 									    	echo heading('Details', '2');
 									    	$list = array('<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>');
@@ -24,7 +24,7 @@
 										    echo ul($list,$attributes);
 									     ?>
 									       <div class="clearfix"></div>
-							     	</div>
+							     	</div> -->
 
 								    <div class="x_content">
                     <div class="form-group">
