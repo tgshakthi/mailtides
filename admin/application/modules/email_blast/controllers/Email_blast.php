@@ -96,13 +96,13 @@ class Email_blast extends MX_Controller
 	  foreach($campaign_name_datas as $campaign_name_data):
 		$campaign_name = $campaign_name_data->campaign_name;
 		$campaign[]=$campaign_name;
-   endforeach;
+    // endforeach;
     // echo"<pre>";
     // print_r(	$campaign);
     // die;
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Visited Date');
-		// $heading = array_merge($heading, $campaign);
-		// $heading = array_merge($heading, array('Action'));
+		$heading = array_merge($heading, $campaign);
+		$heading = array_merge($heading, array('Action'));
 	
       $template = array(
           'table_open' => '<table
