@@ -583,7 +583,7 @@ if ($('#mybarChart_type').length) {
 
 				var campaignData = JSON.parse(data);
 
-				var chartData = [];
+				//var chartData = [];
 				//var campaignData = [];
 
 				console.log(campaignData);
