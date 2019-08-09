@@ -2,7 +2,8 @@
 <div class="right_col" role="main">
           <div class="">           
 
-            <div class="x_title">
+            <div class="">
+            <div class="page-title">
               <h3><?php echo $heading;?></h3>
 
               <div class="btn_right" style="text-align:right;">
@@ -10,6 +11,7 @@
                     aria-hidden="true"></i> Back</a>
               </div>
               <div class="clearfix"></div>
+              </div>
             </div>
 
             <div class="row">       
