@@ -98,11 +98,12 @@
         <style>
         .chart-report
 		{
-			height:500px !important;
+			height:550px !important;
 		}
 		  .chart-report canvas
 		{
 			height:100% !important;
+			width:100% !important;
 		}
         
         </style>
