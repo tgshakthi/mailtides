@@ -13,7 +13,7 @@
 					<i class="fa fa-upload"></i> Import Patient Master File
 				</a>
 				
-				<a href="<?php echo base_url();?>email_blast/email_template" class="btn btn-secondary">
+				<a href="<?php echo base_url();?>email_blast/email_template" class="btn btn-warning">
 					<i class="fa fa-inbox" aria-hidden="true"></i> Email Template
 				</a>
 
@@ -29,7 +29,7 @@
 					<i class="fa fa-envelope"></i> Send Mail
 				</a>
 
-				<a href="<?php echo base_url();?>email_blast/email_tracking" class="btn btn-secondary">
+				<a href="<?php echo base_url();?>email_blast/email_tracking" class="btn btn-warning">
 					<i class="fa fa-flag"></i> Reports
 				</a>
 
