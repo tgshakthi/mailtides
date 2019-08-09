@@ -59,30 +59,11 @@
                   <div class="x_content">
                   <div id="text_area">
                   </div>
-
-                    <textarea id="mail-opened-type" style="display: none">
-                      <?php
-                         
-
-                        echo $opened;
-                       ?>
+                     <textarea id="mail-opened-type" style="display: none">
+                         <?php echo $opened;
+                         ?>
                     </textarea>
-                    <!-- <textarea id="mail-unopened-type" style="display: none">
-                      <?php
-                     
-                      //  echo $not_opened;
-                      ?>
-                    </textarea>
-
-                    <textarea id="mail-comments-posted-type" style="display: none"><?php //echo $posted;?></textarea>
-                    <textarea id="mail-comments-not-poste-type" style="display: none"><?php //echo $not_posted;?></textarea>
-
-                    <textarea id="mail-txgidocs-type" style="display: none"><?php //echo $txgidocs;?></textarea>
-                    <textarea id="mail-google-type" style="display: none"><?php //echo $google;?></textarea>
-                    <textarea id="mail-facebook-type" style="display: none"><?php //echo $facebook;?></textarea>
-                    <textarea id="mail-sent-type" style="display: none"><?php //echo $sent;?></textarea> -->
-
-                    <canvas id="mybarChart_type"></canvas>                    
+                   <canvas id="mybarChart_type"></canvas>                    
                   </div>
                 </div>
               </div>
