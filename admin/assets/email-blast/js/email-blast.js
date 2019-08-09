@@ -582,10 +582,11 @@ if ($('#mybarChart_type').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
+				 var count=campaignData.campaign_users;
 
-			
 
-				var chart = new Chart(f, {
+				 
+             	var chart = new Chart(f, {
 					type: 'bar',
 					data: {
 						labels: campaignData.campaign_name,
