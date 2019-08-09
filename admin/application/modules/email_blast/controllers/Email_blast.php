@@ -1991,7 +1991,7 @@ class Email_blast extends MX_Controller
              $background_color .='#EE82EE';
           else:
             $campaign_value .= '0';
-            $background_color .='0';
+            $background_color .='';
           endif;
       endforeach;
            
