@@ -40,7 +40,7 @@
                                   <option value="">Select Campaign</option>                                                   
 													            <?php foreach($campaign_type as $campaign):
 													          ?>
-													        <option value="<?php echo $campaign->id ?>"><?php echo $campaign->campaign_name; ?></option>
+													        <option value="<?php echo $campaign->id ?>"><?php echo $campaign->campaign_type; ?></option>
 													           <?php endforeach; ?>
                               </select>
                           </div>
