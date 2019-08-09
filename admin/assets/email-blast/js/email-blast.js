@@ -306,7 +306,7 @@ if ($('#mybarChart').length) {
 								{
 									ticks: {
 										beginAtZero: !0,
-										stepSize: 2
+										stepSize: 1
 									}
 								}
 							]
@@ -320,7 +320,7 @@ if ($('#mybarChart').length) {
 								{
 									ticks: {
 										beginAtZero: true,
-										stepSize: 2
+										stepSize: 1
 									}
 								}
 							]
