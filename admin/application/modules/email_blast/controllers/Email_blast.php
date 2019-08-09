@@ -1973,8 +1973,8 @@ class Email_blast extends MX_Controller
     $campaign_type_id=$this->input->post('campaign_type_id');
     $get_campaign_names=$this->Email_blast_model->get_campaign_name__Bi_reports();
      foreach($get_campaign_names as $get_campaign_name):
-       $campaign_name []= $get_campaign_name->campaign_name;
-        if($campaign_type_id==$get_campaign_name->campaign_type):
+     if($campaign_type_id==$get_campaign_name->campaign_type):
+          $campaign_name []= $get_campaign_name->campaign_name;
               $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
     if(!empty($get_email_track)):
           $users=explode(",",$get_email_track[0]->campaign_users);
