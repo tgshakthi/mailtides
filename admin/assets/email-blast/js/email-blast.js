@@ -591,8 +591,13 @@ if ($('#mybarChart_type').length) {
 						labels: campaignData.campaign_name,
 
 						datasets: [{
+							data:
+							if(campaignData.campaign_name==campaignData.campaign_id)
+							{
+								count
+							}
+						,
 							backgroundColor: ['#EE82EE'],
-							data: count
 						}]
 					},
 					options: {
