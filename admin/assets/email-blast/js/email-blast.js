@@ -582,6 +582,15 @@ if ($('#mybarChart_type').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
+
+				 var campaign_data=[];
+              
+				 campaign_data.push(campaignData.campaign_name);
+				  
+				 for(var i=0;i<campaign_data.length;i++)
+				 {
+				    alert(campaign_data[$i]);
+				 }
 				
                   var chart = new Chart(f, {
 					type: 'bar',
@@ -589,7 +598,7 @@ if ($('#mybarChart_type').length) {
 						labels: campaignData.campaign_name,
 
 						datasets: [{
-							data: campaignData.campaign_users,
+							data:,
 							backgroundColor: ['#EE82EE'],
 						}]
 					},
