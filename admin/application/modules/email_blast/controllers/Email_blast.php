@@ -1999,7 +1999,7 @@ class Email_blast extends MX_Controller
       // $data['campaign_id']=$campaign_id;
       $data['campaign_values']=  str_split($campaign_value);
       $data['campaign_color']=str_split($background_color,7);
-      $data['campaign_color_values']=str_replace('"', "'", $campaign_color);
+      $data['campaign_color_values']=str_replace('"', "'",  $data['campaign_color']);
       $data['campaign_users']=count(  $campaign_user);
 
      echo json_encode($data);
