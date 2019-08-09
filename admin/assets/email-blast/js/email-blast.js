@@ -653,73 +653,11 @@ if ($('#mybarChart_type').length) {
 	// 		}
 	// 	});
 	// }
+
+	$('#campaign_type_id').on('change', function () {
+		var baseUrl = $('#base_url').val();
+		var e=$('#campaign_type_id').val();
+		alert(e);
+
+	});
 }
-// function campaign_type(m) {
-// 	alert(m);
-// 	var baseUrl = $('#base_url').val();
-	
-// 	$.ajax({
-
-// 		method: 'POST',
-// 		url: baseUrl + 'email_blast/graphical_campaign_type',
-// 		data: {
-// 			campaign_type_id: m
-// 		},
-// 		cache: false,
-// 		success: function (data) {
-			  
-// 			var campaignData = JSON.parse(data);
-			
-// 			var chartData = [];
-
-// 			chartData.push(campaignData.sent);
-// 			chartData.push(campaignData.opened);
-// 			chartData.push(campaignData.not_opened);
-		
-// 			chartData.push(campaignData.link_open);
-		
-			
-// 			chartData.push(campaignData.posted);
-// 			chartData.push(campaignData.not_posted);
-
-// 			var chart = new Chart(f, {
-// 				type: 'bar',
-// 				data: {
-// 					labels: [
-// 						'Sent',
-// 						'Opened',
-// 						'Unopened',
-// 						'Link Opened',
-// 						'Comments Posted',
-// 						'Comments Not Posted'
-// 					],
-// 					datasets: [{
-// 						backgroundColor: [
-// 							'#26B99A',
-// 							'#EE82EE',
-// 							'#DA70D6',
-// 							'#006600',
-// 							'#CC0066',
-// 							'#000099'
-// 						],
-// 						data: chartData
-// 					}]
-// 				},
-// 				options: {
-// 					legend: {
-// 						display: false
-// 					},
-// 					scales: {
-// 						yAxes: [{
-// 							ticks: {
-// 								beginAtZero: !0
-// 							}
-// 						}]
-// 					}
-// 				}
-// 			});
-
-// 		}
-// 	});
-// }
-
