@@ -587,6 +587,7 @@ if ($('#mybarChart_type').length) {
 			cache: false,
 			success: function(data) {
 				var campaignData = JSON.parse(data);
+				alert(campaignData);
 				var chartData = [];
 
 				chartData.push(campaignData.users);
