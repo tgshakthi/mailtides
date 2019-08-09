@@ -89,7 +89,7 @@ class Email_blast_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->where(array(
-            'status'=>'1',.
+            'status'=>'1',
            'is_deleted' => '0'
         ));
         $query   = $this->db->get($this->table_campaign);
