@@ -1979,7 +1979,7 @@ class Email_blast extends MX_Controller
         if($get_campaign_name->campaign_type== $campaign_type_id):
          $campaign_users=explode(",",$get_campaign_name->campaign_users);
           for($i=0;$i<count($campaign_users);$i++):
-             $get_users=$this->Email_blast_model->get_campaign_users_by_campaign_type( $campaign_users[$image]);
+             $get_users=$this->Email_blast_model->get_campaign_users_by_campaign_type( $campaign_users[$i]);
              $campaign_user[]=  $get_users[0]->name;
           endfor;
         endif;
