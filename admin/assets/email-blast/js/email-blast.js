@@ -589,9 +589,7 @@ if ($('#mybarChart_type').length) {
 				
 				var campaignData = JSON.parse(data);
 				var campaign=[];
-				   for(i=0;i<campaignData.campaign_count;i++){
-                      campaign.push(campaignData.campaign_name[i]);
-				   }
+				     campign.push(campaignData.campaign_name);
 				   
 				var chart = new Chart(f, {
 					type: 'bar',
