@@ -592,7 +592,7 @@ if ($('#mybarChart_type').length) {
 				var chartData = [];
                 var count=campaignData.campaign_name_count;
 				chartData.push(campaignData.users);
-				chartdetails.push(campaignData.campaign);
+				chartdetails.push(campaignData.campaign_name);
 
 				var chart = new Chart(f, {
 					type: 'bar',
