@@ -339,6 +339,7 @@ if ($('#mybarChart_type').length) {
 
 
 	function campaign_type(e) {
+		alert(e);
 		var baseUrl = $('#base_url').val();
 		
 		$.ajax({
