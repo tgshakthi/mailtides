@@ -694,6 +694,18 @@ class Email_blast_model extends CI_Model
               endif;
               return $records;
          }
+
+         //camapign users
+         function  select_campaign_user($campaign_type)
+         {
+             $this->db->select('campaign_users')
+             $this->db->where(array(
+                 'campaign_type'=>$campaign_type,
+                 'status'=>'1',
+                 'is_deleted'=>'0'
+             ));
+             $query   = $this->db->get($this->table_campaign);
+         }
 	 // Get Campaign By Id
     function get_campaign_type_by_id($id)
     {
@@ -853,5 +865,19 @@ class Email_blast_model extends CI_Model
           $records = $query->result();
         endif;
         return $records;        
+    }
+    function get_campaign_users_by_campaign_type($id)
+    {
+        $this->db->select('name,email');
+        $this->db->where(array(
+            'id'=>$id,
+            'is_deleted'=>'0'
+        ));
+       $query= $this->db->get($this->table_name);
+       $records = array();
+       if ($query->num_rows() > 0 ) :
+         $records = $query->result();
+       endif;
+       return $records; 
     }
 }
