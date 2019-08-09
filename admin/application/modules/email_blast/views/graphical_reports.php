@@ -81,7 +81,7 @@
                     <textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
                     <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
                     <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
-					<div style="height:500px !important">
+					<div class="chart-report">
                     <canvas id="mybarChart"></canvas>       
                     </div>            
                   </div>
@@ -93,3 +93,17 @@
           </div>
         </div>
         <!-- page content -->
+        
+        
+        <style>
+        .chart-report
+		{
+			height:550px !important;
+		}
+		  .chart-report canvas
+		{
+			height:100% !important;
+			width:100% !important;
+		}
+        
+        </style>
