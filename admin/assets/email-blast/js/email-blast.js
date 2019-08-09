@@ -590,15 +590,17 @@ if ($('#mybarChart_type').length) {
 				var campaignData = JSON.parse(data);
 			    var chartdetails=[];
 				var chartData = [];
+				var Campaigndata=[];
                 var count=campaignData.campaign_name_count;
 				chartData.push(campaignData.users);
 				chartdetails.push(campaignData.campaign_name);
-
+				for (var i = 0; i < chartdetails.length; i++){
+					Campaigndata.push(parseFloat(chartdetails[i]));
+				 }
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-					      
-							labels: [chartdetails.push(campaignData.campaign_name)],
+					     labels: [Campaigndata],
 						
 						datasets: [
 							{
