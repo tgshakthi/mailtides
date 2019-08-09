@@ -1996,7 +1996,7 @@ class Email_blast extends MX_Controller
       endforeach;
            
       $data['campaign_name'] = $campaign_name;
-      $data['campaign_id']=$campaign_id;
+      // $data['campaign_id']=$campaign_id;
       $data['campaign_values']=  str_split($campaign_value);
       $data['campaign_color']=str_split($background_color,7);
       $data['campaign_users']=count(  $campaign_user);
