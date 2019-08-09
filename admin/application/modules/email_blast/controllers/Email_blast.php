@@ -1970,11 +1970,11 @@ class Email_blast extends MX_Controller
    
     $campaign_users=array();
     $campaign_name=array();
-    $campaines=array();
+  
     $campaign_type_id=$this->input->post('campaign_type_id');
     $get_campaign_names=$this->Email_blast_model->get_campaign_name__Bi_reports();
      foreach($get_campaign_names as $get_campaign_name):
-        $campaines[]= $get_campaign_name->campaign_name;
+      
      if($campaign_type_id==$get_campaign_name->campaign_type):
           $campaign_name []= $get_campaign_name->campaign_name;
               $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
@@ -1987,7 +1987,7 @@ class Email_blast extends MX_Controller
       endif;
         endif;
      endforeach;
-        $data['campaines']= $campaines;
+     
       $data['campaign']= $campaign_name;
        $data['campaign_name_count']=count( $campaign_name);
       $data['users'] = count($campaign_users); 
