@@ -36,7 +36,7 @@
                           <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id;?>">
 						              	<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url();?>">
-                              <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_type_id" required="required" onchange="campaign(this.value)"  >
+                              <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_type_id" required="required" onchange="campaign_type(this.value)"  >
                                   <option value="">Select Campaign</option>                                                   
 													            <?php foreach($campaign_type as $campaign):
 													          ?>
@@ -60,29 +60,29 @@
                   <div id="text_area">
                   </div>
 
-                    <textarea id="mail-opened" style="display: none">
+                    <textarea id="mail-opened-type" style="display: none">
                       <?php
                          
 
                         echo $opened;
                        ?>
                     </textarea>
-                    <textarea id="mail-unopened" style="display: none">
+                    <textarea id="mail-unopened-type" style="display: none">
                       <?php
                      
                        echo $not_opened;
                       ?>
                     </textarea>
 
-                    <textarea id="mail-comments-posted" style="display: none"><?php echo $posted;?></textarea>
-                    <textarea id="mail-comments-not-posted" style="display: none"><?php echo $not_posted;?></textarea>
+                    <textarea id="mail-comments-posted-type" style="display: none"><?php echo $posted;?></textarea>
+                    <textarea id="mail-comments-not-poste-type" style="display: none"><?php echo $not_posted;?></textarea>
 
-                    <textarea id="mail-txgidocs" style="display: none"><?php echo $txgidocs;?></textarea>
-                    <textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
-                    <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
-                    <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
+                    <textarea id="mail-txgidocs-type" style="display: none"><?php echo $txgidocs;?></textarea>
+                    <textarea id="mail-google-type" style="display: none"><?php echo $google;?></textarea>
+                    <textarea id="mail-facebook-type" style="display: none"><?php echo $facebook;?></textarea>
+                    <textarea id="mail-sent-type" style="display: none"><?php echo $sent;?></textarea>
 
-                    <canvas id="mybarChart"></canvas>                    
+                    <canvas id="mybarChart_type"></canvas>                    
                   </div>
                 </div>
               </div>
