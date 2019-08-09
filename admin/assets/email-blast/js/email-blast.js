@@ -615,6 +615,20 @@ if ($('#mybarChart_type').length) {
 								}
 							]
 						}
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [
+								{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 1
+									}
+								}
+							]
+						}
 					}
 				});
 			}
