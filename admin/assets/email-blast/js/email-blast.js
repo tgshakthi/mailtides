@@ -598,7 +598,7 @@ if ($('#mybarChart_type').length) {
 					type: 'bar',
 					data: {
 					
-							labels: [push(campaignData.campaign)],
+							labels: [chartdetails.push(campaignData.campaign)],
 						
 						datasets: [
 							{
