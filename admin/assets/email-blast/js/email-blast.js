@@ -583,9 +583,9 @@ $('#campaign_type').blur(function () {
 // User Reports
 if ($('#mybarChart_type').length) {
 	
-	var f = document.getElementById('mybarChart_type');
-
-	var opened = document.getElementById('mail-opened-type').value;
+// 	var f = document.getElementById('mybarChart_type');
+//    alert();
+// 	var opened = document.getElementById('mail-opened-type').value;
 	// var notOpened = document.getElementById('mail-unopened-type').value;
 	// var commentsPosted = document.getElementById('mail-comments-posted-type').value;
 	// var commentsNotPosted = document.getElementById('mail-comments-not-posted-type')
