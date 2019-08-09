@@ -1969,20 +1969,20 @@ class Email_blast extends MX_Controller
    {
    
     $campaign_users=array();
-    $campaign_name="";
+    $campaign_name=array();
     $campaign_type_id=$this->input->post('campaign_type_id');
     $get_campaign_names=$this->Email_blast_model->get_campaign_name__Bi_reports();
      foreach($get_campaign_names as $get_campaign_name):
-       $campaign_name .= $get_campaign_name->campaign_name;
+       $campaign_name []= $get_campaign_name->campaign_name;
         if($campaign_type_id==$get_campaign_name->campaign_type):
-          $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
-          if(!empty($get_email_track)):
-                $users=explode(",",$get_email_track[0]->campaign_users);
-              for($i=0;$i<count($users);$i++):
-               $get_campaign_users=$this->Email_blast_model->get_campaign_users_by_campaign_type($users[$i]);
-                $campaign_users[]= $get_campaign_users[0]->name;
-              endfor;
-            endif;
+              $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
+    if(!empty($get_email_track)):
+          $users=explode(",",$get_email_track[0]->campaign_users);
+        for($i=0;$i<count($users);$i++):
+         $get_campaign_users=$this->Email_blast_model->get_campaign_users_by_campaign_type($users[$i]);
+          $campaign_users[]= $get_campaign_users[0]->name;
+        endfor;
+      endif;
         endif;
      endforeach;
 
