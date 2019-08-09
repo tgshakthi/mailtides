@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
 	// Datepickers
 	$('#min').datepicker({
 		onSelect: function () {
@@ -7,6 +8,7 @@ $(document).ready(function () {
 		changeMonth: true,
 		changeYear: true
 	});
+
 	$('#max').datepicker({
 		onSelect: function () {
 			table.draw();
@@ -406,8 +408,6 @@ $(document).ready(function () {
 	});
 });
 
-// Smart Wizard
-$(document).ready(function () {});
 
 $(document).ready(function () {
 	// Logo Preview
@@ -562,6 +562,8 @@ $('#campaign_type').blur(function () {
 	}
 });
 
+
+
 // User Reports
 if ($('#mybarChart_type').length) {
 	var f = document.getElementById('mybarChart_type');
@@ -584,12 +586,12 @@ if ($('#mybarChart_type').length) {
 				var chartData = [];
 				var campaignData = [];
 
-				chartData.push(campaignData.campaign_name);
+				//chartData.push(campaignData.campaign_name);
 
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-						labels: chartData,
+						labels: campaignData.campaign_name,
 
 						datasets: [{
 							backgroundColor: ['#EE82EE'],
