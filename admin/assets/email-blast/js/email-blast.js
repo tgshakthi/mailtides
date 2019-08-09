@@ -321,93 +321,6 @@ if ($('#mybarChart').length) {
 }
 
 
-// User Reports
-if ($('#mybarChart_type').length) {
-	
-	var f = document.getElementById('mybarChart_type');
-
-	var opened = document.getElementById('mail-opened-type').value;
-	var notOpened = document.getElementById('mail-unopened-type').value;
-	var commentsPosted = document.getElementById('mail-comments-posted-type').value;
-	var commentsNotPosted = document.getElementById('mail-comments-not-posted-type')
-		.value;
-	var txgidocsReviews = document.getElementById('mail-txgidocs-type').value;
-	var googleReviews = document.getElementById('mail-google-type').value;
-	var facebookReviews = document.getElementById('mail-facebook-type').value;
-	var mailSent = document.getElementById('mail-sent-type').value;
-  
-
-
-	function campaign_type(e) {
-		alert(e);
-		var baseUrl = $('#base_url').val();
-		
-		$.ajax({
-
-			method: 'POST',
-			url: baseUrl + 'email_blast/graphical_campaign_type',
-			data: {
-				campaign_type_id: e
-			},
-			cache: false,
-			success: function (data) {
-                  
-				var campaignData = JSON.parse(data);
-                
-				var chartData = [];
-
-				chartData.push(campaignData.sent);
-				chartData.push(campaignData.opened);
-				chartData.push(campaignData.not_opened);
-			
-				chartData.push(campaignData.link_open);
-			
-				
-				chartData.push(campaignData.posted);
-				chartData.push(campaignData.not_posted);
-
-				var chart = new Chart(f, {
-					type: 'bar',
-					data: {
-						labels: [
-							'Sent',
-							'Opened',
-							'Unopened',
-							'Link Opened',
-							'Comments Posted',
-							'Comments Not Posted'
-						],
-						datasets: [{
-							backgroundColor: [
-								'#26B99A',
-								'#EE82EE',
-								'#DA70D6',
-								'#006600',
-								'#CC0066',
-								'#000099'
-							],
-							data: chartData
-						}]
-					},
-					options: {
-						legend: {
-							display: false
-						},
-						scales: {
-							yAxes: [{
-								ticks: {
-									beginAtZero: !0
-								}
-							}]
-						}
-					}
-				});
-
-			}
-		});
-	}
-}
-
 
 
 
@@ -655,3 +568,91 @@ $('#campaign_type').blur(function () {
 	}
 
 });
+// User Reports
+if ($('#mybarChart_type').length) {
+	
+	var f = document.getElementById('mybarChart_type');
+
+	var opened = document.getElementById('mail-opened-type').value;
+	var notOpened = document.getElementById('mail-unopened-type').value;
+	var commentsPosted = document.getElementById('mail-comments-posted-type').value;
+	var commentsNotPosted = document.getElementById('mail-comments-not-posted-type')
+		.value;
+	var txgidocsReviews = document.getElementById('mail-txgidocs-type').value;
+	var googleReviews = document.getElementById('mail-google-type').value;
+	var facebookReviews = document.getElementById('mail-facebook-type').value;
+	var mailSent = document.getElementById('mail-sent-type').value;
+  
+
+
+	function campaign_type(e) {
+		alert(e);
+		var baseUrl = $('#base_url').val();
+		
+		$.ajax({
+
+			method: 'POST',
+			url: baseUrl + 'email_blast/graphical_campaign_type',
+			data: {
+				campaign_type_id: e
+			},
+			cache: false,
+			success: function (data) {
+                  
+				var campaignData = JSON.parse(data);
+                
+				var chartData = [];
+
+				chartData.push(campaignData.sent);
+				chartData.push(campaignData.opened);
+				chartData.push(campaignData.not_opened);
+			
+				chartData.push(campaignData.link_open);
+			
+				
+				chartData.push(campaignData.posted);
+				chartData.push(campaignData.not_posted);
+
+				var chart = new Chart(f, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Sent',
+							'Opened',
+							'Unopened',
+							'Link Opened',
+							'Comments Posted',
+							'Comments Not Posted'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#26B99A',
+								'#EE82EE',
+								'#DA70D6',
+								'#006600',
+								'#CC0066',
+								'#000099'
+							],
+							data: chartData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0
+								}
+							}]
+						}
+					}
+				});
+
+			}
+		});
+	}
+}
+
+
