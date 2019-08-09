@@ -1994,7 +1994,7 @@ class Email_blast extends MX_Controller
            
       $data['campaign_name'] = $campaign_name;
       $data['campaign_id']=$campaign_id;
-      $data['campaign_values']=  explode(",",$campaign_value);
+      $data['campaign_values']=  explode(" ",$campaign_value);
       $data['campaign_users']=count(  $campaign_user);
 
      echo json_encode($data);
