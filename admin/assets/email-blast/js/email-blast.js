@@ -582,16 +582,17 @@ if ($('#mybarChart_type').length) {
 			success: function (data) {
 
 				var campaignData = JSON.parse(data);
+				
+				   
 
-				 
                   var chart = new Chart(f, {
 					type: 'bar',
 					data: {
 						labels: campaignData.campaign_name,
 
-						datasets: [{
-							data:campaignData.campaign_users,
-							backgroundColor: ['#EE82EE'],
+						datasets:[{ 
+                             data:campaignData.campaign_users,
+							backgroundColor: ['#EE82EE']
 						}]
 					},
 					options: {
