@@ -584,8 +584,7 @@ $('#campaign_type').blur(function () {
 if ($('#mybarChart_type').length) {
 	
  	var f = document.getElementById('mybarChart_type');
-      alert(f);
-// 	var opened = document.getElementById('mail-opened-type').value;
+    var opened = document.getElementById('mail-opened-type').value;
 	// var notOpened = document.getElementById('mail-unopened-type').value;
 	// var commentsPosted = document.getElementById('mail-comments-posted-type').value;
 	// var commentsNotPosted = document.getElementById('mail-comments-not-posted-type')
@@ -599,70 +598,56 @@ if ($('#mybarChart_type').length) {
 
 	function campaign_type(m) {
 	   alert(m);
-		// var baseUrl = $('#base_url').val();
+		var baseUrl = $('#base_url').val();
 		
-		// $.ajax({
+		$.ajax({
 
-		// 	method: 'POST',
-		// 	url: baseUrl + 'email_blast/graphical_campaign_type',
-		// 	data: {
-		// 		campaign_type_id: m
-		// 	},
-		// 	cache: false,
-		// 	success: function (data) {
+			method: 'POST',
+			url: baseUrl + 'email_blast/graphical_campaign_type',
+			data: {
+				campaign_type_id: m
+			},
+			cache: false,
+			success: function (data) {
 				
-		// 		 var campaignData = JSON.parse(data);
-        //           var chartData = [];
+				 var campaignData = JSON.parse(data);
+                  var chartData = [];
 
-		// 		 chartData.push(campaignData.users);
-		// 		// chartData.push(campaignData.opened);
-		// 		// chartData.push(campaignData.not_opened);
+				 chartData.push(campaignData.opened);
 			
-		// 		// chartData.push(campaignData.link_open);
-			
-				
-		// 		// chartData.push(campaignData.posted);
-		// 		// chartData.push(campaignData.not_posted);
 
-		// 		var chart = new Chart(f, {
-		// 			type: 'bar',
-		// 			data: {
-		// 				labels: [
-		// 					// 'Sent'
-		// 				      'users'
-		// 					// 'Unopened',
-		// 					// 'Link Opened',
-		// 					// 'Comments Posted',
-		// 					// 'Comments Not Posted'
-		// 				],
-		// 				datasets: [{
-		// 					backgroundColor: [
-		// 						// '#26B99A'
-		// 						 '#EE82EE'
-		// 						// '#DA70D6',
-		// 						// '#006600',
-		// 						// '#CC0066',
-		// 						// '#000099'
-		// 					],
-		// 					data: chartData
-		// 				}]
-		// 			},
-		// 			options: {
-		// 				legend: {
-		// 					display: false
-		// 				},
-		// 				scales: {
-		// 					yAxes: [{
-		// 						ticks: {
-		// 							beginAtZero: !0
-		// 						}
-		// 					}]
-		// 				}
-		// 			}
-		// 		});
+				var chart = new Chart(f, {
+					type: 'bar',
+					data: {
+						labels: [
+						 'users'
+						
+						],
+						datasets: [{
+							backgroundColor: [
+								
+								 '#EE82EE'
+							
+							],
+							data: chartData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0
+								}
+							}]
+						}
+					}
+				});
 
-		// 	}
-		// });
+			}
+		});
 	}
 
 	
