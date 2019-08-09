@@ -1974,7 +1974,9 @@ class Email_blast extends MX_Controller
   
     
       $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
-     
+     echo"<pre>";
+     print_r($get_email_track ;
+     die;
       if(!empty($get_email_track)):
           $users=explode(",",$get_email_track[0]->campaign_users);
         for($i=0;$i<count(  $users);$i++):
@@ -1993,56 +1995,7 @@ class Email_blast extends MX_Controller
        $data['website_id'] = $this->admin_header->website_id();
        $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_status( $data['website_id']);   
   
-      // $get_email_track = $this->Email_blast_model->get_email_track_data();
-    
-      // foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
-
-      //   // if status == 1
-      //   if ($email_track->status == '1'){
-      //     $opened[] = $email_track->status;
-      //   } else {
-      //     $not_opened[] = $email_track->status;
-      //   }
-
-      //   // txgidocs
-      //   if ($email_track->txgidocs == '1') {
-      //     $txgidocs[] = $email_track->txgidocs;
-      //   } 
-
-      //   // Google
-      //   if ($email_track->google == '1') {
-      //     $google[] = $email_track->google;
-      //   }
-
-      //   // Facebook
-      //   if ($email_track->facebook == '1') {
-      //     $facebook[] = $email_track->facebook;
-      //   }
-      
-      //   // Comments Posted
-      //   $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
-      //   if( !empty($reviews_entry[0]->review_user_id)):
-      //     $comments_posted[] = $reviews_entry[0]->review_user_id;
-      //   else :
-      //     $comments_not_posted[] = $email_track->id;
-      //   endif;
-        
-      // }
-
-      // // Sent Status
-      // if (!empty($get_email_track)) {
-      //   $sent = count($get_email_track);
-      // }
   
-      // $data['opened'] = count($opened); 
-      // $data['not_opened'] = count($not_opened);
-      // $data['link_open']=count($link);       
-      // $data['txgidocs'] = count($txgidocs); 
-      // $data['google'] = count($google); 
-      // $data['facebook'] = count($facebook); 
-      // $data['sent'] = $sent; 
-      // $data['posted'] = count($comments_posted);
-      // $data['not_posted'] = count($comments_not_posted); 
 
       $data['heading']    = 'User Reports';      
       $data['title'] = "User Reports | Administrator";
