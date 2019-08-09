@@ -36,6 +36,9 @@
 				<a href="<?php echo base_url();?>email_blast/graphical_reports" class="btn btn-success">
 					<i class="fa fa-bar-chart"></i> Graphical Reports
 				</a>
+				<a href="<?php echo base_url();?>email_blast/campaign_type_reports" class="btn btn-success">
+					<i class="fa fa-bar-chart"></i> BI Users
+				</a>
 
 			</div>
 
