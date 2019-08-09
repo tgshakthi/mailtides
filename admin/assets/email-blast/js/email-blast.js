@@ -583,13 +583,10 @@ if ($('#mybarChart_type').length) {
 
 				var campaignData = JSON.parse(data);
 
-				 var campaign_data=[];
-              
-				 campaign_data.push(campaignData.campaign_name);
-				  alert(campaign_data);
-				 for(var i=0;i<campaign_data.length;i++)
+				 
+				 for(var i=0;i<campaignData.campaign_name.length;i++)
 				 {
-				    alert(campaign_data[$i]);
+				    alert(campaignData.campaign_name[$i]);
 				 }
 				
                   var chart = new Chart(f, {
