@@ -586,17 +586,18 @@ if ($('#mybarChart_type').length) {
 			},
 			cache: false,
 			success: function(data) {
-				alert(data);
+				
 				var campaignData = JSON.parse(data);
-				alert(campaignData);
+			    var chartdetails=[];
 				var chartData = [];
 
 				chartData.push(campaignData.users);
+				chartdetails.push(campaignData.campaign);
 
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-						labels: ['users'],
+						labels: [chartdetails],
 						datasets: [
 							{
 								backgroundColor: ['#EE82EE'],
