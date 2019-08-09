@@ -82,7 +82,7 @@
                     <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
                     <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
 
-                    <canvas id="mybarChart"></canvas>                    
+                    <canvas id="mybarChart" style="height:500px;"></canvas>                    
                   </div>
                 </div>
               </div>
