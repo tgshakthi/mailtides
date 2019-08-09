@@ -583,14 +583,7 @@ if ($('#mybarChart_type').length) {
 
 				var campaignData = JSON.parse(data);
 
-				//var chartData = [];
-				//var campaignData = [];
-
-				console.log(campaignData);
-
-				console.log(campaignData.campaign_name);
-
-				//chartData.push(campaignData.campaign_name);
+			
 
 				var chart = new Chart(f, {
 					type: 'bar',
@@ -599,7 +592,7 @@ if ($('#mybarChart_type').length) {
 
 						datasets: [{
 							backgroundColor: ['#EE82EE'],
-							data: chartData
+							data: campaignData
 						}]
 					},
 					options: {
