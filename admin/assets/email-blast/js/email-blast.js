@@ -583,9 +583,8 @@ if ($('#mybarChart_type').length) {
 
 				var campaignData = JSON.parse(data);
 				 var count=campaignData.campaign_users;
+                  
 
-
-				 
              	var chart = new Chart(f, {
 					type: 'bar',
 					data: {
@@ -593,7 +592,7 @@ if ($('#mybarChart_type').length) {
 
 						datasets: [{
 							backgroundColor: ['#EE82EE'],
-							data: campaignData
+							data: count
 						}]
 					},
 					options: {
