@@ -585,8 +585,8 @@ if ($('#mybarChart_type').length) {
   
 
 
-	function campaign_type(e) {
-		alert(e);
+	function campaign_type(m) {
+		alert(m);
 		var baseUrl = $('#base_url').val();
 		
 		$.ajax({
@@ -594,7 +594,7 @@ if ($('#mybarChart_type').length) {
 			method: 'POST',
 			url: baseUrl + 'email_blast/graphical_campaign_type',
 			data: {
-				campaign_type_id: e
+				campaign_type_id: m
 			},
 			cache: false,
 			success: function (data) {
