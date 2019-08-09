@@ -2060,7 +2060,7 @@ class Email_blast extends MX_Controller
       $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
      
       if(!empty($get_email_track)):
-          $users=explode(","$get_email_track[0]->campaign_users);
+          $users=explode(",",$get_email_track[0]->campaign_users);
         for($i=0;$i<count(  $users);$i++):
          $get_campaign_users=$this->Email_blast_model->get_campaign_users_by_campaign_type($user[$i]);
           $campaign_users[]= $get_campaign_users[0]->name;
