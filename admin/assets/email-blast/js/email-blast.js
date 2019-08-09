@@ -1,14 +1,14 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	// Datepickers
 	$('#min').datepicker({
-		onSelect: function() {
+		onSelect: function () {
 			table.draw();
 		},
 		changeMonth: true,
 		changeYear: true
 	});
 	$('#max').datepicker({
-		onSelect: function() {
+		onSelect: function () {
 			table.draw();
 		},
 		changeMonth: true,
@@ -18,7 +18,7 @@ $(document).ready(function() {
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
 			var startDate = new Date(data[3]);
@@ -39,17 +39,15 @@ $(document).ready(function() {
 
 		var table = $('#datatable-buttons').DataTable({
 			dom: 'Bfrtip',
-			buttons: [
-				{
-					extend: 'csvHtml5',
-					text: 'Export CSV',
-					filename: 'patient-files',
-					className: 'btn-sm',
-					exportOptions: {
-						columns: [1, 2, 3]
-					}
+			buttons: [{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
 				}
-			],
+			}],
 			orderCellsTop: true,
 			responsive: !0
 		});
@@ -58,13 +56,13 @@ $(document).ready(function() {
 		$('#datatable-buttons>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-buttons thead');
-		$('#datatable-buttons>thead>tr:eq(1)>th').each(function(i) {
+		$('#datatable-buttons>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'Action' && title != 'Status') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function() {
+				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -76,7 +74,7 @@ $(document).ready(function() {
 		});
 
 		//Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function() {
+		$('#min, #max').change(function () {
 			table.draw();
 		});
 	}
@@ -84,7 +82,7 @@ $(document).ready(function() {
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
 			var startDate = new Date(data[3]);
@@ -108,13 +106,13 @@ $(document).ready(function() {
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
-		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
+		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function() {
+				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -126,13 +124,13 @@ $(document).ready(function() {
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function() {
+		$('#min, #max').change(function () {
 			table.draw();
 		});
 	}
 
 	// Import Filter Data
-	$('#filter-data-import').click(function() {
+	$('#filter-data-import').click(function () {
 		var baseUrl = $('#base-url').val();
 		var campaignName = $('#campaign-name').val();
 		var campaignDesc = CKEDITOR.instances['text'].getData();
@@ -140,7 +138,7 @@ $(document).ready(function() {
 		var sendDate = $('#send-date').val();
 
 		var values = $("input[name='row_sort_order[]']")
-			.map(function() {
+			.map(function () {
 				return $(this).val();
 			})
 			.get();
@@ -156,7 +154,7 @@ $(document).ready(function() {
 						send_date: sendDate,
 						user_id: values
 					},
-					success: function(data) {
+					success: function (data) {
 						if (data.length > 0) {
 							$('#campaign-id').val(data);
 							alert('Successfully Imported. Go to Step - 3');
@@ -196,7 +194,7 @@ $(document).ready(function() {
 		var emailTemplate = $('#email-template').val();
 
 		var values = $("input[name='row_sort_order[]']")
-			.map(function() {
+			.map(function () {
 				return $(this).val();
 			})
 			.get();
@@ -215,7 +213,7 @@ $(document).ready(function() {
 						user_id: values,
 						email_template: emailTemplate
 					},
-					success: function(data) {
+					success: function (data) {
 						window.location.href = baseUrl + 'email_blast/campaign';
 					}
 				});
@@ -230,8 +228,8 @@ $(document).ready(function() {
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
 		$('.buttonFinish')
-			.addClass('btn btn-default')
-			.text('Save');
+		.addClass('btn btn-default')
+		.text('Save');
 });
 
 // Graphical Reports
@@ -258,7 +256,7 @@ if ($('#mybarChart').length) {
 				campaign_id: e
 			},
 			cache: false,
-			success: function(data) {
+			success: function (data) {
 				var campaignData = JSON.parse(data);
 
 				var chartData = [];
@@ -283,47 +281,41 @@ if ($('#mybarChart').length) {
 							'Comments Posted',
 							'Comments Not Posted'
 						],
-						datasets: [
-							{
-								backgroundColor: [
-									'#26B99A',
-									'#EE82EE',
-									'#DA70D6',
-									'#006600',
-									'#CC0066',
-									'#000099'
-								],
-								data: chartData
-							}
-						]
+						datasets: [{
+							backgroundColor: [
+								'#26B99A',
+								'#EE82EE',
+								'#DA70D6',
+								'#006600',
+								'#CC0066',
+								'#000099'
+							],
+							data: chartData
+						}]
 					},
 					options: {
 						legend: {
 							display: false
 						},
 						scales: {
-							yAxes: [
-								{
-									ticks: {
-										beginAtZero: !0,
-										stepSize: 1
-									}
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0,
+									stepSize: 1
 								}
-							]
+							}]
 						}
 					},
 					options: {
 						responsive: true,
 						maintainAspectRatio: false,
 						scales: {
-							yAxes: [
-								{
-									ticks: {
-										beginAtZero: true,
-										stepSize: 1
-									}
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 1
 								}
-							]
+							}]
 						}
 					}
 				});
@@ -335,7 +327,7 @@ if ($('#mybarChart').length) {
 //onchage function for campaign id
 
 // Email Template Preview
-$('#preview_template').click(function() {
+$('#preview_template').click(function () {
 	var campaignId = $('#hidden-selected-id').val();
 	var baseUrl = $('#base_url').val();
 	var imageUrl = $('#image_url').val();
@@ -347,7 +339,7 @@ $('#preview_template').click(function() {
 			data: {
 				campaign_id: campaignId
 			},
-			success: function(data) {
+			success: function (data) {
 				if (data != 0) {
 					var img =
 						'<img class="preview-template-img" src="' +
@@ -372,15 +364,15 @@ $('#preview_template').click(function() {
 	}
 });
 
-$(document).ready(function() {
-	$('#campaign_id').on('change', function() {
+$(document).ready(function () {
+	$('#campaign_id').on('change', function () {
 		var selectedId = $(this).val();
 		$('#hidden-selected-id').val(selectedId);
 	});
 
 	// Preview Template Campaign
 
-	$('#preview-template-campaign').click(function() {
+	$('#preview-template-campaign').click(function () {
 		var selectedTemplate = $('#template_id option:selected').val();
 		var imageUrl = $('#image-url').val();
 		if (selectedTemplate.length > 0) {
@@ -415,12 +407,12 @@ $(document).ready(function() {
 });
 
 // Smart Wizard
-$(document).ready(function() {});
+$(document).ready(function () {});
 
-$(document).ready(function() {
+$(document).ready(function () {
 	// Logo Preview
-	$(function() {
-		$('#image').observe_field(1, function() {
+	$(function () {
+		$('#image').observe_field(1, function () {
 			var image_url = $('#image_url').val();
 			var httpUrl = $('#httpUrl').val();
 			var res = this.value.replace(image_url, '');
@@ -437,7 +429,7 @@ $(document).ready(function() {
 		});
 	});
 	// Remove logo
-	$('#btn_ok').click(function() {
+	$('#btn_ok').click(function () {
 		var id = $('#text-image-id').val();
 		var image_url = $('#image_url').val();
 		var siteUrl = image_url.replace('assets/', 'admin/');
@@ -448,7 +440,7 @@ $(document).ready(function() {
 				id: id
 			},
 			cache: false,
-			success: function(data) {
+			success: function (data) {
 				$('#image').val('');
 				$('#show_image1').hide();
 				$('#show_image2').show();
@@ -468,9 +460,9 @@ $(document).ready(function() {
 	});
 });
 
-$('#btn').click(function() {
+$('#btn').click(function () {
 	$('#loader').addClass('loader');
-	window.setTimeout(function() {
+	window.setTimeout(function () {
 		$('#loader')
 			.removeClass('loader hidden')
 			.addClass('done');
@@ -480,19 +472,19 @@ $('#btn').click(function() {
 // Email Tracking Datatable Filter
 if ($('#datatable-email').length) {
 	$('#datatable-email').DataTable({
-		initComplete: function() {
+		initComplete: function () {
 			this.api()
 				.columns(2)
-				.every(function() {
+				.every(function () {
 					var column = this;
 					if (column.index() == 2) {
 						var select = $('<select><option value=""></option></select>')
 							.appendTo(
 								$('#filters')
-									.find('th')
-									.eq(column.index())
+								.find('th')
+								.eq(column.index())
 							)
-							.on('change', function() {
+							.on('change', function () {
 								var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
 								column.search(val ? '^' + val + '$' : '', true, false).draw();
@@ -502,7 +494,7 @@ if ($('#datatable-email').length) {
 							.data()
 							.unique()
 							.sort()
-							.each(function(d, j) {
+							.each(function (d, j) {
 								select.append('<option value="' + d + '">' + d + '</option>');
 							});
 					}
@@ -511,7 +503,7 @@ if ($('#datatable-email').length) {
 	});
 }
 
-$('#campaign-name').blur(function() {
+$('#campaign-name').blur(function () {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
@@ -523,7 +515,7 @@ $('#campaign-name').blur(function() {
 			data: {
 				campaign_name: Name
 			},
-			success: function(data) {
+			success: function (data) {
 				if (data == 0) {
 					$('#error').html(
 						'<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>'
@@ -540,7 +532,7 @@ $('#campaign-name').blur(function() {
 	}
 });
 
-$('#campaign_type').blur(function() {
+$('#campaign_type').blur(function () {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
@@ -553,7 +545,7 @@ $('#campaign_type').blur(function() {
 				campaign_name: Name,
 				website_id: website_id
 			},
-			success: function(data) {
+			success: function (data) {
 				if (data == 0) {
 					$('#error').html(
 						'<p style="color:green;font-size: 12px;position:absolute;font-weight:bold; top:0">Campaign Name is Available.</p>'
@@ -585,52 +577,49 @@ if ($('#mybarChart_type').length) {
 				campaign_type_id: m
 			},
 			cache: false,
-			success: function(data) {
-				
+			success: function (data) {
+
 				var campaignData = JSON.parse(data);
-			    
+
+				console.log(campaignData);
+
 				var chartData = [];
-				var Campaigndata=[];
-               chartData.push(campaignData.campaign_name);
-				
+				var Campaigndata = [];
+
+				chartData.push(campaignData.campaign_name);
+
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-					     labels:chartData,
-						
-						datasets: [
-							{
-								backgroundColor: ['#EE82EE'],
-								data: chartData
-							}
-						]
+						labels: chartData,
+
+						datasets: [{
+							backgroundColor: ['#EE82EE'],
+							data: chartData
+						}]
 					},
 					options: {
 						legend: {
 							display: false
 						},
 						scales: {
-							yAxes: [
-								{
-									ticks: {
-										beginAtZero: !0
-									}
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0
 								}
-							]
+							}]
 						}
 					},
 					options: {
 						responsive: true,
 						maintainAspectRatio: false,
 						scales: {
-							yAxes: [
-								{
-									ticks: {
-										beginAtZero: true,
-										stepSize: 1
-									}
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 1
 								}
-							]
+							}]
 						}
 					}
 				});
