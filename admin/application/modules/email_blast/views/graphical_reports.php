@@ -98,7 +98,7 @@
         <style>
         .chart-report
 		{
-			height:550px !important;
+			height:500px !important;
 		}
 		  .chart-report canvas
 		{
