@@ -586,7 +586,7 @@ if ($('#mybarChart_type').length) {
  	var f = document.getElementById('mybarChart_type');
     var opened = document.getElementById('mail-opened-type').value;
 	function campaign_type(m) {
-	   alert(m);
+	 
 		var baseUrl = $('#base_url').val();
 		
 		$.ajax({
