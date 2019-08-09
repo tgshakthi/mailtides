@@ -1967,13 +1967,12 @@ class Email_blast extends MX_Controller
 
     function graphical_campaign_type()
    {
-    echo"<pre>";
-    print_r($_POST);
-    die;
-
+   
     $campaign_users=array();
     $campaign_type_id=$this->input->post('campaign_type_id');
-  
+  echo"<pre>";
+  print_r($campaign_type_id);
+  die;
     
       $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
     
