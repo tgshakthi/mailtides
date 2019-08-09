@@ -586,6 +586,8 @@ if ($('#mybarChart_type').length) {
 				var chartData = [];
 				var campaignData = [];
 
+				console.log(campaignData.campaign_name);
+
 				//chartData.push(campaignData.campaign_name);
 
 				var chart = new Chart(f, {
