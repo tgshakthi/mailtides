@@ -592,7 +592,7 @@ if ($('#mybarChart_type').length) {
 
 						datasets:[{ 
                             backgroundColor: ['#EE82EE'],
-							data: campaignData.campaign_users
+							data: campaignData.campaign_values
 						}]
 					},
 					options: {
