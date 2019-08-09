@@ -1,14 +1,14 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	// Datepickers
 	$('#min').datepicker({
-		onSelect: function () {
+		onSelect: function() {
 			table.draw();
 		},
 		changeMonth: true,
 		changeYear: true
 	});
 	$('#max').datepicker({
-		onSelect: function () {
+		onSelect: function() {
 			table.draw();
 		},
 		changeMonth: true,
@@ -17,9 +17,8 @@ $(document).ready(function () {
 
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
-
 		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
 			var startDate = new Date(data[3]);
@@ -40,15 +39,17 @@ $(document).ready(function () {
 
 		var table = $('#datatable-buttons').DataTable({
 			dom: 'Bfrtip',
-			buttons: [{
-				extend: 'csvHtml5',
-				text: 'Export CSV',
-				filename: 'patient-files',
-				className: 'btn-sm',
-				exportOptions: {
-					columns: [1, 2, 3]
+			buttons: [
+				{
+					extend: 'csvHtml5',
+					text: 'Export CSV',
+					filename: 'patient-files',
+					className: 'btn-sm',
+					exportOptions: {
+						columns: [1, 2, 3]
+					}
 				}
-			}],
+			],
 			orderCellsTop: true,
 			responsive: !0
 		});
@@ -57,13 +58,13 @@ $(document).ready(function () {
 		$('#datatable-buttons>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-buttons thead');
-		$('#datatable-buttons>thead>tr:eq(1)>th').each(function (i) {
+		$('#datatable-buttons>thead>tr:eq(1)>th').each(function(i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'Action' && title != 'Status') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function () {
+				$('input', this).on('keyup change', function() {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -75,16 +76,15 @@ $(document).ready(function () {
 		});
 
 		//Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function () {
+		$('#min, #max').change(function() {
 			table.draw();
 		});
 	}
 
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
-
 		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+		$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
 			var startDate = new Date(data[3]);
@@ -108,13 +108,13 @@ $(document).ready(function () {
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
-		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function (i) {
+		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function(i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
-				$('input', this).on('keyup change', function () {
+				$('input', this).on('keyup change', function() {
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
@@ -126,13 +126,13 @@ $(document).ready(function () {
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function () {
+		$('#min, #max').change(function() {
 			table.draw();
 		});
 	}
 
 	// Import Filter Data
-	$('#filter-data-import').click(function () {
+	$('#filter-data-import').click(function() {
 		var baseUrl = $('#base-url').val();
 		var campaignName = $('#campaign-name').val();
 		var campaignDesc = CKEDITOR.instances['text'].getData();
@@ -140,7 +140,7 @@ $(document).ready(function () {
 		var sendDate = $('#send-date').val();
 
 		var values = $("input[name='row_sort_order[]']")
-			.map(function () {
+			.map(function() {
 				return $(this).val();
 			})
 			.get();
@@ -156,7 +156,7 @@ $(document).ready(function () {
 						send_date: sendDate,
 						user_id: values
 					},
-					success: function (data) {
+					success: function(data) {
 						if (data.length > 0) {
 							$('#campaign-id').val(data);
 							alert('Successfully Imported. Go to Step - 3');
@@ -173,7 +173,6 @@ $(document).ready(function () {
 		} else {
 			alert('Please Enter Campaign Name.');
 		}
-
 	});
 
 	// Send Date Datepicker
@@ -184,7 +183,7 @@ $(document).ready(function () {
 	$('#wizard').smartWizard({
 		autoAdjustHeight: true, // Automatically adjust content height
 		onFinish: onFinishCallback,
-		hideButtonsOnDisabled: true,
+		hideButtonsOnDisabled: true
 	});
 
 	function onFinishCallback() {
@@ -197,7 +196,7 @@ $(document).ready(function () {
 		var emailTemplate = $('#email-template').val();
 
 		var values = $("input[name='row_sort_order[]']")
-			.map(function () {
+			.map(function() {
 				return $(this).val();
 			})
 			.get();
@@ -216,7 +215,7 @@ $(document).ready(function () {
 						user_id: values,
 						email_template: emailTemplate
 					},
-					success: function (data) {
+					success: function(data) {
 						window.location.href = baseUrl + 'email_blast/campaign';
 					}
 				});
@@ -225,18 +224,18 @@ $(document).ready(function () {
 			alert('Something Went Wrong!. Please try again!.');
 			window.location.href = baseUrl + 'email_blast/add_edit_campaign';
 		}
-
 	}
 
 	// Add classes to buttons
 	$('.buttonNext').addClass('btn btn-success'),
 		$('.buttonPrevious').addClass('btn btn-primary'),
-		$('.buttonFinish').addClass('btn btn-default').text('Save');
+		$('.buttonFinish')
+			.addClass('btn btn-default')
+			.text('Save');
 });
 
 // Graphical Reports
 if ($('#mybarChart').length) {
-	
 	var f = document.getElementById('mybarChart');
 
 	var opened = document.getElementById('mail-opened').value;
@@ -248,33 +247,28 @@ if ($('#mybarChart').length) {
 	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
-  
-
 
 	function campaign(e) {
 		var baseUrl = $('#base_url').val();
-		
-		$.ajax({
 
+		$.ajax({
 			method: 'POST',
 			url: baseUrl + 'email_blast/graphical_campaign_id',
 			data: {
 				campaign_id: e
 			},
 			cache: false,
-			success: function (data) {
-                  
+			success: function(data) {
 				var campaignData = JSON.parse(data);
-                
+
 				var chartData = [];
 
 				chartData.push(campaignData.sent);
 				chartData.push(campaignData.opened);
 				chartData.push(campaignData.not_opened);
-			
+
 				chartData.push(campaignData.link_open);
-			
-				
+
 				chartData.push(campaignData.posted);
 				chartData.push(campaignData.not_posted);
 
@@ -289,59 +283,59 @@ if ($('#mybarChart').length) {
 							'Comments Posted',
 							'Comments Not Posted'
 						],
-						datasets: [{
-							backgroundColor: [
-								'#26B99A',
-								'#EE82EE',
-								'#DA70D6',
-								'#006600',
-								'#CC0066',
-								'#000099'
-							],
-							data: chartData
-						}]
+						datasets: [
+							{
+								backgroundColor: [
+									'#26B99A',
+									'#EE82EE',
+									'#DA70D6',
+									'#006600',
+									'#CC0066',
+									'#000099'
+								],
+								data: chartData
+							}
+						]
 					},
 					options: {
 						legend: {
 							display: false
 						},
 						scales: {
-							yAxes: [{
-								ticks: {
-									beginAtZero: !0
+							yAxes: [
+								{
+									ticks: {
+										beginAtZero: !0,
+										stepSize: 2
+									}
 								}
-							}]
+							]
 						}
 					},
 					options: {
-                    responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						yAxes: [{
-							ticks: {
-								beginAtZero:true
-            }
-        }]
-    }
-}
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [
+								{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 2
+									}
+								}
+							]
+						}
+					}
 				});
-
 			}
 		});
 	}
 }
 
-
-
-
-
-
-
 //onchage function for campaign id
 
-
 // Email Template Preview
-$('#preview_template').click(function () {
+$('#preview_template').click(function() {
 	var campaignId = $('#hidden-selected-id').val();
 	var baseUrl = $('#base_url').val();
 	var imageUrl = $('#image_url').val();
@@ -353,13 +347,14 @@ $('#preview_template').click(function () {
 			data: {
 				campaign_id: campaignId
 			},
-			success: function (data) {
+			success: function(data) {
 				if (data != 0) {
-
 					var img =
 						'<img class="preview-template-img" src="' +
 						imageUrl +
-						'images/txgidocs/' + data + '">';
+						'images/txgidocs/' +
+						data +
+						'">';
 					$('#preview-template-modal').modal('show');
 					$('#modal-body-img').html(img);
 				} else {
@@ -377,15 +372,15 @@ $('#preview_template').click(function () {
 	}
 });
 
-$(document).ready(function () {
-	$('#campaign_id').on('change', function () {
+$(document).ready(function() {
+	$('#campaign_id').on('change', function() {
 		var selectedId = $(this).val();
 		$('#hidden-selected-id').val(selectedId);
 	});
 
 	// Preview Template Campaign
 
-	$('#preview-template-campaign').click(function () {
+	$('#preview-template-campaign').click(function() {
 		var selectedTemplate = $('#template_id option:selected').val();
 		var imageUrl = $('#image-url').val();
 		if (selectedTemplate.length > 0) {
@@ -417,26 +412,23 @@ $(document).ready(function () {
 			}
 		}
 	});
-
-
-
 });
 
 // Smart Wizard
-$(document).ready(function () {
+$(document).ready(function() {});
 
-});
-
-$(document).ready(function () {
+$(document).ready(function() {
 	// Logo Preview
-	$(function () {
-		$('#image').observe_field(1, function () {
+	$(function() {
+		$('#image').observe_field(1, function() {
 			var image_url = $('#image_url').val();
 			var httpUrl = $('#httpUrl').val();
-			var res = this.value.replace(image_url, "");
-			$("#image").val(res);
-			var res1 = res.replace(httpUrl + '/images/', "thumbs/");
-			$('#image_preview').attr('src', image_url + res1).show();
+			var res = this.value.replace(image_url, '');
+			$('#image').val(res);
+			var res1 = res.replace(httpUrl + '/images/', 'thumbs/');
+			$('#image_preview')
+				.attr('src', image_url + res1)
+				.show();
 			if (res1.length == 0) {
 				$('#image_preview2').attr('src', image_url + 'images/no-logo.png');
 			} else {
@@ -445,7 +437,7 @@ $(document).ready(function () {
 		});
 	});
 	// Remove logo
-	$('#btn_ok').click(function () {
+	$('#btn_ok').click(function() {
 		var id = $('#text-image-id').val();
 		var image_url = $('#image_url').val();
 		var siteUrl = image_url.replace('assets/', 'admin/');
@@ -456,8 +448,8 @@ $(document).ready(function () {
 				id: id
 			},
 			cache: false,
-			success: function (data) {
-				$('#image').val("");
+			success: function(data) {
+				$('#image').val('');
 				$('#show_image1').hide();
 				$('#show_image2').show();
 				$('#imageRemove').hide();
@@ -474,170 +466,158 @@ $(document).ready(function () {
 			}
 		});
 	});
-
-
 });
 
-$('#btn').click(function () {
+$('#btn').click(function() {
 	$('#loader').addClass('loader');
-	window.setTimeout(function () {
-		$('#loader').removeClass('loader hidden').addClass('done');
-
+	window.setTimeout(function() {
+		$('#loader')
+			.removeClass('loader hidden')
+			.addClass('done');
 	});
 });
 
-
-
 // Email Tracking Datatable Filter
 if ($('#datatable-email').length) {
-
 	$('#datatable-email').DataTable({
-		initComplete: function () {
-			this.api().columns(2).every(function () {
-				var column = this;
-				if (column.index() == 2) {
-					var select = $('<select><option value=""></option></select>')
-						.appendTo($("#filters").find("th").eq(column.index()))
-						.on('change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
+		initComplete: function() {
+			this.api()
+				.columns(2)
+				.every(function() {
+					var column = this;
+					if (column.index() == 2) {
+						var select = $('<select><option value=""></option></select>')
+							.appendTo(
+								$('#filters')
+									.find('th')
+									.eq(column.index())
+							)
+							.on('change', function() {
+								var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-							column
-								.search(val ? '^' + val + '$' : '', true, false)
-								.draw();
+								column.search(val ? '^' + val + '$' : '', true, false).draw();
+							});
 
-						});
-
-					column.data().unique().sort().each(function (d, j) {
-						select.append('<option value="' + d + '">' + d + '</option>')
-					});
-				}
-			});
+						column
+							.data()
+							.unique()
+							.sort()
+							.each(function(d, j) {
+								select.append('<option value="' + d + '">' + d + '</option>');
+							});
+					}
+				});
 		}
 	});
 }
 
-
-$('#campaign-name').blur(function () {
+$('#campaign-name').blur(function() {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
 
 	if (Name.length != 0) {
-
 		$.ajax({
 			type: 'POST',
 			url: base_url + 'email_blast/check_campaign_name',
 			data: {
 				campaign_name: Name
-
 			},
-			success: function (data) {
-
+			success: function(data) {
 				if (data == 0) {
-					$('#error').html('<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>');
+					$('#error').html(
+						'<p style="color:green;font-size: 14px;font-weight:bold">Campaign Name is Available.</p>'
+					);
 				} else {
-
-					$('#error').html('<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>');
+					$('#error').html(
+						'<p style="color:red;font-size: 14px; font-weight:bold;"> Campaign Name Already Exists.</p>'
+					);
 					$('#campaign-name').val('');
 					$('#campaign-name').focus();
 				}
 			}
 		});
 	}
-
 });
 
-$('#campaign_type').blur(function () {
+$('#campaign_type').blur(function() {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
-    var website_id=$('#website_id').val();
+	var website_id = $('#website_id').val();
 	if (Name.length != 0) {
-
 		$.ajax({
 			type: 'POST',
 			url: base_url + 'email_blast/check_campaign_type_name',
 			data: {
 				campaign_name: Name,
-				website_id:website_id
-
+				website_id: website_id
 			},
-			success: function (data) {
-
+			success: function(data) {
 				if (data == 0) {
-					$('#error').html('<p style="color:green;font-size: 12px;position:absolute;font-weight:bold; top:0">Campaign Name is Available.</p>');
+					$('#error').html(
+						'<p style="color:green;font-size: 12px;position:absolute;font-weight:bold; top:0">Campaign Name is Available.</p>'
+					);
 				} else {
-
-					$('#error').html('<p  style="color:red;font-size: 12px;position:absolute;font-weight:bold; top:0"> Campaign Name Already Exists.</p>');
+					$('#error').html(
+						'<p  style="color:red;font-size: 12px;position:absolute;font-weight:bold; top:0"> Campaign Name Already Exists.</p>'
+					);
 					$('#campaign_type').val('');
 					$('#campaign_type').focus();
 				}
 			}
 		});
 	}
-
 });
 
 // User Reports
 if ($('#mybarChart_type').length) {
-	
- 	var f = document.getElementById('mybarChart_type');
-    var opened = document.getElementById('mail-opened-type').value;
-	function campaign_type(m) {
-	 
-		var baseUrl = $('#base_url').val();
-		
-		$.ajax({
+	var f = document.getElementById('mybarChart_type');
+	var opened = document.getElementById('mail-opened-type').value;
 
+	function campaign_type(m) {
+		var baseUrl = $('#base_url').val();
+
+		$.ajax({
 			method: 'POST',
 			url: baseUrl + 'email_blast/graphical_campaign_type',
 			data: {
 				campaign_type_id: m
 			},
 			cache: false,
-			success: function (data) {
-				
-				 var campaignData = JSON.parse(data);
-                  var chartData = [];
+			success: function(data) {
+				var campaignData = JSON.parse(data);
+				var chartData = [];
 
-				 chartData.push(campaignData.users);
-			
+				chartData.push(campaignData.users);
 
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-						labels: [
-						 'users'
-						
-						],
-						datasets: [{
-							backgroundColor: [
-								
-								 '#EE82EE'
-							
-							],
-							data: chartData
-						}]
+						labels: ['users'],
+						datasets: [
+							{
+								backgroundColor: ['#EE82EE'],
+								data: chartData
+							}
+						]
 					},
 					options: {
 						legend: {
 							display: false
 						},
 						scales: {
-							yAxes: [{
-								ticks: {
-									beginAtZero: !0
+							yAxes: [
+								{
+									ticks: {
+										beginAtZero: !0
+									}
 								}
-							}]
+							]
 						}
 					}
 				});
-
 			}
 		});
 	}
-
-	
 }
