@@ -588,19 +588,15 @@ if ($('#mybarChart_type').length) {
 			success: function(data) {
 				
 				var campaignData = JSON.parse(data);
-			    var chartdetails=[];
-				var chartData = [];
-				var Campaigndata=[];
-                var count=campaignData.campaign_name;
-				chartData.push(campaignData.users);
-				chartdetails.push(campaignData.campaign_name);
-				for (var i = 0; i < count.length; i++){
-					chartdetails.push(parseFloat(campaignData.campaign_name[i]));
-				 }
+				var campaign=[];
+				   for(i=0;i<campaignData.campaign_name.length;i++){
+                      campaign.push(campaignData.campaign_name[i]);
+				   }
+				   
 				var chart = new Chart(f, {
 					type: 'bar',
 					data: {
-					     labels: [chartdetails],
+					     labels: [campaign],
 						
 						datasets: [
 							{
