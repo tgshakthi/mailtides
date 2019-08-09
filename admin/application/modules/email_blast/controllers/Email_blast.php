@@ -1999,7 +1999,7 @@ class Email_blast extends MX_Controller
      
       $data['campaign_values']=  str_split($campaign_value);
       if($background_color!=='0'):
-        $data['campaign_color']=str_split($background_color);
+        $data['campaign_color']=array($background_color);
       else:
         $data['campaign_color']=str_split($background_color,7);
       endif;
