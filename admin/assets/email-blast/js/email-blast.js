@@ -627,8 +627,8 @@ if ($('#mybarChart_type').length) {
 					type: 'bar',
 					data: {
 						labels: [
-							'Sent'
-							// 'Opened',
+							// 'Sent'
+						      'Opened'
 							// 'Unopened',
 							// 'Link Opened',
 							// 'Comments Posted',
@@ -636,8 +636,8 @@ if ($('#mybarChart_type').length) {
 						],
 						datasets: [{
 							backgroundColor: [
-								'#26B99A'
-								// '#EE82EE',
+								// '#26B99A'
+								 '#EE82EE'
 								// '#DA70D6',
 								// '#006600',
 								// '#CC0066',

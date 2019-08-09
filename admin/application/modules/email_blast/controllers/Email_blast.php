@@ -1964,95 +1964,11 @@ class Email_blast extends MX_Controller
           echo '0';
         endif;
     }
-    function  campaign_type_reports()
-    {
-      $sent = "";
-      $opened = array();
-      $not_opened = array();
-      $txgidocs = array();
-      $google = array();
-      $facebook = array();
-      $link=array();
-      $comments_posted = array();
-      $comments_not_posted = array();
 
-      $data['website_id'] = $this->admin_header->website_id();
-      $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_status( $data['website_id']);   
-  
-      $get_email_track = $this->Email_blast_model->get_email_track_data();
-    
-      foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
-
-        // if status == 1
-        if ($email_track->status == '1'){
-          $opened[] = $email_track->status;
-        } else {
-          $not_opened[] = $email_track->status;
-        }
-
-        // txgidocs
-        if ($email_track->txgidocs == '1') {
-          $txgidocs[] = $email_track->txgidocs;
-        } 
-
-        // Google
-        if ($email_track->google == '1') {
-          $google[] = $email_track->google;
-        }
-
-        // Facebook
-        if ($email_track->facebook == '1') {
-          $facebook[] = $email_track->facebook;
-        }
-      
-        // Comments Posted
-        $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
-        if( !empty($reviews_entry[0]->review_user_id)):
-          $comments_posted[] = $reviews_entry[0]->review_user_id;
-        else :
-          $comments_not_posted[] = $email_track->id;
-        endif;
-        
-      }
-
-      // Sent Status
-      if (!empty($get_email_track)) {
-        $sent = count($get_email_track);
-      }
-  
-      $data['opened'] = count($opened); 
-      $data['not_opened'] = count($not_opened);
-      $data['link_open']=count($link);       
-      $data['txgidocs'] = count($txgidocs); 
-      $data['google'] = count($google); 
-      $data['facebook'] = count($facebook); 
-      $data['sent'] = $sent; 
-      $data['posted'] = count($comments_posted);
-      $data['not_posted'] = count($comments_not_posted); 
-
-      $data['heading']    = 'User Reports';      
-      $data['title'] = "User Reports | Administrator";
-      $this->load->view('template/meta_head', $data);
-      $this->load->view('email_blast_header');
-      $this->admin_header->index();
-      $this->load->view('user_reports', $data);
-      $this->load->view('template/footer_content');
-      $this->load->view('script');
-      $this->load->view('template/footer');  
-    }
-
-    
-   function graphical_campaign_type()
+    function graphical_campaign_type()
    {
     
-    // $sent = "";
-    // $opened = array();
-    // $not_opened = array();
-    // $txgidocs = array();
-    // $google = array();
-    // $facebook = array();
-    // $comments_posted = array();
-    // $comments_not_posted = array();
+
     $campaign_users=array();
     $campaign_type_id=$this->input->post('campaign_type_id');
   
@@ -2066,6 +1982,19 @@ class Email_blast extends MX_Controller
           $campaign_users[]= $get_campaign_users[0]->name;
         endfor;
       endif;
+    
+      $data['users'] = count($campaign_users); 
+     echo json_encode($data);
+    
+   }
+    function  campaign_type_reports()
+    {
+        $campaign_users=array();
+      // $data['website_id'] = $this->admin_header->website_id();
+      // $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_status( $data['website_id']);   
+  
+      // $get_email_track = $this->Email_blast_model->get_email_track_data();
+    
       // foreach ( ($get_email_track ? $get_email_track : array()) as $email_track ) {
 
       //   // if status == 1
@@ -2089,12 +2018,7 @@ class Email_blast extends MX_Controller
       //   if ($email_track->facebook == '1') {
       //     $facebook[] = $email_track->facebook;
       //   }
-
-      //   //link open
-      //   if($email_track->link_opened=='1')
-      //   {
-      //       $link[]=$email_track->link_opened;
-      //   }
+      
       //   // Comments Posted
       //   $reviews_entry = $this->Email_blast_model->get_review_comments($email_track->track_id);
       //   if( !empty($reviews_entry[0]->review_user_id)):
@@ -2111,15 +2035,26 @@ class Email_blast extends MX_Controller
       // }
   
       // $data['opened'] = count($opened); 
-      // $data['not_opened'] = count($not_opened);       
+      // $data['not_opened'] = count($not_opened);
+      // $data['link_open']=count($link);       
       // $data['txgidocs'] = count($txgidocs); 
       // $data['google'] = count($google); 
       // $data['facebook'] = count($facebook); 
-      // $data['link_open']=count($link); 
       // $data['sent'] = $sent; 
       // $data['posted'] = count($comments_posted);
-      $data['users'] = count($campaign_users); 
-     echo json_encode($data);
+      // $data['not_posted'] = count($comments_not_posted); 
+
+      $data['heading']    = 'User Reports';      
+      $data['title'] = "User Reports | Administrator";
+      $this->load->view('template/meta_head', $data);
+      $this->load->view('email_blast_header');
+      $this->admin_header->index();
+      $this->load->view('user_reports', $data);
+      $this->load->view('template/footer_content');
+      $this->load->view('script');
+      $this->load->view('template/footer');  
+    }
+
     
-   }
+   
 }
