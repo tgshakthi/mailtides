@@ -3,7 +3,7 @@
           <div class="">           
 
             <div class="x_title">
-              <h3><?php ?></h3>
+              <h3><?php echo $heading;?></h3>
 
               <div class="btn_right" style="text-align:right;">
                 <a href="<?php echo base_url()?>email_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
