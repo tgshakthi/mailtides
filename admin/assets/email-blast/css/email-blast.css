@@ -1,78 +1,97 @@
+
 .btn-right {
-    text-align: right;
+	text-align: right;
 }
 
 .email-blast-date {
-    padding: 0px;
-    margin: 0px;
-    display: table;
-    width: 100%;
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	width: 100%;
 }
 
 .email-blast-date div {
-    padding: 0px;
-    margin: 0px;
-    float: left;
-    width: 50%;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 50%;
 }
 
 .dt-buttons {
-    float: left;
+	float: left;
 }
 
-.btn-group-sm>.btn,
-.btn-sm {
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    color: #ffffff;
-    background: #2196F3;
-    border: none;
+.btn-group-sm>.btn, .btn-sm {
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+	color: #ffffff;
+	background: #2196F3;
+	border: none;
 }
 
 #datatable-buttons input {
-    color: black;
+	color: black;
 }
 
 #datatable-buttons thead tr:nth-child(2) th:nth-child(1) .icheckbox_flat-green {
-    display: none;
+	display: none;
 }
 
-#datatable-buttons thead tr:nth-child(2) th:nth-child(8),
-#datatable-buttons thead tr:nth-child(2) th:nth-child(9) {
-    color: transparent;
+#datatable-buttons thead tr:nth-child(2) th:nth-child(8), #datatable-buttons thead tr:nth-child(2) th:nth-child(9) {
+	color: transparent;
 }
 
 #datatable-campaign-users thead tr:nth-child(2) th:nth-child(1) {
-    color: transparent;
+	color: transparent;
 }
 
 .preview-template-img {
-    width: 100%;
-    /* or any custom size */
-    height: 100%;
-    object-fit: contain;
+	width: 100%;
+	/* or any custom size */
+	height: 100%;
+	object-fit: contain;
 }
 
 .loader {
-	  border: 16px solid #f3f3f3;
-	  border-radius: 50%;
-	  border-top: 16px solid #3498db;
-	  width: 80px;
-	  height: 80px;
-	  -webkit-animation: spin 2s linear infinite; /* Safari */
-	  animation: spin 2s linear infinite;
-	  margin: 0px auto;
-	}
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 80px;
+	height: 80px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+	margin: 0px auto;
+}
 
 	/* Safari */
-	@-webkit-keyframes spin {
-	  0% { -webkit-transform: rotate(0deg); }
-	  100% { -webkit-transform: rotate(360deg); }
-	}
+	@-webkit-keyframes 
+spin {
+ 0% {
+-webkit-transform: rotate(0deg);
+}
+ 100% {
+-webkit-transform: rotate(360deg);
+}
+}
+ @keyframes 
+spin {
+ 0% {
+transform: rotate(0deg);
+}
+ 100% {
+transform: rotate(360deg);
+}
+}
 
-	@keyframes spin {
-	  0% { transform: rotate(0deg); }
-	  100% { transform: rotate(360deg); }
-	}
+/* karthik 09/08/2019 */
+
+.chart-report {
+	height: 500px !important;
+}
+
+.chart-report canvas {
+	height: 100% !important;
+	width: 100% !important;
+}

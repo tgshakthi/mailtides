@@ -94,16 +94,3 @@
         </div>
         <!-- page content -->
         
-        
-        <style>
-        .chart-report
-		{
-			height:500px !important;
-		}
-		  .chart-report canvas
-		{
-			height:100% !important;
-			width:100% !important;
-		}
-        
-        </style>
