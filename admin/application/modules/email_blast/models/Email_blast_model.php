@@ -676,7 +676,24 @@ class Email_blast_model extends CI_Model
              $records = $query->result();
          endif;
          return $records;
-	}
+    }
+    
+    	 // Get Campaign Type  status
+         function get_campaign_type_status($website_id)
+         {
+             $this->db->select('*');
+             $this->db->where(array(
+                                 'website_id' => $website_id,
+                                 'status'=>'1',
+                                 'is_deleted' => '0'
+                             ));
+             $query   = $this->db->get($this->table_campaign_type);
+              $records = array();
+              if ($query->num_rows() > 0):
+                  $records = $query->result();
+              endif;
+              return $records;
+         }
 	 // Get Campaign By Id
     function get_campaign_type_by_id($id)
     {

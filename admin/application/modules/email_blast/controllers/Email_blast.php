@@ -1977,7 +1977,10 @@ class Email_blast extends MX_Controller
       $comments_not_posted = array();
 
       $data['website_id'] = $this->admin_header->website_id();
-      $data['campaign_details'] = $this->Email_blast_model->get_campaign_detials();   
+      $data['campaign_type'] = $this->Email_blast_model->get_campaign_type_status();   
+      echo"<pre>";
+      print_r( $data['campaign_type']);
+      die;
     
       $get_email_track = $this->Email_blast_model->get_email_track_data();
     
