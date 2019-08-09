@@ -37,7 +37,7 @@
 					<i class="fa fa-bar-chart"></i> Graphical Reports
 				</a>
 				<a href="<?php echo base_url();?>email_blast/campaign_type_reports" class="btn btn-info">
-					<i class="fa fa-bar-chart"></i> BI Users
+					<i class="fa fa-bar-chart"></i> BI Reports
 				</a>
 
 			</div>
