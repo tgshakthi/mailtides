@@ -1970,11 +1970,10 @@ class Email_blast extends MX_Controller
    
     $campaign_users=array();
     $campaign_type_id=$this->input->post('campaign_type_id');
+ $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
   echo"<pre>";
-  print_r($campaign_type_id);
+  print_r($get_email_track);
   die;
-    
-      $get_email_track = $this->Email_blast_model->select_campaign_user($campaign_type_id);
     
       if(!empty($get_email_track)):
           $users=explode(",",$get_email_track[0]->campaign_users);
