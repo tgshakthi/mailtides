@@ -585,17 +585,6 @@ if ($('#mybarChart_type').length) {
 	
  	var f = document.getElementById('mybarChart_type');
     var opened = document.getElementById('mail-opened-type').value;
-	// var notOpened = document.getElementById('mail-unopened-type').value;
-	// var commentsPosted = document.getElementById('mail-comments-posted-type').value;
-	// var commentsNotPosted = document.getElementById('mail-comments-not-posted-type')
-	// 	.value;
-	// var txgidocsReviews = document.getElementById('mail-txgidocs-type').value;
-	// var googleReviews = document.getElementById('mail-google-type').value;
-	// var facebookReviews = document.getElementById('mail-facebook-type').value;
-	// var mailSent = document.getElementById('mail-sent-type').value;
-  
-
-
 	function campaign_type(m) {
 	   alert(m);
 		var baseUrl = $('#base_url').val();
