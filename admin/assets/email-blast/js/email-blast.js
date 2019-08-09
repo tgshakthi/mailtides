@@ -602,7 +602,7 @@ if ($('#mybarChart_type').length) {
 				 var campaignData = JSON.parse(data);
                   var chartData = [];
 
-				 chartData.push(campaignData.opened);
+				 chartData.push(campaignData.users);
 			
 
 				var chart = new Chart(f, {
