@@ -28,6 +28,7 @@ class Smsgateway extends MX_Controller
 		// Update the path below to your autoload.php,
 		// see https://getcomposer.org/doc/01-basic-usage.md
 		require_once("application/third_party/Twilio/autoload.php");
+		
 		use Twilio\Rest\Client;
 
 		// Find your Account Sid and Auth Token at twilio.com/console
