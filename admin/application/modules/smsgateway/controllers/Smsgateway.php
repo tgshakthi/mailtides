@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Smsgateway extends MX_Controller
 {
+	use Twilio\Rest\Client;
 	function __construct()
     {
         parent::__construct();
@@ -29,8 +30,6 @@ class Smsgateway extends MX_Controller
 		// see https://getcomposer.org/doc/01-basic-usage.md
 		require_once("application/third_party/Twilio/autoload.php");
 		
-		use Twilio\Rest\Client;
-
 		// Find your Account Sid and Auth Token at twilio.com/console
 		// DANGER! This is insecure. See http://twil.io/secure
 		$sid    = "AC839320f02176c877d19a2816218a9674";
