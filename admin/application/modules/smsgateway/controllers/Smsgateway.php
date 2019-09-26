@@ -43,16 +43,17 @@ class Smsgateway extends MX_Controller
 						'+18324449173',
 						'+12813947218'
 					);
-		foreach($numbers as $number){
-			print_r($number);die;
+		foreach($numbers as $number)
+		{
+			$message = $twilio->messages
+							->create($number, // to
+										array(
+										   "body" => "Hello Desss !!!",
+										   "from" => "+12818843247"
+										)
+									);
 		}
-		$message = $twilio->messages
-						  ->create("+17139339132", // to
-								   array(
-									   "body" => "Hello Desss !!!",
-									   "from" => "+12818843247"
-								   )
-						  );
+		
 
 		print($message->sid);
 	}
