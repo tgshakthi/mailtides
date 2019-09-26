@@ -48,7 +48,16 @@ class Smsgateway extends MX_Controller
 			$message = $twilio->messages
 							->create($number, // to
 										array(
-										   "body" => "Hello Desss !!!",
+										   "body" => "
+													Digestive & Liver Disease Consultants, P.A
+													Dear Chandler,
+														Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.
+														
+														Please click the link below and give your feedback.
+														http://tiny.cc/ftfgdz
+														
+														Thank You,"
+														,
 										   "from" => "+12818843247"
 										)
 									);
