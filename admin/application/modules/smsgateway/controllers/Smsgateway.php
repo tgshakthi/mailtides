@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use Twilio\Rest\Client;
 class Smsgateway extends MX_Controller
 {
-	use Twilio\Rest\Client;
+	
 	function __construct()
     {
         parent::__construct();
@@ -11,6 +12,7 @@ class Smsgateway extends MX_Controller
         }
         $this->load->module('admin_header');
         $this->load->module('color');
+		
     }
 	function index()
 	{
