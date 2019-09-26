@@ -37,7 +37,15 @@ class Smsgateway extends MX_Controller
 		$sid    = "AC839320f02176c877d19a2816218a9674";
 		$token  = "943086168eb029d1f2e5af5455284fde";
 		$twilio = new Client($sid, $token);
-
+		$numbers = array(
+						'+17139339132',
+						'+17135578001',
+						'+18324449173',
+						'+12813947218'
+					);
+		foreach($numbers as $number){
+			print_r($number);die;
+		}
 		$message = $twilio->messages
 						  ->create("+17139339132", // to
 								   array(
