@@ -33,7 +33,7 @@
 					<div class="x_title">
 
 						<?php
-							echo heading('Vertical Tab Title', '2');
+							echo heading('Sms Gateway', '2');
 
 							$attributes = array('class' => 'nav navbar-right panel_toolbox');
 							$list = array('<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>');
