@@ -49,12 +49,15 @@ class Smsgateway extends MX_Controller
 							->create($number, // to
 										array(
 										   "body" => "Hello Desss !!!",
-										   "from" => "+12818843247"
+										   "from" => "+12818843247",
+										   "statusCallback" => "http://postb.in/1234abcd"
 										)
 									);
 		}
 		
 
 		print($message->sid);
+		echo '<br>';
+		print($message->status);
 	}
 }
