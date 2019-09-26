@@ -16,6 +16,7 @@ class Smsgateway extends MX_Controller
 		$data['heading'] = 'Sms Gateway';
         $data['title']   = "Sms Gateway | Administrator";
         $this->load->view('template/meta_head', $data);
+		$this->load->view('smsgateway_header');
         $this->admin_header->index();
         $this->load->view('view', $data);
         $this->load->view('template/footer_content');
