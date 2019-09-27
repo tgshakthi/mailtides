@@ -2034,14 +2034,15 @@ class Email_blast extends MX_Controller
 		$token  = "943086168eb029d1f2e5af5455284fde";
 		$twilio = new Client($sid, $token);
 		
-		/* $patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();		
+		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();		
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
+				print_r($patient_phone_no->patient_cell_phone);die;
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$patient_phone_no->patient_cell_phone;
 					
-					$message = $twilio->messages
+					/* $message = $twilio->messages
 							->create($phone_number, // to
 										array(
 										   "body" => 'Dear '.$patient_phone_no->patient_name.',
@@ -2051,12 +2052,12 @@ https://tinyurl.com/yy98b7u3
 Thank You'										,
 										   "from" => "+12818843247"
 											)
-									);
+									); */
 				endif;
 			endforeach;
-		endif; */
+		endif;
 		
-		$numbers = array(
+		/* $numbers = array(
 						'+17139339132',
 						'+17135578001',
 						'+18324449173',
@@ -2079,7 +2080,7 @@ Thank You"										,
 		
 		print($message->sid);
 		echo '<br>';
-		print($message->status);
+		print($message->status); */
 		redirect('email_blast');
 	}
 
