@@ -2053,34 +2053,14 @@ Thank You'										,
 										   "from" => "+12818843247"
 											)
 									);
+					if($message->status == 'queued'):
+					endif;			
 				endif;
 			endforeach;
 		endif;
 		
-		/* $numbers = array(
-						'+17139339132',
-						'+17135578001',
-						'+18324449173',
-						'+12813947218'
-					);
-		foreach($numbers as $number)
-		{
-			$message = $twilio->messages
-							->create($number, // to
-										array(
-										   "body" => "Dear Chandler,
-Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
-Please click the link below and give your feedback. 
-https://tinyurl.com/yy98b7u3
-Thank You"										,
-										   "from" => "+12818843247"
-										)
-									);
-		}
-		
-		
 		echo '<br>';
-		print($message->status); */
+		print($message->status);
 		print($message->sid);
 		// redirect('email_blast');
 	}
