@@ -51,7 +51,7 @@ class Smsgateway extends MX_Controller
 										   "body" => "Dear Chandler,
 Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
 Please click the link below and give your feedback. 
-https://tinyurl.com/y34jqkn6
+https://tinyurl.com/yy98b7u3
 Thank You"										,
 										   "from" => "+12818843247"
 										)
