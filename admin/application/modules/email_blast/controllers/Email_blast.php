@@ -2036,50 +2036,26 @@ class Email_blast extends MX_Controller
 		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();
 		
 		if(!empty($patient_phone_nos)):
-			foreach($patient_phone_nos as $patient_phone_no):
-				echo '<pre>';
-				print_r($patient_phone_no);die;
+			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
 					
-					/* $message = $twilio->messages
-							->create($number, // to
+					$message = $twilio->messages
+							->create($patient_phone_no->patient_cell_phone, // to
 										array(
-										   "body" => "Dear Chandler,
-														Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
-														Please click the link below and give your feedback. 
-														https://tinyurl.com/yy98b7u3
-													Thank You"										,
+										   "body" => 'Dear '.$patient_phone_no->patient_name.',
+Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
+Please click the link below and give your feedback. 
+https://tinyurl.com/yy98b7u3
+Thank You'										,
 										   "from" => "+12818843247"
-										)
-									); */
+											)
+									);
 				endif;
 			endforeach;
 		endif;
-		/* $numbers = array(
-						'+17139339132',
-						'+17135578001',
-						'+18324449173',
-						'+12813947218'
-					);
-		foreach($numbers as $number)
-		{
-			$message = $twilio->messages
-							->create($number, // to
-										array(
-										   "body" => "Dear Chandler,
-														Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
-														Please click the link below and give your feedback. 
-														https://tinyurl.com/yy98b7u3
-													Thank You"										,
-										   "from" => "+12818843247"
-										)
-									);
-		}
-		
-
-		print($message->sid);
-		echo '<br>';
-		print($message->status); */
+		// print($message->sid);
+		// echo '<br>';
+		// print($message->status);
 	}
 
     
