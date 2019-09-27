@@ -57,6 +57,11 @@ Thank You"										,
 										   "from" => "+12818843247"
 										)
 									);
+			if($message->status == "queued")
+			{
+				$this->insert_sms_gateway_status
+			}
+									
 		}
 		
 
