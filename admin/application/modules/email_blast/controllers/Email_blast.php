@@ -2038,7 +2038,10 @@ class Email_blast extends MX_Controller
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):
 				echo '<pre>';
-				print_r($patient_phone_no->patient_cell_phone);die;
+				print_r($patient_phone_no);die;
+				if(!empty($patient_phone_no->patient_cell_phone)):
+					
+				endif;
 			endforeach;
 		endif;
 		/* $numbers = array(
