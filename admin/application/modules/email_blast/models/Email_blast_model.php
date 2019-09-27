@@ -910,4 +910,13 @@ class Email_blast_model extends CI_Model
         endif;
         return $records;      
     }
+	
+	function insert_sms_gateway_status($id)
+	{
+		$data = array(
+			 'status' => '1'
+		 );
+		 $this->db->where('id', $id);
+		 $this->db->update($this->table_sms_gateway, $data);
+	}
 }
