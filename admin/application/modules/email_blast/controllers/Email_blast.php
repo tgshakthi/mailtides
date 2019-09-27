@@ -2041,8 +2041,8 @@ class Email_blast extends MX_Controller
 					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;
-					print_r($patient_phone_no->patient_name);die;
-					/* $message = $twilio->messages
+					
+					$message = $twilio->messages
 							->create($phone_number, // to
 										array(
 										   "body" => 'Dear '.$patient_phone_no->patient_name.',
@@ -2052,7 +2052,7 @@ https://tinyurl.com/yy98b7u3
 Thank You'										,
 										   "from" => "+12818843247"
 											)
-									); */
+									);
 				endif;
 			endforeach;
 		endif;
@@ -2078,10 +2078,11 @@ Thank You"										,
 									);
 		}
 		
-		print($message->sid);
+		
 		echo '<br>';
 		print($message->status); */
-		redirect('email_blast');
+		print($message->sid);
+		// redirect('email_blast');
 	}
 
     
