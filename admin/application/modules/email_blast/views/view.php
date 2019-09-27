@@ -28,6 +28,10 @@
 				<a href="<?php echo base_url();?>email_blast/send_email_blast_status" class="btn btn-danger">
 					<i class="fa fa-envelope"></i> Send Mail
 				</a>
+				
+				<a href="<?php echo base_url();?>email_blast/send_sms" class="btn btn-danger">
+					<i class="fa fa-envelope"></i> Send SMS
+				</a>
 
 				<a href="<?php echo base_url();?>email_blast/email_tracking" class="btn btn-warning">
 					<i class="fa fa-flag"></i> Reports

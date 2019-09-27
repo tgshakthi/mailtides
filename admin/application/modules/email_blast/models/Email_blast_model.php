@@ -16,6 +16,7 @@ class Email_blast_model extends CI_Model
     private $table_campaign_users = 'campaign_users';
 	private $table_campaign_type = 'campaign_type';
     private $table_template ='email_template';
+	private $table_sms_gateway = 'sms_gateway';
 
     // Get Users
     function get_users()
@@ -897,5 +898,16 @@ class Email_blast_model extends CI_Model
          $records = $query->result();
        endif;
        return $records; 
+    }
+	// Get Phone Numbers
+    function get_patient_phone_numbers()
+    {
+        $this->db->select('*');
+        $query   = $this->db->get($this->table_sms_gateway);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;      
     }
 }
