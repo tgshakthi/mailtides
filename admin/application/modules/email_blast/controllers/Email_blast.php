@@ -2038,7 +2038,7 @@ class Email_blast extends MX_Controller
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
-				print_r($patient_phone_no->patient_cell_phone);die;
+				print_r(str_replace("-","",$patient_phone_no->patient_cell_phone));die;
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$patient_phone_no->patient_cell_phone;
 					
