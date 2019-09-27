@@ -2041,6 +2041,17 @@ class Email_blast extends MX_Controller
 				print_r($patient_phone_no);die;
 				if(!empty($patient_phone_no->patient_cell_phone)):
 					
+					/* $message = $twilio->messages
+							->create($number, // to
+										array(
+										   "body" => "Dear Chandler,
+														Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
+														Please click the link below and give your feedback. 
+														https://tinyurl.com/yy98b7u3
+													Thank You"										,
+										   "from" => "+12818843247"
+										)
+									); */
 				endif;
 			endforeach;
 		endif;
