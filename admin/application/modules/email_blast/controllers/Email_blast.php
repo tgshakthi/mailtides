@@ -2080,7 +2080,7 @@ Thank You"										,
 		print($message->sid);
 		echo '<br>';
 		print($message->status); */
-		echo base_url();die;
+		redirect('email_blast');
 	}
 
     
