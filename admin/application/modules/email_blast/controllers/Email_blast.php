@@ -2061,14 +2061,10 @@ class Email_blast extends MX_Controller
 			endforeach;
 		endif;
 		
-		
-		
-
-		
-		echo '<br>';
+		/* echo '<br>';
 		print($message->status);
-		print($message->sid);
-		// redirect('email_blast');
+		print($message->sid); */
+		redirect('email_blast');
 	}
 
     

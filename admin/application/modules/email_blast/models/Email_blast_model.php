@@ -903,6 +903,7 @@ class Email_blast_model extends CI_Model
     function get_patient_phone_numbers()
     {
         $this->db->select('*');
+		$this->db->where('status','0');
         $query   = $this->db->get($this->table_sms_gateway);
         $records = array();
         if ($query->num_rows() > 0):
