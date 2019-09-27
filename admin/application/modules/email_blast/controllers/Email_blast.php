@@ -2034,7 +2034,13 @@ class Email_blast extends MX_Controller
 		$token  = "943086168eb029d1f2e5af5455284fde";
 		$twilio = new Client($sid, $token);
 		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();
-		print_r($patient_phone_nos);die;
+		
+		if(!empty($patient_phone_nos)):
+			foreach($patient_phone_nos as $patient_phone_no):
+				echo '<pre>';
+				print_r($patient_phone_no);die;
+			endforeach;
+		endif;
 		/* $numbers = array(
 						'+17139339132',
 						'+17135578001',
