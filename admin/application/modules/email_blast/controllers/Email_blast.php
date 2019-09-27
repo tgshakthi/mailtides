@@ -2056,7 +2056,7 @@ Thank You'										,
 			endforeach;
 		endif; */
 		
-		$numbers = array(
+		/* $numbers = array(
 						'+17139339132',
 						'+17135578001',
 						'+18324449173',
@@ -2079,7 +2079,8 @@ Thank You"										,
 		
 		print($message->sid);
 		echo '<br>';
-		print($message->status);
+		print($message->status); */
+		echo base_url();die;
 	}
 
     
