@@ -2033,16 +2033,15 @@ class Email_blast extends MX_Controller
 		$sid    = "AC839320f02176c877d19a2816218a9674";
 		$token  = "943086168eb029d1f2e5af5455284fde";
 		$twilio = new Client($sid, $token);
-		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();
-		
+		/* $patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();		
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$patient_phone_no->patient_cell_phone;
-					print_r($phone_number);die;
-					/* $message = $twilio->messages
-							->create($patient_phone_no->patient_cell_phone, // to
+					
+					$message = $twilio->messages
+							->create($phone_number, // to
 										array(
 										   "body" => 'Dear '.$patient_phone_no->patient_name.',
 Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
@@ -2051,10 +2050,10 @@ https://tinyurl.com/yy98b7u3
 Thank You'										,
 										   "from" => "+12818843247"
 											)
-									); */
+									);
 				endif;
 			endforeach;
-		endif;
+		endif; */
 		// print($message->sid);
 		// echo '<br>';
 		// print($message->status);
