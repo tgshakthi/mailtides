@@ -905,7 +905,7 @@ class Email_blast_model extends CI_Model
         $this->db->select('*');
 		 $this->db->where(array(
             'status' => '0',
-            'invalid_no' => '1'
+            'invalid_no' => '0'
         ));
         $query   = $this->db->get($this->table_sms_gateway);
         $records = array();
