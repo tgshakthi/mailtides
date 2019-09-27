@@ -2038,10 +2038,10 @@ class Email_blast extends MX_Controller
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
-				print_r(str_replace("-","",$patient_phone_no->patient_cell_phone));die;
+					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
 					$phone_id = "+1";
-					$phone_number = $phone_id.''.$patient_phone_no->patient_cell_phone;
-					
+					$phone_number = $phone_id.''.$phone_numbers;
+					print_r($phone_number);die;
 					/* $message = $twilio->messages
 							->create($phone_number, // to
 										array(
