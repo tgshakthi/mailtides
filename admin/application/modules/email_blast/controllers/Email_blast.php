@@ -2041,7 +2041,7 @@ class Email_blast extends MX_Controller
 					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;
-					print_r($phone_number);die;
+					print_r($patient_phone_no->patient_name);die;
 					/* $message = $twilio->messages
 							->create($phone_number, // to
 										array(
