@@ -2035,7 +2035,7 @@ class Email_blast extends MX_Controller
 		$twilio = new Client($sid, $token);
 		
 		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
-		echo '<pre>';print_r($patient_phone_nos);die;
+		// echo '<pre>';print_r($patient_phone_nos);die;
 		if(!empty($patient_phone_nos)):
 			foreach($patient_phone_nos as $patient_phone_no):				
 				if(!empty($patient_phone_no->patient_cell_phone)):
