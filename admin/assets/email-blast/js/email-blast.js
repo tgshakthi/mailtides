@@ -53,7 +53,7 @@ $(document).ready(function () {
 			orderCellsTop: true,
 			responsive: !0
 		});
-
+console.log(this);
 		// Clone Previous Row for filter input
 		$('#datatable-buttons>thead>tr')
 			.clone(true)
@@ -104,7 +104,7 @@ $(document).ready(function () {
 		});
 
 		var table = $('#datatable-campaign-users').DataTable();
-console.log(this);
+
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
