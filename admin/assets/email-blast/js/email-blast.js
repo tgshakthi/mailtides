@@ -104,7 +104,7 @@ $(document).ready(function () {
 		});
 
 		var table = $('#datatable-campaign-users').DataTable();
-
+console.log(this);
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
