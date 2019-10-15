@@ -108,6 +108,7 @@ $(document).ready(function () {
 		$('#datatable-campaign-users>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-campaign-users thead');
+			console.log(this);
 		$('#datatable-campaign-users>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
