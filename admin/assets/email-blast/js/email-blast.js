@@ -53,7 +53,7 @@ $(document).ready(function () {
 			orderCellsTop: true,
 			responsive: !0
 		});
-console.log(this.value);
+
 		// Clone Previous Row for filter input
 		$('#datatable-buttons>thead>tr')
 			.clone(true)
