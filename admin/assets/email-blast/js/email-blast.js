@@ -114,7 +114,9 @@ $(document).ready(function () {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
+				console.log(this);
 				$('input', this).on('keyup change', function () {
+					console.log(this.value);
 					if (table.column(i).search() !== this.value) {
 						table
 							.column(i)
