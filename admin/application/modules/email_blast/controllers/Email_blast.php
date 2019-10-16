@@ -2072,11 +2072,10 @@ class Email_blast extends MX_Controller
         $result = @file_get_contents($url);
         if ($result){
             $result = @json_decode($result, true);
-            if (!empty($result['response']['status']) && $result['response']['status'] == 'OK'){
-				
+            if (!empty($result['response']['status']) && $result['response']['status'] == 'OK'){				
 				$sms_address = $result['response']['results'][0]['sms_address'];
-				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id);
-				print_r($mail_config);
+				// $mail_config = $this->Email_blast_model->get_mail_configuration($website_id);
+				// print_r($mail_config);
 				
 				print_r($sms_address);die;
             }
