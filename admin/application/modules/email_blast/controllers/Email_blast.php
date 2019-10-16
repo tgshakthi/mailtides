@@ -2077,25 +2077,6 @@ class Email_blast extends MX_Controller
 				$sms_address = $result['response']['results'][0]['sms_address'];
 				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id);
 				print_r($mail_config);die;
-				require_once "vendor/autoload.php"; //PHPMailer Object
-				$mail = new PHPMailer; //From email address and name 
-				$mail->From = "velusamy@desss.com"; 
-				$mail->FromName = "Info Desss"; //To address and name 
-				$mail->addAddress("velusamy@desss.com");//Recipient name is optional
-				// $mail->addAddress("recepient1@example.com"); //Address to which recipient will reply 
-				// $mail->addReplyTo("reply@yourdomain.com", "Reply"); //CC and BCC 
-				// $mail->addCC("cc@example.com"); 
-				$mail->addBCC("velusamy@desss.com"); //Send HTML or Plain Text email 
-				$mail->isHTML(true); 
-				$mail->Subject = "Send Sms"; 
-				$mail->Body = "<i>Welcome Desss!!!</i>";
-				$mail->AltBody = "This is the plain text version of the email content"; 
-				if(!$mail->send()) 
-				{
-				echo "Mailer Error: " . $mail->ErrorInfo; 
-				} 
-				else { echo "Message has been sent successfully"; 
-				}
 				
 				print_r($sms_address);die;
             }
