@@ -2069,47 +2069,48 @@ class Email_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		
         // Replace key value with your own api key
-       /*  $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
+        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
         $result = @file_get_contents($url);
-        if ($result){
+        if ($result)
+		{
             $result = @json_decode($result, true);
-            if (!empty($result['response']['status']) && $result['response']['status'] == 'OK'){				
+            if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+			{				
 				$sms_address = $result['response']['results'][0]['sms_address'];
 				print_r($sms_address);die;
-            }
-        } */
-		$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
-		// print_r($mail_config);die;
-		require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-		$mail = new PHPMailer();
-		$mail->IsSMTP();
-		$mail->CharSet="UTF-8";
-		$mail->SMTPSecure = 'tls';
-		$mail->Host = $mail_config[0]->host;
-		$mail->Port = $mail_config[0]->port;
-		$mail->Username = $mail_config[0]->email;	
-		$mail->Password = $mail_config[0]->password;
-		$mail->SMTPAuth = true;
+				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
+				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
+				$mail = new PHPMailer();
+				$mail->IsSMTP();
+				$mail->CharSet="UTF-8";
+				$mail->SMTPSecure = 'tls';
+				$mail->Host = $mail_config[0]->host;
+				$mail->Port = $mail_config[0]->port;
+				$mail->Username = $mail_config[0]->email;	
+				$mail->Password = $mail_config[0]->password;
+				$mail->SMTPAuth = true;
 
-		$mail->From = 'info@desss.com';
-		$mail->FromName = 'Desss';
-		$mail->AddAddress('velusamy@desss.com');
-		// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
+				$mail->From = 'info@desss.com';
+				$mail->FromName = 'Desss';
+				$mail->AddAddress('velusamy@desss.com');
+				// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
 
-		$mail->IsHTML(true);
-		$mail->Subject    = "Send Sms";
-		$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-		$mail->Body    = "Welcome Desss";
+				$mail->IsHTML(true);
+				$mail->Subject    = "Send Sms";
+				$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+				$mail->Body    = "Welcome Desss";
 
-		if(!$mail->Send())
-		{
-		  echo "Mailer Error: " . $mail->ErrorInfo;
-		}
-		else
-		{
-		  echo "Message sent!";
-		}
-		// redirect('email_blast');
+				if(!$mail->Send())
+				{
+				  echo "Mailer Error: " . $mail->ErrorInfo;
+				}
+				else
+				{
+				  echo "Message sent!";
+				}
+			}
+		}		
+		redirect('email_blast');
 	}
 
     
