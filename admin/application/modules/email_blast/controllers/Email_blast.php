@@ -2078,26 +2078,37 @@ class Email_blast extends MX_Controller
 				print_r($sms_address);die;
             }
         } */
-		
+		$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
+		print_r($mail_config);die;
 		require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-		$mail = new PHPMailer; //From email address and name 
-		$mail->From = "velusamy@desss.com"; 
-		$mail->FromName = "Info Desss"; //To address and name 
-		$mail->addAddress("velusamy@desss.com");//Recipient name is optional
-		// $mail->addAddress("recepient1@example.com"); //Address to which recipient will reply 
-		// $mail->addReplyTo("reply@yourdomain.com", "Reply"); //CC and BCC 
-		// $mail->addCC("cc@example.com"); 
-		$mail->addBCC("velusamy@desss.com"); //Send HTML or Plain Text email 
-		$mail->isHTML(true); 
-		$mail->Subject = "Send Sms"; 
-		$mail->Body = "<i>Welcome Desss!!!</i>";
-		$mail->AltBody = "This is the plain text version of the email content"; 
-		if(!$mail->send()) 
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->CharSet="UTF-8";
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 587;
+		$mail->Username = 'MyUsername@gmail.com';
+		$mail->Password = 'valid password';
+		$mail->SMTPAuth = true;
+
+		$mail->From = 'MyUsername@gmail.com';
+		$mail->FromName = 'Mohammad Masoudian';
+		$mail->AddAddress('anotherValidGmail@gmail.com');
+		$mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
+
+		$mail->IsHTML(true);
+		$mail->Subject    = "PHPMailer Test Subject via Sendmail, basic";
+		$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+		$mail->Body    = "Hello";
+
+		if(!$mail->Send())
 		{
-		echo "Mailer Error: " . $mail->ErrorInfo; 
-		} 
-		else { echo "Message has been sent successfully"; 
-		}		
+		  echo "Mailer Error: " . $mail->ErrorInfo;
+		}
+		else
+		{
+		  echo "Message sent!";
+		}
 		// redirect('email_blast');
 	}
 
