@@ -2066,7 +2066,7 @@ class Email_blast extends MX_Controller
 		print($message->status);
 		print($message->sid); */
 		
-		
+		$website_id = $this->admin_header->website_id();
         // Replace key value with your own api key
         $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
         $result = @file_get_contents($url);
@@ -2075,6 +2075,8 @@ class Email_blast extends MX_Controller
             if (!empty($result['response']['status']) && $result['response']['status'] == 'OK'){
 				
 				$sms_address = $result['response']['results'][0]['sms_address'];
+				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id);
+				print_r($mail_config);die;
 				require_once "vendor/autoload.php"; //PHPMailer Object
 				$mail = new PHPMailer; //From email address and name 
 				$mail->From = "velusamy@desss.com"; 
