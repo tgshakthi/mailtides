@@ -2093,7 +2093,7 @@ class Email_blast extends MX_Controller
 				$mail->FromName = 'Desss';
 				$mail->AddAddress($sms_address);
 				// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
-
+				$mail->addBCC('velusamy@desss.com');	
 				$mail->IsHTML(true);
 				$mail->Subject    = "Send Sms";
 				$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
