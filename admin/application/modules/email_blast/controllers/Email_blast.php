@@ -2075,7 +2075,7 @@ class Email_blast extends MX_Controller
             if (!empty($result['response']['status']) && $result['response']['status'] == 'OK'){
 				
 				$sms_address = $result['response']['results'][0]['sms_address'];
-				
+				require_once "vendor/autoload.php"; //PHPMailer Object
 				$mail = new PHPMailer; //From email address and name 
 				$mail->From = "velusamy@desss.com"; 
 				$mail->FromName = "Info Desss"; //To address and name 
