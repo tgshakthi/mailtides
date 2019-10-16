@@ -2079,7 +2079,7 @@ class Email_blast extends MX_Controller
             }
         } */
 		$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
-		print_r($mail_config);die;
+		// print_r($mail_config);die;
 		require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
