@@ -2076,12 +2076,12 @@ class Email_blast extends MX_Controller
 				
 				$sms_address = $result['response']['results'][0]['sms_address'];
 				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id);
-				print_r($mail_config);die;
+				print_r($mail_config);
 				
 				print_r($sms_address);die;
             }
         }		
-		redirect('email_blast');
+		// redirect('email_blast');
 	}
 
     
