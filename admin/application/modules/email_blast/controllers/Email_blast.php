@@ -2024,7 +2024,7 @@ class Email_blast extends MX_Controller
 	
 	function send_sms()
 	{
-		// Update the path below to your autoload.php,
+		/* // Update the path below to your autoload.php,
 		// see https://getcomposer.org/doc/01-basic-usage.md
 		require_once("application/third_party/Twilio/autoload.php");
 		
@@ -2060,7 +2060,7 @@ class Email_blast extends MX_Controller
 					}		
 				endif;
 			endforeach;
-		endif;
+		endif; */
 		
 		/* echo '<br>';
 		print($message->status);
