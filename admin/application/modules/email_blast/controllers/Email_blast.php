@@ -2085,21 +2085,21 @@ class Email_blast extends MX_Controller
 		$mail->IsSMTP();
 		$mail->CharSet="UTF-8";
 		$mail->SMTPSecure = 'tls';
-		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = 587;
-		$mail->Username = 'MyUsername@gmail.com';
-		$mail->Password = 'valid password';
+		$mail->Host = $mail_config[0]->host;
+		$mail->Port = $mail_config[0]->port;
+		$mail->Username = $mail_config[0]->email;	
+		$mail->Password = $mail_config[0]->password;
 		$mail->SMTPAuth = true;
 
-		$mail->From = 'MyUsername@gmail.com';
-		$mail->FromName = 'Mohammad Masoudian';
-		$mail->AddAddress('anotherValidGmail@gmail.com');
-		$mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
+		$mail->From = 'info@desss.com';
+		$mail->FromName = 'Desss';
+		$mail->AddAddress('velusamy@desss.com');
+		// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
 
 		$mail->IsHTML(true);
-		$mail->Subject    = "PHPMailer Test Subject via Sendmail, basic";
+		$mail->Subject    = "Send Sms";
 		$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-		$mail->Body    = "Hello";
+		$mail->Body    = "Welcome Desss";
 
 		if(!$mail->Send())
 		{
