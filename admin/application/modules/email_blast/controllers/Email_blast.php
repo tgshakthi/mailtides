@@ -2060,54 +2060,68 @@ class Email_blast extends MX_Controller
 					}		
 				endif;
 			endforeach;
-		endif; */
+		endif;  */
 		
 		/* echo '<br>';
 		print($message->status);
 		print($message->sid); */
 		
 		$website_id = $this->admin_header->website_id();
-		
-        // Replace key value with your own api key
-        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
-        $result = @file_get_contents($url);
-        if ($result)
+		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
+		if(!empty($patient_phone_nos))
 		{
-            $result = @json_decode($result, true);
-            if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+			foreach($patient_phone_nos as $patient_phone_no)
 			{				
-				$sms_address = $result['response']['results'][0]['sms_address'];
-				$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
-				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-				$mail = new PHPMailer();
-				$mail->IsSMTP();
-				$mail->CharSet="UTF-8";
-				$mail->SMTPSecure = 'tls';
-				$mail->Host = $mail_config[0]->host;
-				$mail->Port = $mail_config[0]->port;
-				$mail->Username = $mail_config[0]->email;	
-				$mail->Password = $mail_config[0]->password;
-				$mail->SMTPAuth = true;
+				if(!empty($patient_phone_no->patient_cell_phone))
+				{
+					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
+					$phone_id = "+1";
+					$phone_number = $phone_id.''.$phone_numbers;
+					
+					// Replace key value with your own api key
+					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+					print_r($url);
+				/* 	$result = @file_get_contents($url);
+					if ($result)
+					{
+						$result = @json_decode($result, true);
+						if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+						{				
+							$sms_address = $result['response']['results'][0]['sms_address'];
+							$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
+							require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
+							$mail = new PHPMailer();
+							$mail->IsSMTP();
+							$mail->CharSet="UTF-8";
+							$mail->SMTPSecure = 'tls';
+							$mail->Host = $mail_config[0]->host;
+							$mail->Port = $mail_config[0]->port;
+							$mail->Username = $mail_config[0]->email;	
+							$mail->Password = $mail_config[0]->password;
+							$mail->SMTPAuth = true;
 
-				$mail->From = $mail_config[0]->mail_from;
-				$mail->FromName = 'Digestive & Liver Disease Consultants, P.A';
-				$mail->AddAddress($sms_address);
-				// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
-				$mail->addBCC('velusamy@desss.com');	
-				$mail->IsHTML(true);
-				$mail->Subject    = "Dear Chandler";
-				$mail->Body    = "Your wellbeing is very important to usThanks for visiting us. Please give your feedback. https://tinyurl.com/yy98b7u3
-								Thank You";
-				if(!$mail->Send())
-				{
-				  echo "Mailer Error: " . $mail->ErrorInfo;
-				}
-				else
-				{
-				  echo "Message sent!";
+							$mail->From = $mail_config[0]->mail_from;
+							$mail->FromName = 'Digestive & Liver Disease Consultants, P.A';
+							$mail->AddAddress($sms_address);
+							// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
+							$mail->addBCC('velusamy@desss.com');	
+							$mail->IsHTML(true);
+							$mail->Subject    = "Dear Chandler";
+							$mail->Body    = "Your wellbeing is very important to usThanks for visiting us. Please give your feedback. https://tinyurl.com/yy98b7u3
+											Thank You";
+							if(!$mail->Send())
+							{
+							  echo "Mailer Error: " . $mail->ErrorInfo;
+							}
+							else
+							{
+							  echo "Message sent!";
+							}
+						}
+					} */	
 				}
 			}
-		}		
+		}
 		redirect('email_blast');
 	}
 
