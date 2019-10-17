@@ -2123,9 +2123,9 @@ class Email_blast extends MX_Controller
 							  echo "Message sent!";
 							}
 						}
-					// }	
-				}
-			}
+					}	
+				// }
+			// }
 		}
 		redirect('email_blast');
 	}
