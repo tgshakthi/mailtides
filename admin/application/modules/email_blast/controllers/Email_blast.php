@@ -2072,7 +2072,7 @@ class Email_blast extends MX_Controller
 		print($message->status);
 		print($message->sid); */
 		
-		// $website_id = $this->admin_header->website_id();
+		$website_id = $this->admin_header->website_id();
 		// $patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
 		// if(!empty($patient_phone_nos))
 		// {
