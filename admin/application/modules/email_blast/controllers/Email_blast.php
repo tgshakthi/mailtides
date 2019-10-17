@@ -2080,8 +2080,7 @@ class Email_blast extends MX_Controller
 					
 					// Replace key value with your own api key
 					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
-					print_r($url);die;
-				/* 	$result = @file_get_contents($url);
+					$result = @file_get_contents($url);
 					if ($result)
 					{
 						$result = @json_decode($result, true);
@@ -2118,7 +2117,7 @@ class Email_blast extends MX_Controller
 							  echo "Message sent!";
 							}
 						}
-					} */	
+					}	
 				}
 			}
 		}
