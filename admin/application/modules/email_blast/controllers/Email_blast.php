@@ -2112,7 +2112,7 @@ class Email_blast extends MX_Controller
 							$mail->addBCC('velusamy@desss.com');	
 							$mail->IsHTML(true);
 							// $mail->Subject    = "Dear Chandler";
-							$mail->Body    = "Dear Chandler, Thanks for visiting and your wellbeing is very important to us. Please give your feedback. https://tinyurl.com/y2g3w5du . 
+							$mail->Body    = "Dear Chandler, Thanks for visiting and your wellbeing is very important to us. Please give your feedback. https://tinyurl.com/yy98b7u3 . 
 											Thank You";
 							if(!$mail->Send())
 							{
