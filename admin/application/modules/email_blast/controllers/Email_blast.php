@@ -2069,7 +2069,7 @@ class Email_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		
         // Replace key value with your own api key
-        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
+        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=CI&phone=+17135578001";
         $result = @file_get_contents($url);
         if ($result)
 		{
@@ -2095,12 +2095,9 @@ class Email_blast extends MX_Controller
 				// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
 				$mail->addBCC('velusamy@desss.com');	
 				$mail->IsHTML(true);
-				$mail->Subject    = "Send Sms";
-				$mail->Body    = "Dear patient_name,
-									Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.	
-									Please click the link below and give your feedback. 
-									https://tinyurl.com/yy98b7u3
-									Thank You";
+				$mail->Subject    = "Dear Chandler";
+				$mail->Body    = "Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.Please click the link below and give your feedback. https://tinyurl.com/yy98b7u3
+								  Thank You";
 
 				if(!$mail->Send())
 				{
