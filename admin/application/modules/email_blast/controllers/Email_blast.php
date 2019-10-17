@@ -2069,7 +2069,7 @@ class Email_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		
         // Replace key value with your own api key
-        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=CI&phone=+17135578001";
+        $url = "https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001";
         $result = @file_get_contents($url);
         if ($result)
 		{
