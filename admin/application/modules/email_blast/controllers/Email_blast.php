@@ -2105,13 +2105,13 @@ class Email_blast extends MX_Controller
 							$mail->Password = $mail_config[0]->password;
 							$mail->SMTPAuth = true;
 
-							$mail->From = 'Digestive & Liver Disease Consultants, P.A';
+							$mail->From = $mail_config[0]->mail_from;
 							$mail->FromName = 'Digestive & Liver Disease Consultants, P.A';
 							$mail->AddAddress('saravana@desss.com');
 							// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
 							$mail->addBCC('velusamy@desss.com');	
 							$mail->IsHTML(true);
-							$mail->Subject    = "Dear Chandler";
+							// $mail->Subject    = "Dear Chandler";
 							$mail->Body    = "Your wellbeing is very important to usThanks for visiting us. Please give your feedback. https://tinyurl.com/yy98b7u3
 											Thank You";
 							if(!$mail->Send())
