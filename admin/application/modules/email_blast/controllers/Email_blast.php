@@ -2076,16 +2076,16 @@ class Email_blast extends MX_Controller
 		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
 		if(!empty($patient_phone_nos))
 		{
-			// foreach($patient_phone_nos as $patient_phone_no)
-			// {				
-				// if(!empty($patient_phone_no->patient_cell_phone))
-				// {
-					// $phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
-					// $phone_id = "+1";
-					// $phone_number = $phone_id.''.$phone_numbers;
+			foreach($patient_phone_nos as $patient_phone_no)
+			{				
+				if(!empty($patient_phone_no->patient_cell_phone))
+				{
+					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
+					$phone_id = "+1";
+					$phone_number = $phone_id.''.$phone_numbers;
 					
 					// Replace key value with your own api key
-					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17135578001';
+					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
 					$result = @file_get_contents($url);
 					if ($result)
 					{
@@ -2112,7 +2112,7 @@ class Email_blast extends MX_Controller
 							$mail->addBCC('velusamy@desss.com');	
 							$mail->IsHTML(true);
 							// $mail->Subject    = "Dear Chandler";
-							$mail->Body    = "Dear Chandler, Thanks for visiting and your wellbeing is very important to us. Please give your feedback. https://tinyurl.com/yy98b7u3. 
+							$mail->Body    = "Dear Chandler, Thanks for visiting and your wellbeing is very important to us. Please give your feedback. https://tinyurl.com/y2g3w5du . 
 											Thank You";
 							if(!$mail->Send())
 							{
@@ -2124,8 +2124,8 @@ class Email_blast extends MX_Controller
 							}
 						}
 					}	
-				// }
-			// }
+				}
+			}
 		}
 		redirect('email_blast');
 	}
