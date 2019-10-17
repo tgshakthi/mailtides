@@ -2120,6 +2120,7 @@ class Email_blast extends MX_Controller
 							}
 							else
 							{
+								$this->Email_blast_model->insert_sms_gateway_status($patient_phone_no->id);
 							  echo "Message sent!";
 							}
 						}
