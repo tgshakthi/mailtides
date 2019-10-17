@@ -158,6 +158,19 @@
 												</div>
 											</div>
 
+											<div class="form-group">
+												<label for="provider-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+													Provider Name <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<select name="provider_name" id="provider-name" class="form-control col-md-7 col-xs-12" required="required">
+														<?php foreach($csv_columns as $row) { ?>
+														<option value="<?php echo trim($row); ?>"><?php echo trim($row); ?></option>
+														<?php } ?>
+													</select>													
+												</div>
+											</div>
+
 										</div>
 									</div>
 								</div>

@@ -143,9 +143,9 @@ class Email_blast extends MX_Controller
         {
           $this->session->set_flashdata('error', $this->upload->display_errors());        
         } else {
-          $upload_csv = array('upload_data' => $this->upload->data());
-          $data['file'] = $upload_csv['upload_data']['full_path'];
-          $entire_data = file_get_contents($data['file']);
+          $upload_csv          = array('upload_data' => $this->upload->data());
+          $data['file']        = $upload_csv['upload_data']['full_path'];
+          $entire_data         = file_get_contents($data['file']);
           $exp_entire_data     = explode("\n", $entire_data);
           $file_column_name    = explode(",", $exp_entire_data[0]);
           $data['csv_columns'] = $file_column_name;
@@ -388,7 +388,7 @@ class Email_blast extends MX_Controller
                 $facebook = 'NO';
             }           
         
-            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $txgidocs, $google, $facebook);
+            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->provider_name, $txgidocs, $google, $facebook);
 
             $i++;
         }
@@ -405,7 +405,7 @@ class Email_blast extends MX_Controller
         
         // Table heading row
         
-        $this->table->set_heading('S.No', 'Name', 'Email','Visited Date','Txgidocs', 'Google', 'Facebook');
+        $this->table->set_heading('S.No', 'Name', 'Email','Visited Date', 'Provider Name', 'Txgidocs', 'Google', 'Facebook');
         return $this->table->generate();
     }
 
@@ -783,6 +783,12 @@ class Email_blast extends MX_Controller
                                                                 Google
                                                               </a>
                                                            </td>';
+                                                              elseif ($template_id=='7') :
+                                                                $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
+                                                                <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'&type=google-hamat" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+                                                                  Google
+                                                                </a>
+                                                             </td>';
                                                               else:
                                                                 $mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#3b5998">
                                                                 <a href="http://txgidocs.desss-portfolio.com/reviews.html?review_user_id='.$get_user[0]->id.'&type=facebook" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
@@ -2024,7 +2030,7 @@ class Email_blast extends MX_Controller
 	
 	function send_sms()
 	{
-		/* // Update the path below to your autoload.php,
+		// Update the path below to your autoload.php,
 		// see https://getcomposer.org/doc/01-basic-usage.md
 		require_once("application/third_party/Twilio/autoload.php");
 		
@@ -2060,67 +2066,11 @@ class Email_blast extends MX_Controller
 					}		
 				endif;
 			endforeach;
-		endif;  */
+		endif;
 		
 		/* echo '<br>';
 		print($message->status);
 		print($message->sid); */
-		
-		$website_id = $this->admin_header->website_id();
-		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
-		if(!empty($patient_phone_nos))
-		{
-			foreach($patient_phone_nos as $patient_phone_no)
-			{				
-				if(!empty($patient_phone_no->patient_cell_phone))
-				{
-					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
-					$phone_id = "+1";
-					$phone_number = $phone_id.''.$phone_numbers;
-					
-					// Replace key value with your own api key
-					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
-					$result = @file_get_contents($url);
-					if ($result)
-					{
-						$result = @json_decode($result, true);
-						if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
-						{				
-							$sms_address = $result['response']['results'][0]['sms_address'];
-							$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
-							require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-							$mail = new PHPMailer();
-							$mail->IsSMTP();
-							$mail->CharSet="UTF-8";
-							$mail->SMTPSecure = 'tls';
-							$mail->Host = $mail_config[0]->host;
-							$mail->Port = $mail_config[0]->port;
-							$mail->Username = $mail_config[0]->email;	
-							$mail->Password = $mail_config[0]->password;
-							$mail->SMTPAuth = true;
-
-							$mail->From = $mail_config[0]->mail_from;
-							$mail->FromName = 'Digestive & Liver Disease Consultants, P.A';
-							$mail->AddAddress($sms_address);
-							// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
-							$mail->addBCC('velusamy@desss.com');	
-							$mail->IsHTML(true);
-							$mail->Subject    = "Dear Chandler";
-							$mail->Body    = "Your wellbeing is very important to usThanks for visiting us. Please give your feedback. https://tinyurl.com/yy98b7u3
-											Thank You";
-							if(!$mail->Send())
-							{
-							  echo "Mailer Error: " . $mail->ErrorInfo;
-							}
-							else
-							{
-							  echo "Message sent!";
-							}
-						}
-					}	
-				}
-			}
-		}
 		redirect('email_blast');
 	}
 

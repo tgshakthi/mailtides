@@ -206,3 +206,9 @@
 	</div>
 </div>
 <!-- page content -->
+
+<style>
+.sorting > input {
+	color : black
+}
+</style>
