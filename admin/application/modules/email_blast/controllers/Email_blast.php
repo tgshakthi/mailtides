@@ -2072,27 +2072,27 @@ class Email_blast extends MX_Controller
 		print($message->status);
 		print($message->sid); */
 		
-		$website_id = $this->admin_header->website_id();
-		$patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
-		if(!empty($patient_phone_nos))
-		{
-			foreach($patient_phone_nos as $patient_phone_no)
-			{				
-				if(!empty($patient_phone_no->patient_cell_phone))
-				{
-					$phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
-					$phone_id = "+1";
-					$phone_number = $phone_id.''.$phone_numbers;
+		// $website_id = $this->admin_header->website_id();
+		// $patient_phone_nos = $this->Email_blast_model->get_patient_phone_numbers();	
+		// if(!empty($patient_phone_nos))
+		// {
+			// foreach($patient_phone_nos as $patient_phone_no)
+			// {				
+				// if(!empty($patient_phone_no->patient_cell_phone))
+				// {
+					// $phone_numbers = str_replace("-","",$patient_phone_no->patient_cell_phone);
+					// $phone_id = "+1";
+					// $phone_number = $phone_id.''.$phone_numbers;
 					
 					// Replace key value with your own api key
-					$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
-					$result = @file_get_contents($url);
-					if ($result)
-					{
-						$result = @json_decode($result, true);
-						if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
-						{				
-							$sms_address = $result['response']['results'][0]['sms_address'];
+					// $url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+					// $result = @file_get_contents($url);
+					// if ($result)
+					// {
+						// $result = @json_decode($result, true);
+						// if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+						// {				
+							// $sms_address = $result['response']['results'][0]['sms_address'];
 							$mail_config = $this->Email_blast_model->get_mail_configuration($website_id );
 							require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 							$mail = new PHPMailer();
@@ -2105,9 +2105,9 @@ class Email_blast extends MX_Controller
 							$mail->Password = $mail_config[0]->password;
 							$mail->SMTPAuth = true;
 
-							$mail->From = $mail_config[0]->mail_from;
+							$mail->From = 'Digestive & Liver Disease Consultants, P.A';
 							$mail->FromName = 'Digestive & Liver Disease Consultants, P.A';
-							$mail->AddAddress($sms_address);
+							$mail->AddAddress('saravana@desss.com');
 							// $mail->AddReplyTo('phoenixd110@gmail.com', 'Information');
 							$mail->addBCC('velusamy@desss.com');	
 							$mail->IsHTML(true);
@@ -2122,11 +2122,11 @@ class Email_blast extends MX_Controller
 							{
 							  echo "Message sent!";
 							}
-						}
-					}	
-				}
-			}
-		}
+						// }
+					// }	
+				// }
+			// }
+		// }
 		redirect('email_blast');
 	}
     
