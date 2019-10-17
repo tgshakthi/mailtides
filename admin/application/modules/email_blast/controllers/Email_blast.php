@@ -2096,8 +2096,9 @@ class Email_blast extends MX_Controller
 				$mail->addBCC('velusamy@desss.com');	
 				$mail->IsHTML(true);
 				$mail->Subject    = "Dear Chandler";
-				$mail->Body    = "Thanks for visiting the Digestive & Liver Disease Consultants, P.A . Your wellbeing is very important to us. To help serve you and others more effectively, please take a moment to let us know about your experience.Please click the link below and give your feedback. https://tinyurl.com/yy98b7u3
-								  Thank You";
+				$mail->Body    = "Thanks for visiting us. Your wellbeing is very important to us. please take a moment to let us know about your experience. https://tinyurl.com/yy98b7u3
+								 Thank You";
+
 
 				if(!$mail->Send())
 				{
