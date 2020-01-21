@@ -1002,19 +1002,23 @@ class Email_sms_blast extends MX_Controller
 
 			if($provider_name == 'dldc'):							 
 				//Others DLDC
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! tinyurl.com/vj4mjvg";
+				$tiny_url = 'tinyurl.com/vj4mjvg';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
 				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
 			
 			elseif($provider_name == 'reddy'):
 				// Dr.Reddy
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! tinyurl.com/uy6da6c";
+				$tiny_url = 'tinyurl.com/uy6da6c';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
 				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			elseif($provider_name == 'hamat'):
 				// Dr.Hamat
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
+				$tiny_url = 'tinyurl.com/sw9d3g9';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			
 			endif;
+			print_r($tiny_url);die;
 			
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com');						
