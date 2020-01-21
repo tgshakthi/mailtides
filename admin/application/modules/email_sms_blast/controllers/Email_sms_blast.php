@@ -708,12 +708,36 @@ class Email_sms_blast extends MX_Controller
 								'phone_number' => '7135578001',
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'          
+							),array
+							(
+								'id' => '4816',
+								'name' => 'Sheena, Sheena',
+								'email' => 'sorn@gimed.net',
+								'phone_number' => '2818131292',
+								'provider_name' => 'DLDC',
+								'facility_name' => 'DLDC'
+							),array
+							(
+								'id' => '4817',
+								'name' => 'Sheena, Sheena',
+								'email' => 'sorn@gimed.net',
+								'phone_number' => '2818131292',
+								'provider_name' => 'REDDY',
+								'facility_name' => 'REDDY'
+							),array
+							(
+								'id' => '4818',
+								'name' => 'Sheena, Sheena',
+								'email' => 'sorn@gimed.net',
+								'phone_number' => '2818131292',
+								'provider_name' => 'HAMAT',
+								'facility_name' => 'HAMAT'
 							));	
 		$patient_user_data = array_merge($get_sms_patient_users,$patient_user);
-		if(!empty($patient_user))
+		if(!empty($patient_user_data))
 		{
 			$sms_address = '';
-			foreach($patient_user as $get_sms_patient_user)
+			foreach($patient_user_data as $get_sms_patient_user)
 			{				
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
@@ -891,9 +915,7 @@ class Email_sms_blast extends MX_Controller
 					$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
 					if(!empty($patient_carrires)):
 						$data['sms_address'] = $patient_carrires[0]->sms_data_email;
-						
 					else:
-						
 						$phone_numbers = str_replace("-","",$phone_number);
 						$phone_id = "+1";
 						$phone_number_data = $phone_id.''.$phone_numbers;
@@ -910,7 +932,6 @@ class Email_sms_blast extends MX_Controller
 								$data['sms_address'] = $result['response']['results'][0]['sms_address'];
 							}
 						}
-						
 					endif;					
 					echo json_encode($data);
 			}
@@ -932,7 +953,6 @@ class Email_sms_blast extends MX_Controller
 						$data['sms_address'] = $result['response']['results'][0]['sms_address'];
 					}
 				}
-				
 				echo json_encode($data);
 			}
 		}else
@@ -966,11 +986,9 @@ class Email_sms_blast extends MX_Controller
 			$patient = explode(" ",trim($first_name));
 			$patient_first_name = $patient[0];
 		endif;
-		if(!empty($sms_address) && $provider_name == 'dldc' || $provider_name == 'reddy' || $provider_name == 'hamat' || $provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
-		{
-			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-			$email_subject = "";
-			$track_code = md5(rand());					
+  
+		if(!empty($sms_address)):
+			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
@@ -983,31 +1001,35 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPAuth = true;
 			$mail->From = $mail_config[0]->mail_from;
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			
 			$mail->IsHTML(true);
-							
-			if($provider_name == 'DLDC' || $provider_name == 'dldc'):
-				$data = 'https://tinyurl.com/vj4mjvg';				
+
+			if($provider_name == 'dldc'):							 
 				//Others DLDC
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
+				$tiny_url = 'tinyurl.com/vj4mjvg';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
 			
-			elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
-				$data = 'https://tinyurl.com/uy6da6c';
-				//Dr.Reddy
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
-			
-			elseif($provider_name == 'HAMAT' || $provider_name == 'hamat' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
-				$data = 'https://tinyurl.com/sw9d3g9';
+			elseif($provider_name == 'reddy'):
+				// Dr.Reddy
+				$tiny_url = 'tinyurl.com/uy6da6c';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			elseif($provider_name == 'hamat'):
 				// Dr.Hamat
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
+				$tiny_url = 'tinyurl.com/sw9d3g9';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			
 			endif;
-		
-			$mail->AddAddress($sms_address);						
-			$mail->addBCC('velusamy@desss.com');	
-							
+			
+			$mail->AddAddress($sms_address);
+			$mail->addBCC('velusamy@desss.com');						
+			
 			if(!$mail->Send())
-			{
-			  echo "Mailer Error: " . $mail->ErrorInfo;
+			{	
+			    echo "Mailer Error: " . $mail->ErrorInfo;
+				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 			else
 			{
@@ -1017,7 +1039,8 @@ class Email_sms_blast extends MX_Controller
 				endif;
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
-		}
+		endif;
+		// redirect('email_blasts/new_patient');
 	}
 	
 	function campaign_category()
@@ -1228,7 +1251,8 @@ class Email_sms_blast extends MX_Controller
 		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
 		echo '<pre>';
 		print_r($get_user);
-		echo 'sms';die;		
+		echo 'sms';die;
+		
 	}
 	
 	//Resend Email 
