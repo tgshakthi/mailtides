@@ -1244,4 +1244,10 @@ class Email_sms_blast extends MX_Controller
 		$data['type'] = $campaign_type;
 		echo json_encode($data);
 	}
+	
+	//Resend SMS 
+	function resend_sms()
+	{
+		
+	}
 }
