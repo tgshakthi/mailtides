@@ -1250,4 +1250,10 @@ class Email_sms_blast extends MX_Controller
 	{
 		echo 'test';die;
 	}
+	
+	//Resend Email 
+	function resend_email()
+	{
+		echo 'email';die;
+	}
 }

@@ -103,7 +103,7 @@
 											}
 
 											if ($sms_track['sms_link_open'] === '0' && $sms_track['resend_email'] === '0') {
-												$resend_sms = '<span class="label label-success"><a href="resend_sms">Resend</a></span>';
+												$resend_sms = '<span class="label label-success"><a href="resend_email">Resend</a></span>';
 											} else {
 												$resend_sms = '<span class="label label-danger"></span>';
 											}											
