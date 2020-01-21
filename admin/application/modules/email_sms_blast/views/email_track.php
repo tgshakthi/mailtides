@@ -48,7 +48,7 @@
 						
 						<form action="<?php echo base_url()?>email_sms_blast/delete_multiple_user" id="form_selected_record"
 							method="post">				
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							
 									<div class="email-blast-date">
 								
@@ -61,7 +61,7 @@
 											<input type="text" id="max">
 										</div>
 									</div>
-								</div>
+								</div> -->
 							<table id="datatable-email"
 								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
 								cellspacing="0">
