@@ -708,30 +708,6 @@ class Email_sms_blast extends MX_Controller
 								'phone_number' => '7135578001',
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'          
-							),array
-							(
-								'id' => '4816',
-								'name' => 'Sheena, Sheena',
-								'email' => 'sorn@gimed.net',
-								'phone_number' => '2818131292',
-								'provider_name' => 'DLDC',
-								'facility_name' => 'DLDC'
-							),array
-							(
-								'id' => '4817',
-								'name' => 'Sheena, Sheena',
-								'email' => 'sorn@gimed.net',
-								'phone_number' => '2818131292',
-								'provider_name' => 'REDDY',
-								'facility_name' => 'REDDY'
-							),array
-							(
-								'id' => '4818',
-								'name' => 'Sheena, Sheena',
-								'email' => 'sorn@gimed.net',
-								'phone_number' => '2818131292',
-								'provider_name' => 'HAMAT',
-								'facility_name' => 'HAMAT'
 							));	
 		$patient_user_data = array_merge($get_sms_patient_users,$patient_user);
 		if(!empty($patient_user))
