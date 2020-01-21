@@ -849,7 +849,7 @@ class Email_sms_blast extends MX_Controller
 							{
 								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
 							}
-							$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id);
+							$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id,$data);
 							echo "Message sent!";
 						}
 					}

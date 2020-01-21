@@ -233,12 +233,13 @@ class Email_sms_blast_model extends CI_Model
 		
 	}
 	
-	function update_sms_sent_in_master_table($user_id)
+	function update_sms_sent_in_master_table($user_id,$tiny_url)
 	{
 		$date = new DateTime("now", new DateTimeZone('America/New_York') );
 		$insert_array = array(
 								'sms_sent' => '1',
-								'sms_sent_date' => $date->format('m/d/Y')
+								'sms_sent_date' => $date->format('m/d/Y'),
+								'sms_tiny_url'  => $tiny_url
 							);
 		$this->db->where('id', $user_id);
 		$this->db->update($this->table_name, $insert_array);
