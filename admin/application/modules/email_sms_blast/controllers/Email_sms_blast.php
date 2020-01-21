@@ -493,28 +493,29 @@ class Email_sms_blast extends MX_Controller
 																		<tr>';
 
 																		if($provider_name == 'DLDC'):
-																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'';
+																			$tiny_url = 'https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																								<a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Digestive & Liver Disease Consultants, P.A.  Google Reviews
 																								</a>
 																							 </td>';
 																		elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):
-																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google';
+																			$tiny_url = 'https://www.google.com/search?safe=active&rlz=1C1SQJL_enUS816US816&sxsrf=ACYBGNSqpw9OEoRjx8pflA-SrHAq3jkMPQ%3A1578530034499&ei=8nQWXo6HHsmntQa09qXICw&q=dr+guru+reddy&oq=Dr+guru&gs_l=psy-ab.3.0.35i39j0i20i263j0l8.44427.48774..50102...1.2..0.95.847.10......0....1..gws-wiz.......0i71j0i131j0i67j0i273j0i10j0i131i67.Dv33L_DZgTk#lrd=0x8640cae00551d941:0x865083c49754c6f8,1,,,';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
-																						  <a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																						  <a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																							Dr. Reddy Google Reviews
 																						  </a>
 																					   </td>';
 																		elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard') :
-																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat';
+																			$tiny_url = 'https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US816&oq=dig&aqs=chrome.0.69i59j69i57j0l4j69i61j69i60.1844j0j7&sourceid=chrome&ie=UTF-8#lkt=LocalPoiReviews&trex=m_t:lcl_akp,rc_f:,rc_ludocids:17318305201550731345,rc_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.,ru_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
-																								<a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Dr. Hamat Google Reviews
 																								</a>
 																							 </td>';
 																		 
 																		endif;
+																		print_r($tiny_url);die;
 							
 																  $mailContent .= ' </tr>
 																	</table>
