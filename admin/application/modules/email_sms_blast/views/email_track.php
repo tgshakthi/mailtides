@@ -76,8 +76,10 @@
 										<th>Email Status</th>
 										<th>Email Open Date</th>
 										<th>Tiny Url</th>
+										<th>Resend Mail</th>
 									</tr>
 									<tr id="filters">
+										<th></th>
 										<th></th>
 										<th></th>
 										<th></th>
@@ -124,6 +126,12 @@
 											} else {
 												$email_status = '<span class="label label-danger">Not Open</span>';
 											}
+											
+											if ($email_track['email_link_open'] === '0' && $email_track['resend_sms'] === '0')  {
+												$resend_status = '<span class="label label-success">Resend</span>';
+											} else {
+												$resend_status = '<span class="label label-danger"></span>';
+											}
 																		
 										?>
 									<tr>
@@ -135,6 +143,7 @@
 										<td><?php echo $email_status;?></td>
 										<td><?php echo $email_open_date;?></td>
 										<td><?php echo $email_track['email_tiny_url'];?></td>
+										<td><?php echo $resend_status;?></td>
 									</tr>
 									<?php endif;
 										endforeach;?>
