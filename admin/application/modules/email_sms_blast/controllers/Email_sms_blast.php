@@ -1246,14 +1246,16 @@ class Email_sms_blast extends MX_Controller
 	}
 	
 	//Resend SMS 
-	function resend_sms()
+	function resend_sms($user_id)
 	{
+		print_r($user_id);
 		echo 'sms';die;
 	}
 	
 	//Resend Email 
-	function resend_email()
+	function resend_email($user_id)
 	{
+		print_r($user_id);
 		echo 'email';die;
 	}
 }
