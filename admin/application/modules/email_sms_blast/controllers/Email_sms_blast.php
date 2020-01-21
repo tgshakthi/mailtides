@@ -956,8 +956,7 @@ class Email_sms_blast extends MX_Controller
 						$data['sms_address'] = $result['response']['results'][0]['sms_address'];
 					}
 				}
-				echo 'test';
-				echo $data['sms_address'];die;
+				
 				echo json_encode($data);
 			}
 		}else
