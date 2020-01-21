@@ -76,8 +76,10 @@
 										<th>SMS Sent Date</th>
 										<th>SMS Status</th>
 										<th>SMS Open Date</th>
+										<th>Tiny Url</th>
 									</tr>
 									<tr id="filters">
+										<th></th>
 										<th></th>
 										<th></th>
 										<th></th>
@@ -107,6 +109,7 @@
 										<td><?php echo $sms_track['sms_sent_date'];?></td>
 										<td><?php echo $sms_status;?></td>
 										<td><?php echo $sms_track['sms_open_date'];?></td>
+										<td><?php echo $sms_track['sms_tiny_url'];?></td>
 									</tr>
 
 									<?php endif;
