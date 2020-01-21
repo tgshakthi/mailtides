@@ -915,7 +915,9 @@ class Email_sms_blast extends MX_Controller
 					$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
 					if(!empty($patient_carrires)):
 						$data['sms_address'] = $patient_carrires[0]->sms_data_email;
+						echo 'test';die;
 					else:
+						echo 'test1';die;
 						$phone_numbers = str_replace("-","",$phone_number);
 						$phone_id = "+1";
 						$phone_number_data = $phone_id.''.$phone_numbers;
@@ -937,6 +939,7 @@ class Email_sms_blast extends MX_Controller
 			}
 			else
 			{
+				echo 'test2';die;
 				$phone_numbers = str_replace("-","",$phone_number);
 				$phone_id = "+1";
 				$phone_number_data = $phone_id.''.$phone_numbers;
