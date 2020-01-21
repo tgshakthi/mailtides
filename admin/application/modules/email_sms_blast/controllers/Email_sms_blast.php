@@ -493,21 +493,21 @@ class Email_sms_blast extends MX_Controller
 																		<tr>';
 
 																		if($provider_name == 'DLDC'):
-																			$tiny_url = 'https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US';
+																			$tiny_url = 'tinyurl.com/us7z2qv';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
 																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Digestive & Liver Disease Consultants, P.A.  Google Reviews
 																								</a>
 																							 </td>';
 																		elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):
-																			$tiny_url = 'https://www.google.com/search?safe=active&rlz=1C1SQJL_enUS816US816&sxsrf=ACYBGNSqpw9OEoRjx8pflA-SrHAq3jkMPQ%3A1578530034499&ei=8nQWXo6HHsmntQa09qXICw&q=dr+guru+reddy&oq=Dr+guru&gs_l=psy-ab.3.0.35i39j0i20i263j0l8.44427.48774..50102...1.2..0.95.847.10......0....1..gws-wiz.......0i71j0i131j0i67j0i273j0i10j0i131i67.Dv33L_DZgTk#lrd=0x8640cae00551d941:0x865083c49754c6f8,1,,,';
+																			$tiny_url = 'tinyurl.com/uy6da6c';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
 																						  <a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																							Dr. Reddy Google Reviews
 																						  </a>
 																					   </td>';
 																		elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard') :
-																			$tiny_url = 'https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US816&oq=dig&aqs=chrome.0.69i59j69i57j0l4j69i61j69i60.1844j0j7&sourceid=chrome&ie=UTF-8#lkt=LocalPoiReviews&trex=m_t:lcl_akp,rc_f:,rc_ludocids:17318305201550731345,rc_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.,ru_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.';
+																			$tiny_url = 'tinyurl.com/w3epyt6';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
 																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Dr. Hamat Google Reviews
@@ -515,8 +515,6 @@ class Email_sms_blast extends MX_Controller
 																							 </td>';
 																		 
 																		endif;
-																		print_r($tiny_url);die;
-							
 																  $mailContent .= ' </tr>
 																	</table>
 																	<br>                                              
@@ -576,7 +574,7 @@ class Email_sms_blast extends MX_Controller
 							echo 'Message could not be sent.';
 							echo 'Mailer Error: ' . $mail->ErrorInfo;
 						} else {
-							$this->Email_sms_blast_model->update_email_sent_in_master_table($user_id);						
+							$this->Email_sms_blast_model->update_email_sent_in_master_table($user_id,$tiny_url);						
 							echo 'Message sent.';
 						}
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
@@ -804,7 +802,8 @@ class Email_sms_blast extends MX_Controller
 						$mail->FromName = $from_name;
 						$mail->IsHTML(true);
 												
-						if($provider_name == 'DLDC'):	
+						if($provider_name == 'DLDC'):
+							$tiny_url = 'https://tinyurl.com/vj4mjvg';
 							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
 							$ch = curl_init();  
 							$timeout = '5';  
@@ -816,6 +815,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
 						
 						elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
+							$tiny_url = 'https://tinyurl.com/uy6da6c';
 							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
 							$ch = curl_init();  
 							$timeout = '5';  
@@ -827,6 +827,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
 						
 						elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
+							$tiny_url = 'https://tinyurl.com/sw9d3g9';
 							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/HAMAT';
 							$ch = curl_init();  
 							$timeout = '5';  
@@ -852,7 +853,7 @@ class Email_sms_blast extends MX_Controller
 							{
 								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
 							}
-							$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id,$data);
+							$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id, $tiny_url);
 							echo "Message sent!";
 						}
 					}

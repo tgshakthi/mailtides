@@ -16,12 +16,12 @@ class Email_link_open extends MX_Controller
 		{
 			$this->update_feedback($_GET['review_user_id'], 'google');
 			//redirect("https://www.google.com/search?q=Digestive+%26+Liver+Disease+Consultants%2C+P.A&rlz=1C1CHBF_enUS841US841&oq=Digestive+%26+Liver+Disease+Consultants%2C+P.A&aqs=chrome..69i57j35i39l2j0.502j0j4&sourceid=chrome&ie=UTF-8#lrd=0x8640cae00551d8a1:0xf056fad3123b2851,1");
-			redirect("https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US");
+			redirect("https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US816&oq=dig&aqs=chrome.0.69i59j69i57j0l4j69i61j69i60.1844j0j7&sourceid=chrome&ie=UTF-8#lrd=0x8640cae00551d8a1:0xf056fad3123b2851,1,,,");
 		}
 		elseif(isset($_GET['review_user_id']) && isset($_GET['type']) && $_GET['type'] == 'google-hamat')
 		{
 			$this->update_feedback($_GET['review_user_id'], 'google');
-			redirect("https://www.google.com/search?q=digestive%2B%26%2Bliver%2Bdisease%2Bconsultants%2C%2Bpa.%2C%2B275%2Blantern%2Bbend%2Bdr%2B200%2C%2Bhouston%2C%2Btx%2B77090&rlz=1C1SQJL_enUS816US816&oq=dig&aqs=chrome.0.69i59j69i57j0l4j69i61j69i60.1844j0j7&sourceid=chrome&ie=UTF-8#lkt=LocalPoiReviews&trex=m_t:lcl_akp,rc_f:,rc_ludocids:17318305201550731345,rc_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.,ru_q:Digestive%2520%2526%2520Liver%2520Disease%2520Consultants%252C%2520P.A.");
+			redirect("https://www.google.com/search?rlz=1C1SQJL_enUS816US816&ei=v30WXoahG8HusQXs352QAw&q=dr+hamat&oq=dr+hamat&gs_l=psy-ab.3..0j46i199i175l2j0j46i199i175l2j0j46i199i175j0j46i199i175.2602.2869..3059...0.0..0.194.627.2j3....3..0....1..gws-wiz.......46i199i175i67i275j0i30j0i10i30j0i8i30j0i22i30j0i22i10i30j46i199i175i67.asYvTwiwbjI&ved=0ahUKEwjG_ImCq_XmAhVBd6wKHexvBzIQ4dUDCAs&uact=5#lrd=0x8640b3ae3b684b07:0x722f40416802a512,1,,,");
 		}
 		elseif(isset($_GET['review_user_id']) && isset($_GET['type']) && $_GET['type'] == 'google-reddy')
 		{
