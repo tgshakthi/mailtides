@@ -579,7 +579,8 @@ class Email_sms_blast extends MX_Controller
 						}
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 					}
-				}				
+				}	
+				die;
 			}
 		}
 		redirect('email_sms_blast');
@@ -858,6 +859,7 @@ class Email_sms_blast extends MX_Controller
 						}
 					}
 				}
+				die;
 			}
 		}	
 		redirect('email_sms_blast');
