@@ -1098,6 +1098,7 @@ $('#phone_number').blur(function () {
 			
 			var data = JSON.parse(result);
 			if (data) {
+				alert(data)
 				if (data.first_name === 'undefined' && data.last_name === 'undefined') {
 
 				} else {
