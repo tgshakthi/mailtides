@@ -903,10 +903,7 @@ class Email_sms_blast extends MX_Controller
 			$patient_phone_numbers = $this->Email_sms_blast_model->check_patient_phone_number();	
 			// $patient_phone_numbers = $this->Email_sms_blast_model->check_patient_phone_number_sms_data($phone_number);		
 			// Replace key value with your own api key					
-			$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17139339132';
-			$result = file_get_contents($url);
-			echo 'test';
-			print_r($result);die;
+			
 			if(!empty($patient_phone_numbers))
 			{	
 					$patient_name = $patient_phone_numbers[0]->name;
@@ -927,7 +924,7 @@ class Email_sms_blast extends MX_Controller
 						// Replace key value with your own api key					
 						$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number_data.'';
 						$result = @file_get_contents($url);
-				print_r($result);die;
+				
 						if ($result)
 						{
 							$result = @json_decode($result, true);
@@ -948,7 +945,7 @@ class Email_sms_blast extends MX_Controller
 				// Replace key value with your own api key					
 				$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number_data.'';
 				$result = @file_get_contents($url);
-				print_r($result);die;
+				
 				if ($result)
 				{
 					$result = @json_decode($result, true);
@@ -969,6 +966,8 @@ class Email_sms_blast extends MX_Controller
 	//Insert New Single Patient
 	function insert_new_patients()
 	{
+		echo '<pre>';
+		print_r($_POST);die
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
