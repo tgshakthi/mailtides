@@ -493,21 +493,23 @@ class Email_sms_blast extends MX_Controller
 																		<tr>';
 
 																		if($provider_name == 'DLDC'):
-																	   
+																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																								<a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Digestive & Liver Disease Consultants, P.A.  Google Reviews
 																								</a>
 																							 </td>';
 																		elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):
+																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
-																						  <a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																						  <a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																							Dr. Reddy Google Reviews
 																						  </a>
 																					   </td>';
 																		elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard') :
+																			$data_tiny_url = 'http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat';
 																			$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
-																								<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																								<a href='.$data_tiny_url.' target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																								Dr. Hamat Google Reviews
 																								</a>
 																							 </td>';
