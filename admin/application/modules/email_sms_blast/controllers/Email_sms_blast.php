@@ -1005,8 +1005,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->Username = $mail_config[0]->email;	
 			$mail->Password = $mail_config[0]->password;
 			$mail->SMTPAuth = true;
-			$mail->From = $from_email;
-			$mail->FromName = $from_name;
+			$mail->From = $mail_config[0]->mail_from;
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
 									
 			if($provider_name == 'DLDC' || $provider_name == 'dldc'):
