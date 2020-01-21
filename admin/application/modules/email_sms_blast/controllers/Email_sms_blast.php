@@ -1248,14 +1248,18 @@ class Email_sms_blast extends MX_Controller
 	//Resend SMS 
 	function resend_sms($user_id)
 	{
-		print_r($user_id);
+		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+		echo '<pre>';
+		print_r($get_user);
 		echo 'sms';die;
 	}
 	
 	//Resend Email 
 	function resend_email($user_id)
 	{
-		print_r($user_id);
+		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+		echo '<pre>';
+		print_r($get_user);
 		echo 'email';die;
 	}
 }
