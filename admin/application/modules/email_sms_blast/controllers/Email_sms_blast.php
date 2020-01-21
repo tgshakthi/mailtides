@@ -967,7 +967,7 @@ class Email_sms_blast extends MX_Controller
 	function insert_new_patients()
 	{
 		echo '<pre>';
-		print_r($_POST);die;
+		print_r($_POST);
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
@@ -975,7 +975,27 @@ class Email_sms_blast extends MX_Controller
 		$phone_number = $this->input->post('phone_number');
 		$sms_address  = $this->input->post('carrier_data');
 		$provider_name  = $this->input->post('provider_name');
-	
+		
+		$email_subject = "";
+		$track_code = md5(rand());					
+		require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->CharSet="UTF-8";
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.1and1.com';
+		$mail->Port = '587';
+		$mail->Username = 'velusamy@desss.com';	
+		$mail->Password = 'Houston@77042';
+		$mail->SMTPAuth = true;
+		$mail->From = 'reviews@gimed.net';
+		$mail->FromName = 'Digestive';
+		$mail->IsHTML(true);
+		$mail->AddAddress($sms_address);
+		$mail->Body	 = 'Test Content';	
+		$mail->addBCC('velusamy@desss.com');	
+		$mail->addBCC('saravana@desss.com');				
+	/* 
 		$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
 		$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
 		if(empty($get_patient_users)){
@@ -1042,7 +1062,7 @@ class Email_sms_blast extends MX_Controller
 				endif;
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
-		endif;
+		endif; */
 		// redirect('email_blasts/new_patient');
 	}
 	
