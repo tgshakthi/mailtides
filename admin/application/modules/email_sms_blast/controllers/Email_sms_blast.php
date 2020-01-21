@@ -1248,7 +1248,7 @@ class Email_sms_blast extends MX_Controller
 	//Resend SMS 
 	function resend_sms()
 	{
-		echo 'test';die;
+		echo 'sms';die;
 	}
 	
 	//Resend Email 
