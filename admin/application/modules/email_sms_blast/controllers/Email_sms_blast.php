@@ -967,7 +967,7 @@ class Email_sms_blast extends MX_Controller
 	function insert_new_patients()
 	{
 		echo '<pre>';
-		print_r($_POST);die
+		print_r($_POST);die;
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
