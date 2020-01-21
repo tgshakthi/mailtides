@@ -984,7 +984,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->From = $mail_config[0]->mail_from;
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
-				print_r($provider_name);die;					
+				print_r($provider_name);					
 			if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 				$data = 'https://tinyurl.com/vj4mjvg';				
 				//Others DLDC
@@ -1001,6 +1001,9 @@ class Email_sms_blast extends MX_Controller
 				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
 			
 			endif;
+			print_r($mail->Body);
+			print_r($sms_address);
+			die;
 			$mail->AddAddress($sms_address);						
 			$mail->addBCC('velusamy@desss.com');	
 							
