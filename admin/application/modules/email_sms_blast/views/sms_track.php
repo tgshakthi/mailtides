@@ -77,8 +77,10 @@
 										<th>SMS Status</th>
 										<th>SMS Open Date</th>
 										<th>Tiny Url</th>
+										<th>Resend SMS</th>
 									</tr>
 									<tr id="filters">
+										<th></th>
 										<th></th>
 										<th></th>
 										<th></th>
@@ -98,7 +100,13 @@
 												$sms_status = '<span class="label label-success">Open</span>';
 											} else {
 												$sms_status = '<span class="label label-danger">Not Open</span>';
-											}						
+											}
+
+											if ($sms_track['sms_link_open'] === '0' && $sms_track['resend_email'] === '0') {
+												$resend_sms = '<span class="label label-success">Resend</span>';
+											} else {
+												$resend_sms = '<span class="label label-danger"></span>';
+											}											
 										?>
 
 									<tr>
@@ -110,6 +118,7 @@
 										<td><?php echo $sms_status;?></td>
 										<td><?php echo $sms_track['sms_open_date'];?></td>
 										<td><?php echo $sms_track['sms_tiny_url'];?></td>
+										<td><?php echo $resend_sms;?></td>
 									</tr>
 
 									<?php endif;
