@@ -1001,7 +1001,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
 			
 			endif;
-			print_r($mail->Body);
+			print_r($mail->Body);die;
 			$mail->AddAddress($sms_address);						
 			$mail->addBCC('velusamy@desss.com');	
 							
