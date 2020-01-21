@@ -734,10 +734,10 @@ class Email_sms_blast extends MX_Controller
 								'facility_name' => 'HAMAT'
 							));	
 		$patient_user_data = array_merge($get_sms_patient_users,$patient_user);
-		if(!empty($patient_user_data))
+		if(!empty($patient_user))
 		{
 			$sms_address = '';
-			foreach($patient_user_data as $get_sms_patient_user)
+			foreach($patient_user as $get_sms_patient_user)
 			{				
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
@@ -1042,57 +1042,6 @@ class Email_sms_blast extends MX_Controller
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 		}
-		/* if(!empty($sms_address)):
-			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-			$mail = new PHPMailer();
-			$mail->IsSMTP();
-			$mail->CharSet="UTF-8";
-			$mail->SMTPSecure = 'tls';
-			$mail->Host = $mail_config[0]->host;
-			$mail->Port = $mail_config[0]->port;
-			$mail->Username = $mail_config[0]->email;	
-			$mail->Password = $mail_config[0]->password;
-			$mail->SMTPAuth = true;
-			$mail->From = $mail_config[0]->mail_from;
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
-			
-			$mail->IsHTML(true);
-
-			if($provider_name == 'dldc'):							 
-				//Others DLDC
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! tinyurl.com/vj4mjvg";
-				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
-			
-			elseif($provider_name == 'reddy'):
-				// Dr.Reddy
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy!  Pls click our link for a quick review! tinyurl.com/uy6da6c";
-				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			elseif($provider_name == 'hamat'):
-				// Dr.Hamat
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
-				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			
-			endif;
-			
-			$mail->AddAddress($sms_address);
-			$mail->addBCC('velusamy@desss.com');						
-			
-			if(!$mail->Send())
-			{	
-			    echo "Mailer Error: " . $mail->ErrorInfo;
-				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
-			}
-			else
-			{
-				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
-				if(empty($patient_carrires)):
-					$this->Email_sms_blast_model->insert_sms_data($patient_first_name,$patient_email,$phone_number,$sms_address);					
-				endif;
-				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
-			}
-		endif; */
-		// redirect('email_blasts/new_patient');
 	}
 	
 	function campaign_category()
