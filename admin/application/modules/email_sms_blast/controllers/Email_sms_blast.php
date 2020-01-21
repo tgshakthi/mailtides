@@ -34,7 +34,6 @@ class Email_sms_blast extends MX_Controller
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['heading'] = 'Patients Import';      
 		$data['title'] = "Import Patient Master File | Administrator";
-
 		/**
 		* Step 1 : Upload CSV File
 		* Step 2 : Field Mapping
@@ -76,14 +75,14 @@ class Email_sms_blast extends MX_Controller
 			endforeach;
 			// Get CSV File Data
 			$file_datas = $this->csvimport->get_array($_POST['file'], "", TRUE);
-			foreach ( ($file_datas ? $file_datas : array()) as $file_data) 
+			foreach (($file_datas ? $file_datas : array()) as $file_data) 
 			{
 				$values = array_values($file_data);
 				$i = 0;
 				foreach (array_keys($file_data) as $key) 
 				{            
 					// Assign CSV col value to Selected Mapping Field
-					foreach ($_POST as $k => $v) 
+					foreach($_POST as $k => $v) 
 					{			
 						if ($key == $v) 
 						{
