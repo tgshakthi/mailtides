@@ -75,8 +75,10 @@
 										<th>Email Sent Date</th>										
 										<th>Email Status</th>
 										<th>Email Open Date</th>
+										<th>Tiny Url</th>
 									</tr>
 									<tr id="filters">
+										<th></th>
 										<th></th>
 										<th></th>
 										<th></th>
@@ -132,6 +134,7 @@
 										<td><?php echo $email_sent_date;?></td>
 										<td><?php echo $email_status;?></td>
 										<td><?php echo $email_open_date;?></td>
+										<td><?php echo $email_track['email_tiny_url'];?></td>
 									</tr>
 									<?php endif;
 										endforeach;?>
