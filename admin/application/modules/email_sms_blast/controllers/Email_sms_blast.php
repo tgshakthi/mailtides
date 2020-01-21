@@ -984,7 +984,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->From = $mail_config[0]->mail_from;
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
-									
+				print_r($provider_name);die;					
 			if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 				$data = 'https://tinyurl.com/vj4mjvg';				
 				//Others DLDC
