@@ -994,7 +994,17 @@ class Email_sms_blast extends MX_Controller
 		$mail->AddAddress($sms_address);
 		$mail->Body	 = 'Test Content';	
 		$mail->addBCC('velusamy@desss.com');	
-		$mail->addBCC('saravana@desss.com');				
+		$mail->addBCC('saravana@desss.com');	
+
+		if(!$mail->Send())
+		{
+		  echo "Mailer Error: " . $mail->ErrorInfo;
+		}
+		else
+		{
+			
+			echo "Message sent!";
+		}		
 	/* 
 		$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
 		$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
