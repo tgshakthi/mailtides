@@ -94,6 +94,7 @@
 									<?php 							
 									foreach (($email_tracks ? $email_tracks : array()) as $email_track) :								
 										if(!empty($email_track['email'])):
+											$user_id = $email_track['id'];
 											$email = $email_track['email'];
 											if(!empty($email_track['name']))
 											{
@@ -128,7 +129,7 @@
 											}
 											
 											if ($email_track['email_link_open'] === '0' && $email_track['resend_sms'] === '0')  {
-												$resend_status = '<span class="label label-success"><a href="resend_email">Resend</a></span>';
+												$resend_status = '<span class="label label-success"><a href="resend_email/'.$user_id.'">Resend</a></span>';
 											} else {
 												$resend_status = '<span class="label label-danger"></span>';
 											}

@@ -95,6 +95,7 @@
 									<?php foreach (($sms_tracks ? $sms_tracks : array()) as $sms_track) : 
 									
 										if(!empty($sms_track['phone_number'])):
+											$user_id = $sms_track['id'];
 											
 											if ($sms_track['sms_link_open'] === '1') {
 												$sms_status = '<span class="label label-success">Open</span>';
@@ -103,7 +104,7 @@
 											}
 
 											if ($sms_track['sms_link_open'] === '0' && $sms_track['resend_email'] === '0') {
-												$resend_sms = '<span class="label label-success"><a href="resend_sms">Resend</a></span>';
+												$resend_sms = '<span class="label label-success"><a href="resend_sms/'.$user_id.'">Resend</a></span>';
 											} else {
 												$resend_sms = '<span class="label label-danger"></span>';
 											}											
