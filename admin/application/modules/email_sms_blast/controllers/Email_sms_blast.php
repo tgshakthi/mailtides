@@ -903,7 +903,7 @@ class Email_sms_blast extends MX_Controller
 			$patient_phone_numbers = $this->Email_sms_blast_model->check_patient_phone_number();	
 			// $patient_phone_numbers = $this->Email_sms_blast_model->check_patient_phone_number_sms_data($phone_number);		
 			// Replace key value with your own api key					
-			$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=7139339132';
+			$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone=+17139339132';
 			$result = file_get_contents($url);
 			echo 'test';
 			print_r($result);die;
