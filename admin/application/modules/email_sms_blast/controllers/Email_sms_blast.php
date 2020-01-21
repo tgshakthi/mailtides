@@ -990,8 +990,59 @@ class Email_sms_blast extends MX_Controller
 			$patient = explode(" ",trim($first_name));
 			$patient_first_name = $patient[0];
 		endif;
-  
-		if(!empty($sms_address)):
+		if(!empty($sms_address) && $provider_name == 'dldc' || $provider_name == 'reddy' || $provider_name == 'hamat' || $provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
+		{
+			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+			$email_subject = "";
+			$track_code = md5(rand());					
+			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->CharSet="UTF-8";
+			$mail->SMTPSecure = 'tls';
+			$mail->Host = $mail_config[0]->host;
+			$mail->Port = $mail_config[0]->port;
+			$mail->Username = $mail_config[0]->email;	
+			$mail->Password = $mail_config[0]->password;
+			$mail->SMTPAuth = true;
+			$mail->From = $from_email;
+			$mail->FromName = $from_name;
+			$mail->IsHTML(true);
+									
+			if($provider_name == 'DLDC' || $provider_name == 'dldc'):
+				$data = 'https://tinyurl.com/vj4mjvg';				
+				//Others DLDC
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
+			
+			elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
+				$data = 'https://tinyurl.com/uy6da6c';
+				//Dr.Reddy
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
+			
+			elseif($provider_name == 'HAMAT' || $provider_name == 'hamat' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
+				$data = 'https://tinyurl.com/sw9d3g9';
+				// Dr.Hamat
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
+			
+			endif;
+			
+			$mail->AddAddress($sms_address);						
+			$mail->addBCC('velusamy@desss.com');	
+							
+			if(!$mail->Send())
+			{
+			  echo "Mailer Error: " . $mail->ErrorInfo;
+			}
+			else
+			{
+				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
+				if(empty($patient_carrires)):
+					$this->Email_sms_blast_model->insert_sms_data($patient_first_name,$patient_email,$phone_number,$sms_address);					
+				endif;
+				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
+			}
+		}
+		/* if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 			$mail = new PHPMailer();
@@ -1040,7 +1091,7 @@ class Email_sms_blast extends MX_Controller
 				endif;
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
-		endif;
+		endif; */
 		// redirect('email_blasts/new_patient');
 	}
 	
