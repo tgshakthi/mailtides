@@ -966,8 +966,7 @@ class Email_sms_blast extends MX_Controller
 	//Insert New Single Patient
 	function insert_new_patients()
 	{
-		echo '<pre>';
-		print_r($_POST);
+		
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
@@ -976,7 +975,7 @@ class Email_sms_blast extends MX_Controller
 		$sms_address  = $this->input->post('carrier_data');
 		$provider_name  = $this->input->post('provider_name');
 		
-		$email_subject = "";
+		/* $email_subject = "";
 		$track_code = md5(rand());					
 		require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 		$mail = new PHPMailer();
@@ -1004,8 +1003,8 @@ class Email_sms_blast extends MX_Controller
 		{
 			
 			echo "Message sent!";
-		}		
-	/* 
+		}	 */	
+ 
 		$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
 		$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
 		if(empty($get_patient_users)){
@@ -1072,7 +1071,7 @@ class Email_sms_blast extends MX_Controller
 				endif;
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
-		endif; */
+		endif; 
 		// redirect('email_blasts/new_patient');
 	}
 	
