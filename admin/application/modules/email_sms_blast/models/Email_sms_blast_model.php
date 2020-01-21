@@ -451,8 +451,7 @@ class Email_sms_blast_model extends CI_Model
 							'provider_name' => $this->input->post('provider_name'),
 							'facility_name' => $this->input->post('facility_name'),
 							'review' =>'',
-							'carrier' => $this->input->post('carrier_data'),
-							'created_at' => date("d/m/Y")
+							'carrier' => $this->input->post('carrier_data')
 						);
 		// Insert into Sms Data
 		$this->db->insert('zcms_new_patient_data', $insert_data);
@@ -474,8 +473,7 @@ class Email_sms_blast_model extends CI_Model
 							'facility_name' => $this->input->post('facility_name'),
 							'sms_sent' => '1',
 							'import_sms_status' => '1',
-							'sms_sent_date' => $date->format('m/d/Y'),
-							'created_at' => date("d/m/Y")
+							'sms_sent_date' => $date->format('m/d/Y')
 						);
 		// Insert into Sms Data
 		$this->db->insert($this->table_name, $insert_data);
