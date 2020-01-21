@@ -1095,7 +1095,6 @@ $('#phone_number').blur(function () {
 			phone_number: phone_number
 		},
 		success: function (result) {
-			
 			var data = JSON.parse(result);
 			if (data) {
 				alert(data.sms_address)
