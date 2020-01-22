@@ -992,14 +992,16 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-			$mail = new PHPMailer();
+			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
+			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
-			$mail->SMTPSecure = 'tls';
-			$mail->Host = 'smtp.1and1.com';
-			$mail->Port = '587';
-			$mail->Username = 'saravana@desss.com';	
-			$mail->Password = 'Annanagar@600101';
+			$mail->SMTPSecure = "tls";      
+			$mail->Host = "smtp.gmail.com";
+			$mail->Port = 587;
+			$mail->Encoding = '7bit';       
+			$mail->Username = 'ssana811@dgmail.com';	
+			$mail->Password = 'Sana@2794';
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
