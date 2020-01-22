@@ -1364,6 +1364,7 @@ class Email_sms_blast extends MX_Controller
 					$this->Email_sms_blast_model->insert_master_resend_table_sms_data($user_id,$tiny_url);					
 					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/sms_tracking');</script>";
 				}
+				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 			}
 		}
 	}
@@ -1596,10 +1597,11 @@ class Email_sms_blast extends MX_Controller
 						
 					if(!$mail->send()){
 						echo 'Message could not be sent.';
-						echo 'Mailer Error: ' . $mail->ErrorInfo;
+						echo "<script type='text/javascript'>alert('Message not sent!');location.replace('".base_url()."email_sms_blast/email_tracking');</script>";
+				
 					} else {
 						$this->Email_sms_blast_model->update_email_resend_in_master_table($user_id,$tiny_url);						
-						echo 'Message sent.';
+						echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/email_tracking');</script>";				
 					}
 					$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 				}
