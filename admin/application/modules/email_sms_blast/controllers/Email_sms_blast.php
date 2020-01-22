@@ -1314,42 +1314,42 @@ class Email_sms_blast extends MX_Controller
 				$mail->IsHTML(true);
 
 				if($provider_name == 'DLDC' || $provider_name == 'dldc'):
-							$tiny_url = 'https://tinyurl.com/vj4mjvg';
-							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
-							$ch = curl_init();  
-							$timeout = '5';  
-							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
-							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
-							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
-							$data = curl_exec($ch);
-							//Others DLDC
-							$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
-						
-						elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
-							$tiny_url = 'https://tinyurl.com/uy6da6c';
-							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
-							$ch = curl_init();  
-							$timeout = '5';  
-							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
-							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
-							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
-							$data = curl_exec($ch);	
-							//Dr.Reddy
-							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
-						
-						elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
-							$tiny_url = 'https://tinyurl.com/sw9d3g9';
-							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/HAMAT';
-							$ch = curl_init();  
-							$timeout = '5';  
-							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
-							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
-							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
-							$data = curl_exec($ch);					
-							// Dr.Hamat
-							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
-					
-						endif;
+					$tiny_url = 'https://tinyurl.com/vj4mjvg';
+					$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
+					$ch = curl_init();  
+					$timeout = '5';  
+					curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+					curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+					curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+					$data = curl_exec($ch);
+					//Others DLDC
+					$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
+				
+				elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
+					$tiny_url = 'https://tinyurl.com/uy6da6c';
+					$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
+					$ch = curl_init();  
+					$timeout = '5';  
+					curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+					curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+					curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+					$data = curl_exec($ch);	
+					//Dr.Reddy
+					$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
+				
+				elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
+					$tiny_url = 'https://tinyurl.com/sw9d3g9';
+					$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/HAMAT';
+					$ch = curl_init();  
+					$timeout = '5';  
+					curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+					curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+					curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+					$data = curl_exec($ch);					
+					// Dr.Hamat
+					$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
+			
+				endif;
 				
 				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com');
@@ -1371,9 +1371,240 @@ class Email_sms_blast extends MX_Controller
 	//Resend Email 
 	function resend_email($user_id)
 	{
+		$website_id = $this->admin_header->website_id();
+		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
-		echo '<pre>';
-		print_r($get_user);
-		echo 'email';die;
+		if(!empty($get_user))
+		{
+			// Patient Name
+			if(!empty($get_user[0]->name)):
+				$patient_names = explode(",",$get_user[0]->name);
+				$patient_name = $patient_names[1];
+				$patient = explode(" ",trim($patient_name));
+				$patient_first_name = $patient[0];
+			endif;
+			
+			// Patient Email
+			if(!empty($get_user[0]->email)):
+				$patient_email = $get_user[0]->email;
+			endif;
+			
+			// Provider Name
+			if(!empty($get_user[0]->provider_name)):
+				$provider_name = $get_user[0]->provider_name;
+			endif;
+			if($provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
+			{
+				if (!empty($mail_configurations)) 
+				{
+					require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+					$track_code = md5(rand());
+					$mail = new PHPMailer;
+					// SMTP configuration
+					$mail->isSMTP();
+					$mail->Host     = $mail_configurations[0]->host;
+					$mail->SMTPAuth = true;
+					$mail->Username = $mail_configurations[0]->email;
+					$mail->Password = $mail_configurations[0]->password;
+					$mail->Port     = $mail_configurations[0]->port;						 							
+					$mail->From = $mail_configurations[0]->mail_from;
+					$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+					// Set email format to HTML
+					$mail->isHTML(true);
+					// Email body content
+					$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+										<html>
+										<head>
+											<meta charset="UTF-8">
+											<meta content="width=device-width, initial-scale=1" name="viewport">
+											<meta name="x-apple-disable-message-reformatting">
+											<meta http-equiv="X-UA-Compatible" content="IE=edge">
+											<meta content="telephone=no" name="format-detection">
+											<title></title>
+											<!--[if (mso 16)]>
+											  <style type="text/css">
+											  a {text-decoration: none;}
+											  </style>
+											  <![endif]-->
+											<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+											<!--[if !mso]><!-- -->
+											<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+											<!--<![endif]-->
+										</head>
+										<body>
+											<div class="es-wrapper-color">
+											<!--[if gte mso 9]>
+												  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+													  <v:fill type="tile" color="#f6f6f6"></v:fill>
+												  </v:background>
+											<![endif]-->
+											<table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+											<tbody>
+											  <tr>
+											<td class="esd-email-paddings">
+											  <table class="es-content esd-footer-popover" cellspacing="0" cellpadding="0" align="center"
+												style="border: 5px solid #603;padding: 10px;background: #fff;">
+												<tbody>
+													<tr>
+														<td class="esd-stripe" align="center">
+															<table class="es-content-body" width="600" cellspacing="0" cellpadding="0" align="center"
+															style="border-left:3px solid transparent;">
+															<tbody>
+						  
+													<tr>
+														<td style="text-align: center;"><img
+															src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png"
+															width="100" />
+														  <h3
+															style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; text-align:center;font-size: 25px;font-weight: 300;">
+															Digestive & Liver Disease Consultants, P.A. </h3>
+															<br>
+														</td>
+													</tr>
+						  
+													<tr>
+													<td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left">
+													  <table width="100%" cellspacing="0" cellpadding="0">
+														<tbody>
+														  <tr>
+															<td class="esd-container-frame" width="557" valign="top" align="center">
+															  <table width="100%" cellspacing="0" cellpadding="0">
+																<tbody>
+																  <tr>
+																	<td align="left" class="esd-block-text es-p15b">
+																	  <h2
+																		style="color: rgb(102, 0, 51); font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif;font-size: 21px;font-weight: 600;">
+																		Dear '. $patient_first_name .',</h2>
+																	</td>
+																  </tr>';
+																	if($provider_name == 'DLDC' || $provider_name == 'dldc'):
+																		 $mailContent .= '<tr>
+																							<td class="esd-block-text es-p20t" align="left">
+																							  <p
+																								style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																									Thanks for being a patient of DLDC! Pls click our link for a quick review!
+																							  </pre>
+																							</td>
+																						  </tr>';
+																	elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):
+																		$mailContent .= '<tr>
+																							<td class="esd-block-text es-p20t" align="left">
+																							  <p
+																								style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																								   Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review!
+																							  </pre>
+																							</td>
+																						  </tr>';
+																	elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard') :
+																		$mailContent .= '<tr>
+																							<td class="esd-block-text es-p20t" align="left">
+																							  <p
+																								style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																								   Thanks for being a patient of Dr. Hamat! Pls click our link for a quick review!
+																							  </pre>
+																							</td>
+																						  </tr>';
+																	
+																	endif;
+																 
+																  
+																  $mailContent .= ' <tr>
+																  </tr>
+																  <tr>
+																	<td align="center" esd-links-color="#ffffff" class="esd-block-text">
+																	<br>
+																	<table cellspacing="0" cellpadding="0">
+																	<tr>';
+
+																	if($provider_name == 'DLDC' || $provider_name == 'dldc'):
+																		$tiny_url = 'tinyurl.com/us7z2qv';
+																		$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
+																							<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																							Digestive & Liver Disease Consultants, P.A.  Google Reviews
+																							</a>
+																						 </td>';
+																	elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):
+																		$tiny_url = 'tinyurl.com/uy6da6c';
+																		$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
+																					  <a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																						Dr. Reddy Google Reviews
+																					  </a>
+																				   </td>';
+																	elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard') :
+																		$tiny_url = 'tinyurl.com/w3epyt6';
+																		$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#DB4437">
+																							<a href="http://txgidocs.mailtides.com/admin/email_link_open?review_user_id='.$user_id.'&type=google-hamat" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																							Dr. Hamat Google Reviews
+																							</a>
+																						 </td>';
+																	 
+																	endif;
+															  $mailContent .= ' </tr>
+																</table>
+																<br>                                              
+																	 
+																	  </td>
+																  </tr>
+																  <tr>
+																	<td class="esd-block-text es-p15t" align="left">
+																	  
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		<br>
+																	  </p>
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		Sincerely,</p>                                                              
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		<img src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png" width="90" />
+																		<h3
+																		  style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 16px;font-weight: 300;">
+																		  Digestive &amp; Liver Disease Consultants, P.A. </h3>
+																	  </p>
+						  
+																	  <p><br>
+																	  </p>
+																	</td>
+																  </tr>                                                          
+																</tbody>
+															  </table>
+															</td>
+														  </tr>
+														</tbody>
+													  </table>
+													</td>
+												  </tr>
+												</tbody>
+											  </table>
+											</td>
+										  </tr>
+										</tbody>
+									  </table>
+									</td>
+								  </tr>
+								</tbody>
+								</table>
+								</div>
+							</body>                  
+						</html>';
+					$mail->Body = $mailContent;
+					$mail->clearAddresses();
+					// Add a recipient
+					$mail->addAddress($patient_email);
+					$mail->addBCC('velusamy@desss.com');
+						
+					if(!$mail->send()){
+						echo 'Message could not be sent.';
+						echo 'Mailer Error: ' . $mail->ErrorInfo;
+					} else {
+						$this->Email_sms_blast_model->update_email_resend_in_master_table($user_id,$tiny_url);						
+						echo 'Message sent.';
+					}
+					$this->session->set_flashdata('success', 'Mail sent Successfully.');              
+				}
+			}
+		}
+		
 	}
 }

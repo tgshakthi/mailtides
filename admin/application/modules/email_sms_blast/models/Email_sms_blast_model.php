@@ -596,4 +596,15 @@ class Email_sms_blast_model extends CI_Model
 		$this->db->where('id', $user_id);
 		$this->db->update($this->table_name, $insert_array);
 	}
+	
+	function update_email_resend_in_master_table($user_id,$tiny_url)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'email_sent_date' => $date->format('m/d/Y'),
+								'email_tiny_url'  => $tiny_url
+							);
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $insert_array);
+	}
 }
