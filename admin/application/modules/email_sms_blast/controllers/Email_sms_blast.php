@@ -992,7 +992,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-			$mail = new PHPMailer(true);
+			$mail = new PHPMailer();
 			$mail->IsSMTP();
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
