@@ -1000,7 +1000,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Host = "smtp.gmail.com";
 			$mail->Port = 587;
 			$mail->Encoding = '7bit';       
-			$mail->Username = 'ssana811@dgmail.com';	
+			$mail->Username = 'ssana811@gmail.com';	
 			$mail->Password = 'Sana@2794';
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
