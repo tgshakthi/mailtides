@@ -1003,6 +1003,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			
 			// $mail = new PHPMailer();
 			// $mail->IsSMTP();
 			// $mail->CharSet = "UTF-8";
@@ -1017,25 +1018,26 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail->IsHTML(true);
 
-			if($provider_name == 'dldc'):							 
-				//Others DLDC
-				$tiny_url = 'tinyurl.com/vj4mjvg';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
-				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
-				// $mail->Body = 'Test Content DLDC';
-			elseif($provider_name == 'reddy'):
-				// Dr.Reddy
-				$tiny_url = 'tinyurl.com/uy6da6c';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
-				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			elseif($provider_name == 'hamat'):
-				// Dr.Hamat
-				$tiny_url = 'tinyurl.com/sw9d3g9';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
-				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			// if($provider_name == 'dldc'):							 
+			// 	//Others DLDC
+			// 	$tiny_url = 'tinyurl.com/vj4mjvg';
+			// 	$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
+			// 	// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
+			// 	// $mail->Body = 'Test Content DLDC';
+			// elseif($provider_name == 'reddy'):
+			// 	// Dr.Reddy
+			// 	$tiny_url = 'tinyurl.com/uy6da6c';
+			// 	$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
+			// 	// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			// elseif($provider_name == 'hamat'):
+			// 	// Dr.Hamat
+			// 	$tiny_url = 'tinyurl.com/sw9d3g9';
+			// 	$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
+			// 	// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			
-			endif;
+			// endif;
 			
+			$mail->Body = "Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review!";
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com');
 			$mail->addBCC('dev@desss.com');	
