@@ -1296,6 +1296,7 @@ class Email_sms_blast extends MX_Controller
 			
 			if(!empty($sms_data_email))
 			{
+				$website_id = $this->admin_header->website_id();
 				$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 				$mail = new PHPMailer();
