@@ -1037,7 +1037,7 @@ class Email_sms_blast extends MX_Controller
 			
 			// endif;
 			
-			$mail->Body = "Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review!";
+			$mail->Body = 'Test Content DLDC';
 			// $mail->AddAddress($sms_address);
 			$mail->AddAddress('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
