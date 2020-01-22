@@ -1285,7 +1285,8 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_user))
 		{		
 			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
-			print_r($get_check_sms_data);
+			$sms_data_email = $get_check_sms_data[0]->sms_data_email;
+			print_r($sms_data_email);
 			echo 'sms';die;
 		
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
