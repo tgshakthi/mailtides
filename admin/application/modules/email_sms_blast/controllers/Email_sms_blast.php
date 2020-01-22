@@ -1280,12 +1280,14 @@ class Email_sms_blast extends MX_Controller
 	//Resend SMS 
 	function resend_sms($user_id)
 	{
-		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
 		echo '<pre>';
-		print_r($get_user[0]->phone_number);
-		echo 'sms';die;
+		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
 		if(!empty($get_user))
-		{
+		{		
+			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
+			print_r($get_check_sms_data);
+			echo 'sms';die;
+		
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 			$mail = new PHPMailer();
