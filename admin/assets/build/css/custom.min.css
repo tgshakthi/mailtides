@@ -230,7 +230,8 @@ table.tile_info td p {
 .nav-sm .container.body .right_col {
 	padding: 10px 20px;
 	margin-left: 70px;
-	z-index: 2
+	z-index: 2;
+	min-height: 100% !important;
 }
 
 .nav-sm .navbar.nav_title {
