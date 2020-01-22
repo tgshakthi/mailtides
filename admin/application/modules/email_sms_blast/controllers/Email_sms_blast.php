@@ -1282,8 +1282,49 @@ class Email_sms_blast extends MX_Controller
 	{
 		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
 		echo '<pre>';
-		print_r($get_user);
+		print_r($get_user[0]->phone_number);
 		echo 'sms';die;
+		if(!empty($get_user))
+		{
+			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
+			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->CharSet="UTF-8";
+			$mail->SMTPSecure = 'tls';
+			$mail->Host = $mail_config[0]->host;
+			$mail->Port = $mail_config[0]->port;
+			$mail->Username = $mail_config[0]->email;	
+			$mail->Password = $mail_config[0]->password;
+			$mail->SMTPAuth = true;
+			$mail->From = $mail_config[0]->mail_from;
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			
+			$mail->IsHTML(true);
+
+			if($provider_name == 'dldc'):							 
+				//Others DLDC
+				$tiny_url = 'tinyurl.com/vj4mjvg';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
+				// $mail->Body = 'Test Content DLDC';
+			elseif($provider_name == 'reddy'):
+				// Dr.Reddy
+				$tiny_url = 'tinyurl.com/uy6da6c';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			elseif($provider_name == 'hamat'):
+				// Dr.Hamat
+				$tiny_url = 'tinyurl.com/sw9d3g9';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
+				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			
+			endif;
+			
+			$mail->AddAddress($sms_address);
+			$mail->addBCC('velusamy@desss.com');
+		}
+		
 		
 	}
 	
