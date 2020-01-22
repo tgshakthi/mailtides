@@ -1018,6 +1018,18 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail->IsHTML(true);
 
+			
+			$mail->Body = 'Test Content DLDC';
+			// $mail->AddAddress($sms_address);
+			$mail->AddAddress('saravana@desss.com');
+			$mail->addBCC('velusamy@desss.com');
+			//$mail->addBCC('dev@desss.com');	
+			$mail->Send();		
+
+			echo '<pre>';
+			print_r($mail);
+			die;
+
 			// if($provider_name == 'dldc'):							 
 			// 	//Others DLDC
 			// 	$tiny_url = 'tinyurl.com/vj4mjvg';
@@ -1037,16 +1049,6 @@ class Email_sms_blast extends MX_Controller
 			
 			// endif;
 			
-			$mail->Body = 'Test Content DLDC';
-			// $mail->AddAddress($sms_address);
-			$mail->AddAddress('saravana@desss.com');
-			$mail->addBCC('velusamy@desss.com');
-			//$mail->addBCC('dev@desss.com');	
-			$mail->Send();		
-
-			echo '<pre>';
-			print_r($mail);
-			die;
 			
 			if(!$mail->Send())
 			{	
