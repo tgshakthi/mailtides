@@ -580,9 +580,20 @@ class Email_sms_blast_model extends CI_Model
 	
         $query = $this->db->query($sql_data);
 		$records = array();
-        if ($query->num_rows() > 0):
+        if($query->num_rows() > 0):
             $records = $query->result();
         endif;
         return $records;  
+	}
+	
+	function insert_master_resend_table_sms_data($user_id,$tiny_url)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'sms_sent_date' => $date->format('m/d/Y'),
+								'sms_tiny_url'  => $tiny_url
+							);
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $insert_array);
 	}
 }

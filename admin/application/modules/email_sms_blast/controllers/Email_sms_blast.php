@@ -802,9 +802,9 @@ class Email_sms_blast extends MX_Controller
 						$mail->FromName = $from_name;
 						$mail->IsHTML(true);
 												
-						if($provider_name == 'DLDC'):
+						if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 							$tiny_url = 'https://tinyurl.com/vj4mjvg';
-							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
+							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
 							$ch = curl_init();  
 							$timeout = '5';  
 							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
@@ -1250,9 +1250,7 @@ class Email_sms_blast extends MX_Controller
 	//Resend SMS 
 	function resend_sms($user_id)
 	{
-		echo '<pre>';
 		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
-		print_r($get_user);die;
 		if(!empty($get_user))
 		{
 			$phone_numbers = str_replace("-","",$get_user[0]->phone_number);
@@ -1260,24 +1258,42 @@ class Email_sms_blast extends MX_Controller
 			$phone_number = $phone_id.''.$phone_numbers;					
 		
 			// Patient Name
-			if(!empty($get_sms_patient_user['name'])):
-				$patient_names = explode(",",$get_sms_patient_user['name']);
+			if(!empty($get_user[0]->name)):
+				$patient_names = explode(",",$get_user[0]->name);
 				$patient_name = $patient_names[1];
 				$patient = explode(" ",trim($patient_name));
 				$patient_first_name = $patient[0];
 			endif;
+			
 			// Patient Email
-			if(!empty($get_sms_patient_user['email'])):
-				$patient_email = $get_sms_patient_user['email'];
+			if(!empty($get_user[0]->email)):
+				$patient_email = $get_user[0]->email;
 			endif;
+			
 			// Provider Name
-			if(!empty($get_sms_patient_user['provider_name'])):
-				$provider_name = $get_sms_patient_user['provider_name'];
-			endif;			
+			if(!empty($get_user[0]->provider_name)):
+				$provider_name = $get_user[0]->provider_name;
+			endif;	
+			
 			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
-			$sms_data_email = $get_check_sms_data[0]['sms_data_email'];
-			print_r($sms_data_email);
-			echo 'sms';die;
+			if(!empty($get_check_sms_data))
+			{
+				$sms_data_email = $get_check_sms_data[0]['sms_data_email'];						
+			}else
+			{
+				// Replace key value with your own api key					
+				$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+				$result = @file_get_contents($url);						
+				if ($result)
+				{
+					$result = @json_decode($result, true);
+					if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+					{	
+						$sms_data_email = $result['response']['results'][0]['sms_address'];
+					}
+				}
+			}
+			
 			if(!empty($sms_data_email))
 			{
 				$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
@@ -1296,32 +1312,59 @@ class Email_sms_blast extends MX_Controller
 				
 				$mail->IsHTML(true);
 
-				if($provider_name == 'dldc'):							 
-					//Others DLDC
-					$tiny_url = 'tinyurl.com/vj4mjvg';
-					$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$tiny_url."";
-					// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
-					// $mail->Body = 'Test Content DLDC';
-				elseif($provider_name == 'reddy'):
-					// Dr.Reddy
-					$tiny_url = 'tinyurl.com/uy6da6c';
-					$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura! Pls click our link for a quick review! ".$tiny_url."";
-					// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-				elseif($provider_name == 'hamat'):
-					// Dr.Hamat
-					$tiny_url = 'tinyurl.com/sw9d3g9';
-					$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$tiny_url."";
-					// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-				
-				endif;
+				if($provider_name == 'DLDC' || $provider_name == 'dldc'):
+							$tiny_url = 'https://tinyurl.com/vj4mjvg';
+							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
+							$ch = curl_init();  
+							$timeout = '5';  
+							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+							$data = curl_exec($ch);
+							//Others DLDC
+							$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
+						
+						elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy'):	
+							$tiny_url = 'https://tinyurl.com/uy6da6c';
+							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/Reddy';
+							$ch = curl_init();  
+							$timeout = '5';  
+							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+							$data = curl_exec($ch);	
+							//Dr.Reddy
+							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! ".$data."";
+						
+						elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard'):						
+							$tiny_url = 'https://tinyurl.com/sw9d3g9';
+							$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/HAMAT';
+							$ch = curl_init();  
+							$timeout = '5';  
+							curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+							curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+							curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+							$data = curl_exec($ch);					
+							// Dr.Hamat
+							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
+						
+						endif;
 				
 				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com');
+				
+				if(!$mail->Send())
+				{	
+					echo "Mailer Error: " . $mail->ErrorInfo;
+					echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/sms_tracking';</script>";
+				}
+				else
+				{
+					$this->Email_sms_blast_model->insert_master_resend_table_sms_data($user_id,$tiny_url);					
+					echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/sms_tracking';</script>";
+				}
 			}
-			
 		}
-		
-		
 	}
 	
 	//Resend Email 
