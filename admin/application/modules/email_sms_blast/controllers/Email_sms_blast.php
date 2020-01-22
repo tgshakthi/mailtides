@@ -1003,7 +1003,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
-			
+
 			// $mail = new PHPMailer();
 			// $mail->IsSMTP();
 			// $mail->CharSet = "UTF-8";
@@ -1038,9 +1038,10 @@ class Email_sms_blast extends MX_Controller
 			// endif;
 			
 			$mail->Body = "Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review!";
-			$mail->AddAddress($sms_address);
+			// $mail->AddAddress($sms_address);
+			$mail->AddAddress('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
-			$mail->addBCC('dev@desss.com');	
+			//$mail->addBCC('dev@desss.com');	
 			$mail->Send();		
 
 			echo '<pre>';
