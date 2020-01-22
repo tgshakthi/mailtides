@@ -1041,6 +1041,7 @@ class Email_sms_blast extends MX_Controller
 				endif;
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
+			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		endif; 
 		// redirect('email_blasts/new_patient');
 	}
