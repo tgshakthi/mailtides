@@ -1019,10 +1019,10 @@ class Email_sms_blast extends MX_Controller
 			// $mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			
 			$mail->IsHTML(true);
-			$mail->Subject = "Test";
+			
 
 			
-			$mail->Body = 'Test Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			$mail->Body = 'Test123 Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
