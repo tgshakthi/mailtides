@@ -1348,7 +1348,7 @@ class Email_sms_blast extends MX_Controller
 							$data = curl_exec($ch);					
 							// Dr.Hamat
 							$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
-						
+					
 						endif;
 				
 				$mail->AddAddress($sms_data_email);
@@ -1357,12 +1357,12 @@ class Email_sms_blast extends MX_Controller
 				if(!$mail->Send())
 				{	
 					echo "Mailer Error: " . $mail->ErrorInfo;
-					echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/sms_tracking';</script>";
+					echo "<script type='text/javascript'>alert('Message not sent!');window.location.href = 'email_sms_blast/sms_tracking';</script>";
 				}
 				else
 				{
 					$this->Email_sms_blast_model->insert_master_resend_table_sms_data($user_id,$tiny_url);					
-					echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/sms_tracking';</script>";
+					echo "<script type='text/javascript'> alert('Message sent!');window.location.href = 'email_sms_blast/sms_tracking';</script>";
 				}
 			}
 		}
