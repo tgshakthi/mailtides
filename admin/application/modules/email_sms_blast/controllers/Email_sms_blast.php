@@ -992,16 +992,16 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-			$mail = new PHPMailer();
+			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
-			$mail->SMTPSecure = "tls";      
-			$mail->Host = "smtp.gmail.com";
-			$mail->Port = 587;
+			$mail->SMTPSecure = 'tls';
+			$mail->Host = 'smtp.1and1.com';
+			$mail->Port = '587';
 			$mail->Encoding = '7bit';       
-			$mail->Username = 'ssana811@gmail.com';	
-			$mail->Password = 'Sana@2794';
+			$mail->Username = 'saravana@desss.com';	
+			$mail->Password = 'Annanagar@600101';
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
@@ -1019,10 +1019,10 @@ class Email_sms_blast extends MX_Controller
 			// $mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			
 			$mail->IsHTML(true);
-			
+			$mail->Subject = "Test";
 
 			
-			$mail->Body = 'Test123 Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			$mail->Body = 'Test Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
