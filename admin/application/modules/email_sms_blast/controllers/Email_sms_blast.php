@@ -995,7 +995,7 @@ class Email_sms_blast extends MX_Controller
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
 			$mail->CharSet = "UTF-8";
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+			$mail->SMTPSecure = 'tls';
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = '587';
 			$mail->Username = 'saravana12cse@gmail.com';	
