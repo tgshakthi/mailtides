@@ -996,10 +996,10 @@ class Email_sms_blast extends MX_Controller
 			$mail->IsSMTP();
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
-			$mail->Host = 'smtp.gmail.com';
+			$mail->Host = 'smtp.1and1.com';
 			$mail->Port = '587';
-			$mail->Username = 'saravana12cse@gmail.com';	
-			$mail->Password = 'saravanasana';
+			$mail->Username = 'saravana@desss.com';	
+			$mail->Password = 'Annanagar@600101';
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
