@@ -988,39 +988,39 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 			
 			$mail = new PHPMailer();
-    $mail -> IsSMTP();
-    $mail -> SMTPDebug = 2;
-    $mail -> SMTPAuth = 'true';
-    $mail -> SMTPSecure = 'ssl';
-    $mail -> SMTPKeepAlive = true;
-    $mail -> Host = 'smtp.gmail.com';
-    $mail -> Port = 465;
-    $mail -> IsHTML(true); 
+			$mail -> IsSMTP();
+			$mail -> SMTPDebug = 2;
+			$mail -> SMTPAuth = 'true';
+			$mail -> SMTPSecure = 'ssl';
+			$mail -> SMTPKeepAlive = true;
+			$mail -> Host = 'smtp.gmail.com';
+			$mail -> Port = 465;
+			$mail -> IsHTML(true); 
 
-    $mail -> Username = "desssinfotest@gmail.com";
-    $mail -> Password = "Houston77042";
-    $mail -> SingleTo = true; 
+			$mail -> Username = "desssinfotest@gmail.com";
+			$mail -> Password = "Houston77042";
+			$mail -> SingleTo = true; 
 
-	$from = 'desssinfotest@gmail.com';
-   
-    $headers = "From: $from\n";
-    $headers .= "MIME-Version: 1.0\n";
-    $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+			$from = 'reviews@gimed.net';
+		   
+			$headers = "From: $from\n";
+			$headers .= "MIME-Version: 1.0\n";
+			$headers .= "Content-type: text/html; charset=iso-8859-1\n";
 
-    $mail -> From = $from;
-    $mail -> FromName = 'test';
-    $mail -> AddAddress('velusamy@desss.com');
+			$mail -> From = $from;
+			$mail -> FromName = 'test';
+			$mail -> AddAddress('7135578001@vtext.com');
 
-    $mail -> Subject = 'Test';
-    $mail -> Body    = 'Test Message Content';
+			$mail -> Subject = '';
+			$mail -> Body    = 'Test Message Content';
 
-    if(!$mail -> Send()){
-        echo "Message could not be sent. <p>";
-        echo "Mailer Error: " . $mail-> ErrorInfo;
-        exit;
-    }else {
-		echo "Email sent successfully";
-	}
+			if(!$mail -> Send()){
+				echo "Message could not be sent. <p>";
+				echo "Mailer Error: " . $mail-> ErrorInfo;
+				exit;
+			}else {
+				echo "Email sent successfully";
+			}
 			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
 			$mail = new PHPMailer(true);
