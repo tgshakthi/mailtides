@@ -348,10 +348,11 @@ class Email_sms_blast_model extends CI_Model
         return $records;
 	}
 	
-	function insert_sms_data($patient_first_name,$patient_email,$phone_number,$sms_address)
+	function insert_sms_data($user_id, $patient_first_name,$patient_email,$phone_number,$sms_address)
 	{
 		$date = new DateTime("now", new DateTimeZone('America/New_York'));
 		$insert_data = array(
+							'user_id' => $user_id,
 							'patient_name' => $patient_first_name,
 							'email' => $patient_email,
 							'phone_number' => $phone_number,
@@ -440,6 +441,7 @@ class Email_sms_blast_model extends CI_Model
 	
 	function insert_new_patients()
 	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
         $patient_name =  $last_name.','. $first_name;
@@ -451,13 +453,14 @@ class Email_sms_blast_model extends CI_Model
 							'provider_name' => $this->input->post('provider_name'),
 							'facility_name' => $this->input->post('facility_name'),
 							'review' =>'',
-							'carrier' => $this->input->post('carrier_data')
+							'carrier' => $this->input->post('carrier_data'),
+							'created_at' => $date->format('m/d/Y')
 						);
 		// Insert into Sms Data
 		$this->db->insert('zcms_new_patient_data', $insert_data);
     }
     
-    function insert_new_patients_master_table()
+    function insert_new_patients_master_table($tiny_url)
 	{
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
@@ -473,6 +476,7 @@ class Email_sms_blast_model extends CI_Model
 							'facility_name' => $this->input->post('facility_name'),
 							'sms_sent' => '1',
 							'import_sms_status' => '1',
+							'sms_tiny_url' => $tiny_url,
 							'sms_sent_date' => $date->format('m/d/Y')
 						);
 		// Insert into Sms Data

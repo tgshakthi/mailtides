@@ -966,7 +966,6 @@ class Email_sms_blast extends MX_Controller
 	//Insert New Single Patient
 	function insert_new_patients()
 	{
-		
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
@@ -975,15 +974,6 @@ class Email_sms_blast extends MX_Controller
 		$sms_address  = $this->input->post('carrier_data');
 		$provider_name  = $this->input->post('provider_name');
 		
-		$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
-		$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
-		if(empty($get_patient_users)){
-			$new_patients = $this->Email_sms_blast_model->insert_new_patients_master_table();
-		}
-		if(empty($get_new_patient_users)){
-			$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
-		}
-
 		if(!empty($first_name)):
 			$patient = explode(" ",trim($first_name));
 			$patient_first_name = $patient[0];
@@ -1021,21 +1011,30 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail->IsHTML(true);
 			$mail->Subject = "Test";
-
+			if($provider_name == 'dldc'):							 
+				//Others DLDC
+				$tiny_url = 'tinyurl.com/vj4mjvg';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! tinyurl.com/vj4mjvg";
+				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
+			
+			elseif($provider_name == 'reddy'):
+				// Dr.Reddy
+				$tiny_url = 'tinyurl.com/uy6da6c';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy!  Pls click our link for a quick review! tinyurl.com/uy6da6c";
+				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			elseif($provider_name == 'hamat'):
+				// Dr.Hamat
+				$tiny_url = 'tinyurl.com/sw9d3g9';
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
+				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
+			
+			endif;
 			
 			$mail->Body = 'Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			$mail->AddAddress('7135578001@vtext.com');
 			$mail->addBCC('velusamy@desss.com');
 			//$mail->addBCC('dev@desss.com');	
-			$mail->Send();
-
-			echo '<pre>';
-			print_r($mail);
-			die;
-
-			
-			
-			
+						
 			if(!$mail->Send())
 			{	
 			    echo "Mailer Error: " . $mail->ErrorInfo;
@@ -1045,8 +1044,16 @@ class Email_sms_blast extends MX_Controller
 			{
 				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
 				if(empty($patient_carrires)):
-					$this->Email_sms_blast_model->insert_sms_data($patient_first_name,$patient_email,$phone_number,$sms_address);					
+					$this->Email_sms_blast_model->insert_sms_data('',$patient_first_name,$patient_email,$phone_number,$sms_address);					
 				endif;
+				$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
+				$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
+				if(empty($get_patient_users)){
+					$new_patients = $this->Email_sms_blast_model->insert_new_patients_master_table($tiny_url);
+				}
+				if(empty($get_new_patient_users)){
+					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
+				}
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
