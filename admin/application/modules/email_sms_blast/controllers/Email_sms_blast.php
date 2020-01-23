@@ -1000,7 +1000,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A 1';
 			$mail->IsHTML(true);
 			$mail->Subject = "";
 			if($provider_name == 'dldc'):							 
@@ -1021,7 +1021,7 @@ class Email_sms_blast extends MX_Controller
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
 			
-			$mail->AddAddress($sms_address);
+			$mail->AddAddress('velusamy@desss.com');
 			$mail->addBCC('velusamy@desss.com');
 			$mail->addBCC('saravana@desss.com');  			
 			
