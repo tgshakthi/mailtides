@@ -986,26 +986,23 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-			$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
-			$mail->IsSMTP(); // telling the class to use SMTP
-			$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)			
-			$mail->Mailer = "smtp";
-			$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
-			$mail->Port       = 587;   // set the SMTP port for the GMAIL server
-			$mail->SMTPKeepAlive = true;
-			$mail->SMTPAuth   = true;
 			
-			
+			$mail = new PHPMailer();
+			$mail->IsSMTP(true);
+			$mail->Host = 'smtp.gmail.com'; // not ssl://smtp.gmail.com
+			$mail->SMTPAuth= true;
 			$mail->Username   = "desssinfotest@gmail.com";  // GMAIL username
 			$mail->Password   = "Houston77042";            // GMAIL password
-			$mail->AddAddress('velusamym05@gmail.com', 'Veusamy');
-			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
-			
+			$mail->Port = 465; // not 587 for ssl 
+			$mail->SMTPDebug = 2; 
+			$mail->SMTPSecure = 'ssl';			
+			$mail->AddAddress('velusamym05@gmail.com', 'Velusamy');
+			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");			
 			$mail->AddCC("velusamy@desss.com", "Velusamy");
 			$mail->Subject = "Test";
 			$content = "This is a Test Email sent.";
 			$mail->MsgHTML($content); 
+			
 			if(!$mail->Send()) {
 				echo '<pre>';
 				echo "Error while sending Email.";
