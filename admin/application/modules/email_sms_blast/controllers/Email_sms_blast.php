@@ -991,10 +991,10 @@ class Email_sms_blast extends MX_Controller
 			$mail -> IsSMTP();
 			$mail -> SMTPDebug = 2;
 			$mail -> SMTPAuth = 'true';
-			$mail -> SMTPSecure = 'ssl';
+			$mail -> SMTPSecure = 'tls';
 			$mail -> SMTPKeepAlive = true;
 			$mail -> Host = 'smtp.gmail.com';
-			$mail -> Port = 465;
+			$mail -> Port = 587;
 			$mail -> IsHTML(true); 
 
 			$mail -> Username = "desssinfotest@gmail.com";
