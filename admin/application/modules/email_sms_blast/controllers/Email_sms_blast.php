@@ -1013,7 +1013,7 @@ class Email_sms_blast extends MX_Controller
 			$mail -> Subject = '';
 			$mail -> Body    = 'Test Message Content';
 			
-			$mail -> AddAddress('velusamy@desss.com');
+			$mail -> AddAddress('velusamym05@gmail.com');
 			$mail->addBCC('karthika@desss.com'); 
 			
 			if(!$mail -> Send()){
