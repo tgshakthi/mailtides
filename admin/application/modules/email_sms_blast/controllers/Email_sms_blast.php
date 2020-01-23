@@ -982,6 +982,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			
+			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object	
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
