@@ -992,7 +992,33 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-			$mail = new PHPMailer(true);
+			
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->SMTPDebug = 0;
+			$mail->SMTPAuth = TRUE;
+			$mail->SMTPSecure = "tls";
+			$mail->Port     = 587;  
+			$mail->Username = "desssinfotest@gmail.com";
+			$mail->Password = "Houston77042";
+			$mail->Host     = "smtp.gmail.com";
+			$mail->Mailer   = "smtp";
+			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
+			$mail->AddAddress("7135578001@vtext.com");
+			$mail->addBCC('velusamy@desss.com');
+			$mail->Subject = "Test";
+			$mail->WordWrap   = 80;
+			$content = "This is a test email"; 
+			$mail->MsgHTML($content);
+			$mail->IsHTML(true);
+			if(!$mail->Send()) {
+				echo "Problem sending email.";
+			}else 
+			{
+				echo "email sent.";
+			}
+
+			/* $mail = new PHPMailer(true);
 			$mail->IsSMTP();
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
@@ -1027,7 +1053,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->addBCC('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
 			//$mail->addBCC('dev@desss.com');	
-			$mail->Send();		
+			$mail->Send();		 */
 
 			echo '<pre>';
 			print_r($mail);
