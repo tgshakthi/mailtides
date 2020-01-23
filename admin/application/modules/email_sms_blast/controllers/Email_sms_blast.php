@@ -995,7 +995,6 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPKeepAlive = true;
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = 587;
-			$mail->IsHTML(true);
 			$mail->Username = "desssinfotest@gmail.com";
 			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;			
