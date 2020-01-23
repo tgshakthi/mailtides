@@ -996,8 +996,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->Port = '587';
 			$mail->Encoding = '7bit';
 			$mail->SMTPAuth = true;			
-			$mail->Username = "desssinfotest@gmail.com";
-			$mail->Password = "Houston77042";			
+			$mail->Username = "reviewsdldc@gmail.com";
+			$mail->Password = "Houston77090";			
 			$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com'); 
