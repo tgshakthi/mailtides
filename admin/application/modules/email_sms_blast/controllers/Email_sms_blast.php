@@ -985,30 +985,30 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-			$mail = new PHPMailer();
-			$mail->IsSMTP();
+			$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
+			$mail->IsSMTP(); // telling the class to use SMTP
+			$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+			$mail->SMTPAuth   = true;                  // enable SMTP authentication
+			$mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
+			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+			$mail->Port       = 465;   // set the SMTP port for the GMAIL server
+			$mail->SMTPKeepAlive = true;
 			$mail->Mailer = "smtp";
-			$mail->SMTPDebug  = 1;  
-			$mail->SMTPAuth   = TRUE;
-			$mail->SMTPSecure = "ssl";
-			$mail->Port       = 465;
-			$mail->Host       = "smtp.gmail.com";
-			$mail->Username   = "desssinfotest@gmail.com";
-			$mail->Password   = "Houston77042";
-			$mail->IsHTML(true);
-			$mail->AddAddress("velusamy@desss.com", "Velusamy");
+			$mail->Username   = "desssinfotest@gmail.com";  // GMAIL username
+			$mail->Password   = "Houston77042";            // GMAIL password
+			$mail->AddAddress('velusamym05@gmail.com', 'Veusamy');
 			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
 			
-			$mail->AddCC("karthika@desss.com", "Karthika");
+			$mail->AddCC("velusamy@desss.com", "Velusamy");
 			$mail->Subject = "Test";
 			$content = "This is a Test Email sent.";
 			$mail->MsgHTML($content); 
 			if(!$mail->Send()) {
 				echo '<pre>';
-			  echo "Error while sending Email.";
-			  var_dump($mail);
+				echo "Error while sending Email.";
+				var_dump($mail);
 			} else {
-			  echo "Email sent successfully";
+				echo "Email sent successfully";
 			}
 			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
