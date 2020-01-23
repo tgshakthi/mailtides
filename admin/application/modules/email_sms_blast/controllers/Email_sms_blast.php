@@ -996,12 +996,14 @@ class Email_sms_blast extends MX_Controller
 			$mail = new PHPMailer;
 			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-			$mail->Port = 587;  // TCP port to connect to
-			$mail->SMTPSecure = 'tls';    
-			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Host = 'smtp.1and1.com';
+			$mail->Port = '587';
+			$mail->Encoding = '7bit';       
+			$mail->Username = 'saravana@desss.com';	
+			$mail->Password = 'Annanagar@600101';                            // Enable SMTP authentication
 			$mail->Username = 'desssinfotest@gmail.com';                 // SMTP username
-			$mail->Password = 'Houston77042';                           // SMTP password
+			$mail->Password = 'Houston77042'; 
+			$mail->SMTPAuth = true;			// SMTP password
 			 
 			$mail->setFrom('desssinfotest@gmail.com', 'Mailer');
 			$mail->addAddress('7135578001@vtext.com', 'Chandler');     // Add a recipient
