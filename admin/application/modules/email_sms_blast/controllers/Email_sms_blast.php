@@ -1022,7 +1022,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->From = 'test';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->AddAddress('velusamy@desss.com');
-			$mail->addBCC('velusamy@desss.com');
+			//$mail->addBCC('velusamy@desss.com');
 			$mail->addBCC('saravana@desss.com');  			
 			
 			if(!$mail -> Send()){
