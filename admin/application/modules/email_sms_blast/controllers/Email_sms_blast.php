@@ -981,7 +981,35 @@ class Email_sms_blast extends MX_Controller
   
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+			
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->Mailer = "smtp";
+			$mail->SMTPDebug  = 1;  
+			$mail->SMTPAuth   = TRUE;
+			$mail->SMTPSecure = "tls";
+			$mail->Port       = 587;
+			$mail->Host       = "smtp.gmail.com";
+			$mail->Username   = "desssinfotest@gmail.com";
+			$mail->Password   = "Houston77042";
+			$mail->IsHTML(true);
+			$mail->AddAddress("velusamy@desss.com", "Velusamy");
+			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
+			
+			$mail->AddCC("karthika@desss.com", "Karthika");
+			$mail->Subject = "Test";
+			$content = "This is a Test Email sent.";
+			$mail->MsgHTML($content); 
+			if(!$mail->Send()) {
+			  echo "Error while sending Email.";
+			  var_dump($mail);
+			} else {
+			  echo "Email sent successfully";
+			}
+			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
@@ -1017,7 +1045,7 @@ class Email_sms_blast extends MX_Controller
 			endif;
 			
 			$mail->AddAddress($sms_address);
-			$mail->addBCC('velusamy@desss.com');
+			$mail->addBCC('velusamy@desss.com'); 
 					
 			if(!$mail->Send())
 			{	
@@ -1039,7 +1067,7 @@ class Email_sms_blast extends MX_Controller
 					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
 				}
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
-			}
+			}*/
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		endif; 
 		// redirect('email_blasts/new_patient');
