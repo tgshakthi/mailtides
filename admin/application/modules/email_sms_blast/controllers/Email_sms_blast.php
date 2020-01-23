@@ -990,7 +990,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)			
 			$mail->Mailer = "smtp";
 			$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-			$mail->Host       = "tls://smtp.gmail.com";      // sets GMAIL as the SMTP server
+			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
 			$mail->Port       = 587;   // set the SMTP port for the GMAIL server
 			$mail->SMTPKeepAlive = true;
 			$mail->SMTPAuth   = true;
