@@ -1028,7 +1028,7 @@ class Email_sms_blast extends MX_Controller
 			if(!$mail -> Send()){
 				echo "Message could not be sent. <p>";
 				echo "Mailer Error: " . $mail-> ErrorInfo;
-				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
+				// echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}else {
 				
 				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
@@ -1043,7 +1043,7 @@ class Email_sms_blast extends MX_Controller
 				if(empty($get_new_patient_users)){
 					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
 				}
-				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
+				// echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 			}
 			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
