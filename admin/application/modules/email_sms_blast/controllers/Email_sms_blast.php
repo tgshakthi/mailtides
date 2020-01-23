@@ -1000,7 +1000,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Username = "desssinfotest@gmail.com";
 			$mail->Password = "Houston77042";
 			$mail->SingleTo = true; 
-			$mail->From = 'reviews@gimed.net';
+			$mail->SetFrom("reviews@gimed.net");
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';			
 			$mail->Subject = '';
 			
