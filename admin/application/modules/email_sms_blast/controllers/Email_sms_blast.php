@@ -1001,7 +1001,7 @@ class Email_sms_blast extends MX_Controller
     $mail -> Password = "Houston77042";
     $mail -> SingleTo = true; 
 
-	$from = 'veusamym05@gmail.com';
+	$from = 'desssinfotest@gmail.com';
    
     $headers = "From: $from\n";
     $headers .= "MIME-Version: 1.0\n";
@@ -1009,7 +1009,7 @@ class Email_sms_blast extends MX_Controller
 
     $mail -> From = $from;
     $mail -> FromName = 'test';
-    $mail -> AddAddress('veusamym05@gmail.com');
+    $mail -> AddAddress('velusamy@desss.com');
 
     $mail -> Subject = 'Test';
     $mail -> Body    = 'Test Message Content';
