@@ -988,27 +988,27 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 			
 			$mail = new PHPMailer();
-			$mail -> IsSMTP();
-			$mail -> SMTPDebug = 2;
-			$mail -> SMTPAuth = 'true';
-			$mail -> SMTPSecure = 'tls';
-			$mail -> SMTPKeepAlive = true;
-			$mail -> Host = 'smtp.gmail.com';
-			$mail -> Port = 587;
-			$mail -> IsHTML(true); 
+			$mail->IsSMTP();
+			$mail->SMTPDebug = 2;
+			$mail->SMTPAuth = 'true';
+			$mail->SMTPSecure = 'tls';
+			$mail->SMTPKeepAlive = true;
+			$mail->Host = 'smtp.gmail.com';
+			$mail->Port = 587;
+			$mail->IsHTML(true); 
 
-			$mail -> Username = "desssinfotest@gmail.com";
-			$mail -> Password = "Houston77042";
-			$mail -> SingleTo = true; 
+			$mail->Username = "desssinfotest@gmail.com";
+			$mail->Password = "Houston77042";
+			$mail->SingleTo = true; 
 
 			$from = 'reviews@gimed.net';
-			$mail -> From = $from;
-			$mail -> FromName = 'Digestive & Liver Disease Consultants , P.A';
+			$mail->From = $from;
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			
-			$mail -> Subject = '';
-			$mail -> Body    = 'Test Message Content';
+			$mail->Subject = '';
+			$mail->Body    = 'Test Message Content';
 			
-			$mail -> AddAddress('velusamym05@gmail.com');
+			$mail->AddAddress('velusamym05@gmail.com');
 			$mail->addBCC('karthika@desss.com'); 
 			
 			if(!$mail -> Send()){
