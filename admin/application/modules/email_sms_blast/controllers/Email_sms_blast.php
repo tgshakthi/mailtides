@@ -1004,6 +1004,7 @@ class Email_sms_blast extends MX_Controller
 			$content = "This is a Test Email sent.";
 			$mail->MsgHTML($content); 
 			if(!$mail->Send()) {
+				echo '<pre>'
 			  echo "Error while sending Email.";
 			  var_dump($mail);
 			} else {
