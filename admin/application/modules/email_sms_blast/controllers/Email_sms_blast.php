@@ -1021,7 +1021,7 @@ class Email_sms_blast extends MX_Controller
 					
 			if(!$mail->Send())
 			{	
-			    echo "Mailer Error: " . $mail->ErrorInfo;
+			    // echo "Mailer Error: " . $mail->ErrorInfo;
 				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 			else
