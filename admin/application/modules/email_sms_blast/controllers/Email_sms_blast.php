@@ -982,7 +982,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			
-			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object	
+			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object	
 			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
 			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
@@ -1025,8 +1025,8 @@ class Email_sms_blast extends MX_Controller
 			// $mail->addBCC('saravana@desss.com');  			
 			// echo '<pre>';print_r($mail);die;
 			if(!$mail -> Send()){
-				echo "Message could not be sent. <p>";
-				echo "Mailer Error: " . $mail-> ErrorInfo;
+				// echo "Message could not be sent. <p>";
+				// echo "Mailer Error: " . $mail-> ErrorInfo;
 				// echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}else {
 				
@@ -1044,8 +1044,8 @@ class Email_sms_blast extends MX_Controller
 				}
 				// echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
-			}
-			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+			} */
+			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
@@ -1080,7 +1080,7 @@ class Email_sms_blast extends MX_Controller
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
 			
-			$mail->AddAddress($sms_address);
+			$mail->AddAddress('velusamy@desss.com');
 			$mail->addBCC('velusamy@desss.com'); 
 					
 			if(!$mail->Send())
@@ -1103,7 +1103,7 @@ class Email_sms_blast extends MX_Controller
 					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
 				}
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
-			}*/
+			}
 		endif; 
 		// redirect('email_blasts/new_patient');
 	}
