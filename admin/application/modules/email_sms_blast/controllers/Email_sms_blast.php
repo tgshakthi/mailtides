@@ -1003,7 +1003,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
 			$mail->Subject = "";
-			echo '<pre>';print_r($mail);die;
+			// echo '<pre>';print_r($mail);die;
 			if($provider_name == 'dldc'):							 
 				//Others DLDC
 				$tiny_url = 'tinyurl.com/vj4mjvg';
