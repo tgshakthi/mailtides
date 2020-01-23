@@ -1000,6 +1000,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;			
 			$mail->IsHTML(true);
+			$mail->SetFrom("example@gmail.com");
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->Subject = "";
 			
 			if($provider_name == 'dldc'):							 
@@ -1019,12 +1021,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
-			$from = 'reviews@gimed.net';
-			$headers = "From: $from\n";
-			$headers .= "MIME-Version: 1.0\n";
-			$headers .= "Content-type: text/html; charset=iso-8859-1\n";
 			
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->AddAddress('velusamy@desss.com');
 			//$mail->addBCC('velusamy@desss.com');
 			// $mail->addBCC('saravana@desss.com');  			
