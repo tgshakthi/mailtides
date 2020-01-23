@@ -987,12 +987,12 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 			$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 			$mail->IsSMTP(); // telling the class to use SMTP
-			$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
-			$mail->SMTPAuth   = true;                  // enable SMTP authentication
-			$mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
-			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+			$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)			
+			$mail->Host       = "tls://smtp.gmail.com";      // sets GMAIL as the SMTP server
 			$mail->Port       = 465;   // set the SMTP port for the GMAIL server
 			$mail->SMTPKeepAlive = true;
+			$mail->SMTPAuth   = true;
+			$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
 			$mail->Mailer = "smtp";
 			$mail->Username   = "desssinfotest@gmail.com";  // GMAIL username
 			$mail->Password   = "Houston77042";            // GMAIL password
