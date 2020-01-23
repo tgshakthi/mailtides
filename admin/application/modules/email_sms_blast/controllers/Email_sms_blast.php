@@ -991,17 +991,17 @@ class Email_sms_blast extends MX_Controller
     $mail -> IsSMTP();
     $mail -> SMTPDebug = 2;
     $mail -> SMTPAuth = 'true';
-    $mail -> SMTPSecure = 'tls';
+    $mail -> SMTPSecure = 'ssl';
     $mail -> SMTPKeepAlive = true;
     $mail -> Host = 'smtp.gmail.com';
-    $mail -> Port = 587;
+    $mail -> Port = 465;
     $mail -> IsHTML(true); 
 
     $mail -> Username = "desssinfotest@gmail.com";
     $mail -> Password = "Houston77042";
     $mail -> SingleTo = true; 
 
-	$from = 'reviews@gimed.net';
+	$from = 'veusamym05@gmail.com';
    
     $headers = "From: $from\n";
     $headers .= "MIME-Version: 1.0\n";
