@@ -997,7 +997,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
-			$mail->Subject = "Test";
+			$mail->Subject = "";
 			if($provider_name == 'dldc'):							 
 				//Others DLDC
 				$tiny_url = 'tinyurl.com/vj4mjvg';
