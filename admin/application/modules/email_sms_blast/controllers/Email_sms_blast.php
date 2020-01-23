@@ -990,9 +990,9 @@ class Email_sms_blast extends MX_Controller
 			$mail->Mailer = "smtp";
 			$mail->SMTPDebug  = 1;  
 			$mail->SMTPAuth   = TRUE;
-			$mail->SMTPSecure = "SSL";
+			$mail->SMTPSecure = "tls";
 			$mail->Port       = 465;
-			$mail->Host       = "smtp.gmail.com";
+			$mail->Host       = "ssl://smtp.gmail.com";
 			$mail->Username   = "velusamym05@gmail.com";
 			$mail->Password   = "velusamy";
 			$mail->IsHTML(true);
