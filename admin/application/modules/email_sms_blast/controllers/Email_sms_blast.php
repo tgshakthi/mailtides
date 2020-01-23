@@ -1001,7 +1001,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Port     = 587;  
 			$mail->Username = "desssinfotest@gmail.com";
 			$mail->Password = "Houston77042";
-			$mail->Host     = "smtp.gmail.com";
+			$mail->Host     = "ssl://smtp.gmail.com";
 			$mail->Mailer   = "smtp";
 			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
 			$mail->AddAddress("7135578001@vtext.com");
