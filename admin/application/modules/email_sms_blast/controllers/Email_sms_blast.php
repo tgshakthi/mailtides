@@ -993,31 +993,39 @@ class Email_sms_blast extends MX_Controller
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 			
-			$mail = new PHPMailer();
-			$mail->IsSMTP();
+			$mail = new PHPMailer;
+			$mail->From = "reviews@gimed.net";
+			$mail->FromName = "Digestive & Liver Disease Consultants , P.A";
+			echo (extension_loaded('openssl')?'SSL loaded':'SSL not loaded')."\n"; 
 
-			$mail->SMTPDebug  = 0;  
-			$mail->SMTPAuth   = TRUE;
-			$mail->SMTPSecure = "tls";
-			$mail->Port       = 587;
-			$mail->Host       = "smtp.gmail.com";
-			$mail->Username   = "desssinfotest@gmail.com";
-			$mail->Password   = "Houston77042";
-
-			$mail->IsHTML(true);
-			$mail->AddAddress("7135578001@vtext.com", "Chandler");
-			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'tls://smtp.gmail.com:587';
+			  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                    
+			$mail->SMTPDebug = 2;
+					   // Enable SMTP authentication
+			$mail->Username = 'desssinfotest@gmail.com';                 // SMTP username
+			$mail->Password = 'Houston77042';                           // SMTP password
+			// $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			// $mail->Port = 587;
 			
-			$mail->AddCC("velusamy@desss.com", "velusamy");
-			$mail->Subject = "Test";
-			$content = "This is a Test Email sent.";
-
-			$mail->MsgHTML($content); 
-			if(!$mail->Send()) {
-				echo "Error while sending Email.";
-				var_dump($mail);
-			} else {
-				echo "Email sent successfully";
+			$mail->From = "reviews@gimed.net";
+			$mail->FromName = "Digestive & Liver Disease Consultants , P.A";
+			$mail->addAddress('7135578001@vtext.com'); //Recipient name is optional
+			$mail->addBCC('velusamy@desss.com');
+			$mail->isHTML(true);
+			$mail->Subject = 'Test';
+			$mail->Body =  'Thanks for visiting DLDC';
+			// $mail->AltBody = "This is the plain text version of the email content";
+			if(!$mail->send()) 
+			{
+				$message['type'] = 'error';
+				$message['msg'] =  "Mailer Error: " . $mail->ErrorInfo;
+			} 
+			else 
+			{
+				$message['type'] = 'success';
+				$message['msg'] =  "Message has been sent successfully";
 			}
 
 			/* $mail = new PHPMailer(true);
