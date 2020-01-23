@@ -993,33 +993,7 @@ class Email_sms_blast extends MX_Controller
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
-			$mail = new PHPMailer;
-			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'smtp.1and1.com';
-			$mail->Port = '587';
-			$mail->Encoding = '7bit';       
-			$mail->Username = 'saravana@desss.com';	
-			$mail->Password = 'Annanagar@600101';                            // Enable SMTP authentication
-			$mail->Username = 'desssinfotest@gmail.com';                 // SMTP username
-			$mail->Password = 'Houston77042'; 
-			$mail->SMTPAuth = true;			// SMTP password
-			 
-			$mail->setFrom('desssinfotest@gmail.com', 'Mailer');
-			$mail->addAddress('7135578001@vtext.com', 'Chandler');     // Add a recipient
-			$mail->addBCC('velusamy@desss.com');
-			$mail->isHTML(true);                                  // Set email format to HTML
-			$mail->Subject = 'Here is the subject';
-			$mail->Body    = 'This is the HTML message body in bold!';
-
-			if(!$mail->send()) {
-				echo 'Message could not be sent.';
-				echo 'Mailer Error: ' . $mail->ErrorInfo;
-			} else {
-				echo 'Message has been sent';
-			}
-
-			/* $mail = new PHPMailer(true);
+			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
@@ -1051,10 +1025,9 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail->Body = 'Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
 			$mail->AddAddress('7135578001@vtext.com');
-			$mail->addBCC('saravana@desss.com');
 			$mail->addBCC('velusamy@desss.com');
 			//$mail->addBCC('dev@desss.com');	
-			$mail->Send();		 */
+			$mail->Send();
 
 			echo '<pre>';
 			print_r($mail);
