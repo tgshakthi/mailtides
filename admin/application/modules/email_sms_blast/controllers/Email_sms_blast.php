@@ -996,14 +996,13 @@ class Email_sms_blast extends MX_Controller
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = 587;
 			$mail->IsHTML(true); 
-
 			$mail->Username = "desssinfotest@gmail.com";
 			$mail->Password = "Houston77042";
-			$mail->SingleTo = true; 
-			$mail->SetFrom("reviews@gimed.net");
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';			
-			$mail->Subject = '';
-			
+			$mail->SMTPAuth = true;
+			$mail->From = 'reviews@gimed.net';
+			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			$mail->IsHTML(true);
+			$mail->Subject = "";
 			if($provider_name == 'dldc'):							 
 				//Others DLDC
 				$tiny_url = 'tinyurl.com/vj4mjvg';
@@ -1024,13 +1023,14 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com');
-			$mail->addBCC('saravana@desss.com'); 			
+			$mail->addBCC('saravana@desss.com');  			
 			
 			if(!$mail -> Send()){
 				echo "Message could not be sent. <p>";
 				echo "Mailer Error: " . $mail-> ErrorInfo;
 				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}else {
+				
 				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
 				if(empty($patient_carrires)):
 					$this->Email_sms_blast_model->insert_sms_data('',$patient_first_name,$patient_email,$phone_number,$sms_address);					
@@ -1105,7 +1105,6 @@ class Email_sms_blast extends MX_Controller
 				}
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}*/
-			
 		endif; 
 		// redirect('email_blasts/new_patient');
 	}
