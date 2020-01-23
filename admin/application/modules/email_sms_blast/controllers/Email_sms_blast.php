@@ -995,27 +995,29 @@ class Email_sms_blast extends MX_Controller
 			
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
-			$mail->SMTPDebug = 0;
-			$mail->SMTPAuth = TRUE;
+
+			$mail->SMTPDebug  = 0;  
+			$mail->SMTPAuth   = TRUE;
 			$mail->SMTPSecure = "tls";
-			$mail->Port     = 587;  
-			$mail->Username = "desssinfotest@gmail.com";
-			$mail->Password = "Houston77042";
-			$mail->Host     = "ssl://smtp.gmail.com";
-			$mail->Mailer   = "smtp";
-			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
-			$mail->AddAddress("7135578001@vtext.com");
-			$mail->addBCC('velusamy@desss.com');
-			$mail->Subject = "Test";
-			$mail->WordWrap   = 80;
-			$content = "This is a test email"; 
-			$mail->MsgHTML($content);
+			$mail->Port       = 587;
+			$mail->Host       = "smtp.gmail.com";
+			$mail->Username   = "desssinfotest@gmail.com";
+			$mail->Password   = "Houston77042";
+
 			$mail->IsHTML(true);
+			$mail->AddAddress("7135578001@vtext.com", "Chandler");
+			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
+			
+			$mail->AddCC("velusamy@desss.com", "velusamy");
+			$mail->Subject = "Test";
+			$content = "This is a Test Email sent.";
+
+			$mail->MsgHTML($content); 
 			if(!$mail->Send()) {
-				echo "Problem sending email.";
-			}else 
-			{
-				echo "email sent.";
+				echo "Error while sending Email.";
+				var_dump($mail);
+			} else {
+				echo "Email sent successfully";
 			}
 
 			/* $mail = new PHPMailer(true);
