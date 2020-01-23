@@ -996,14 +996,14 @@ class Email_sms_blast extends MX_Controller
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = 587;
 			$mail->IsHTML(true); 
-			$mail->Username = "velusamym05@gmail.com";
-			$mail->Password = "velusamy@2805";
+			$mail->Username = "desssinfotest@gmail.com";
+			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->IsHTML(true);
 			$mail->Subject = "";
-			// echo '<pre>';print_r($mail);die;
+			echo '<pre>';print_r($mail);die;
 			if($provider_name == 'dldc'):							 
 				//Others DLDC
 				$tiny_url = 'tinyurl.com/vj4mjvg';
