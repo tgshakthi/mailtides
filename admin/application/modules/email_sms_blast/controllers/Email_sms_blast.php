@@ -988,28 +988,39 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 			
 			$mail = new PHPMailer();
-			$mail->IsSMTP(true);
-			$mail->Host = 'smtp.gmail.com'; // not ssl://smtp.gmail.com
-			$mail->SMTPAuth= true;
-			$mail->Username   = "desssinfotest@gmail.com";  // GMAIL username
-			$mail->Password   = "Houston77042";            // GMAIL password
-			$mail->Port = 465; // not 587 for ssl 
-			$mail->SMTPDebug = 2; 
-			$mail->SMTPSecure = 'ssl';			
-			$mail->AddAddress('velusamym05@gmail.com', 'Velusamy');
-			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");			
-			$mail->AddCC("velusamy@desss.com", "Velusamy");
-			$mail->Subject = "Test";
-			$content = "This is a Test Email sent.";
-			$mail->MsgHTML($content); 
-			
-			if(!$mail->Send()) {
-				echo '<pre>';
-				echo "Error while sending Email.";
-				var_dump($mail);
-			} else {
-				echo "Email sent successfully";
-			}
+    $mail -> IsSMTP();
+    $mail -> SMTPDebug = 2;
+    $mail -> SMTPAuth = 'true';
+    $mail -> SMTPSecure = 'tls';
+    $mail -> SMTPKeepAlive = true;
+    $mail -> Host = 'smtp.gmail.com';
+    $mail -> Port = 587;
+    $mail -> IsHTML(true); 
+
+    $mail -> Username = "desssinfotest@gmail.com";
+    $mail -> Password = "Houston77042";
+    $mail -> SingleTo = true; 
+
+	$from = 'reviews@gimed.net';
+   
+    $headers = "From: $from\n";
+    $headers .= "MIME-Version: 1.0\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+
+    $mail -> From = $from;
+    $mail -> FromName = 'test';
+    $mail -> AddAddress('veusamym05@gmail.com');
+
+    $mail -> Subject = 'Test';
+    $mail -> Body    = 'Test Message Content';
+
+    if(!$mail -> Send()){
+        echo "Message could not be sent. <p>";
+        echo "Mailer Error: " . $mail-> ErrorInfo;
+        exit;
+    }else {
+		echo "Email sent successfully";
+	}
 			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
 			$mail = new PHPMailer(true);
