@@ -996,19 +996,6 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
-
-			// $mail = new PHPMailer();
-			// $mail->IsSMTP();
-			// $mail->CharSet = "UTF-8";
-			// $mail->SMTPSecure = 'tls';
-			// $mail->Host = $mail_config[0]->host;
-			// $mail->Port = $mail_config[0]->port;
-			// $mail->Username = $mail_config[0]->email;	
-			// $mail->Password = $mail_config[0]->password;
-			// $mail->SMTPAuth = true;
-			// $mail->From = $mail_config[0]->mail_from;
-			// $mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
-			
 			$mail->IsHTML(true);
 			$mail->Subject = "Test";
 			if($provider_name == 'dldc'):							 
@@ -1026,15 +1013,12 @@ class Email_sms_blast extends MX_Controller
 				// Dr.Hamat
 				$tiny_url = 'tinyurl.com/sw9d3g9';
 				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
-				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			
+				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
 			
-			$mail->Body = 'Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			$mail->AddAddress('7135578001@vtext.com');
+			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com');
-			//$mail->addBCC('dev@desss.com');	
-						
+					
 			if(!$mail->Send())
 			{	
 			    echo "Mailer Error: " . $mail->ErrorInfo;
