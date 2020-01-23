@@ -1054,12 +1054,14 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPSecure = 'tls';
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = '587';
-			$mail->Encoding = '7bit';       
+			$mail->Encoding = '7bit';
+			$mail->SMTPAuth = true;			
 			$mail->Username = "desssinfotest@gmail.com";
 			$mail->Password = "Houston77042";
-			$mail->SMTPAuth = true;
-			$mail->From = 'reviews@gimed.net';
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			
+			$mail->setFrom('velusamy@desss.com', 'Digestive & Liver Disease Consultants , P.A');
+			$mail->AddAddress('velusamy@desss.com');
+			$mail->addBCC('velusamy@desss.com'); 
 			$mail->IsHTML(true);
 			$mail->Subject = "";
 			if($provider_name == 'dldc'):							 
@@ -1080,8 +1082,6 @@ class Email_sms_blast extends MX_Controller
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
 			
-			$mail->AddAddress('velusamy@desss.com');
-			$mail->addBCC('velusamy@desss.com'); 
 					
 			if(!$mail->Send())
 			{	
