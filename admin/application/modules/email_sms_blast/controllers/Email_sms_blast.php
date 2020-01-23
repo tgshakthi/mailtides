@@ -994,38 +994,32 @@ class Email_sms_blast extends MX_Controller
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
 			
 			$mail = new PHPMailer;
-			$mail->From = "reviews@gimed.net";
-			$mail->FromName = "Digestive & Liver Disease Consultants , P.A";
-			echo (extension_loaded('openssl')?'SSL loaded':'SSL not loaded')."\n"; 
+
+			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'tls://smtp.gmail.com:587';
-			  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;                    
-			$mail->SMTPDebug = 2;
-					   // Enable SMTP authentication
+			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
 			$mail->Username = 'desssinfotest@gmail.com';                 // SMTP username
 			$mail->Password = 'Houston77042';                           // SMTP password
-			// $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-			// $mail->Port = 587;
-			
-			$mail->From = "reviews@gimed.net";
-			$mail->FromName = "Digestive & Liver Disease Consultants , P.A";
-			$mail->addAddress('7135578001@vtext.com'); //Recipient name is optional
+			//$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 25;                                    // TCP port to connect to
+
+			$mail->setFrom('desssinfotest@gmail.com', 'Mailer');
+			$mail->addAddress('7135578001@vtext.com', 'Chandler');     // Add a recipient
 			$mail->addBCC('velusamy@desss.com');
-			$mail->isHTML(true);
-			$mail->Subject = 'Test';
-			$mail->Body =  'Thanks for visiting DLDC';
-			// $mail->AltBody = "This is the plain text version of the email content";
-			if(!$mail->send()) 
-			{
-				$message['type'] = 'error';
-				$message['msg'] =  "Mailer Error: " . $mail->ErrorInfo;
-			} 
-			else 
-			{
-				$message['type'] = 'success';
-				$message['msg'] =  "Message has been sent successfully";
+
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = 'Here is the subject';
+			$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+			if(!$mail->send()) {
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {
+				echo 'Message has been sent';
 			}
 
 			/* $mail = new PHPMailer(true);
