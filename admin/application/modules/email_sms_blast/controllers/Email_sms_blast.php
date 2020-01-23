@@ -999,8 +999,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;			
 			$mail->IsHTML(true);
-			$mail->SetFrom = 'reviews@gimed.net';
-			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
+			$mail->SetFrom('velusamy@desss.com', 'Digestive & Liver Disease Consultants , P.A');
 			$mail->Subject = "";
 			
 			if($provider_name == 'dldc'):							 
