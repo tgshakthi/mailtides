@@ -1024,8 +1024,8 @@ class Email_sms_blast extends MX_Controller
 					
 			if(!$mail->Send())
 			{	
-			    // echo "Mailer Error: " . $mail->ErrorInfo;
-				echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
+			    echo "Mailer Error: " . $mail->ErrorInfo;
+				// echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 			else
 			{
@@ -1041,7 +1041,7 @@ class Email_sms_blast extends MX_Controller
 				if(empty($get_new_patient_users)){
 					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
 				}
-				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
+				// echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}
 		endif; 
 		// redirect('email_blasts/new_patient');
