@@ -1022,6 +1022,7 @@ class Email_sms_blast extends MX_Controller
 				exit;
 			}else {
 				echo "Email sent successfully";
+				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 			}
 			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
 			
@@ -1082,7 +1083,7 @@ class Email_sms_blast extends MX_Controller
 				}
 				echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
 			}*/
-			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
+			
 		endif; 
 		// redirect('email_blasts/new_patient');
 	}
