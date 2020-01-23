@@ -1009,11 +1009,12 @@ class Email_sms_blast extends MX_Controller
 
 			$mail -> From = $from;
 			$mail -> FromName = 'test';
-			$mail -> AddAddress('7135578001@vtext.com');
-			$mail->addBCC('velusamy@desss.com'); 
+			
 			$mail -> Subject = '';
 			$mail -> Body    = 'Test Message Content';
-
+			$mail -> AddAddress('velusamy@desss.com');
+			$mail->addBCC('karthika@desss.com'); 
+			
 			if(!$mail -> Send()){
 				echo "Message could not be sent. <p>";
 				echo "Mailer Error: " . $mail-> ErrorInfo;
