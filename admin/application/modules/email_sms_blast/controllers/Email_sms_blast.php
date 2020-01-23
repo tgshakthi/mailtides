@@ -1022,7 +1022,7 @@ class Email_sms_blast extends MX_Controller
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
 			
-			$mail->AddAddress('$sms_address');
+			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com');
 			$mail->addBCC('saravana@desss.com'); 			
 			
