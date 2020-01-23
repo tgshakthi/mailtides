@@ -1002,11 +1002,6 @@ class Email_sms_blast extends MX_Controller
 			$mail -> SingleTo = true; 
 
 			$from = 'reviews@gimed.net';
-		   
-			$headers = "From: $from\n";
-			$headers .= "MIME-Version: 1.0\n";
-			$headers .= "Content-type: text/html; charset=iso-8859-1\n";
-
 			$mail -> From = $from;
 			$mail -> FromName = 'Digestive & Liver Disease Consultants , P.A';
 			
