@@ -982,70 +982,10 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($sms_address)):
 			$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 			
-			/* require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object	
-			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
-			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-			// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-			
-			$mail = new PHPMailer();
-			$mail->IsSMTP();
-			$mail->SMTPDebug = 2;
-			$mail->SMTPAuth = 'true';
-			$mail->SMTPSecure = 'tls';
-			$mail->SMTPKeepAlive = true;
-			$mail->Host = 'smtp.gmail.com';
-			$mail->Port = 587;
-			$mail->Username = "desssinfotest@gmail.com";
-			$mail->Password = "Houston77042";
-			$mail->SMTPAuth = true;			
-			$mail->IsHTML(true);
-			$mail->SetFrom('velusamy@desss.com', 'Digestive & Liver Disease Consultants , P.A');
-			$mail->Subject = "";
-			
-			if($provider_name == 'dldc'):							 
-				//Others DLDC
-				$tiny_url = 'tinyurl.com/vj4mjvg';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! tinyurl.com/vj4mjvg";
-				// $mail->Body    = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/yy98b7u3';
-			
-			elseif($provider_name == 'reddy'):
-				// Dr.Reddy
-				$tiny_url = 'tinyurl.com/uy6da6c';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Reddy and Laura!  Pls click our link for a quick review! tinyurl.com/uy6da6c";
-				// $mail->Body   = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';
-			elseif($provider_name == 'hamat'):
-				// Dr.Hamat
-				$tiny_url = 'tinyurl.com/sw9d3g9';
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
-				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
-			endif;
-			
-			$mail->AddAddress('velusamy@desss.com');
-			//$mail->addBCC('velusamy@desss.com');
-			// $mail->addBCC('saravana@desss.com');  			
-			// echo '<pre>';print_r($mail);die;
-			if(!$mail -> Send()){
-				// echo "Message could not be sent. <p>";
-				// echo "Mailer Error: " . $mail-> ErrorInfo;
-				// echo "<script type='text/javascript'>alert('Message not sent!');window.location='email_sms_blast/new_patient';</script>";
-			}else {
-				
-				$patient_carrires = $this->Email_sms_blast_model->get_carrier_247data($phone_number);
-				if(empty($patient_carrires)):
-					$this->Email_sms_blast_model->insert_sms_data('',$patient_first_name,$patient_email,$phone_number,$sms_address);					
-				endif;
-				$get_patient_users = $this->Email_sms_blast_model->check_patient_phone_number();
-				$get_new_patient_users = $this->Email_sms_blast_model->check_new_patient_phone_number($phone_number);
-				if(empty($get_patient_users)){
-					$new_patients = $this->Email_sms_blast_model->insert_new_patients_master_table($tiny_url);
-				}
-				if(empty($get_new_patient_users)){
-					$new_patient_user = $this->Email_sms_blast_model->insert_new_patients();
-				}
-				// echo "<script type='text/javascript'> alert('Message sent!');window.location='email_sms_blast/new_patient';</script>";
-				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
-			} */
 			require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 			
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
@@ -1057,10 +997,9 @@ class Email_sms_blast extends MX_Controller
 			$mail->Encoding = '7bit';
 			$mail->SMTPAuth = true;			
 			$mail->Username = "desssinfotest@gmail.com";
-			$mail->Password = "Houston77042";
-			
-			$mail->setFrom('velusamy@desss.com', 'Digestive & Liver Disease Consultants , P.A');
-			$mail->AddAddress('velusamy@desss.com');
+			$mail->Password = "Houston77042";			
+			$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com'); 
 			$mail->IsHTML(true);
 			$mail->Subject = "";
