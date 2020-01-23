@@ -993,8 +993,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPSecure = "tls";
 			$mail->Port       = 587;
 			$mail->Host       = "smtp.gmail.com";
-			$mail->Username   = "desssinfotest@gmail.com";
-			$mail->Password   = "Houston77042";
+			$mail->Username   = "velusamym05@gmail.com";
+			$mail->Password   = "velusamy";
 			$mail->IsHTML(true);
 			$mail->AddAddress("velusamy@desss.com", "Velusamy");
 			$mail->SetFrom("reviews@gimed.net", "Digestive & Liver Disease Consultants , P.A");
