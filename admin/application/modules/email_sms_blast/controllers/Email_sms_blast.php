@@ -1019,7 +1019,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! tinyurl.com/sw9d3g9";
 				// $mail->Body  = ''.$patient_first_name.', Thanks for visiting DLDC. We value your opinion & look forward to serving you. Click the link to leave a review https://tinyurl.com/y2g3w5du';			
 			endif;
-			$mail->From = 'test';
+			$mail->From = 'velusamy@desss.com';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->AddAddress('velusamy@desss.com');
 			//$mail->addBCC('velusamy@desss.com');
