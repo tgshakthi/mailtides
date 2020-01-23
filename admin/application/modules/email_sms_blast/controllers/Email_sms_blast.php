@@ -1052,11 +1052,11 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
-			$mail->Host = 'smtp.1and1.com';
+			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = '587';
 			$mail->Encoding = '7bit';       
-			$mail->Username = 'saravana@desss.com';	
-			$mail->Password = 'Annanagar@600101';
+			$mail->Username = "desssinfotest@gmail.com";
+			$mail->Password = "Houston77042";
 			$mail->SMTPAuth = true;
 			$mail->From = 'reviews@gimed.net';
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
