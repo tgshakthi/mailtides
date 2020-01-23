@@ -1008,7 +1008,7 @@ class Email_sms_blast extends MX_Controller
 			$headers .= "Content-type: text/html; charset=iso-8859-1\n";
 
 			$mail -> From = $from;
-			$mail -> FromName = 'test';
+			$mail -> FromName = 'Digestive & Liver Disease Consultants , P.A';
 			
 			$mail -> Subject = '';
 			$mail -> Body    = 'Test Message Content';
