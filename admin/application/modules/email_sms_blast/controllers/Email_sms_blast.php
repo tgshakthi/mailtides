@@ -1024,7 +1024,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->AddAddress('velusamy@desss.com');
 			//$mail->addBCC('velusamy@desss.com');
 			// $mail->addBCC('saravana@desss.com');  			
-			echo '<pre>';print_r($mail);die;
+			// echo '<pre>';print_r($mail);die;
 			if(!$mail -> Send()){
 				echo "Message could not be sent. <p>";
 				echo "Mailer Error: " . $mail-> ErrorInfo;
