@@ -1000,7 +1000,6 @@ class Email_sms_blast extends MX_Controller
 			$mail->Password = "Velusamy@2805";
 			$mail->SMTPAuth = true;			
 			$mail->IsHTML(true);
-			$mail->SetFrom("example@gmail.com");
 			$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
 			$mail->Subject = "";
 			
