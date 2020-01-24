@@ -1067,6 +1067,7 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('script');
         $this->load->view('template/footer');
 	}
+	
 	function get_table_campaign_category()
 	{
 		$website_id = $this->admin_header->website_id();
@@ -1671,6 +1672,29 @@ class Email_sms_blast extends MX_Controller
        $import_campaign_data = $this->Email_sms_blast_model->insert_import_fb_campaign_data();
        echo $import_campaign_data;
     }
+	
+	function send_fb_sms_blast()
+	{
+		$website_id = $this->admin_header->website_id();   
+		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
+        
+		if(!empty($mail_config)):
+			$data['email'] = $mail_config[0]->mail_from;
+		else:
+			$data['email']='';
+		endif;       
+        
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['title'] = 'Send SMS' . ' | Administrator';
+		$data['heading'] = 'SMS ';
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('send_fb_sms_blast', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
 	
 	//Send Sms Facebook link
 	function send_sms_facebook()
