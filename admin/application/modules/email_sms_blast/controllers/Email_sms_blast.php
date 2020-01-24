@@ -986,20 +986,20 @@ class Email_sms_blast extends MX_Controller
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 			require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-			
+				
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
 			$mail->SMTPDebug  = 2;
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
-			$mail->Host = 'smtp.gmail.com';
-			$mail->Port = '587';
+			$mail->Host = $mail_config[0]->host;
+			$mail->Port = $mail_config[0]->port;				
 			$mail->Encoding = '7bit';
 			$mail->SMTPAuth = true;			
-			$mail->Username = "reviewsdldc@gmail.com";
-			$mail->Password = "Houston77090";			
+			$mail->Username = $mail_config[0]->email;	
+			$mail->Password = $mail_config[0]->password;		
 			$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-			$mail->AddAddress($sms_address);
+			$mail->AddAddress('velusamy@desss.com');
 			$mail->addBCC('velusamy@desss.com'); 
 			$mail->IsHTML(true);
 			$mail->Subject = "";
@@ -1317,7 +1317,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->Username = $mail_config[0]->email;	
 				$mail->Password = $mail_config[0]->password;		
 				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-				$mail->AddAddress('velusamy@desss.com');
+				$mail->AddAddress($sms_address);
 				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
 
@@ -1358,10 +1358,7 @@ class Email_sms_blast extends MX_Controller
 					$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
 			
 				endif;
-				
-				$mail->AddAddress($sms_data_email);
-				$mail->addBCC('velusamy@desss.com');
-				
+			
 				if(!$mail->Send())
 				{	
 					echo "Mailer Error: " . $mail->ErrorInfo;
