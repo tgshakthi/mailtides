@@ -1685,8 +1685,8 @@ class Email_sms_blast extends MX_Controller
 		endif;       
         
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['title'] = 'Send SMS' . ' | Administrator';
-		$data['heading'] = 'SMS ';
+		$data['title'] = 'Send SMS Facebook' . ' | Administrator';
+		$data['heading'] = 'SMS Facebook';
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
