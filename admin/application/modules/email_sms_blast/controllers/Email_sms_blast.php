@@ -737,7 +737,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($patient_user_data))
 		{
 			$sms_address = '';
-			foreach($patient_user_data as $get_sms_patient_user)
+			foreach($patient_user as $get_sms_patient_user)
 			{				
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
@@ -805,7 +805,7 @@ class Email_sms_blast extends MX_Controller
 						$mail->Username = $mail_config[0]->email;	
 						$mail->Password = $mail_config[0]->password;		
 						$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-						$mail->AddAddress($sms_address);
+						$mail->AddAddress('velusamy@desss.com');
 						$mail->addBCC('velusamy@desss.com'); 
 						$mail->IsHTML(true);
 												
