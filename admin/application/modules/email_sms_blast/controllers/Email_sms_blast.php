@@ -737,7 +737,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($patient_user_data))
 		{
 			$sms_address = '';
-			foreach($patient_user as $get_sms_patient_user)
+			foreach($patient_user_data as $get_sms_patient_user)
 			{				
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
@@ -805,7 +805,7 @@ class Email_sms_blast extends MX_Controller
 						$mail->Username = $mail_config[0]->email;	
 						$mail->Password = $mail_config[0]->password;		
 						$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-						$mail->AddAddress('velusamy@desss.com');
+						$mail->AddAddress($sms_address);
 						$mail->addBCC('velusamy@desss.com'); 
 						$mail->IsHTML(true);
 												
@@ -863,9 +863,9 @@ class Email_sms_blast extends MX_Controller
 					}
 				}
 			}
+			echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
-		}	
-		echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
+		}
 	}
 	
 	function sms_tracking()
@@ -1367,7 +1367,7 @@ class Email_sms_blast extends MX_Controller
 			
 				if(!$mail->Send())
 				{	
-					echo "Mailer Error: " . $mail->ErrorInfo;
+					// echo "Mailer Error: " . $mail->ErrorInfo;
 					echo "<script type='text/javascript'>alert('Message not sent!');location.replace('".base_url()."email_sms_blast/sms_tracking');</script>";
 				}
 				else
@@ -1792,7 +1792,7 @@ class Email_sms_blast extends MX_Controller
 						$mail->Username = $mail_config[0]->email;	
 						$mail->Password = $mail_config[0]->password;		
 						$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-						$mail->AddAddress('velusamy@desss.com');
+						$mail->AddAddress($sms_address);
 						$mail->addBCC('velusamy@desss.com'); 
 						$mail->IsHTML(true);
 												
@@ -1823,8 +1823,8 @@ class Email_sms_blast extends MX_Controller
 					}
 				}
 			}
-			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 			echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
+			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		}	
 		
 	}
