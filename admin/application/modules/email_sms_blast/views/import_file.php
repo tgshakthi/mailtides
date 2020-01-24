@@ -32,18 +32,18 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
-						</a>
+						</a> -->
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/sms_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Sms Reports
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Facebook Reports
-						</a>
+						</a>-->
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> New Patient
 						</a>
@@ -72,18 +72,18 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
-						</a>
+						</a>-->
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/sms_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Sms Reports
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Facebook Reports
-						</a>
+						</a>-->
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> New Patient
 						</a>
