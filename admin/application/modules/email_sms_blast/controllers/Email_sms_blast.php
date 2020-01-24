@@ -1619,4 +1619,16 @@ class Email_sms_blast extends MX_Controller
 		}
 		
 	}
+	
+	// Facebook Campaign
+	function facebook_campaign()
+	{
+		echo 'test';die;
+	}
+	
+	// Txgidocs Campaign
+	function dldc_campaign()
+	{
+		echo 'test';die;
+	}
 }
