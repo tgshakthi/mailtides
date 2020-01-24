@@ -685,6 +685,7 @@ class Email_sms_blast_model extends CI_Model
 	
 	function update_fb_sms_sent_in_master_table($user_id,$tiny_url)
 	{
+		print_r($tiny_url);die;
 		$date = new DateTime("now", new DateTimeZone('America/New_York') );
 		$insert_array = array(
 								'fb_sent_status' => '1',
