@@ -627,4 +627,44 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;      
     }
+	
+	function imported_fb_campaign_user_data()
+	{
+		$this->db->select('id');
+        $this->db->where(array(
+			'import_fb_status' => '1',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
+	
+	function insert_import_fb_campaign_data()
+	{
+		$campaign_users = $this->input->post('user_id');		
+        if (!empty($campaign_users)) 
+		{
+			$imported_campaign_user_datas =  $this->imported_fb_campaign_user_data();
+			$array_data= $this->flatten($imported_campaign_user_datas);	
+			$existing_import_datas = array_diff($campaign_users, $array_data);
+			
+			if(!empty($existing_import_datas)):
+				foreach($existing_import_datas as $existing_import_data):
+					$insert_array = array(
+										'import_fb_status' => '1'
+									);
+					$this->db->where('id', $existing_import_data);
+					$this->db->update($this->table_name, $insert_array);
+				endforeach;
+				return '1';
+			else:
+				return '0';
+			endif;
+			
+        } 
+	}
 }
