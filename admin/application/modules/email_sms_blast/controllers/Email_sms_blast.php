@@ -1828,7 +1828,22 @@ class Email_sms_blast extends MX_Controller
 			echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		}	
+	}
+	
+	function facebook_tracking()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+        $data['facebook_tracks'] = $this->Email_sms_blast_model->get_facebook_sms_track_data();
 		
+        $data['heading']    = 'Facebook SMS Tracking';
+        $data['title']      = "Facebook SMS Tracking | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('faceebook_sms_track', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
 	}
 	
 	// Txgidocs Campaign
