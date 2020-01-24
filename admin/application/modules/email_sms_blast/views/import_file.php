@@ -32,6 +32,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+							<i class="fa fa-bar-chart"></i> Send Fb SMS
+						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
 						</a>
@@ -66,6 +69,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+							<i class="fa fa-bar-chart"></i> Send Fb SMS
+						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
 						</a>
@@ -99,6 +105,9 @@
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
+						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+							<i class="fa fa-bar-chart"></i> Send Fb SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
