@@ -1300,19 +1300,25 @@ class Email_sms_blast extends MX_Controller
 			{
 				$website_id = $this->admin_header->website_id();
 				$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-				$mail = new PHPMailer();
+				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+				
+				$mail = new PHPMailer(true);
 				$mail->IsSMTP();
-				$mail->CharSet="UTF-8";
+				$mail->SMTPDebug  = 2;
+				$mail->CharSet = "UTF-8";
 				$mail->SMTPSecure = 'tls';
 				$mail->Host = $mail_config[0]->host;
-				$mail->Port = $mail_config[0]->port;
+				$mail->Port = $mail_config[0]->port;				
+				$mail->Encoding = '7bit';
+				$mail->SMTPAuth = true;			
 				$mail->Username = $mail_config[0]->email;	
-				$mail->Password = $mail_config[0]->password;
-				$mail->SMTPAuth = true;
-				$mail->From = $mail_config[0]->mail_from;
-				$mail->FromName = 'Digestive & Liver Disease Consultants , P.A';
-				
+				$mail->Password = $mail_config[0]->password;		
+				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+				$mail->AddAddress('velusamy@desss.com');
+				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
 
 				if($provider_name == 'DLDC' || $provider_name == 'dldc'):
