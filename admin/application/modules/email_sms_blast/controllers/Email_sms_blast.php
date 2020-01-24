@@ -1623,7 +1623,46 @@ class Email_sms_blast extends MX_Controller
 	// Facebook Campaign
 	function facebook_campaign()
 	{
-		echo 'test';die;
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['table']      = $this->get_facebook_campaign_table();
+		$data['heading']    = 'Facebook Campaign';
+		$data['title']      = "Facebook Campaign | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('facebook_campaign', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+	
+	function get_facebook_campaign_table()
+	{
+		$website_id = $this->admin_header->website_id();
+        $get_users  = $this->Email_sms_blast_model->get_not_send_facebook_users();
+
+        $i = 1;
+        foreach (($get_users ? $get_users : array()) as $get_user) {
+           
+            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);
+
+            $i++;
+        }
+        
+        // Table open
+        
+        $template = array(
+            'table_open' => '<table
+            id="datatable-campaign-users"
+            class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+            width="100%" cellspacing="0">'
+        );
+        $this->table->set_template($template);
+        
+        // Table heading row
+        
+        $this->table->set_heading('S.No', 'Name', 'Email','Visited Date', 'Cell Phone', 'Provider Name');
+        return $this->table->generate();
 	}
 	
 	// Txgidocs Campaign
