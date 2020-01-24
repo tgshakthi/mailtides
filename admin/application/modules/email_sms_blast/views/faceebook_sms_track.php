@@ -118,7 +118,7 @@
 										<td><?php echo $facebook_track['fb_sent_date'];?></td>
 										<td><?php echo $fb_sms_status;?></td>
 										<td><?php echo $facebook_track['fb_open_date'];?></td>
-										<td><?php echo $facebook_track['sms_tiny_url'];?></td>
+										<td><?php echo $facebook_track['fb_tiny_url'];?></td>
 										<td><?php echo $resend_sms;?></td>
 									</tr>
 
