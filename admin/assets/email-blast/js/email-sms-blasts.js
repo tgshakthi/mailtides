@@ -182,7 +182,6 @@ $(document).ready(function () {
 	
 	// Import Facebook Filter Data
 	$('#filter-fb-data-import').click(function () {
-		alert();
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
 				return $(this).val();
