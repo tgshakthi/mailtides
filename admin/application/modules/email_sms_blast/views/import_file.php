@@ -32,7 +32,7 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
@@ -69,7 +69,7 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
@@ -106,7 +106,7 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Send SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_sms_facebook" class="btn btn-primary">
+						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
