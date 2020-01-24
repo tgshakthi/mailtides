@@ -1868,10 +1868,6 @@ class Email_sms_blast extends MX_Controller
 				$patient_email = $get_user[0]->email;
 			endif;
 			
-			// Provider Name
-			if(!empty($get_user[0]->provider_name)):
-				$provider_name = $get_user[0]->provider_name;
-			endif;	
 			
 			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
 			if(!empty($get_check_sms_data))
@@ -1940,6 +1936,7 @@ class Email_sms_blast extends MX_Controller
 						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
 					}
 					$this->Email_sms_blast_model->update_fb_sms_sent_in_master_table($user_id, $tiny_url);
+					die;
 					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/facebook_tracking');</script>";
 				}
 				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
