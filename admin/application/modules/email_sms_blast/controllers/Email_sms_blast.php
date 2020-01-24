@@ -1313,7 +1313,7 @@ class Email_sms_blast extends MX_Controller
 				
 				$mail = new PHPMailer(true);
 				$mail->IsSMTP();
-				$mail->SMTPDebug  = 2;
+				$mail->SMTPDebug = 0;
 				$mail->CharSet = "UTF-8";
 				$mail->SMTPSecure = 'tls';
 				$mail->Host = $mail_config[0]->host;
@@ -1367,7 +1367,7 @@ class Email_sms_blast extends MX_Controller
 			
 				if(!$mail->Send())
 				{	
-					// echo "Mailer Error: " . $mail->ErrorInfo;
+					echo "Mailer Error: " . $mail->ErrorInfo;
 					echo "<script type='text/javascript'>alert('Message not sent!');location.replace('".base_url()."email_sms_blast/sms_tracking');</script>";
 				}
 				else
