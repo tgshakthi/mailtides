@@ -40,7 +40,7 @@
 
 						<br>
 
-						<form action="<?php echo base_url()?>email_sms_blast/send_sms" method="POST"
+						<form action="<?php echo base_url()?>email_sms_blast/send_sms_facebook" method="POST"
 							class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate autocomplete="off" enctype="multipart/form-data">
 							
 							<input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id;?>">
