@@ -664,7 +664,35 @@ class Email_sms_blast_model extends CI_Model
 			else:
 				return '0';
 			endif;
-			
         } 
+	}
+	
+	function get_fb_patient_users()
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'import_fb_status' => '1',
+			'fb_sent_status' => '0',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
+	
+	function update_fb_sms_sent_in_master_table($user_id,$tiny_url)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'fb_sent_status' => '1',
+								'fb_sent_date' => $date->format('m/d/Y'),
+								'fb_tiny_url'  => $tiny_url
+							);
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $insert_array);
+		
 	}
 }
