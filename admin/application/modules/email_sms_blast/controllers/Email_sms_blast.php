@@ -376,6 +376,7 @@ class Email_sms_blast extends MX_Controller
 						require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
+						$mail->SMTPDebug = 0;
 						// SMTP configuration
 						$mail->isSMTP();
 						$mail->Host     = $mail_configurations[0]->host;
@@ -795,7 +796,7 @@ class Email_sms_blast extends MX_Controller
 							
 						$mail = new PHPMailer(true);
 						$mail->IsSMTP();
-						$mail->SMTPDebug  = 2;
+						$mail->SMTPDebug = 0;
 						$mail->CharSet = "UTF-8";
 						$mail->SMTPSecure = 'tls';
 						$mail->Host = $mail_config[0]->host;
@@ -994,7 +995,7 @@ class Email_sms_blast extends MX_Controller
 				
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
-			$mail->SMTPDebug  = 2;
+			$mail->SMTPDebug = 0;
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
 			$mail->Host = $mail_config[0]->host;
@@ -1412,6 +1413,7 @@ class Email_sms_blast extends MX_Controller
 					require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 					$track_code = md5(rand());
 					$mail = new PHPMailer;
+					$mail->SMTPDebug = 0;
 					// SMTP configuration
 					$mail->isSMTP();
 					$mail->Host     = $mail_configurations[0]->host;
@@ -1782,7 +1784,7 @@ class Email_sms_blast extends MX_Controller
 							
 						$mail = new PHPMailer(true);
 						$mail->IsSMTP();
-						$mail->SMTPDebug  = 2;
+						$mail->SMTPDebug = 0;
 						$mail->CharSet = "UTF-8";
 						$mail->SMTPSecure = 'tls';
 						$mail->Host = $mail_config[0]->host;
