@@ -865,7 +865,7 @@ class Email_sms_blast extends MX_Controller
 			}
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		}	
-		redirect('email_sms_blast');
+		echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
 	}
 	
 	function sms_tracking()
@@ -1824,7 +1824,7 @@ class Email_sms_blast extends MX_Controller
 				}
 			}
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
-			redirect('email_sms_blast');
+			echo "<script type='text/javascript'>location.replace('".base_url()."email_sms_blast');</script>";
 		}	
 		
 	}
