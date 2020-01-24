@@ -328,8 +328,6 @@
 
 										<input type="submit" class="btn btn-success" id="btn" name="update-users" value="Import">
 
-			
-
 									</div>
 
 								</div>
