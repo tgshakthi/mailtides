@@ -1824,8 +1824,9 @@ class Email_sms_blast extends MX_Controller
 				}
 			}
 			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
+			redirect('email_sms_blast');
 		}	
-		redirect('email_sms_blast');
+		
 	}
 	
 	// Txgidocs Campaign
