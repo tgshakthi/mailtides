@@ -788,18 +788,25 @@ class Email_sms_blast extends MX_Controller
 					{
 						$email_subject = "";
 						$track_code = md5(rand());					
-						require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object
-						$mail = new PHPMailer();
+						require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+							
+						$mail = new PHPMailer(true);
 						$mail->IsSMTP();
-						$mail->CharSet="UTF-8";
+						$mail->SMTPDebug  = 2;
+						$mail->CharSet = "UTF-8";
 						$mail->SMTPSecure = 'tls';
 						$mail->Host = $mail_config[0]->host;
-						$mail->Port = $mail_config[0]->port;
+						$mail->Port = $mail_config[0]->port;				
+						$mail->Encoding = '7bit';
+						$mail->SMTPAuth = true;			
 						$mail->Username = $mail_config[0]->email;	
-						$mail->Password = $mail_config[0]->password;
-						$mail->SMTPAuth = true;
-						$mail->From = $from_email;
-						$mail->FromName = $from_name;
+						$mail->Password = $mail_config[0]->password;		
+						$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+						$mail->AddAddress($sms_address);
+						$mail->addBCC('velusamy@desss.com'); 
 						$mail->IsHTML(true);
 												
 						if($provider_name == 'DLDC' || $provider_name == 'dldc'):
@@ -840,9 +847,6 @@ class Email_sms_blast extends MX_Controller
 						
 						endif;
 						
-						$mail->AddAddress($sms_address);						
-						$mail->addBCC('velusamy@desss.com');	
-										
 						if(!$mail->Send())
 						{
 						  echo "Mailer Error: " . $mail->ErrorInfo;
@@ -854,11 +858,12 @@ class Email_sms_blast extends MX_Controller
 								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
 							}
 							$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id, $tiny_url);
-							echo "Message sent!";
+							// echo "Message sent!";
 						}
 					}
 				}
 			}
+			$this->session->set_flashdata('success', 'SMS message sent Successfully.');
 		}	
 		redirect('email_sms_blast');
 	}
@@ -999,7 +1004,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->Username = $mail_config[0]->email;	
 			$mail->Password = $mail_config[0]->password;		
 			$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-			$mail->AddAddress('velusamy@desss.com');
+			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com'); 
 			$mail->IsHTML(true);
 			$mail->Subject = "";
@@ -1317,7 +1322,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->Username = $mail_config[0]->email;	
 				$mail->Password = $mail_config[0]->password;		
 				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
-				$mail->AddAddress('velusamy@desss.com');
+				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
 
