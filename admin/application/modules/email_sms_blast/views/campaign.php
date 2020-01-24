@@ -52,14 +52,24 @@
 
 			<div class="page_buut_right">
 
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 					<a href="<?php echo base_url();?>email_sms_blast/email_campaign" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Email Campaign
 					</a>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 					<a href="<?php echo base_url();?>email_sms_blast/sms_campaign" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Sms Campaign
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<a href="<?php echo base_url();?>email_sms_blast/facebook_campaign" class="btn btn-warning">
+						<i class="fa fa-flag"></i> Facebook Campaign
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<a href="<?php echo base_url();?>email_sms_blast/dldc_campaign" class="btn btn-warning">
+						<i class="fa fa-flag"></i> Txgidocs Campaign
 					</a>
 				</div>
 
