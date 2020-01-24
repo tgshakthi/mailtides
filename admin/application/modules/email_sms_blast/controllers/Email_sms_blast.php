@@ -1933,7 +1933,7 @@ class Email_sms_blast extends MX_Controller
 				{
 					if(empty($sms_data247_datas))
 					{
-						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_address);
+						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
 					}
 					$this->Email_sms_blast_model->update_fb_sms_sent_in_master_table($user_id, $tiny_url);
 					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/facebook_tracking');</script>";
