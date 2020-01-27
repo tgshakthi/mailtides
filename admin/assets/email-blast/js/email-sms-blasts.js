@@ -226,7 +226,6 @@ $(document).ready(function () {
 						user_id: values
 					},
 					success: function (data) {
-						)
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('filter-fb-email-data-import').disabled = true;
@@ -258,7 +257,6 @@ $(document).ready(function () {
 						user_id: values
 					},
 					success: function (data) {
-						)
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('filter-dldc-email-data-import').disabled = true;
