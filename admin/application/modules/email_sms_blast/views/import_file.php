@@ -115,6 +115,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Send Fb SMS
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_fb_email_blast" class="btn btn-primary">
+							<i class="fa fa-bar-chart"></i> Send Fb Email
+						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Email Reports
 						</a>

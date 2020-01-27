@@ -1995,6 +1995,29 @@ class Email_sms_blast extends MX_Controller
 		echo $import_campaign_data;
 	}
 	
+	function send_fb_email_blast()
+	{
+		$website_id = $this->admin_header->website_id();   
+		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
+        
+		if(!empty($mail_config)):
+			$data['email'] = $mail_config[0]->mail_from;
+		else:
+			$data['email']='';
+		endif;       
+        
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['title'] = 'Send Email Facebook' . ' | Administrator';
+		$data['heading'] = 'Email Facebook';
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('send_fb_email_blast', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+
 	function send_fb_email()
 	{
 		$website_id = $this->admin_header->website_id();	
