@@ -52,24 +52,34 @@
 
 			<div class="page_buut_right">
 
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<a href="<?php echo base_url();?>email_sms_blast/email_campaign" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Email Campaign
 					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<a href="<?php echo base_url();?>email_sms_blast/sms_campaign" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Sms Campaign
 					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<a href="<?php echo base_url();?>email_sms_blast/facebook_campaign" class="btn btn-warning">
-						<i class="fa fa-flag"></i> Facebook Campaign
+						<i class="fa fa-flag"></i> Facebook SMS Campaign
 					</a>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+					<a href="<?php echo base_url();?>email_sms_blast/facebook_email_campaign" class="btn btn-warning">
+						<i class="fa fa-flag"></i> Facebook Email Campaign
+					</a>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<a href="<?php echo base_url();?>email_sms_blast/dldc_campaign" class="btn btn-warning">
-						<i class="fa fa-flag"></i> Txgidocs Campaign
+						<i class="fa fa-flag"></i> Txgidocs SMS Campaign
+					</a>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+					<a href="<?php echo base_url();?>email_sms_blast/dldc_email_campaign" class="btn btn-warning">
+						<i class="fa fa-flag"></i> Txgidocs Email Campaign
 					</a>
 				</div>
 
