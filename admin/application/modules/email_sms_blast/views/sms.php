@@ -53,17 +53,17 @@
 			<div class="page_buut_right">
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-primary">
+					<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-success">
 						<i class="fa fa-comment"></i> Send SMS
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
+					<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-success">
 						<i class="fa fa-comment"></i> Send Fb SMS
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<a href="<?php echo base_url();?>email_sms_blast/send_txgidocs_sms_blast" class="btn btn-primary">
+					<a href="<?php echo base_url();?>email_sms_blast/send_txgidocs_sms_blast" class="btn btn-success">
 						<i class="fa fa-comment"></i> Send Txgidocs SMS
 					</a>
 				</div>
