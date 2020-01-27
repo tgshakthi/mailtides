@@ -848,7 +848,7 @@ class Email_sms_blast_model extends CI_Model
         } 
 	}
 	
-	function imported_fb_email_campaign_user_data()
+	function imported_dldc_email_campaign_user_data()
 	{
 		$this->db->select('id');
         $this->db->where(array(
