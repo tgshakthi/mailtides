@@ -195,6 +195,50 @@ class Email_sms_blast extends MX_Controller
         }
     }
 	
+	// Mail
+	function mail()
+	{
+		$data['website_id'] = $this->admin_header->website_id();        
+        $data['heading']    = 'Email Blast';
+        $data['title']      = "Email Blast | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('mail', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
+	}
+	
+	// SMS
+	function sms()
+	{
+		$data['website_id'] = $this->admin_header->website_id();        
+        $data['heading']    = 'SMS Blast';
+        $data['title']      = "SMS Blast | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('sms', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
+	}
+	
+	// Reports
+	function reports()
+	{
+		$data['website_id'] = $this->admin_header->website_id();        
+        $data['heading']    = 'Reports';
+        $data['title']      = "Reports | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('reports', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
+	}
 	
 	// Campaign
 	function campaign()

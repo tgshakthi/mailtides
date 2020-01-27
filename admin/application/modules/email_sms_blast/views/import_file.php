@@ -106,29 +106,14 @@
 						<a href="<?php echo base_url();?>email_sms_blast/campaign" class="btn btn-dark">
 							<i class="fa fa-bomb" aria-hidden="true"></i>Assign to Campaign
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_email_blast_status" class="btn btn-danger">
-							<i class="fa fa-envelope"></i> Send Mail
+						<a href="<?php echo base_url();?>email_sms_blast/mail" class="btn btn-danger">
+							<i class="fa fa-envelope"></i> Mail
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
-							<i class="fa fa-envelope"></i> Send SMS
+						<a href="<?php echo base_url();?>email_sms_blast/sms" class="btn btn-danger">
+							<i class="fa fa-envelope"></i> SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-primary">
-							<i class="fa fa-bar-chart"></i> Send Fb SMS
-						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/send_fb_email_blast" class="btn btn-primary">
-							<i class="fa fa-bar-chart"></i> Send Fb Email
-						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
-							<i class="fa fa-flag"></i> Email Reports
-						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/sms_tracking" class="btn btn-warning">
-							<i class="fa fa-flag"></i> Sms Reports
-						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/facebook_email_tracking" class="btn btn-warning">
-							<i class="fa fa-flag"></i> Facebook Email Reports
-						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
-							<i class="fa fa-flag"></i> Facebook SMS Reports
+						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-danger">
+							<i class="fa fa-envelope"></i> Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> New Patient
