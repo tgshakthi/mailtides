@@ -213,6 +213,7 @@ $(document).ready(function () {
 	
 	// Import Facebook Filter Data
 	$('#filter-fb-email-data-import').click(function () {
+		alert();
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
 				return $(this).val();
@@ -226,6 +227,7 @@ $(document).ready(function () {
 						user_id: values
 					},
 					success: function (data) {
+						alert(data)
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('filter-fb-email-data-import').disabled = true;
