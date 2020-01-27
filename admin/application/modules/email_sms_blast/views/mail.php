@@ -51,7 +51,7 @@
 		<div class="x_content">
 			<div class="page_buut_right">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<a href="<?php echo base_url();?>email_sms_blast/send_email_blast_status" class="btn btn-danger">
+					<a href="<?php echo base_url();?>email_sms_blast/send_email_blast_status" class="btn btn-primary">
 						<i class="fa fa-envelope"></i> Send Email
 					</a>
 				</div>
