@@ -2247,6 +2247,24 @@ class Email_sms_blast extends MX_Controller
 		}
 		redirect('email_sms_blast');
 	}
+	
+	// Facebook
+	function facebook_email_tracking()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+        $data['facebook_tracks'] = $this->Email_sms_blast_model->get_facebook_email_track_data();
+		
+        $data['heading']    = 'Facebook Email Tracking';
+        $data['title']      = "Facebook Email Tracking | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('faceebook_email_track', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
+	}
+	
 	// Txgidocs Campaign
 	function dldc_campaign()
 	{

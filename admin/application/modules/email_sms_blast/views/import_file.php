@@ -124,8 +124,11 @@
 						<a href="<?php echo base_url();?>email_sms_blast/sms_tracking" class="btn btn-warning">
 							<i class="fa fa-flag"></i> Sms Reports
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/facebook_email_tracking" class="btn btn-warning">
+							<i class="fa fa-flag"></i> Facebook Email Reports
+						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/facebook_tracking" class="btn btn-warning">
-							<i class="fa fa-flag"></i> Facebook Reports
+							<i class="fa fa-flag"></i> Facebook SMS Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> New Patient
