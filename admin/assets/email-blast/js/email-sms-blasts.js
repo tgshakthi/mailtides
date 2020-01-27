@@ -243,7 +243,7 @@ $(document).ready(function () {
 		
 	});
 	
-	// Import Txgidocs Email Filter Data
+	// Import Facebook Filter Data
 	$('#filter-dldc-email-data-import').click(function () {
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
