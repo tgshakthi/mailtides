@@ -2158,7 +2158,7 @@ class Email_sms_blast extends MX_Controller
 																						<td class="esd-block-text es-p20t" align="left">
 																						  <p
 																							style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
-																								Thanks for being a patient of DLDC! Pls click our link for a quick review!
+																								Thanks for being a patient of DLDC Facebook! Pls click our link for a quick review!
 																						  </pre>
 																						</td>
 																					  </tr>';
@@ -2174,7 +2174,7 @@ class Email_sms_blast extends MX_Controller
 																	$tiny_url = 'https://tinyurl.com/uudc8yg';
 																	$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
 																						<a href="http://txgidocs.mailtides.com/admin/email_link_open/fb_email_status/'.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
-																						Digestive & Liver Disease Consultants, P.A.  Google Reviews
+																						Digestive & Liver Disease Consultants, P.A.  Facebook Reviews
 																						</a>
 																					 </td>';
 																		
