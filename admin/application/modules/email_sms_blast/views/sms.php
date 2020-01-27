@@ -54,7 +54,7 @@
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<a href="<?php echo base_url();?>email_sms_blast/send_sms_blast" class="btn btn-danger">
-						<i class="fa fa-envelope"></i> Send SMS
+						<i class="fa fa-chat"></i> Send SMS
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

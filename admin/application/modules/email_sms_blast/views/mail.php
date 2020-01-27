@@ -57,12 +57,12 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<a href="<?php echo base_url();?>email_sms_blast/send_fb_email_blast" class="btn btn-primary">
-						<i class="fa fa-bar-chart"></i> Send Fb Email
+						<i class="fa fa-envelope"></i> Send Fb Email
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<a href="<?php echo base_url();?>email_sms_blast/send_txgidocs_email_blast" class="btn btn-primary">
-						<i class="fa fa-bar-chart"></i> Send Txgidocs Email
+						<i class="fa fa-envelope"></i> Send Txgidocs Email
 					</a>
 				</div>
 			</div>
