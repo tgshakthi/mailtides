@@ -43,7 +43,7 @@
 										</div>
 									</div>
 								</div>
-								<button class="btn btn-default" id="filter-fb-data-import">Import</button>
+								<button class="btn btn-default" id="filter-fb-email-data-import">Import</button>
 								<br/>
 								<?php echo $table;?>
 								<br/>

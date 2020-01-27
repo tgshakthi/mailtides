@@ -1989,6 +1989,11 @@ class Email_sms_blast extends MX_Controller
         return $this->table->generate();
 	}
 	
+	function import_filter_fb_email_data()
+	{
+		$import_campaign_data = $this->Email_sms_blast_model->insert_import_fb_email_campaign_data();
+		echo $import_campaign_data;
+	}
 	// Txgidocs Campaign
 	function dldc_campaign()
 	{
