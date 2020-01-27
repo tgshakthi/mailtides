@@ -109,14 +109,14 @@
 						<a href="<?php echo base_url();?>email_sms_blast/mail" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Mail
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/sms" class="btn btn-danger">
-							<i class="fa fa-envelope"></i> SMS
+						<a href="<?php echo base_url();?>email_sms_blast/sms" class="btn btn-primary">
+							<i class="fa fa-comment"></i> SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-danger">
-							<i class="fa fa-envelope"></i> Reports
+							<i class="fa fa-abacus"></i> Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
-							<i class="fa fa-bar-chart"></i> New Patient
+							<i class="fa fa-user"></i> New Patient
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/graphical_reports" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Graphical Reports
