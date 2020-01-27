@@ -862,4 +862,32 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
+	
+	function get_dldc_email_patient_users()
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'import_dldc_email_status' => '1',
+			'dldc_sent_email_status' => '0',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
+	
+	function update_dldc_email_sent_in_master_table($user_id,$tiny_url)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'dldc_sent_email_status' => '1',
+								'dldc_sent_email_date' => $date->format('m/d/Y'),
+								'dldc_email_tiny_url'  => $tiny_url
+							);
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $insert_array);	
+	}
 }

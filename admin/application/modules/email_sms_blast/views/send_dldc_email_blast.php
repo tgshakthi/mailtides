@@ -40,7 +40,7 @@
 
 						<br>
 
-						<form action="<?php echo base_url()?>email_sms_blast/send_fb_email" method="POST"
+						<form action="<?php echo base_url()?>email_sms_blast/send_dldc_email" method="POST"
 							class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate autocomplete="off" enctype="multipart/form-data">
 							
 							<input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id;?>">
@@ -49,7 +49,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="x_panel">
 									<div class="x_title">
-										<h2>Send Facebook Email</h2>
+										<h2>Send Txgidocs Email</h2>
 										<ul class="nav navbar-right panel_toolbox">
 											<li>
 												<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
