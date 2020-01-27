@@ -113,4 +113,19 @@ class Email_link_open extends MX_Controller
 	{
 		$this->Email_link_open_model->update_fb_sms_feedback($id);
 	}
+	
+	function fb_email_status($user_id)
+	{
+		if(isset($user_id))
+		{
+			//DLDC
+			$this->update_fb_email_feedback($user_id);			
+			redirect("https://tinyurl.com/uudc8yg");
+		}
+	}
+	
+	function update_fb_email_feedback($id)
+	{
+		$this->Email_link_open_model->update_fb_email_feedback($id);
+	}
 }
