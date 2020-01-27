@@ -59,7 +59,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<a href="<?php echo base_url();?>email_sms_blast/send_fb_sms_blast" class="btn btn-success">
-						<i class="fa fa-comment"></i> Send Fb SMS
+						<i class="fa fa-comment"></i> Send Facebook SMS
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
