@@ -2523,7 +2523,7 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
-		$this->load->view('email_campaign', $data);
+		$this->load->view('dldc_email_campaign', $data);
 		$this->load->view('template/footer_content');
 		$this->load->view('script');
 		$this->load->view('template/footer');
@@ -2558,5 +2558,10 @@ class Email_sms_blast extends MX_Controller
         return $this->table->generate();
 	}
 	
+	function import_filter_dldc_email_data()
+	{
+		$import_campaign_data = $this->Email_sms_blast_model->insert_import_dldc_email_campaign_data();
+		echo $import_campaign_data;
+	}
 	
 }
