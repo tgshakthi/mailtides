@@ -2259,7 +2259,7 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('template/meta_head', $data);
         $this->load->view('email_blast_header');
         $this->admin_header->index();
-        $this->load->view('faceebook_email_track', $data);
+        $this->load->view('facebook_email_track', $data);
         $this->load->view('template/footer_content');
         $this->load->view('script');
         $this->load->view('template/footer');
