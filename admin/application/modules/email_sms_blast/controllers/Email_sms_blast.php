@@ -1943,6 +1943,22 @@ class Email_sms_blast extends MX_Controller
 		}
 	}
 	
+	//Facebook Email Campaign
+	function facebook_email_campaign()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['table']      = $this->get_facebook_campaign_table();
+		$data['heading']    = 'Facebook Email Campaign';
+		$data['title']      = "Facebook Campaign | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('facebook_email_campaign', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+	
 	// Txgidocs Campaign
 	function dldc_campaign()
 	{
