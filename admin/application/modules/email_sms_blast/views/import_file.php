@@ -113,7 +113,7 @@
 							<i class="fa fa-comment"></i> SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-danger">
-							<i class="fa fa-abacus"></i> Reports
+							<i class="fa fa-rss"></i> Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/new_patient" class="btn btn-primary">
 							<i class="fa fa-user"></i> New Patient
