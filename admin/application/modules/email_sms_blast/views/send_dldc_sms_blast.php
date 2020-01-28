@@ -12,7 +12,7 @@
 						<h2><?php echo $heading;?></h2>
 
 						<div class="btn_right" style="text-align:right;">
-							<a href="<?php echo base_url()?>email_sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
+							<a href="<?php echo base_url()?>email_sms_blast/sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
 									aria-hidden="true"></i> Back</a>
 						</div>
 						<div class="clearfix"></div>
