@@ -242,7 +242,7 @@ $(document).ready(function () {
 		
 	});
 	
-	// Import Facebook Filter Data
+	// Import Txgidocs Email Filter Data
 	$('#filter-dldc-email-data-import').click(function () {
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
@@ -273,6 +273,36 @@ $(document).ready(function () {
 		
 	});
 	
+	// Import Txgidocs SMS Filter Data
+	$('#filter-dldc-sms-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_dldc_sms_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-dldc-sms-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
 	
 	// Send Date Datepicker
 	$('#send-date').datepicker();
