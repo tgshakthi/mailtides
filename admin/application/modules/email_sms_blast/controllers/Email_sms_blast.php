@@ -1975,7 +1975,7 @@ class Email_sms_blast extends MX_Controller
 				}
 				else
 				{
-					if(empty($sms_data247_datas))
+					if(empty($get_check_sms_data))
 					{
 						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
 					}
