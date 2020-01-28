@@ -2518,8 +2518,8 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['table']      = $this->get_txgidocs_email_campaign_table();
-		$data['heading']    = 'Campaign';
-		$data['title']      = "Campaign | Administrator";
+		$data['heading']    = 'Txgidocs Email Campaign';
+		$data['title']      = "Txgidocs Email Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
