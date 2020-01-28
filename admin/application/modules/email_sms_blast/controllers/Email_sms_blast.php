@@ -649,7 +649,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['table']      = $this->get_sms_campaign_table();
-		$data['heading']    = 'Campaign';
+		$data['heading']    = 'SMS Campaign';
 		$data['title']      = "Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
