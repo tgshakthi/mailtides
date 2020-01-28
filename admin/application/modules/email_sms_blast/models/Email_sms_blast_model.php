@@ -959,4 +959,25 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
+	
+	function get_dldc_sms_patient_users()
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'import_dldc_sms_status' => '1',
+			'dldc_sms_sent_status' => '0',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
+	
+	function update_dldc_sms_sent_in_master_table($user_id, $tiny_url)
+	{
+		
+	}
 }
