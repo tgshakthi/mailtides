@@ -97,7 +97,7 @@
 										if(!empty($txgidocs_track['phone_number'])):
 											$user_id = $txgidocs_track['id'];
 											
-											if ($txgidocs_track['fb_link_open'] === '1') {
+											if ($txgidocs_track['dldc_sms_open_link'] === '1') {
 												$txgidocs_sms_status = '<span class="label label-success">Open</span>';
 												$resend_sms = '<span class="label label-danger"></span>';
 											} else {
