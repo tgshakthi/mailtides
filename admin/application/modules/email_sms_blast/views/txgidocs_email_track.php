@@ -113,7 +113,7 @@
 										<td><?php echo $txgidocs_track['provider_name'];?></td>
 										<td><?php echo $txgidocs_track['dldc_sent_email_date'];?></td>
 										<td><?php echo $txgidocs_sms_status;?></td>
-										<td><?php echo $txgidocs_track['dldc_email_link_open'];?></td>
+										<td><?php echo $txgidocs_track['dldc_email_open_date'];?></td>
 										<td><?php echo $txgidocs_track['dldc_email_tiny_url'];?></td>
 										<td><?php echo $resend_sms;?></td>
 									</tr>
