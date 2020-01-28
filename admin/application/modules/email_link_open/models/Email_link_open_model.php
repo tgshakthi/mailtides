@@ -54,4 +54,13 @@ class Email_link_open_model extends MX_Controller
         $this->db->update('email_sms_blast_users', array('fb_email_link_open'=> '1', 'fb_email_link_open_date'=> $date->format('m/d/Y')));
         return $this->db->insert_id();
     }
+	
+	function update_dldc_email_feedback($id)
+    {
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+        // Update Email Blast
+		$this->db->where('id', $id);
+        $this->db->update('email_sms_blast_users', array('dldc_email_link_open'=> '1', 'dldc_email_open_date'=> $date->format('m/d/Y')));
+        return $this->db->insert_id();
+    }
 }
