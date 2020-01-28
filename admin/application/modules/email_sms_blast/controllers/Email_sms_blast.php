@@ -196,7 +196,7 @@ class Email_sms_blast extends MX_Controller
     }
 	
 	// Mail
-	function mail()
+	function email_blast()
 	{
 		$data['website_id'] = $this->admin_header->website_id();        
         $data['heading']    = 'Email Blast';
@@ -211,7 +211,7 @@ class Email_sms_blast extends MX_Controller
 	}
 	
 	// SMS
-	function sms()
+	function sms_blast()
 	{
 		$data['website_id'] = $this->admin_header->website_id();        
         $data['heading']    = 'SMS Blast';
