@@ -3334,7 +3334,7 @@ class Email_sms_blast extends MX_Controller
 				curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
 				$data = curl_exec($ch);
 				//Others Fb DLDC
-				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC Facebook!  Pls click our link for a quick review! ".$data."";
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
 				
 				if(!$mail->Send())
 				{
