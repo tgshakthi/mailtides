@@ -890,4 +890,19 @@ class Email_sms_blast_model extends CI_Model
 		$this->db->where('id', $user_id);
 		$this->db->update($this->table_name, $insert_array);	
 	}
+	
+	function get_txgidocs_email_track_data()
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'dldc_sent_email_status' => '1',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
 }

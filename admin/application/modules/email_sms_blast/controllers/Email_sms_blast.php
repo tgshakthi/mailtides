@@ -2292,7 +2292,7 @@ class Email_sms_blast extends MX_Controller
 		redirect('email_sms_blast');
 	}
 	
-	// Facebook
+	// Facebook Email Reports
 	function facebook_email_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
@@ -2812,14 +2812,26 @@ class Email_sms_blast extends MX_Controller
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 					}
 				}
-				
-				function txgidocs_email_tracking()
-				{
-					
-				}
 			}
 		}
 		redirect('email_sms_blast');
+	}
+	
+	//Txgidocs Email Reports
+	function txgidocs_email_tracking()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+        $data['txgidocs_tracks'] = $this->Email_sms_blast_model->get_txgidocs_email_track_data();
+		
+        $data['heading']    = 'Txgidocs Email Tracking';
+        $data['title']      = "Txgidocs Email Tracking | Administrator";
+        $this->load->view('template/meta_head', $data);
+        $this->load->view('email_blast_header');
+        $this->admin_header->index();
+        $this->load->view('txgidocs_email_track', $data);
+        $this->load->view('template/footer_content');
+        $this->load->view('script');
+        $this->load->view('template/footer');
 	}
 	
 }
