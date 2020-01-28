@@ -2013,9 +2013,11 @@ class Email_sms_blast extends MX_Controller
 
         $i = 1;
         foreach (($get_users ? $get_users : array()) as $get_user) {
+			if(!empty($get_user->email))
+			{
+				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);  
+			}
            
-            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);
-
             $i++;
         }
         
@@ -2538,9 +2540,11 @@ class Email_sms_blast extends MX_Controller
 
         $i = 1;
         foreach (($get_users ? $get_users : array()) as $get_user) {
-           
-            $this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);
-
+			if(!empty($get_user->email))
+			{
+				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);	
+			}
+            
             $i++;
         }
         
