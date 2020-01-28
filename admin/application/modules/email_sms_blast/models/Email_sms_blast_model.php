@@ -978,6 +978,28 @@ class Email_sms_blast_model extends CI_Model
 	
 	function update_dldc_sms_sent_in_master_table($user_id, $tiny_url)
 	{
-		
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'dldc_sms_sent_status' => '1',
+								'dldc_sms_sent_date' => $date->format('m/d/Y'),
+								'dldc_sms_tiny_url'  => $tiny_url
+							);
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $insert_array);	
+	}
+	
+	function get_txgidocs_sms_track_data()
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'dldc_sms_sent_status' => '1',
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
 	}
 }
