@@ -3247,8 +3247,8 @@ class Email_sms_blast extends MX_Controller
 		$data['website_id'] = $this->admin_header->website_id();
         $data['txgidocs_tracks'] = $this->Email_sms_blast_model->get_txgidocs_sms_track_data();
 		
-        $data['heading']    = 'Facebook SMS Tracking';
-        $data['title']      = "Facebook SMS Tracking | Administrator";
+        $data['heading']    = 'Txgidocs SMS Tracking';
+        $data['title']      = "Txgidocs SMS Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
         $this->load->view('email_blast_header');
         $this->admin_header->index();
