@@ -106,10 +106,10 @@
 						<a href="<?php echo base_url();?>email_sms_blast/campaign" class="btn btn-dark">
 							<i class="fa fa-bomb" aria-hidden="true"></i>Assign to Campaign
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/mail" class="btn btn-danger">
+						<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Mail
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/sms" class="btn btn-success">
+						<a href="<?php echo base_url();?>email_sms_blast/sms_blast" class="btn btn-success">
 							<i class="fa fa-comment"></i> SMS
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-warning">
