@@ -10,7 +10,7 @@
 			<div class="btn-right">
 				<?php
 					echo anchor(
-						'email_sms_blast',
+						'email_sms_blast/reports',
 						'<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
 						array(
 							'class' => 'btn btn-primary'
