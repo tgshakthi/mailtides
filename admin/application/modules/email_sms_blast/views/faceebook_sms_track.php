@@ -99,16 +99,12 @@
 											
 											if ($facebook_track['fb_link_open'] === '1') {
 												$fb_sms_status = '<span class="label label-success">Open</span>';
+												$resend_sms = '<span class="label label-danger"></span>';
 											} else {
 												$fb_sms_status = '<span class="label label-danger">Not Open</span>';
-											}
-
-											if ($facebook_track['fb_link_open'] === '0' && $facebook_track['resend_fb_sms'] === '0') {
 												$resend_sms = '<span class="label label-success"><a href="resend_fb_sms/'.$user_id.'">Resend</a></span>';
-											} else {
-												$resend_sms = '<span class="label label-danger"></span>';
-											}											
-										?>
+											}
+									?>
 
 									<tr>
 										<td><?php echo $facebook_track['name'];?></td>

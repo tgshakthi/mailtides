@@ -97,18 +97,14 @@
 										if(!empty($facebook_track['phone_number'])):
 											$user_id = $facebook_track['id'];
 											
-											if ($facebook_track['fb_email_link_open'] === '1') {
-												$fb_sms_status = '<span class="label label-success">Open</span>';
-											} else {
-												$fb_sms_status = '<span class="label label-danger">Not Open</span>';
-											}
-
-											if ($facebook_track['fb_email_link_open'] === '0' && $facebook_track['resend_fb_sms'] === '0') {
-												$resend_sms = '<span class="label label-success"><a href="resend_fb_email/'.$user_id.'">Resend</a></span>';
-											} else {
-												$resend_sms = '<span class="label label-danger"></span>';
-											}											
-										?>
+										if ($facebook_track['fb_email_link_open'] === '1') {
+											$fb_sms_status = '<span class="label label-success">Open</span>';
+											$resend_sms = '<span class="label label-danger"></span>';
+										} else {
+											$fb_sms_status = '<span class="label label-danger">Not Open</span>';
+											$resend_sms = '<span class="label label-success"><a href="resend_fb_email/'.$user_id.'">Resend</a></span>';
+										}											
+									?>
 
 									<tr>
 										<td><?php echo $facebook_track['name'];?></td>

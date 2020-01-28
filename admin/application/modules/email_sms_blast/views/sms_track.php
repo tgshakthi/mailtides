@@ -99,15 +99,11 @@
 											
 											if ($sms_track['sms_link_open'] === '1') {
 												$sms_status = '<span class="label label-success">Open</span>';
+												$resend_sms = '<span class="label label-danger"></span>';
 											} else {
 												$sms_status = '<span class="label label-danger">Not Open</span>';
-											}
-
-											if ($sms_track['sms_link_open'] === '0' && $sms_track['resend_email'] === '0') {
 												$resend_sms = '<span class="label label-success"><a href="resend_sms/'.$user_id.'">Resend</a></span>';
-											} else {
-												$resend_sms = '<span class="label label-danger"></span>';
-											}											
+											}										
 										?>
 
 									<tr>

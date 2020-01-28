@@ -124,16 +124,11 @@
 											
 											if ($email_track['email_link_open'] === '1') {
 												$email_status = '<span class="label label-success">Open</span>';
+												$resend_status = '<span class="label label-danger"></span>';
 											} else {
 												$email_status = '<span class="label label-danger">Not Open</span>';
-											}
-											
-											if ($email_track['email_link_open'] === '0' && $email_track['resend_sms'] === '0')  {
 												$resend_status = '<span class="label label-success"><a href="resend_email/'.$user_id.'">Resend</a></span>';
-											} else {
-												$resend_status = '<span class="label label-danger"></span>';
-											}
-																		
+											}						
 										?>
 									<tr>
 										<td><?php echo $patient_name;?></td>
