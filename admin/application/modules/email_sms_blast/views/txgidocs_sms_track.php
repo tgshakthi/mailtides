@@ -102,7 +102,7 @@
 												$resend_sms = '<span class="label label-danger"></span>';
 											} else {
 												$txgidocs_sms_status = '<span class="label label-danger">Not Open</span>';
-												$resend_sms = '<span class="label label-success"><a href="resend_fb_sms/'.$user_id.'">Resend</a></span>';
+												$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
 											}
 										
 										?>
