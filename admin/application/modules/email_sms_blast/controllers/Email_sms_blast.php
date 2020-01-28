@@ -3258,4 +3258,101 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('template/footer');
 	}
 	
+	function resend_dldc_sms($user_id)
+	{
+		$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+		if(!empty($get_user))
+		{
+			$phone_numbers = str_replace("-","",$get_user[0]->phone_number);
+			$phone_id = "+1";
+			$phone_number = $phone_id.''.$phone_numbers;					
+		
+			// Patient Name
+			if(!empty($get_user[0]->name)):
+				$patient_names = explode(",",$get_user[0]->name);
+				$patient_name = $patient_names[1];
+				$patient = explode(" ",trim($patient_name));
+				$patient_first_name = $patient[0];
+			endif;
+			
+			// Patient Email
+			if(!empty($get_user[0]->email)):
+				$patient_email = $get_user[0]->email;
+			endif;
+			
+			
+			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
+			if(!empty($get_check_sms_data))
+			{
+				$sms_data_email = $get_check_sms_data[0]['sms_data_email'];						
+			}else
+			{
+				// Replace key value with your own api key					
+				$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+				$result = @file_get_contents($url);						
+				if ($result)
+				{
+					$result = @json_decode($result, true);
+					if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+					{	
+						$sms_data_email = $result['response']['results'][0]['sms_address'];
+					}
+				}
+			}
+			
+			if(!empty($sms_data_email))
+			{
+				$website_id = $this->admin_header->website_id();
+				$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
+				require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+				require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+				
+				$mail = new PHPMailer(true);
+				$mail->IsSMTP();
+				$mail->SMTPDebug = 0;
+				$mail->CharSet = "UTF-8";
+				$mail->SMTPSecure = 'tls';
+				$mail->Host = $mail_config[0]->host;
+				$mail->Port = $mail_config[0]->port;				
+				$mail->Encoding = '7bit';
+				$mail->SMTPAuth = true;			
+				$mail->Username = $mail_config[0]->email;	
+				$mail->Password = $mail_config[0]->password;		
+				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+				$mail->AddAddress($sms_data_email);
+				$mail->addBCC('velusamy@desss.com'); 
+				$mail->IsHTML(true);
+
+				$tiny_url = 'https://tinyurl.com/rl8opbq';
+				$url = 'http://txgidocs.mailtides.com/admin/email_link_open/dldc_sms_status/'.$user_id;
+				$ch = curl_init();  
+				$timeout = '5';  
+				curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+				curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+				curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+				$data = curl_exec($ch);
+				//Others Fb DLDC
+				$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC Facebook!  Pls click our link for a quick review! ".$data."";
+				
+				if(!$mail->Send())
+				{
+				  echo "Mailer Error: " . $mail->ErrorInfo;
+				  echo "<script type='text/javascript'> alert('Message Not sent!');location.replace('".base_url()."email_sms_blast/txgidocs_sms_tracking');</script>";
+				}
+				else
+				{
+					if(empty($get_check_sms_data))
+					{
+						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
+					}
+					$this->Email_sms_blast_model->update_dldc_sms_sent_in_master_table($user_id, $tiny_url);
+					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/txgidocs_sms_tracking');</script>";
+				}
+				$this->session->set_flashdata('success', 'SMS message sent Successfully.');
+			}
+		}
+	}
+	
 }
