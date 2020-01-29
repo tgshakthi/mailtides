@@ -29,7 +29,8 @@ class Email_sms_blast extends MX_Controller
     }
 	
 	function index()
-	{		
+	{	
+		exit();
 		$data['page_status'] = 1;
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['heading'] = 'Patients Import';      
