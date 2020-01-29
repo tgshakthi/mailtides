@@ -794,7 +794,7 @@ class Email_sms_blast extends MX_Controller
 					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;					
-				
+					print_r($phone_number);
 					// User Id
 					if(!empty($get_sms_patient_user['id'])):
 						$user_id = $get_sms_patient_user['id'];
