@@ -83,9 +83,8 @@ class Email_link_open extends MX_Controller
 		{
 			//DLDC SMS Link
 			$campaign_tiny_urls = $this->Email_link_open_model->get_campaign_category($website_id,'2');
-			print_r($campaign_tiny_urls[0]['tiny_url']);die;
 			$this->update_sms_feedback($user_id,$provider_name);			
-			redirect("https://tinyurl.com/vj4mjvg");
+			redirect($campaign_tiny_urls[0]['tiny_url']);
 		}
 		elseif(isset($user_id) && isset($provider_name) && $provider_name == 'Reddy')
 		{
