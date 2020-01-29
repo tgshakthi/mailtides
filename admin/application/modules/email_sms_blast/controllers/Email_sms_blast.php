@@ -855,7 +855,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->Password = $mail_config[0]->password;
 							$mail->From = $from_email; 
 							$mail->FromName = $from_name;
-							$mail->AddAddress('velusamy@desss.com');
+							$mail->AddAddress($sms_address);
 							$mail->addBCC('velusamy@desss.com'); 
 							$mail->IsHTML(true);
 							
