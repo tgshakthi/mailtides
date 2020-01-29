@@ -853,7 +853,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->SMTPAuth = true;			
 							$mail->Username = $mail_config[0]->email;	
 							$mail->Password = $mail_config[0]->password;		
-							$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
+							$mail->setFrom($from_email, $from_name);
 							$mail->AddAddress('velusamy@desss.com');
 							$mail->addBCC('velusamy@desss.com'); 
 							$mail->IsHTML(true);
