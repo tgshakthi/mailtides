@@ -832,6 +832,7 @@ class Email_sms_blast extends MX_Controller
 							if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
 							{	
 								$sms_address = $result['response']['results'][0]['sms_address'];
+								print_r($sms_address);
 							}
 						}
 					}
