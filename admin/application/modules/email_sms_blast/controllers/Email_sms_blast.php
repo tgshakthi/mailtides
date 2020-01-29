@@ -853,8 +853,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->SMTPAuth = true;			
 							$mail->Username = $mail_config[0]->email;	
 							$mail->Password = $mail_config[0]->password;
-							$mail->From = $from_email; 
-							$mail->FromName = $from_name;
+							$mail->setFrom($from_email, $from_name);
 							$mail->AddAddress($sms_address);
 							$mail->addBCC('velusamy@desss.com'); 
 							$mail->IsHTML(true);
@@ -1055,7 +1054,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPAuth = true;			
 			$mail->Username = $mail_config[0]->email;	
 			$mail->Password = $mail_config[0]->password;		
-			$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com'); 
 			$mail->IsHTML(true);
@@ -1374,7 +1373,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->SMTPAuth = true;			
 				$mail->Username = $mail_config[0]->email;	
 				$mail->Password = $mail_config[0]->password;		
-				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
@@ -1844,7 +1843,7 @@ class Email_sms_blast extends MX_Controller
 						$mail->SMTPAuth = true;			
 						$mail->Username = $mail_config[0]->email;	
 						$mail->Password = $mail_config[0]->password;		
-						$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+						$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 						$mail->AddAddress($sms_address);
 						$mail->addBCC('velusamy@desss.com'); 
 						$mail->IsHTML(true);
@@ -1959,7 +1958,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->SMTPAuth = true;			
 				$mail->Username = $mail_config[0]->email;	
 				$mail->Password = $mail_config[0]->password;		
-				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
@@ -3333,7 +3332,7 @@ class Email_sms_blast extends MX_Controller
 				$mail->SMTPAuth = true;			
 				$mail->Username = $mail_config[0]->email;	
 				$mail->Password = $mail_config[0]->password;		
-				$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
+				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 				$mail->AddAddress($sms_data_email);
 				$mail->addBCC('velusamy@desss.com'); 
 				$mail->IsHTML(true);
