@@ -3204,7 +3204,7 @@ class Email_sms_blast extends MX_Controller
 							
 						$mail = new PHPMailer(true);
 						$mail->IsSMTP();
-						$mail->SMTPDebug = 0;
+						$mail->SMTPDebug = true;
 						$mail->CharSet = "UTF-8";
 						$mail->SMTPSecure = 'tls';
 						$mail->Host = $mail_config[0]->host;
