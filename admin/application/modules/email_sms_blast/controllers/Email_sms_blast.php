@@ -829,7 +829,6 @@ class Email_sms_blast extends MX_Controller
 							if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
 							{	
 								$sms_address = $result['response']['results'][0]['sms_address'];
-								print_r($sms_address);
 							}
 						}
 					}
@@ -857,7 +856,8 @@ class Email_sms_blast extends MX_Controller
 							$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
 							$mail->AddAddress($sms_address);
 							$mail->addBCC('velusamy@desss.com'); 
-							$mail->IsHTML(true);					
+							$mail->IsHTML(true);
+							
 							if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 								$tiny_url = 'https://tinyurl.com/vj4mjvg';
 								$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
