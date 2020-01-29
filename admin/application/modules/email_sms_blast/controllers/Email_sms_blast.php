@@ -831,9 +831,10 @@ class Email_sms_blast extends MX_Controller
 							}
 						}
 					}
-					print_r($sms_address);die;
+					
 					if(!empty($sms_address) && $provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
 					{
+						print_r($sms_address);die;
 						$email_subject = "";
 						$track_code = md5(rand());					
 						require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
