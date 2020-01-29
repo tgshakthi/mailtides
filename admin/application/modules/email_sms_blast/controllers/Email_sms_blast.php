@@ -784,17 +784,15 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($patient_user_data))
 		{
 			$sms_address = '';
-			echo '<pre>';
-			print_r($patient_user_data);
+	
 			foreach($patient_user_data as $get_sms_patient_user)
-			{
-				print_r($get_sms_patient_user['phone_number']);				
+			{							
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
 					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;					
-					print_r($phone_number);
+					
 					// User Id
 					if(!empty($get_sms_patient_user['id'])):
 						$user_id = $get_sms_patient_user['id'];
@@ -816,17 +814,15 @@ class Email_sms_blast extends MX_Controller
 					endif;
 					
 					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user['phone_number']);
-					print_r($sms_data247_datas);
+					
 					if(!empty($sms_data247_datas))
 					{
 						$sms_address = $sms_data247_datas[0]['sms_data_email'];						
 					}else
-					{
-						print_r($phone_number);
+					{						
 						// Replace key value with your own api key					
 						$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
-						$result = @file_get_contents($url);	
-						print_r($result);						
+						$result = @file_get_contents($url);													
 						if ($result)
 						{
 							$result = @json_decode($result, true);
@@ -839,8 +835,7 @@ class Email_sms_blast extends MX_Controller
 					}
 					if(!empty($sms_address)){
 						if($provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
-						{
-							
+						{							
 							$email_subject = "";
 							$track_code = md5(rand());					
 							require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
@@ -862,8 +857,7 @@ class Email_sms_blast extends MX_Controller
 							$mail->setFrom('reviews@gimed.net', 'Digestive & Liver Disease Consultants , P.A');
 							$mail->AddAddress($sms_address);
 							$mail->addBCC('velusamy@desss.com'); 
-							$mail->IsHTML(true);
-							echo '<pre>';print_r($mail);die;						
+							$mail->IsHTML(true);					
 							if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 								$tiny_url = 'https://tinyurl.com/vj4mjvg';
 								$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
