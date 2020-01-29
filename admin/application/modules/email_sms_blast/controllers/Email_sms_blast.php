@@ -909,6 +909,7 @@ class Email_sms_blast extends MX_Controller
 								$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id, $tiny_url);
 								// echo "Message sent!";
 							}
+							die;
 						}
 					}
 					
