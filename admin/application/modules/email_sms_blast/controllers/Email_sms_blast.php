@@ -3228,7 +3228,7 @@ class Email_sms_blast extends MX_Controller
 						$data = curl_exec($ch);
 						//Others DLDC
 						$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
-						print_r($mail);die;
+						print_r($mail);
 						if(!$mail->Send())
 						{
 						  echo "Mailer Error: " . $mail->ErrorInfo;
