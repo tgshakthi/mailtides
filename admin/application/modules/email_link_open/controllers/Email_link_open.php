@@ -178,7 +178,7 @@ class Email_link_open extends MX_Controller
 		{
 			//DLDC SMS Link
 			$campaign_tiny_urls = $this->Email_link_open_model->get_campaign_category($website_id,'10');
-			print_r($campaign_tiny_urls);die;
+			// print_r($campaign_tiny_urls);die;
 			$this->update_dldc_sms_feedback($user_id);			
 			redirect("https://tinyurl.com/rl8opbq");
 		}
