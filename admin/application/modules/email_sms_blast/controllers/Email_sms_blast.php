@@ -422,7 +422,7 @@ class Email_sms_blast extends MX_Controller
 						require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
-						$mail->SMTPDebug = 2;
+						$mail->SMTPDebug = 0;
 						// SMTP configuration
 						$mail->isSMTP();
 						$mail->Host     = $mail_configurations[0]->host;
@@ -616,7 +616,7 @@ class Email_sms_blast extends MX_Controller
 						// Add a recipient
 						$mail->addAddress($patient_email);
 						$mail->addBCC('velusamy@desss.com');
-						echo '<pre>';print_r($mail);
+						
 						if(!$mail->send()){
 							echo 'Message could not be sent.';
 							echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -785,7 +785,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			$sms_address = '';
 	
-			foreach($patient_user_data as $get_sms_patient_user)
+			foreach($patient_user as $get_sms_patient_user)
 			{							
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
@@ -844,7 +844,7 @@ class Email_sms_blast extends MX_Controller
 								
 							$mail = new PHPMailer(true);
 							$mail->IsSMTP();
-							$mail->SMTPDebug = 2;
+							$mail->SMTPDebug = 0;
 							$mail->CharSet = "UTF-8";
 							$mail->SMTPSecure = 'tls';
 							$mail->Host = $mail_config[0]->host;
@@ -896,8 +896,7 @@ class Email_sms_blast extends MX_Controller
 								$mail->Body = "".$patient_first_name.", Thanks for being a patient of Dr. Hamat!  Pls click our link for a quick review! ".$data."";
 							
 							endif;
-							echo '<pre>';
-							print_r($mail);
+							
 							if(!$mail->Send())
 							{
 							  echo "Mailer Error: " . $mail->ErrorInfo;
@@ -911,7 +910,6 @@ class Email_sms_blast extends MX_Controller
 								$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id, $tiny_url);
 								// echo "Message sent!";
 							}
-							die;
 						}
 					}
 					
