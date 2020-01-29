@@ -422,7 +422,7 @@ class Email_sms_blast extends MX_Controller
 						require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
-						$mail->SMTPDebug = 0;
+						$mail->SMTPDebug = 2;
 						// SMTP configuration
 						$mail->isSMTP();
 						$mail->Host     = $mail_configurations[0]->host;
@@ -616,7 +616,7 @@ class Email_sms_blast extends MX_Controller
 						// Add a recipient
 						$mail->addAddress($patient_email);
 						$mail->addBCC('velusamy@desss.com');
-							
+						echo '<pre>';print_r($mail);die;
 						if(!$mail->send()){
 							echo 'Message could not be sent.';
 							echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -1048,7 +1048,7 @@ class Email_sms_blast extends MX_Controller
 				
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
-			$mail->SMTPDebug = 0;
+			$mail->SMTPDebug = 2;
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
 			$mail->Host = $mail_config[0]->host;
