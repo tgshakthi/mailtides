@@ -616,7 +616,7 @@ class Email_sms_blast extends MX_Controller
 						// Add a recipient
 						$mail->addAddress($patient_email);
 						$mail->addBCC('velusamy@desss.com');
-						echo '<pre>';print_r($mail);die;
+						echo '<pre>';print_r($mail);
 						if(!$mail->send()){
 							echo 'Message could not be sent.';
 							echo 'Mailer Error: ' . $mail->ErrorInfo;
