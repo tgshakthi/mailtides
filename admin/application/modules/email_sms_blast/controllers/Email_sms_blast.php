@@ -852,8 +852,9 @@ class Email_sms_blast extends MX_Controller
 							$mail->Encoding = '7bit';
 							$mail->SMTPAuth = true;			
 							$mail->Username = $mail_config[0]->email;	
-							$mail->Password = $mail_config[0]->password;		
-							$mail->setFrom($from_email, $from_name);
+							$mail->Password = $mail_config[0]->password;
+							$mail->From = $from_email; 
+							$mail->FromName = $from_name;
 							$mail->AddAddress('velusamy@desss.com');
 							$mail->addBCC('velusamy@desss.com'); 
 							$mail->IsHTML(true);
