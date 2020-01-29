@@ -72,4 +72,20 @@ class Email_link_open_model extends MX_Controller
         $this->db->update('email_sms_blast_users', array('dldc_sms_open_link'=> '1', 'dldc_sms_open_date'=> $date->format('m/d/Y')));
         return $this->db->insert_id();
     }
+	
+	function get_campaign_category($website_id, $campaign_category_id)
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'website_id' => $website_id,
+			'id' => $campaign_category_id,
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get('campaign_category');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
 }
