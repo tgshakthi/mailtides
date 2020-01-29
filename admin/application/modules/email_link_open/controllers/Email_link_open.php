@@ -9,6 +9,7 @@ class Email_link_open extends MX_Controller
   	{
     	parent::__construct();	
 		$this->load->model('Email_link_open_model');
+		$this->load->module('admin_header');
 	}
 	function index()
 	{
