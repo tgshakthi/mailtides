@@ -825,7 +825,8 @@ class Email_sms_blast extends MX_Controller
 						print_r($phone_number);
 						// Replace key value with your own api key					
 						$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
-						$result = @file_get_contents($url);						
+						$result = @file_get_contents($url);	
+						print_r($result);						
 						if ($result)
 						{
 							$result = @json_decode($result, true);
