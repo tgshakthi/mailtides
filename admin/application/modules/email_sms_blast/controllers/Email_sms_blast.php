@@ -857,7 +857,8 @@ class Email_sms_blast extends MX_Controller
 							$mail->AddAddress($sms_address);
 							$mail->addBCC('velusamy@desss.com'); 
 							$mail->IsHTML(true);
-							
+							echo '<pre>';
+							print_r($mail);
 							if($provider_name == 'DLDC' || $provider_name == 'dldc'):
 								$tiny_url = 'https://tinyurl.com/vj4mjvg';
 								$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_status/'.$user_id.'/DLDC';
