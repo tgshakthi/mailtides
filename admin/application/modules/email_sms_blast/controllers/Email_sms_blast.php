@@ -3148,8 +3148,6 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($patient_user_data))
 		{
 			$sms_address = '';
-			echo '<pre>';
-			print_r($patient_user_data);
 			foreach($patient_user_data as $get_sms_patient_user)
 			{				
 				if(!empty($get_sms_patient_user['phone_number']))
@@ -3232,7 +3230,7 @@ class Email_sms_blast extends MX_Controller
 						$data = curl_exec($ch);
 						//Others DLDC
 						$mail->Body = "".$patient_first_name.", Thanks for being a patient of DLDC!  Pls click our link for a quick review! ".$data."";
-						print_r($mail);
+						echo '<pre>';print_r($mail);
 						if(!$mail->Send())
 						{
 						  echo "Mailer Error: " . $mail->ErrorInfo;
