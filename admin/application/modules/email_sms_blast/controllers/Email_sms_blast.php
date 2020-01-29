@@ -3196,9 +3196,9 @@ class Email_sms_blast extends MX_Controller
 						$email_subject = "";
 						$track_code = md5(rand());					
 						require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+						// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
+						// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+						// require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 							
 						$mail = new PHPMailer(true);
 						$mail->IsSMTP();
