@@ -787,7 +787,8 @@ class Email_sms_blast extends MX_Controller
 			echo '<pre>';
 			print_r($patient_user_data);
 			foreach($patient_user_data as $get_sms_patient_user)
-			{				
+			{
+				print_r($get_sms_patient_user['phone_number']);				
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
 					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
