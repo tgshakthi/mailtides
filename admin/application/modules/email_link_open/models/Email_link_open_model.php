@@ -77,10 +77,10 @@ class Email_link_open_model extends MX_Controller
 	{
 		$this->db->select('*');
         $this->db->where(array(
-			'website_id' => $website_id,
-			'id' => $campaign_category_id,
-            'is_deleted' => '0'
-        ));
+								'website_id' => $website_id,
+								'id' => $campaign_category_id,
+								'is_deleted' => '0'
+							));
         $query   = $this->db->get('campaign_category');
         $records = array();
         if ($query->num_rows() > 0):
