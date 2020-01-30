@@ -1048,12 +1048,12 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPDebug = 2;
 			$mail->CharSet = "UTF-8";
 			$mail->SMTPSecure = 'tls';
-			$mail->Host = $mail_config[0]->host;
-			$mail->Port = $mail_config[0]->port;				
+			$mail->Host = 'smtp.gmail.com';
+			$mail->Port = '587';				
 			$mail->Encoding = '7bit';
 			$mail->SMTPAuth = true;			
-			$mail->Username = $mail_config[0]->email;	
-			$mail->Password = $mail_config[0]->password;		
+			$mail->Username = 'reviewsdldc@gmail.com';	
+			$mail->Password = 'Houston77090';		
 			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');
 			$mail->AddAddress($sms_address);
 			$mail->addBCC('velusamy@desss.com'); 
