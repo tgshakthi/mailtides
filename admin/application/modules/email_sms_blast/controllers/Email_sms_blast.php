@@ -436,14 +436,16 @@ class Email_sms_blast extends MX_Controller
 						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
-						$mail->SMTPDebug = 0;
+						$mail->SMTPDebug = 2;
 						// SMTP configuration
 						$mail->isSMTP();
+						$mail->SMTPSecure = 'ssl';	
 						$mail->Host     = $mail_configurations[0]->host;
+						$mail->Port     = $mail_configurations[0]->port;
 						$mail->SMTPAuth = true;
 						$mail->Username = $mail_configurations[0]->email;
 						$mail->Password = $mail_configurations[0]->password;
-						$mail->Port     = $mail_configurations[0]->port;						 							
+											
 						$mail->setFrom($from_email, $from_name);                    
 						$mail->Subject= $email_subject;
 						// Set email format to HTML
