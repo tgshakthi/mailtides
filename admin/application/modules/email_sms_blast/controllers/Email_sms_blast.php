@@ -394,7 +394,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_patient_user))
 		{
 			$patient_user = count($get_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -802,7 +802,7 @@ class Email_sms_blast extends MX_Controller
 			$sms_address = '';
 	
 			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{							
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
@@ -1793,7 +1793,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			$sms_address = '';
 			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{				
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
@@ -2116,7 +2116,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_patient_user))
 		{
 			$patient_user = count($get_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -2644,7 +2644,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_patient_user))
 		{
 			$patient_user = count($get_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -3168,7 +3168,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			$sms_address = '';
 			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<2; $patient_user++)
+			for($patient_user =0; $patient_user<100; $patient_user++)
 			{			
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
