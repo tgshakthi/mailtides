@@ -393,9 +393,11 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($patient_user_data))
 		{
+			$i = 0;
 			foreach($patient_user_data as $get_patient_user)
 			{
-				// User Id
+				print_r(count($get_patient_user));
+				/* // User Id
 				if(!empty($get_patient_user['id'])):
 					$user_id = $get_patient_user['id'];
 				endif;
@@ -626,10 +628,10 @@ class Email_sms_blast extends MX_Controller
 						}
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 					}
-				}
+				} */
 			}
 		}
-		redirect('email_sms_blast');
+		// redirect('email_sms_blast');
 	}
 	
 	function email_tracking()
