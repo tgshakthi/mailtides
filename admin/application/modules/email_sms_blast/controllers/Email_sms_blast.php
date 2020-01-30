@@ -394,7 +394,7 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_patient_user))
 		{
 			$patient_user = count($get_patient_user);
-			for($patient_user =0;$patient_user<2;$patient_user++)
+			for($patient_user =0; $patient_user<2; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -644,18 +644,8 @@ class Email_sms_blast extends MX_Controller
 					}
 				} 
 			}
-			/*foreach($patient_user_data as $get_patient_user)
-			{
-				
-				
-				
-				
-				
-				
-				
-			}*/
 		}
-		// redirect('email_sms_blast');
+		redirect('email_sms_blast');
 	}
 	
 	function email_tracking()
@@ -806,40 +796,41 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$patient_user_data = array_merge($get_sms_patient_users,$patient_user);
-		if(!empty($patient_user_data))
+		$get_sms_patient_user = array_merge($get_sms_patient_users,$patient_user);
+		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
 	
-			foreach($patient_user_data as $get_sms_patient_user)
+			$patient_user = count($get_sms_patient_user);
+			for($patient_user =0; $patient_user<2; $patient_user++)
 			{							
-				if(!empty($get_sms_patient_user['phone_number']))
+				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
-					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
+					$phone_numbers = str_replace("-","",$get_sms_patient_user[$patient_user]['phone_number']);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;					
 					
 					// User Id
-					if(!empty($get_sms_patient_user['id'])):
-						$user_id = $get_sms_patient_user['id'];
+					if(!empty($get_sms_patient_user[$patient_user]['id'])):
+						$user_id = $get_sms_patient_user[$patient_user]['id'];
 					endif;
 					// Patient Name
-					if(!empty($get_sms_patient_user['name'])):
-						$patient_names = explode(",",$get_sms_patient_user['name']);
+					if(!empty($get_sms_patient_user[$patient_user]['name'])):
+						$patient_names = explode(",",$get_sms_patient_user[$patient_user]['name']);
 						$patient_name = $patient_names[1];
 						$patient = explode(" ",trim($patient_name));
 						$patient_first_name = $patient[0];
 					endif;
 					// Patient Email
-					if(!empty($get_sms_patient_user['email'])):
-						$patient_email = $get_sms_patient_user['email'];
+					if(!empty($get_sms_patient_user[$patient_user]['email'])):
+						$patient_email = $get_sms_patient_user[$patient_user]['email'];
 					endif;
 					// Provider Name
-					if(!empty($get_sms_patient_user['provider_name'])):
-						$provider_name = $get_sms_patient_user['provider_name'];
+					if(!empty($get_sms_patient_user[$patient_user]['provider_name'])):
+						$provider_name = $get_sms_patient_user[$patient_user]['provider_name'];
 					endif;
 					
-					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user['phone_number']);
+					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user[$patient_user]['phone_number']);
 					
 					if(!empty($sms_data247_datas))
 					{
@@ -930,7 +921,7 @@ class Email_sms_blast extends MX_Controller
 							{
 								if(empty($sms_data247_datas))
 								{
-									$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
+									$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user[$patient_user]['phone_number'],$sms_address);
 								}
 								$this->Email_sms_blast_model->update_sms_sent_in_master_table($user_id, $tiny_url);
 								// echo "Message sent!";
@@ -1777,8 +1768,7 @@ class Email_sms_blast extends MX_Controller
 	//Send Sms Facebook link
 	function send_sms_facebook()
 	{
-		$website_id = $this->admin_header->website_id();	
-		
+		$website_id = $this->admin_header->website_id();			
 		$get_fb_patient_users = $this->Email_sms_blast_model->get_fb_patient_users();
 		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
 		$patient_user = array(
@@ -1798,39 +1788,40 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$patient_user_data = array_merge($get_fb_patient_users,$patient_user);
-		if(!empty($patient_user_data))
+		$get_sms_patient_user = array_merge($get_fb_patient_users,$patient_user);
+		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
-			foreach($patient_user_data as $get_sms_patient_user)
+			$patient_user = count($get_sms_patient_user);
+			for($patient_user =0; $patient_user<2; $patient_user++)
 			{				
-				if(!empty($get_sms_patient_user['phone_number']))
+				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
-					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
+					$phone_numbers = str_replace("-","",$get_sms_patient_user[$patient_user]['phone_number']);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;					
 				
 					// User Id
-					if(!empty($get_sms_patient_user['id'])):
-						$user_id = $get_sms_patient_user['id'];
+					if(!empty($get_sms_patient_user[$patient_user]['id'])):
+						$user_id = $get_sms_patient_user[$patient_user]['id'];
 					endif;
 					// Patient Name
-					if(!empty($get_sms_patient_user['name'])):
-						$patient_names = explode(",",$get_sms_patient_user['name']);
+					if(!empty($get_sms_patient_user[$patient_user]['name'])):
+						$patient_names = explode(",",$get_sms_patient_user[$patient_user]['name']);
 						$patient_name = $patient_names[1];
 						$patient = explode(" ",trim($patient_name));
 						$patient_first_name = $patient[0];
 					endif;
 					// Patient Email
-					if(!empty($get_sms_patient_user['email'])):
-						$patient_email = $get_sms_patient_user['email'];
+					if(!empty($get_sms_patient_user[$patient_user]['email'])):
+						$patient_email = $get_sms_patient_user[$patient_user]['email'];
 					endif;
 					// Provider Name
-					if(!empty($get_sms_patient_user['provider_name'])):
-						$provider_name = $get_sms_patient_user['provider_name'];
+					if(!empty($get_sms_patient_user[$patient_user]['provider_name'])):
+						$provider_name = $get_sms_patient_user[$patient_user]['provider_name'];
 					endif;
 					
-					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user['phone_number']);
+					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user[$patient_user]['phone_number']);
 					
 					if(!empty($sms_data247_datas))
 					{
@@ -1893,7 +1884,7 @@ class Email_sms_blast extends MX_Controller
 						{
 							if(empty($sms_data247_datas))
 							{
-								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
+								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user[$patient_user]['phone_number'],$sms_address);
 							}
 							$this->Email_sms_blast_model->update_fb_sms_sent_in_master_table($user_id, $tiny_url);
 							// echo "Message sent!";
@@ -2120,30 +2111,31 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$patient_user_data = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user);	
 		
-		if(!empty($patient_user_data))
+		if(!empty($get_patient_user))
 		{
-			foreach($patient_user_data as $get_patient_user)
+			$patient_user = count($get_patient_user);
+			for($patient_user =0; $patient_user<2; $patient_user++)
 			{
 				// User Id
-				if(!empty($get_patient_user['id'])):
-					$user_id = $get_patient_user['id'];
+				if(!empty($get_patient_user[$patient_user]['id'])):
+					$user_id = $get_patient_user[$patient_user]['id'];
 				endif;
 				// Patient Name
-				if(!empty($get_patient_user['name'])):
-					$patient_names = explode(",",$get_patient_user['name']);
+				if(!empty($get_patient_user[$patient_user]['name'])):
+					$patient_names = explode(",",$get_patient_user[$patient_user]['name']);
 					$patient_name = $patient_names[1];
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
 				// Patient Email
-				if(!empty($get_patient_user['email'])):
-					$patient_email = $get_patient_user['email'];
+				if(!empty($get_patient_user[$patient_user]['email'])):
+					$patient_email = $get_patient_user[$patient_user]['email'];
 				endif;
 				// Provider Name
-				if(!empty($get_patient_user['provider_name'])):
-					$provider_name = $get_patient_user['provider_name'];
+				if(!empty($get_patient_user[$patient_user]['provider_name'])):
+					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
 				
 				if(!empty($patient_email))
@@ -2647,30 +2639,31 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$patient_user_data = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user);	
 		
-		if(!empty($patient_user_data))
+		if(!empty($get_patient_user))
 		{
-			foreach($patient_user_data as $get_patient_user)
+			$patient_user = count($get_patient_user);
+			for($patient_user =0; $patient_user<2; $patient_user++)
 			{
 				// User Id
-				if(!empty($get_patient_user['id'])):
-					$user_id = $get_patient_user['id'];
+				if(!empty($get_patient_user[$patient_user]['id'])):
+					$user_id = $get_patient_user[$patient_user]['id'];
 				endif;
 				// Patient Name
-				if(!empty($get_patient_user['name'])):
-					$patient_names = explode(",",$get_patient_user['name']);
+				if(!empty($get_patient_user[$patient_user]['name'])):
+					$patient_names = explode(",",$get_patient_user[$patient_user]['name']);
 					$patient_name = $patient_names[1];
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
 				// Patient Email
-				if(!empty($get_patient_user['email'])):
-					$patient_email = $get_patient_user['email'];
+				if(!empty($get_patient_user[$patient_user]['email'])):
+					$patient_email = $get_patient_user[$patient_user]['email'];
 				endif;
 				// Provider Name
-				if(!empty($get_patient_user['provider_name'])):
-					$provider_name = $get_patient_user['provider_name'];
+				if(!empty($get_patient_user[$patient_user]['provider_name'])):
+					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
 				
 				if(!empty($patient_email))
@@ -3170,39 +3163,40 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$patient_user_data = array_merge($get_dldc_sms_patient_users,$patient_user);
-		if(!empty($patient_user_data))
+		$get_sms_patient_user = array_merge($get_dldc_sms_patient_users,$patient_user);
+		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
-			foreach($patient_user_data as $get_sms_patient_user)
-			{				
-				if(!empty($get_sms_patient_user['phone_number']))
+			$patient_user = count($get_sms_patient_user);
+			for($patient_user =0; $patient_user<2; $patient_user++)
+			{			
+				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
-					$phone_numbers = str_replace("-","",$get_sms_patient_user['phone_number']);
+					$phone_numbers = str_replace("-","",$get_sms_patient_user[$patient_user]['phone_number']);
 					$phone_id = "+1";
 					$phone_number = $phone_id.''.$phone_numbers;					
 				
 					// User Id
-					if(!empty($get_sms_patient_user['id'])):
-						$user_id = $get_sms_patient_user['id'];
+					if(!empty($get_sms_patient_user[$patient_user]['id'])):
+						$user_id = $get_sms_patient_user[$patient_user]['id'];
 					endif;
 					// Patient Name
-					if(!empty($get_sms_patient_user['name'])):
-						$patient_names = explode(",",$get_sms_patient_user['name']);
+					if(!empty($get_sms_patient_user[$patient_user]['name'])):
+						$patient_names = explode(",",$get_sms_patient_user[$patient_user]['name']);
 						$patient_name = $patient_names[1];
 						$patient = explode(" ",trim($patient_name));
 						$patient_first_name = $patient[0];
 					endif;
 					// Patient Email
-					if(!empty($get_sms_patient_user['email'])):
-						$patient_email = $get_sms_patient_user['email'];
+					if(!empty($get_sms_patient_user[$patient_user]['email'])):
+						$patient_email = $get_sms_patient_user[$patient_user]['email'];
 					endif;
 					// Provider Name
-					if(!empty($get_sms_patient_user['provider_name'])):
-						$provider_name = $get_sms_patient_user['provider_name'];
+					if(!empty($get_sms_patient_user[$patient_user]['provider_name'])):
+						$provider_name = $get_sms_patient_user[$patient_user]['provider_name'];
 					endif;
 					
-					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user['phone_number']);
+					$sms_data247_datas = $this->Email_sms_blast_model->get_sms_data247_data($get_sms_patient_user[$patient_user]['phone_number']);
 					
 					if(!empty($sms_data247_datas))
 					{
@@ -3265,7 +3259,7 @@ class Email_sms_blast extends MX_Controller
 						{
 							if(empty($sms_data247_datas))
 							{
-								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user['phone_number'],$sms_address);
+								$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_sms_patient_user[$patient_user]['phone_number'],$sms_address);
 							}
 							$this->Email_sms_blast_model->update_dldc_sms_sent_in_master_table($user_id, $tiny_url);
 							// echo "Message sent!";
