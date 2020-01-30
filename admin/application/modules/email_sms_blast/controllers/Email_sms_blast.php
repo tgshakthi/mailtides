@@ -793,7 +793,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			$sms_address = '';
 	
-			foreach($patient_user as $get_sms_patient_user)
+			foreach($patient_user_data as $get_sms_patient_user)
 			{							
 				if(!empty($get_sms_patient_user['phone_number']))
 				{
