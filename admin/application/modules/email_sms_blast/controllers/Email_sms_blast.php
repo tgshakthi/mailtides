@@ -396,6 +396,10 @@ class Email_sms_blast extends MX_Controller
 			$i = 0;
 			echo '<pre>';
 			print_r($patient_user_data);
+			for($i=0;count($patient_user_data)<3;$i++)
+			{
+				echo 'test'
+			}
 			/*foreach($patient_user_data as $get_patient_user)
 			{
 				 // User Id
