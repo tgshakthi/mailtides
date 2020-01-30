@@ -121,4 +121,40 @@ class Email_link_open extends MX_Controller
 			redirect("https://tinyurl.com/rl8opbq");
 		}
 	}
+	
+	// Update DLDC SMS Feedback
+	function update_dldc_sms_feedback($id)
+	{
+		$this->Email_link_open_model->update_dldc_sms_feedback($id);
+	}
+	
+	//Update DLDC Email Feedback
+	function update_dldc_email_feedback($id)
+	{
+		$this->Email_link_open_model->update_dldc_email_feedback($id);
+	}
+	
+	// Update Facebook Email Feedback
+	function update_fb_email_feedback($id)
+	{
+		$this->Email_link_open_model->update_fb_email_feedback($id);
+	}
+	
+	// Update Facebook SMS Feedback
+	function update_fb_sms_feedback($id)
+	{
+		$this->Email_link_open_model->update_fb_sms_feedback($id);
+	}
+	
+	// Update SMS Feedback
+	function update_sms_feedback($id, $provider_name)
+	{
+		$this->Email_link_open_model->update_sms_feedback($id, $provider_name);
+	}
+	
+	// Update Feedback Email 
+	function update_feedback($id, $route)
+	{
+		$this->Email_link_open_model->update_feedback($id, $route);
+	}
 }
