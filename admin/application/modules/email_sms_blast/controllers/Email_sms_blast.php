@@ -393,8 +393,6 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
-			echo '<pre>';
-			print_r($get_patient_user);
 			$patient_user = count($get_patient_user);
 			for($patient_user =0;$patient_user<2;$patient_user++)
 			{
@@ -427,10 +425,9 @@ class Email_sms_blast extends MX_Controller
 				if(!empty($get_patient_user[$patient_user]['provider_name'])):
 					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
-				print_r($patient_email);
+				
 				if($provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
 				{
-					echo 'test';
 					if (!empty($mail_configurations)) 
 					{
 						require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
@@ -630,7 +627,7 @@ class Email_sms_blast extends MX_Controller
 						// Add a recipient
 						$mail->addAddress($patient_email);
 						$mail->addBCC('velusamy@desss.com');
-						print_r($patient_email);die;
+
 						if(!$mail->send()){
 							echo 'Message could not be sent.';
 							echo 'Mailer Error: ' . $mail->ErrorInfo;
