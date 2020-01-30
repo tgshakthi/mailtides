@@ -399,7 +399,7 @@ class Email_sms_blast extends MX_Controller
 			$data = count($patient_user_data);
 			for($data =0;$data<1;$data++)
 			{
-				print_r($patient_user_data[$i]);
+				print_r($patient_user_data[$i]['id']);
 				echo '<br>';
 				echo 'test';
 				echo '<br>';
