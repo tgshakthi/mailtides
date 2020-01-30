@@ -389,41 +389,41 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$patient_user_data = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user);	
 		
-		if(!empty($patient_user_data))
+		if(!empty($get_patient_user))
 		{
-			$i = 0;
-			echo '<pre>';
-			print_r(count($patient_user_data));
-			$data = count($patient_user_data);
+			$data = count($get_patient_user);
 			for($data =0;$data<1;$data++)
 			{
-				print_r($patient_user_data[$i]['id']);
-				echo '<br>';
-				echo 'test';
-				echo '<br>';
-			}
-			/*foreach($patient_user_data as $get_patient_user)
-			{
-				 // User Id
-				if(!empty($get_patient_user['id'])):
-					$user_id = $get_patient_user['id'];
+				// User Id
+				if(!empty($get_patient_user[$i]['id'])):
+					$user_id = $get_patient_user[$i]['id'];
 				endif;
 				// Patient Name
-				if(!empty($get_patient_user['name'])):
-					$patient_names = explode(",",$get_patient_user['name']);
+				if(!empty($get_patient_user[$i]['name'])):
+					$patient_names = explode(",",$get_patient_user[$i]['name']);
 					$patient_name = $patient_names[1];
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
-				// Patient Email
-				if(!empty($get_patient_user['email'])):
-					$patient_email = $get_patient_user['email'];
+				
+				// Patient Name
+				if(!empty($get_patient_user[$i]['name'])):
+					$patient_names = explode(",",$get_patient_user[$i]['name']);
+					$patient_name = $patient_names[1];
+					$patient = explode(" ",trim($patient_name));
+					$patient_first_name = $patient[0];
 				endif;
+				
+				// Patient Email
+				if(!empty($get_patient_user[$i]['email'])):
+					$patient_email = $get_patient_user[$i]['email'];
+				endif;
+				
 				// Provider Name
-				if(!empty($get_patient_user['provider_name'])):
-					$provider_name = $get_patient_user['provider_name'];
+				if(!empty($get_patient_user[$i]['provider_name'])):
+					$provider_name = $get_patient_user[$i]['provider_name'];
 				endif;
 				
 				if($provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
@@ -638,6 +638,16 @@ class Email_sms_blast extends MX_Controller
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 					}
 				} 
+			}
+			/*foreach($patient_user_data as $get_patient_user)
+			{
+				
+				
+				
+				
+				
+				
+				
 			}*/
 		}
 		// redirect('email_sms_blast');
