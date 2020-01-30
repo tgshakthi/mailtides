@@ -393,6 +393,7 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
+			echo '<pre>';
 			print_r($get_patient_user);
 			$patient_user = count($get_patient_user);
 			for($patient_user =0;$patient_user<1;$patient_user++)
