@@ -42,10 +42,7 @@ class Email_link_open extends MX_Controller
 			$this->update_feedback($_GET['review_user_id'], 'google');
 			redirect("https://www.google.com/search?rlz=1C1SQJL_enUS816US816&ei=v30WXoahG8HusQXs352QAw&q=dr+hamat&oq=dr+hamat&gs_l=psy-ab.3..0j46i199i175l2j0j46i199i175l2j0j46i199i175j0j46i199i175.2602.2869..3059...0.0..0.194.627.2j3....3..0....1..gws-wiz.......46i199i175i67i275j0i30j0i10i30j0i8i30j0i22i30j0i22i10i30j46i199i175i67.asYvTwiwbjI&ved=0ahUKEwjG_ImCq_XmAhVBd6wKHexvBzIQ4dUDCAs&uact=5#lrd=0x8640b3ae3b684b07:0x722f40416802a512,1,,,");
 		}
-		elseif(isset($_GET['review_user_id']) && isset($_GET['type']) && $_GET['type'] == 'facebook')
-		{
-			//Txgidocs Facebook Email Link
-
+	}
 	// SMS Status
 	function sms_status($user_id,$provider_name)
 	{
@@ -57,22 +54,21 @@ class Email_link_open extends MX_Controller
 			$this->update_sms_feedback($user_id,$provider_name);			
 			redirect("https://tinyurl.com/vj4mjvg");
 		}
-
-			if($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy')
-			{
-				//Reddy Google SMS Link
-				// $this->Email_link_open_model->get_campaign_category($website_id,'4');
-				$this->update_sms_feedback($user_id,$provider_name);
-				redirect("https://tinyurl.com/uy6da6c");
-			}
-
-			if($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
-			{
-				//Hamat Google SMS Link
-				// $this->Email_link_open_model->get_campaign_category($website_id,'6');
-				$this->update_sms_feedback($user_id,$provider_name);
-				redirect("https://tinyurl.com/sw9d3g9");
-			}
+		elseif($provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy')
+		{
+			//Reddy Google SMS Link
+			// $this->Email_link_open_model->get_campaign_category($website_id,'4');
+			$this->update_sms_feedback($user_id,$provider_name);
+			redirect("https://tinyurl.com/uy6da6c");
+		}
+		elseif($provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
+		{
+			//Hamat Google SMS Link
+			// $this->Email_link_open_model->get_campaign_category($website_id,'6');
+			$this->update_sms_feedback($user_id,$provider_name);
+			redirect("https://tinyurl.com/sw9d3g9");
+		}
+	}
 
 	//DLDC Facebook SMS
 	function fb_sms_status($user_id)
@@ -85,6 +81,7 @@ class Email_link_open extends MX_Controller
 			$this->update_fb_sms_feedback($user_id);			
 			redirect("https://tinyurl.com/uudc8yg");
 		}
+	}
 
 	//DLDC Facebook  Email
 	function fb_email_status($user_id)
@@ -97,6 +94,7 @@ class Email_link_open extends MX_Controller
 			$this->update_fb_email_feedback($user_id);			
 			redirect("https://tinyurl.com/uudc8yg");
 		}
+	}
 
 	//DLDC Email 
 	function dldc_email_status($user_id)
@@ -109,6 +107,7 @@ class Email_link_open extends MX_Controller
 			$this->update_dldc_email_feedback($user_id);			
 			redirect("https://tinyurl.com/rl8opbq");
 		}
+	}
 	//DLDC SMS  
 	function dldc_sms_status($user_id)
 	{
@@ -121,3 +120,5 @@ class Email_link_open extends MX_Controller
 			$this->update_dldc_sms_feedback($user_id);			
 			redirect("https://tinyurl.com/rl8opbq");
 		}
+	}
+}
