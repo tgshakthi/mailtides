@@ -393,37 +393,37 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
-			$data = count($get_patient_user);
-			for($data =0;$data<1;$data++)
+			$patient_user = count($get_patient_user);
+			for($patient_user =0;$patient_user<1;$patient_user++)
 			{
 				// User Id
-				if(!empty($get_patient_user[$i]['id'])):
-					$user_id = $get_patient_user[$i]['id'];
+				if(!empty($get_patient_user[$patient_user]['id'])):
+					$user_id = $get_patient_user[$patient_user]['id'];
 				endif;
 				// Patient Name
-				if(!empty($get_patient_user[$i]['name'])):
-					$patient_names = explode(",",$get_patient_user[$i]['name']);
+				if(!empty($get_patient_user[$patient_user]['name'])):
+					$patient_names = explode(",",$get_patient_user[$patient_user]['name']);
 					$patient_name = $patient_names[1];
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
 				
 				// Patient Name
-				if(!empty($get_patient_user[$i]['name'])):
-					$patient_names = explode(",",$get_patient_user[$i]['name']);
+				if(!empty($get_patient_user[$patient_user]['name'])):
+					$patient_names = explode(",",$get_patient_user[$patient_user]['name']);
 					$patient_name = $patient_names[1];
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
 				
 				// Patient Email
-				if(!empty($get_patient_user[$i]['email'])):
-					$patient_email = $get_patient_user[$i]['email'];
+				if(!empty($get_patient_user[$patient_user]['email'])):
+					$patient_email = $get_patient_user[$patient_user]['email'];
 				endif;
 				
 				// Provider Name
-				if(!empty($get_patient_user[$i]['provider_name'])):
-					$provider_name = $get_patient_user[$i]['provider_name'];
+				if(!empty($get_patient_user[$patient_user]['provider_name'])):
+					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
 				
 				if($provider_name == 'DLDC' || $provider_name == 'Reddy' || $provider_name == 'REDDY' || $provider_name == 'Dr Guru N Reddy' || $provider_name == 'REDDY, GURUNATH T' || $provider_name == 'Guru N Reddy' || $provider_name == 'HAMAT' || $provider_name == 'Hamat' || $provider_name == 'HAMAT, HOWARD' || $provider_name == 'Howard' || $provider_name == 'Dr. Hamat' || $provider_name == 'Dr. Howard')
