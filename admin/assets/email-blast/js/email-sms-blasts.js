@@ -892,7 +892,7 @@ function campaign_type(value) {
 		$('#campaign_name_data').html(option);
 		$('#barchart').hide();
 	}else{
-		var option = '<option value="">Select Provider Name</option><option value="dldc">DLDC</option><option value="reddy">REDDY</option><option value="hamat">HAMAT</option>';
+		var option = '<option value="">Select Provider Name</option><option value="dldc">DLDC</option><option value="reddy">REDDY</option><option value="hamat">HAMAT</option><option value="facebook">Facebook</option><option value="txgidocs">Txgidocs</option>';
 		$('#campaign_name_data').html(option);
 		$('#barchart').hide();
 	}	
