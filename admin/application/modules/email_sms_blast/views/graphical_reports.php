@@ -47,6 +47,8 @@
                   <option value="dldc">DLDC</option>
                   <option value="reddy">Dr REDDY</option>
 				  <option value="hamat">Dr HAMAT</option>
+				  <option value="facebook">Facebook</option>
+				  <option value="txgidocs">Txgidocs</option>
                 </select>
               </div>
             </div>
