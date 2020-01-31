@@ -290,25 +290,23 @@
                 <div class="col-md-12 col-sm-12 col-xs-12 ">
                 <div class="input_butt center">
                   <?php
-
-              
                     echo form_submit(
-                      array(
-                        'class' => 'btn btn-success',
-                        'id'    => 'btn',
-                        'name'  => 'btn_continue',
-                        'value' => 'Send Sms'
-                      )
-                    );
+									  array(
+										'class' => 'btn btn-success',
+										'id'    => 'btn',
+										'name'  => 'btn_continue',
+										'value' => 'Send Sms'
+									  )
+									);
 					 //Anchor Tag
                     echo anchor(
-                      'email_sms_blast',
-                      'Back',
-                      array(
-                        'title' => 'Back',
-                        'class' => 'btn btn-danger'
-                      )
-                    );
+							  'email_sms_blast',
+							  'Back',
+							  array(
+								'title' => 'Back',
+								'class' => 'btn btn-danger'
+							  )
+							);
 					echo br(3);
                   ?>
                   </div>
