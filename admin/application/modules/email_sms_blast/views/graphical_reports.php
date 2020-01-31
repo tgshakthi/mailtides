@@ -43,7 +43,7 @@
                 <input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id;?>">
                 <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url();?>">
                 <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_name_data" required="required" onchange="campaign(this.value)">
-                  <option value="">Select Provider Name</option>
+                  <option value="">Select Provider Name </option>
                   <option value="dldc">DLDC</option>
                   <option value="reddy">Dr REDDY</option>
 				  <option value="hamat">Dr HAMAT</option>
