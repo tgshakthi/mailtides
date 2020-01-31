@@ -294,7 +294,7 @@
               
                     echo form_submit(
                       array(
-                        'class' => 'btn btn-warning',
+                        'class' => 'btn btn-success',
                         'id'    => 'btn',
                         'name'  => 'btn_continue',
                         'value' => 'Send Sms'
