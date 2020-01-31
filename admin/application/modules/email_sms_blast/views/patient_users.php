@@ -4,11 +4,11 @@
 		<div class="page-title">
 			<div class="title_left">
 				<h3><?php echo $heading;?></h3>
-			</div>
-			<div class="btn-right">	
-				<a href="<?php echo base_url()?>email_sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
+				<div class="btn-right">	
+					<a href="<?php echo base_url()?>email_sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
 									aria-hidden="true"></i> Back</a>
-			</div>
+				</div>
+			</div>			
 		</div>
 		<div class="clearfix"></div>
 
