@@ -73,7 +73,7 @@ class Email_link_open_model extends MX_Controller
         return $this->db->insert_id();
     }
 	
-	function get_campaign_category($website_id, $campaign_category_id)
+	/* function get_campaign_category($website_id, $campaign_category_id)
 	{
 		$this->db->select('*');
         $this->db->where(array(
@@ -87,5 +87,5 @@ class Email_link_open_model extends MX_Controller
             $records = $query->result_array();
         endif;
         return $records;
-	}
+	} */
 }
