@@ -1291,6 +1291,7 @@ class Email_sms_blast extends MX_Controller
 		$provider_name = $this->input->post('provider_name');
 		$campaign_type = $this->input->post('campaign_type');
 		$get_users = $this->Email_sms_blast_model->get_provider_name_by_user($provider_name);
+		print_r($provider_name)
 		print_r($get_users);die;
 		foreach($get_users as $get_user){				
 			if($campaign_type == 'email'):
