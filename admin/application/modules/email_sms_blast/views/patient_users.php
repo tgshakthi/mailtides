@@ -4,13 +4,11 @@
 		<div class="page-title">
 			<div class="title_left">
 				<h3><?php echo $heading;?></h3>
-				
-					<a href="<?php echo base_url()?>email_sms_blast" class="btn-right btn btn-primary"><i class="fa fa-chevron-left"
-									aria-hidden="true"></i> Back</a>
-				
-			</div>			
+			</div>
+			<div class="btn_right" style="text-align:right;"> <a href="<?php echo base_url()?>email_sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
+						aria-hidden="true"></i> Back</a> </div>
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
 
 		<?php if ($this->session->flashdata('success')!='') : // Display session data ?>
 		<div class="alert alert-success alert-dismissible fade in text-center" id="success-alert" role="alert">
