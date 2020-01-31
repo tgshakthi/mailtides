@@ -594,6 +594,8 @@ class Email_sms_blast_model extends CI_Model
 		
 		
 		if($provider_name == 'facebook'){
+			print_r($import_fb_email_sms_status);
+			print_r($fb_email_sms_sent);
 			$this->db->select('*');
 			 $this->db->where(array(
 									$import_fb_email_sms_status = '1',
@@ -608,6 +610,8 @@ class Email_sms_blast_model extends CI_Model
 			return $records;
 			
 		}elseif($provider_name == 'txgidocs'){
+			print_r($import_dldc_email_sms_status);
+			print_r($dldc_sent_email_sms_status);
 			$this->db->select('*');
 			$this->db->where(array(
 								$import_dldc_email_sms_status = '1',
