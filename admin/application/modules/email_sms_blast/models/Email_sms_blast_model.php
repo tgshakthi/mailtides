@@ -594,33 +594,21 @@ class Email_sms_blast_model extends CI_Model
 		
 		
 		if($provider_name == 'facebook'){
-			print_r($import_fb_email_sms_status);
-			print_r($fb_email_sms_sent);
-			$this->db->select('*');
-			 $this->db->where(array(
-									$import_fb_email_sms_status = '1',
-									$fb_email_sms_sent = '1',
-									'is_deleted' => '0'
-								));
-			$query   = $this->db->get($this->table_name);
+			
+			$sql_data = "SELECT * FROM `zcms_email_sms_blast_users` where `".$import_fb_email_sms_status."` = '1' and `".$fb_email_sms_sent."` = '1' and `is_deleted` = '0'";
+			$query = $this->db->query($sql_data);
 			$records = array();
-			if ($query->num_rows() > 0):
+			if($query->num_rows() > 0):
 				$records = $query->result();
 			endif;
 			return $records;
 			
 		}elseif($provider_name == 'txgidocs'){
-			print_r($import_dldc_email_sms_status);
-			print_r($dldc_sent_email_sms_status);
-			$this->db->select('*');
-			$this->db->where(array(
-								$import_dldc_email_sms_status = '1',
-								$dldc_sent_email_sms_status = '1',
-								'is_deleted' => '0'
-							));
-			$query   = $this->db->get($this->table_name);
+			
+			$sql_data = "SELECT * FROM `zcms_email_sms_blast_users` where `".$import_dldc_email_sms_status."` = '1' and `".$dldc_sent_email_sms_status."` = '1' and `is_deleted` = '0'";
+			$query = $this->db->query($sql_data);
 			$records = array();
-			if ($query->num_rows() > 0):
+			if($query->num_rows() > 0):
 				$records = $query->result();
 			endif;
 			return $records;
