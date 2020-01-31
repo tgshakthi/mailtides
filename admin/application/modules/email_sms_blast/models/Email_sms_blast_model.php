@@ -574,20 +574,63 @@ class Email_sms_blast_model extends CI_Model
 		$campaign_type = $this->input->post('campaign_type');
 		if($campaign_type == 'email'):
 			$import_email_sms_status = 'import_email_status';
-			$sent = 'email_sent';			
+			$sent = 'email_sent';
+			
+			$import_fb_email_sms_status = 'import_fb_email_status';
+			$fb_email_sms_sent = 'fb_email_sent_status';
+			
+			$import_dldc_email_sms_status = 'import_dldc_email_status';
+			$dldc_sent_email_sms_status = 'dldc_sent_email_status';
 		elseif($campaign_type == 'sms'):
 			$import_email_sms_status = 'import_sms_status';
-			$sent = 'sms_sent';			
+			$sent = 'sms_sent';	
+			
+			$import_fb_email_sms_status = 'import_fb_status';
+			$fb_email_sms_sent = 'fb_sent_status';
+			
+			$import_dldc_email_sms_status = 'import_dldc_sms_status';
+			$dldc_sent_email_sms_status = 'dldc_sms_sent_status';			
 		endif;
 		
-		$sql_data = "SELECT * FROM `zcms_email_sms_blast_users` where `provider_name` like '".$provider_name."%' and `".$import_email_sms_status."` = '1' and `".$sent."` = '1' ORDER BY `provider_name` ASC";
-	
-        $query = $this->db->query($sql_data);
-		$records = array();
-        if($query->num_rows() > 0):
-            $records = $query->result();
-        endif;
-        return $records;  
+		
+		if($provider_name == 'facebook'){
+			$this->db->select('*');
+			 $this->db->where(array(
+									$import_fb_email_sms_status = '1',
+									$fb_email_sms_sent = '1',
+									'is_deleted' => '0'
+								));
+			$query   = $this->db->get($this->table_name);
+			$records = array();
+			if ($query->num_rows() > 0):
+				$records = $query->result();
+			endif;
+			return $records;
+			
+		}elseif($provider_name == 'txgidocs'){
+			$this->db->select('*');
+			$this->db->where(array(
+								$import_dldc_email_sms_status = '1',
+								$dldc_sent_email_sms_status = '1',
+								'is_deleted' => '0'
+							));
+			$query   = $this->db->get($this->table_name);
+			$records = array();
+			if ($query->num_rows() > 0):
+				$records = $query->result();
+			endif;
+			return $records;
+			
+		}else{
+			
+			$sql_data = "SELECT * FROM `zcms_email_sms_blast_users` where `provider_name` like '".$provider_name."%' and `".$import_email_sms_status."` = '1' and `".$sent."` = '1' ORDER BY `provider_name` ASC";
+			$query = $this->db->query($sql_data);
+			$records = array();
+			if($query->num_rows() > 0):
+				$records = $query->result();
+			endif;
+			return $records;
+		}
 	}
 	
 	function insert_master_resend_table_sms_data($user_id,$tiny_url)
