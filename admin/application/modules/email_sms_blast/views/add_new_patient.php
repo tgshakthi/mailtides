@@ -5,21 +5,14 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="">
-          <div class="x_title">
-            <?php echo heading($heading, '3');?>
-            <div class="btn_right" style="text-align:right;">
-                <?php
-                    echo anchor(
-                        'email_sms_blast',
-                        '<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
-                        array(
-                            'class' => 'btn btn-danger'
-                        )
-                    );
-                ?>
-            </div>
-            <div class="clearfix"></div>
-          </div>
+			<div class="page-title">
+				<div class="title_left">
+					<h3><?php echo $heading;?></h3>
+				</div>
+				<div class="btn_right" style="text-align:right;"> <a href="<?php echo base_url()?>email_sms_blast" class="btn btn-primary"><i class="fa fa-chevron-left"
+							aria-hidden="true"></i> Back</a> </div>
+				<div class="clearfix"></div>
+			</div>
           <div class="x_content">
             <?php if ($this->session->flashdata('success')!='') : // Display session data ?>
               <div class="alert alert-success alert-dismissible fade in text-center" id="success-alert" role="alert">
