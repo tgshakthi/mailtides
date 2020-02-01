@@ -393,8 +393,13 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
-			$patient_user = count($get_patient_user);
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			$patient_user_count = count($get_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
+			}else{
+				$patient_count = $patient_user_count;
+			}
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -801,8 +806,14 @@ class Email_sms_blast extends MX_Controller
 		{
 			$sms_address = '';
 	
-			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			$patient_user_count = count($get_sms_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
+			}else{
+				$patient_count = $patient_user_count;
+			}
+			
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{							
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
@@ -1841,8 +1852,13 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
-			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			$patient_user_count = count($get_sms_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
+			}else{
+				$patient_count = $patient_user_count;
+			}
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{				
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
@@ -2164,8 +2180,13 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
-			$patient_user = count($get_patient_user);
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			$patient_user_count = count($get_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
+			}else{
+				$patient_count = $patient_user_count;
+			}
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
@@ -3220,8 +3241,13 @@ class Email_sms_blast extends MX_Controller
 		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
-			$patient_user = count($get_sms_patient_user);
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			$patient_user_count = count($get_sms_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
+			}else{
+				$patient_count = $patient_user_count;
+			}
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{			
 				if(!empty($get_sms_patient_user[$patient_user]['phone_number']))
 				{
