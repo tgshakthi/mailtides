@@ -436,7 +436,7 @@ class Email_sms_blast extends MX_Controller
 						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
-						$mail->SMTPDebug = 0;
+						$mail->SMTPDebug = 2;
 						// SMTP configuration
 						$mail->isSMTP();
 						$mail->SMTPSecure = 'ssl';	
