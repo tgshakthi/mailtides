@@ -340,7 +340,7 @@ class Email_sms_blast extends MX_Controller
 		$email_subject = $this->input->post('subject');
 		$get_patient_users = $this->Email_sms_blast_model->get_email_patient_users();
 		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -389,7 +389,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$get_patient_user = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user_data);	
 		
 		if(!empty($get_patient_user))
 		{
@@ -752,7 +752,7 @@ class Email_sms_blast extends MX_Controller
 		
 		$get_sms_patient_users = $this->Email_sms_blast_model->get_sms_patient_users();
 		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -801,7 +801,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$get_sms_patient_user = array_merge($get_sms_patient_users,$patient_user);
+		$get_sms_patient_user = array_merge($get_sms_patient_users,$patient_user_data);
 		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
@@ -1831,7 +1831,7 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();			
 		$get_fb_patient_users = $this->Email_sms_blast_model->get_fb_patient_users();
 		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -1848,7 +1848,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$get_sms_patient_user = array_merge($get_fb_patient_users,$patient_user);
+		$get_sms_patient_user = array_merge($get_fb_patient_users,$patient_user_data);
 		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
@@ -2159,7 +2159,7 @@ class Email_sms_blast extends MX_Controller
 		$from_email = $this->input->post('from_email');
 		$get_patient_users = $this->Email_sms_blast_model->get_fb_email_patient_users();
 		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -2176,7 +2176,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$get_patient_user = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user_data);	
 		
 		if(!empty($get_patient_user))
 		{
@@ -2692,7 +2692,7 @@ class Email_sms_blast extends MX_Controller
 		$from_email = $this->input->post('from_email');
 		$get_patient_users = $this->Email_sms_blast_model->get_dldc_email_patient_users();
 		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -2709,7 +2709,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));
-		$get_patient_user = array_merge($get_patient_users,$patient_user);	
+		$get_patient_user = array_merge($get_patient_users,$patient_user_data);	
 		
 		if(!empty($get_patient_user))
 		{
@@ -3220,7 +3220,7 @@ class Email_sms_blast extends MX_Controller
 		
 		$get_dldc_sms_patient_users = $this->Email_sms_blast_model->get_dldc_sms_patient_users();
 		$mail_config = $this->Email_sms_blast_model->get_mail_configuration($website_id );
-		$patient_user = array(
+		$patient_user_data = array(
 							array(
 								'id' => '4813',
 								'name' => 'Chandler,Chandler',
@@ -3237,7 +3237,7 @@ class Email_sms_blast extends MX_Controller
 								'provider_name' => 'HAMAT',
 								'facility_name' => 'HAMAT'
 							));	
-		$get_sms_patient_user = array_merge($get_dldc_sms_patient_users,$patient_user);
+		$get_sms_patient_user = array_merge($get_dldc_sms_patient_users,$patient_user_data);
 		if(!empty($get_sms_patient_user))
 		{
 			$sms_address = '';
