@@ -2694,7 +2694,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			$patient_user = count($get_patient_user);
 			print_r($patient_user);die;
-			for($patient_user =0; $patient_user<100; $patient_user++)
+			for($patient_user =0; $patient_user<90; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
