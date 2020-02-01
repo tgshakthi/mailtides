@@ -2694,13 +2694,13 @@ class Email_sms_blast extends MX_Controller
 		{
 			echo '<pre>';
 			print_r($get_patient_user);
-			$patient_user = count($get_patient_user);
-			if($patient_user >90){
-				echo 'if test';
+			$patient_user_count = count($get_patient_user);
+			if($patient_user_count >90){
+				$patient_count = '90';
 			}else{
-				echo 'else test';
+				$patient_count = $patient_user_count;
 			}
-			for($i =0; $i<$patient_user; $i++)
+			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
 			{				
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
