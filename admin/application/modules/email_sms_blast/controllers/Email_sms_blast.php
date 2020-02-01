@@ -2717,7 +2717,7 @@ class Email_sms_blast extends MX_Controller
 				if(!empty($get_patient_user[$patient_user]['provider_name'])):
 					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
-				pirnt_r($patient_email);
+				print_r($patient_email);
 				/* if(!empty($patient_email))
 				{
 					if (!empty($mail_configurations)) 
