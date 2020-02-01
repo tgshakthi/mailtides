@@ -390,7 +390,7 @@ class Email_sms_blast extends MX_Controller
 								'facility_name' => 'HAMAT'
 							));
 		$get_patient_user = array_merge($get_patient_users,$patient_user_data);	
-		
+			print_r($get_patient_user);	
 		if(!empty($get_patient_user))
 		{
 			$patient_user_count = count($get_patient_user);
@@ -399,7 +399,7 @@ class Email_sms_blast extends MX_Controller
 			}else{
 				$patient_count = $patient_user_count;
 			}
-			for($patient_user =0; $patient_user<$patient_count; $patient_user++)
+			for($patient_user =0; $patient_user < $patient_count; $patient_user++)
 			{
 				// User Id
 				if(!empty($get_patient_user[$patient_user]['id'])):
