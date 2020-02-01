@@ -390,7 +390,6 @@ class Email_sms_blast extends MX_Controller
 								'facility_name' => 'HAMAT'
 							));
 		$get_patient_user = array_merge($get_patient_users,$patient_user_data);	
-			print_r($get_patient_user);	
 		if(!empty($get_patient_user))
 		{
 			$patient_user_count = count($get_patient_user);
@@ -435,22 +434,17 @@ class Email_sms_blast extends MX_Controller
 				{
 					if (!empty($mail_configurations)) 
 					{
-						require_once "application/third_party/PHPMailer/vendor/autoload.php"; //PHPMailer Object			
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-						require_once 'application/third_party/PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+						require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 						$track_code = md5(rand());
 						$mail = new PHPMailer;
 						$mail->SMTPDebug = 0;
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->SMTPSecure = 'ssl';	
 						$mail->Host     = $mail_configurations[0]->host;
-						$mail->Port     = $mail_configurations[0]->port;
 						$mail->SMTPAuth = true;
 						$mail->Username = $mail_configurations[0]->email;
 						$mail->Password = $mail_configurations[0]->password;
-											
+						$mail->Port     = $mail_configurations[0]->port;						 							
 						$mail->setFrom($from_email, $from_name);                    
 						$mail->Subject= $email_subject;
 						// Set email format to HTML
