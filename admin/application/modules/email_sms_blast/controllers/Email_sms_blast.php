@@ -2692,8 +2692,10 @@ class Email_sms_blast extends MX_Controller
 		
 		if(!empty($get_patient_user))
 		{
+			echo '<pre>';
+			print_r($get_patient_user);
 			$patient_user = count($get_patient_user);
-			print_r($patient_user);die;
+			print_r($patient_user);
 			for($patient_user =0; $patient_user<90; $patient_user++)
 			{
 				// User Id
@@ -2715,8 +2717,8 @@ class Email_sms_blast extends MX_Controller
 				if(!empty($get_patient_user[$patient_user]['provider_name'])):
 					$provider_name = $get_patient_user[$patient_user]['provider_name'];
 				endif;
-				
-				if(!empty($patient_email))
+				pirnt_r($patient_email);
+				/* if(!empty($patient_email))
 				{
 					if (!empty($mail_configurations)) 
 					{
@@ -2890,10 +2892,10 @@ class Email_sms_blast extends MX_Controller
 						}
 						$this->session->set_flashdata('success', 'Mail sent Successfully.');              
 					}
-				}
+				} */
 			}
 		}
-		redirect('email_sms_blast');
+		// redirect('email_sms_blast');
 	}
 	
 	//Txgidocs Email Reports
