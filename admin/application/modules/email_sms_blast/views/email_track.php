@@ -4,7 +4,7 @@
 
 		<div class="page-title">
 			<div class="title_left">
-				<h3>Email Report</h3>				
+				<h3>Email Tracking</h3>				
 			</div>
 			<div class="btn_right" style="text-align:right;">
 				<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-primary">
