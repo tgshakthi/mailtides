@@ -650,7 +650,6 @@ class Email_sms_blast extends MX_Controller
 	function email_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['email_tracks'] = $this->Email_sms_blast_model->get_email_track_data();
 		$data['table'] = $this->get_email_tarcking_campaign();
         $data['heading']    = 'Email Tracking';
         $data['title']      = "Email Tracking | Administrator";
@@ -1011,7 +1010,6 @@ class Email_sms_blast extends MX_Controller
 	function sms_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['sms_tracks'] = $this->Email_sms_blast_model->get_sms_track_data();
 		$data['table'] = $this->get_sms_tarcking_campaign();
         $data['heading']    = 'SMS Tracking';
         $data['title']      = "SMS Tracking | Administrator";
@@ -1247,7 +1245,7 @@ class Email_sms_blast extends MX_Controller
 	function get_table_campaign_category()
 	{
 		$website_id = $this->admin_header->website_id();
-	   $campaign_categorys = $this->Email_sms_blast_model->get_campaign_category($website_id);
+	    $campaign_categorys = $this->Email_sms_blast_model->get_campaign_category($website_id);
 	    if (!empty($campaign_categorys)) {
             foreach ($campaign_categorys as $campaign_category) {
                 $anchor_edit = anchor(site_url('email_sms_blast/add_edit_campaign_category/' . $campaign_category->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
@@ -2062,7 +2060,6 @@ class Email_sms_blast extends MX_Controller
 	function facebook_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['facebook_tracks'] = $this->Email_sms_blast_model->get_facebook_sms_track_data();
 		$data['table'] = $this->get_fb_sms_campaign_table();
         $data['heading']    = 'Facebook SMS Tracking';
         $data['title']      = "Facebook SMS Tracking | Administrator";
@@ -2522,7 +2519,6 @@ class Email_sms_blast extends MX_Controller
 	function facebook_email_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['facebook_tracks'] = $this->Email_sms_blast_model->get_facebook_email_track_data();
 		$data['table'] = $this->get_fb_email_campaign_table();
         $data['heading']    = 'Facebook Email Tracking';
         $data['title']      = "Facebook Email Tracking | Administrator";
@@ -2798,13 +2794,10 @@ class Email_sms_blast extends MX_Controller
 			if(!empty($get_user->email))
 			{
 				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->visited_date, $get_user->phone_number, $get_user->provider_name);	
-			}
-            
+			}           
             $i++;
-        }
-        
-        // Table open
-        
+        }        
+        // Table open       
         $template = array(
             'table_open' => '<table
             id="datatable-campaign-users"
@@ -3087,7 +3080,6 @@ class Email_sms_blast extends MX_Controller
 	function txgidocs_email_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['txgidocs_tracks'] = $this->Email_sms_blast_model->get_txgidocs_email_track_data();
 		$data['table'] = $this->get_dldc_email_campaign_table();
         $data['heading']    = 'Txgidocs Email Tracking';
         $data['title']      = "Txgidocs Email Tracking | Administrator";
@@ -3549,7 +3541,6 @@ class Email_sms_blast extends MX_Controller
 	function txgidocs_sms_tracking()
 	{
 		$data['website_id'] = $this->admin_header->website_id();
-        $data['txgidocs_tracks'] = $this->Email_sms_blast_model->get_txgidocs_sms_track_data();
 		$data['table'] = $this->get_dldc_sms_campaign_table();
         $data['heading']    = 'Txgidocs SMS Tracking';
         $data['title']      = "Txgidocs SMS Tracking | Administrator";
@@ -3691,5 +3682,4 @@ class Email_sms_blast extends MX_Controller
 			}
 		}
 	}
-	
 }
