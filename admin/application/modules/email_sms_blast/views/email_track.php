@@ -62,7 +62,7 @@
 										</div>
 									</div>
 								</div>
-							<table id="datatable-email"
+							<!-- <table id="datatable-email"
 								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
 								cellspacing="0">
 
@@ -145,7 +145,7 @@
 										endforeach;?>
 								</tbody>
 
-							</table>
+							</table> -->
 
 
 						</form>

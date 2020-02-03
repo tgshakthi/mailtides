@@ -386,7 +386,7 @@ $(document).ready(function () {
 	
 	// Email Tracking Datatable Filter
 	if ($('#datatable-email').length) {
-	// Datatable - One ( Master Campaign Datepicker Filter)
+		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
@@ -404,78 +404,30 @@ $(document).ready(function () {
 				return true;
 			}
 			return false;
-		});	
-	var $table = $('#datatable-email').DataTable({
-		pageLength: 100,
-		initComplete: function () {
-			this.api()
-				.columns(3)
-				.every(function () {
-					var column = this;
-					if (column.index() == 3) {
-						var select = $('<select><option value=""></option></select>')
-							.appendTo(
-								$('#filters')
-								.find('th')
-								.eq(column.index())
-							)
-							.on('change', function () {
-								var val = $.fn.dataTable.util.escapeRegex($(this).val());
+		});
 
-								column.search(val ? '^' + val + '$' : '', true, false).draw();
-							});
+		var table = $('#datatable-email').DataTable({
+			"pageLength": 200
+		});
 
-						column
-							.data()
-							.unique()
-							.sort()
-							.each(function (d, j) {
-								select.append('<option value="' + d + '">' + d + '</option>');
-							});
-					}
-				});
-			this.api()
-				.columns(4)
-				.every(function () {
-					var column = this;
-					if (column.index() == 4) {
-						var select = $('<select><option value=""></option></select>')
-							.appendTo(
-								$('#filters')
-								.find('th')
-								.eq(column.index())
-							)
-							.on('change', function () {
-								var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-								column.search(val ? '^' + val + '$' : '', true, false).draw();
-							});
-
-						column
-							.data()
-							.unique()
-							.sort()
-							.each(function (d, j) {
-								select.append('<option value="' + d + '">' + d + '</option>');
-							});
-					}
-				});
-			}
-			
+		$('#datatable-email>thead>tr')
+			.clone(true)
+			.appendTo('#datatable-email thead');
+		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$(this).html(
 					'<input type="text" placeholder="Search ' + title + '" />'
 				);
 				$('input', this).on('keyup change', function () {
-					if (column(i).search() !== this.value) {
+					if (table.column(i).search() !== this.value) {
+						table
 							.column(i)
 							.search(this.value)
 							.draw();
 					}
 				});
 			}
-			
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
