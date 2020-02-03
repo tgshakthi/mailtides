@@ -394,7 +394,7 @@ $(document).ready(function () {
 		$('#datatable-email>thead>tr')
 			.clone(true)
 			.appendTo('#datatable-email thead');
-		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+		/* $('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0) {
 				$(this).html(
@@ -409,7 +409,7 @@ $(document).ready(function () {
 					}
 				});
 			}
-		});
+		}); */
 
 	}
 
