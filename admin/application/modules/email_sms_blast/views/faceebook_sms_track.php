@@ -62,69 +62,7 @@
 										</div>
 									</div>
 								</div>
-							<?php echo $table;?>
-							<!--<table id="datatable-sms"
-								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
-								cellspacing="0">
-
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Cell Phone</th>
-										<th>provider Name</th>
-										<th>Fb SMS Sent Date</th>
-										<th>Fb SMS Status</th>
-										<th>Fb SMS Open Date</th>
-										<th>Tiny Url</th>
-										<th>Resend Fb SMS</th>
-									</tr>
-									<tr id="filters">
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php foreach (($facebook_tracks ? $facebook_tracks : array()) as $facebook_track) : 
-									
-										if(!empty($facebook_track['phone_number'])):
-											$user_id = $facebook_track['id'];
-											
-											if ($facebook_track['fb_link_open'] === '1') {
-												$fb_sms_status = '<span class="label label-success">Open</span>';
-												$resend_sms = '<span class="label label-danger"></span>';
-											} else {
-												$fb_sms_status = '<span class="label label-danger">Not Open</span>';
-												$resend_sms = '<span class="label label-success"><a href="resend_fb_sms/'.$user_id.'">Resend</a></span>';
-											}
-									?>
-
-									<tr>
-										<td><?php echo $facebook_track['name'];?></td>
-										<td><?php echo trim($facebook_track['email']);?></td>
-										<td><?php echo $facebook_track['phone_number'];?></td>
-										<td><?php echo $facebook_track['provider_name'];?></td>
-										<td><?php echo $facebook_track['fb_sent_date'];?></td>
-										<td><?php echo $fb_sms_status;?></td>
-										<td><?php echo $facebook_track['fb_open_date'];?></td>
-										<td><?php echo $facebook_track['fb_tiny_url'];?></td>
-										<td><?php echo $resend_sms;?></td>
-									</tr>
-
-									<?php endif;
-											endforeach;?>
-								</tbody>
-
-							</table>-->
-
-
+							<?php echo $table;?>				
 						</form>
 						<!-- Confirm Delete Modal -->
 					

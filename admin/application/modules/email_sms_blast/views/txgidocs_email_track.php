@@ -62,69 +62,7 @@
 										</div>
 									</div>
 								</div>
-							<?php echo $table;?>
-							<!-- <table id="datatable-sms"
-								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
-								cellspacing="0">
-
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Cell Phone</th>
-										<th>provider Name</th>
-										<th>DLDC Email Sent Date</th>
-										<th>DLDC Email Status</th>
-										<th>DLDC Email Open Date</th>
-										<th>Tiny Url</th>
-										<th>Resend DLDC Email</th>
-									</tr>
-									<tr id="filters">
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php foreach (($txgidocs_tracks ? $txgidocs_tracks : array()) as $txgidocs_track) : 
-									
-										if(!empty($txgidocs_track['phone_number'])):
-											$user_id = $txgidocs_track['id'];
-											
-											if ($txgidocs_track['dldc_email_link_open'] === '1') {
-												$txgidocs_sms_status = '<span class="label label-success">Open</span>';
-												$resend_sms = '<span class="label label-danger"></span>';
-											} else {
-												$txgidocs_sms_status = '<span class="label label-danger">Not Open</span>';
-												$resend_sms = '<span class="label label-success"><a href="resend_dldc_email/'.$user_id.'">Resend</a></span>';
-											}										
-										?>
-
-									<tr>
-										<td><?php echo $txgidocs_track['name'];?></td>
-										<td><?php echo trim($txgidocs_track['email']);?></td>
-										<td><?php echo $txgidocs_track['phone_number'];?></td>
-										<td><?php echo $txgidocs_track['provider_name'];?></td>
-										<td><?php echo $txgidocs_track['dldc_sent_email_date'];?></td>
-										<td><?php echo $txgidocs_sms_status;?></td>
-										<td><?php echo $txgidocs_track['dldc_email_open_date'];?></td>
-										<td><?php echo $txgidocs_track['dldc_email_tiny_url'];?></td>
-										<td><?php echo $resend_sms;?></td>
-									</tr>
-
-									<?php endif;
-											endforeach;?>
-								</tbody>
-
-							</table> -->
-
-
+							<?php echo $table;?>							
 						</form>
 						<!-- Confirm Delete Modal -->
 					

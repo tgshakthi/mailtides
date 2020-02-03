@@ -62,69 +62,7 @@
 										</div>
 									</div>
 								</div>
-								<?php echo $table;?>
-							<!--<table id="datatable-sms"
-								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
-								cellspacing="0">
-
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Cell Phone</th>
-										<th>provider Name</th>
-										<th>SMS Sent Date</th>
-										<th>SMS Status</th>
-										<th>SMS Open Date</th>
-										<th>Tiny Url</th>
-										<th>Resend SMS</th>
-									</tr>
-									<tr id="filters">
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php foreach (($sms_tracks ? $sms_tracks : array()) as $sms_track) : 
-									
-										if(!empty($sms_track['phone_number'])):
-											$user_id = $sms_track['id'];
-											
-											if ($sms_track['sms_link_open'] === '1') {
-												$sms_status = '<span class="label label-success">Open</span>';
-												$resend_sms = '<span class="label label-danger"></span>';
-											} else {
-												$sms_status = '<span class="label label-danger">Not Open</span>';
-												$resend_sms = '<span class="label label-success"><a href="resend_sms/'.$user_id.'">Resend</a></span>';
-											}										
-										?>
-
-									<tr>
-										<td><?php echo $sms_track['name'];?></td>
-										<td><?php echo trim($sms_track['email']);?></td>
-										<td><?php echo $sms_track['phone_number'];?></td>
-										<td><?php echo $sms_track['provider_name'];?></td>
-										<td><?php echo $sms_track['sms_sent_date'];?></td>
-										<td><?php echo $sms_status;?></td>
-										<td><?php echo $sms_track['sms_open_date'];?></td>
-										<td><?php echo $sms_track['sms_tiny_url'];?></td>
-										<td><?php echo $resend_sms;?></td>
-									</tr>
-
-									<?php endif;
-											endforeach;?>
-								</tbody>
-
-							</table>-->
-
-
+								<?php echo $table;?>							
 						</form>
 						<!-- Confirm Delete Modal -->
 					
