@@ -384,7 +384,7 @@ $(document).ready(function () {
 		.addClass('btn btn-default')
 		.text('Save');
 	
-	// Email Tracking Datatable Filter
+	// Email Tracking Datatable Report
 	if ($('#datatable-email').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
@@ -437,8 +437,8 @@ $(document).ready(function () {
 		});
 	}
 
-// SMS Tracking Datatable Filter
-if ($('#datatable-sms').length) {
+	// SMS Tracking Datatable Report
+	if ($('#datatable-sms').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
@@ -490,8 +490,8 @@ if ($('#datatable-sms').length) {
 		});
 	}
 	
-	// FB Email Tracking Datatable Filter
-if ($('#datatable-fb-email').length) {
+	// FB Email Tracking Datatable Report
+	if ($('#datatable-fb-email').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
@@ -542,7 +542,8 @@ if ($('#datatable-fb-email').length) {
 			table.draw();
 		});
 	}
-if ($('#datatable-fb-sms').length) {
+	// FB SMS Tracking Datatable Report
+	if ($('#datatable-fb-sms').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
@@ -593,7 +594,7 @@ if ($('#datatable-fb-sms').length) {
 			table.draw();
 		});
 	}
-	
+	// DLDC Email Tracking Datatable Report
 	if ($('#datatable-dldc-email').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
@@ -646,6 +647,7 @@ if ($('#datatable-fb-sms').length) {
 		});
 	}
 	
+	// DLDC SMS Tracking Datatable Report
 	if ($('#datatable-dldc-sms').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
