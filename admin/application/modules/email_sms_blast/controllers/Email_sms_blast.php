@@ -2079,8 +2079,10 @@ class Email_sms_blast extends MX_Controller
 	{
 		$website_id = $this->admin_header->website_id();
         $facebook_tracks = $this->Email_sms_blast_model->get_facebook_sms_track_data();		
-		foreach (($facebook_tracks ? $facebook_tracks : array()) as $facebook_track) : 									
-			if(!empty($facebook_track['phone_number'])):
+		foreach (($facebook_tracks ? $facebook_tracks : array()) as $facebook_track)
+		{		
+			if(!empty($facebook_track['phone_number']))
+			{
 				$user_id = $facebook_track['id'];
 			
 				if ($facebook_track['fb_link_open'] === '1') {
@@ -2092,10 +2094,8 @@ class Email_sms_blast extends MX_Controller
 				}																																																
 				$this->table->add_row($facebook_track['name'], trim($facebook_track['email']), $facebook_track['phone_number'], $facebook_track['provider_name'], $facebook_track['fb_sent_date'],$fb_sms_status,$facebook_track['fb_open_date'],$facebook_track['fb_tiny_url'],$resend_sms); 
 			}
-		}
-        
+		}      
         // Table open
-        
         $template = array(
             'table_open' => '<table id="datatable-fb-sms"
 								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
