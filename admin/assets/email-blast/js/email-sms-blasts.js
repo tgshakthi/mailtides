@@ -417,7 +417,7 @@ $(document).ready(function () {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$(this).html(
-					'<input type="text" placeholder="Search ' + title + '" />'
+					'<input type="text" placeholder="Search" />'
 				);
 				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
