@@ -386,6 +386,25 @@ $(document).ready(function () {
 	
 	// Email Tracking Datatable Filter
 	if ($('#datatable-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			var startDate = new Date(data[3]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
 		var table = $('#datatable-email').DataTable({
 			pageLength: 200
 		});
