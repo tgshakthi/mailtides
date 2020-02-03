@@ -717,10 +717,9 @@ class Email_sms_blast extends MX_Controller
         // Table open
         
         $template = array(
-            'table_open' => '<table
-            id="datatable-email"
-            class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
-            width="100%" cellspacing="0">'
+            'table_open' => '<table id="datatable-email"
+								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
+								cellspacing="0">'
         );
         $this->table->set_template($template);
         
