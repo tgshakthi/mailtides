@@ -62,11 +62,13 @@
 										</div>
 									</div>
 								</div>
-							 <table id="datatable-email"
+								
+								<?php echo $table;?>
+							<!-- <table id="datatable-email"
 								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
 								cellspacing="0">
 
-								<!--<thead>
+								<thead>
 									<tr>
 										<th>Name</th>
 										<th>Email</th>
@@ -143,9 +145,9 @@
 									</tr>
 									<?php endif;
 										endforeach;?>
-								</tbody> -->
+								</tbody> 
 
-							</table>
+							</table>-->
 
 
 						</form>

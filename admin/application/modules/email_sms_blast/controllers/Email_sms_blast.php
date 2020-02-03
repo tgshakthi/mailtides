@@ -651,6 +651,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
         $data['email_tracks'] = $this->Email_sms_blast_model->get_email_track_data();
+		$data['table'] = $this->get_email_tarcking_campaign();
         $data['heading']    = 'Email Tracking';
         $data['title']      = "Email Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
@@ -660,6 +661,73 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('template/footer_content');
         $this->load->view('script');
         $this->load->view('template/footer');
+	}
+	
+	function get_email_tarcking_campaign()
+	{
+		$website_id = $this->admin_header->website_id();
+        $email_tracks  = $this->Email_sms_blast_model->get_email_track_data();
+
+        $i = 1;
+        foreach (($email_tracks ? $email_tracks : array()) as $email_track) 
+		{
+			if(!empty($email_track['email']))
+			{
+				$user_id = $email_track['id'];
+				$email = $email_track['email'];
+				if(!empty($email_track['name']))
+				{
+					$patient_name = $email_track['name'];
+				}
+				if(!empty($email_track['provider_name']))
+				{
+					$provider_name = $email_track['provider_name'];
+				}
+				
+				if(!empty($email_track['phone_number']))
+				{
+					$phone_number = $email_track['phone_number'];
+				}
+				if(!empty($email_track['email_sent_date']))
+				{
+					$email_sent_date = $email_track['email_sent_date'];
+				}else{
+					$email_sent_date = '';
+				}
+				if(!empty($email_track['email_open_date']))
+				{
+					$email_open_date = $email_track['email_open_date'];
+				}else{
+					$email_open_date = "";
+				}
+				
+				if ($email_track['email_link_open'] === '1') {
+					$email_status = '<span class="label label-success">Open</span>';
+					$resend_status = '<span class="label label-danger"></span>';
+				} else {
+					$email_status = '<span class="label label-danger">Not Open</span>';
+					$resend_status = '<span class="label label-success"><a href="resend_email/'.$user_id.'">Resend</a></span>';
+				}
+				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $patient_name, trim($email), $phone_number, $provider_name, $email_sent_date,$email_status,$email_open_date,$email_track['email_tiny_url'],$resend_status); 
+			           
+				$i++;
+			}
+		}
+        
+        // Table open
+        
+        $template = array(
+            'table_open' => '<table
+            id="datatable-email"
+            class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+            width="100%" cellspacing="0">'
+        );
+        $this->table->set_template($template);
+        
+        // Table heading row
+
+        $this->table->set_heading('S.No', 'Name', 'Email','Cell Phone', 'Provider Name', 'Email Sent Date','Email Status','Email Open Date','Tiny Url','Resend Mail');
+        return $this->table->generate();
 	}
 	
 	function sms_campaign()
