@@ -416,9 +416,6 @@ $(document).ready(function () {
 		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
-				$(this).html(
-					''
-				);
 				$('input', this).on('keyup change', function () {
 					if (table.column(i).search() !== this.value) {
 						table
