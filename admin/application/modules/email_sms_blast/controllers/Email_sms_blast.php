@@ -708,7 +708,7 @@ class Email_sms_blast extends MX_Controller
 					$email_status = '<span class="label label-danger">Not Open</span>';
 					$resend_status = '<span class="label label-success"><a href="resend_email/'.$user_id.'">Resend</a></span>';
 				}
-				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $get_user->id . '">', $patient_name, trim($email), $phone_number, $provider_name, $email_sent_date,$email_status,$email_open_date,$email_track['email_tiny_url'],$resend_status); 
+				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $email_track['id'] . '">', $patient_name, trim($email), $phone_number, $provider_name, $email_sent_date,$email_status,$email_open_date,$email_track['email_tiny_url'],$resend_status); 
 			           
 				$i++;
 			}
