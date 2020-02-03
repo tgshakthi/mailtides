@@ -708,7 +708,7 @@ class Email_sms_blast extends MX_Controller
 					$email_status = '<span class="label label-danger">Not Open</span>';
 					$resend_status = '<span class="label label-success"><a href="resend_email/'.$user_id.'">Resend</a></span>';
 				}
-				$this->table->add_row($i.' <input type="hidden"  id="email_blast_user" class="hidden-user-id" name="row_sort_order[]" value="' . $email_track['id'] . '">', $patient_name, trim($email), $phone_number, $provider_name, $email_sent_date,$email_status,$email_open_date,$email_track['email_tiny_url'],$resend_status); 
+				$this->table->add_row($patient_name, trim($email), $phone_number, $provider_name, $email_sent_date,$email_status,$email_open_date,$email_track['email_tiny_url'],$resend_status); 
 			           
 				$i++;
 			}
@@ -725,7 +725,7 @@ class Email_sms_blast extends MX_Controller
         
         // Table heading row
 
-        $this->table->set_heading('S.No', 'Name', 'Email','Cell Phone', 'Provider Name', 'Email Sent Date','Email Status','Email Open Date','Tiny Url','Resend Mail');
+        $this->table->set_heading('Name', 'Email','Cell Phone', 'Provider Name', 'Email Sent Date','Email Status','Email Open Date','Tiny Url','Resend Mail');
         return $this->table->generate();
 	}
 	
