@@ -391,7 +391,7 @@ $(document).ready(function () {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
 			
-			var startDate = new Date(data[2]);
+			var startDate = new Date(data[4]);
 			if (min == null && max == null) {
 				return true;
 			}
