@@ -2490,7 +2490,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
         $data['facebook_tracks'] = $this->Email_sms_blast_model->get_facebook_email_track_data();
-		
+		$data['table'] = $this->get_fb_email_campaign_table();
         $data['heading']    = 'Facebook Email Tracking';
         $data['title']      = "Facebook Email Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
@@ -2501,7 +2501,40 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('script');
         $this->load->view('template/footer');
 	}
-	
+	function  get_fb_email_campaign_table()
+	{
+		$website_id = $this->admin_header->website_id();
+        $facebook_tracks = $this->Email_sms_blast_model->get_facebook_email_track_data();
+		
+        foreach (($facebook_tracks ? $facebook_tracks : array()) as $facebook_track)
+		{										
+			if(!empty($facebook_track['phone_number']))
+			{
+				$user_id = $facebook_track['id'];				
+				if ($facebook_track['fb_email_link_open'] === '1') {
+					$fb_sms_status = '<span class="label label-success">Open</span>';
+					$resend_sms = '<span class="label label-danger"></span>';
+				} else {
+					$fb_sms_status = '<span class="label label-danger">Not Open</span>';
+					$resend_sms = '<span class="label label-success"><a href="resend_fb_email/'.$user_id.'">Resend</a></span>';
+				}									
+				$this->table->add_row($facebook_track['name'], trim($facebook_track['email']), $facebook_track['phone_number'], $facebook_track['provider_name'], $facebook_track['fb_email_sent_date'],$fb_sms_status,$facebook_track['fb_email_link_open_date'],$facebook_track['fb_email_tiny_url'],$resend_sms); 
+			}
+		}
+        
+        // Table open
+        
+        $template = array(
+            'table_open' => '<table id="datatable-fb-email"
+								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
+								cellspacing="0">'
+        );
+        $this->table->set_template($template);
+        
+        // Table heading row
+        $this->table->set_heading('Name', 'Email','Cell Phone', 'Provider Name', 'Fb Email Sent Date','Fb Email Status','Fb Email Open Date','Tiny Url','Resend Fb Email');
+        return $this->table->generate();
+	}
 	// Resend Fb Email
 	function resend_fb_email($user_id)
 	{
