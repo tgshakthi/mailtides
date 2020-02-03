@@ -438,74 +438,57 @@ $(document).ready(function () {
 	}
 
 // SMS Tracking Datatable Filter
-if ($('#datatable-sms').length) {		
-var table =	$('#datatable-sms').DataTable({
-		pageLength: 100,
-		initComplete: function () {
-			this.api()
-				.columns(3)
-				.every(function () {
-					var column = this;
-					if (column.index() == 3) {
-						var select = $('<select><option value=""></option></select>')
-							.appendTo(
-								$('#filters')
-								.find('th')
-								.eq(column.index())
-							)
-							.on('change', function () {
-								var val = $.fn.dataTable.util.escapeRegex($(this).val());
-								column
-									.search(val ? '^' + val + '$' : '', true, false)
-									.draw();
-							});
+if ($('#datatable-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
 
-						column
-							.data()
-							.unique()
-							.sort()
-							.each(function (d, j) {
-								select.append('<option value="' + d + '">' + d + '</option>');
-							});
-					}
-				});
-			this.api()
-				.columns(4)
-				.every(function () {
-					var column = this;
-					if (column.index() == 4) {
-						var select = $('<select><option value=""></option></select>')
-							.appendTo(
-								$('#filters')
-								.find('th')
-								.eq(column.index())
-							)
-							.on('change', function () {
-								var val = $.fn.dataTable.util.escapeRegex($(this).val());
-								column
-									.search(val ? '^' + val + '$' : '', true, false)
-									.draw();
-							});
+		var table = $('#datatable-sms').DataTable({
+			"pageLength": 200
+		});
 
-						column
-							.data()
-							.unique()
-							.sort()
-							.each(function (d, j) {
-								select.append('<option value="' + d + '">' + d + '</option>');
-							});
+		$('#datatable-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
 					}
 				});
 			}
-		
 		});
+
 		// Event listener to the two range filtering inputs to redraw on input
 		$('#min, #max').change(function () {
 			table.draw();
 		});
 	}
-
-});
 
 // Graphical Reports
 if ($('#mybarChart').length) {

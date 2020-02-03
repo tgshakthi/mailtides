@@ -1012,7 +1012,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
         $data['sms_tracks'] = $this->Email_sms_blast_model->get_sms_track_data();
-		
+		$data['table'] = $this->get_sms_tarcking_campaign();
         $data['heading']    = 'SMS Tracking';
         $data['title']      = "SMS Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
@@ -1022,6 +1022,42 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('template/footer_content');
         $this->load->view('script');
         $this->load->view('template/footer');
+	}
+	
+	function get_sms_tarcking_campaign()
+	{
+		$website_id = $this->admin_header->website_id();
+        $sms_tracks  = $this->Email_sms_blast_model->get_sms_track_data();
+
+        $i = 1;
+		foreach (($sms_tracks ? $sms_tracks : array()) as $sms_track) : 
+									
+			if(!empty($sms_track['phone_number'])):
+				$user_id = $sms_track['id'];
+				
+				if ($sms_track['sms_link_open'] === '1') {
+					$sms_status = '<span class="label label-success">Open</span>';
+					$resend_sms = '<span class="label label-danger"></span>';
+				} else {
+					$sms_status = '<span class="label label-danger">Not Open</span>';
+					$resend_sms = '<span class="label label-success"><a href="resend_sms/'.$user_id.'">Resend</a></span>';
+				}
+				$this->table->add_row($sms_track['name'], trim($sms_track['email']), $sms_track['phone_number'], $sms_track['provider_name'], $sms_track['sms_sent_date'],$sms_status,$sms_track['sms_open_date'],$sms_track['sms_tiny_url'],$resend_sms); 				
+			endif;
+		endforeach;
+		
+        // Table open       
+        $template = array(
+            'table_open' => '<table id="datatable-email"
+								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
+								cellspacing="0">'
+        );
+        $this->table->set_template($template);
+        
+        // Table heading row
+
+        $this->table->set_heading('Name', 'Email','Cell Phone', 'Provider Name', 'SMS Sent Date','SMS Status','SMS Open Date','Tiny Url','Resend SMS');
+        return $this->table->generate();
 	}
 	
 	//Single Patient Insert 
