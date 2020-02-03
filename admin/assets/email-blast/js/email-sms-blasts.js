@@ -386,7 +386,25 @@ $(document).ready(function () {
 	
 	// Email Tracking Datatable Filter
 	if ($('#datatable-email').length) {
-	// Datatable - One ( Master Campaign Datepicker Filter)		
+	// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			var startDate = new Date(data[3]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});	
 	var $table = $('#datatable-email').DataTable({
 		pageLength: 100,
 		initComplete: function () {
@@ -440,6 +458,20 @@ $(document).ready(function () {
 							.each(function (d, j) {
 								select.append('<option value="' + d + '">' + d + '</option>');
 							});
+					}
+				});
+			}
+			
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (column(i).search() !== this.value) {
+							.column(i)
+							.search(this.value)
+							.draw();
 					}
 				});
 			}
