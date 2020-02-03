@@ -387,10 +387,7 @@ $(document).ready(function () {
 	// Email Tracking Datatable Filter
 	if ($('#datatable-email').length) {
 		var table = $('#datatable-email').DataTable({
-			pageLength: 200,
-			dom: 'Bfrtip',
-			orderCellsTop: true,
-			responsive: !0
+			pageLength: 200
 		});
 
 		// Clone Previous Row for filter input
