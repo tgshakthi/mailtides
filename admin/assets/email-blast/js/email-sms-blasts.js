@@ -844,7 +844,7 @@ if ($('#mybarChart').length) {
 			}
 		});
 	}
-
+}
 }
 //onchage function for campaign id
  $(document).ready(function () {
