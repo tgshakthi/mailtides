@@ -390,7 +390,8 @@ $(document).ready(function () {
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
-			var startDate = new Date(data[3]);
+			
+			var startDate = new Date(data[2]);
 			if (min == null && max == null) {
 				return true;
 			}
