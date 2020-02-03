@@ -3550,7 +3550,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['website_id'] = $this->admin_header->website_id();
         $data['txgidocs_tracks'] = $this->Email_sms_blast_model->get_txgidocs_sms_track_data();
-		
+		$data['table'] = $this->get_dldc_sms_campaign_table();
         $data['heading']    = 'Txgidocs SMS Tracking';
         $data['title']      = "Txgidocs SMS Tracking | Administrator";
         $this->load->view('template/meta_head', $data);
@@ -3561,6 +3561,39 @@ class Email_sms_blast extends MX_Controller
         $this->load->view('script');
         $this->load->view('template/footer');
 	}
+	
+	function get_dldc_sms_campaign_table()
+	{
+		$website_id = $this->admin_header->website_id();
+        $txgidocs_tracks = $this->Email_sms_blast_model->get_txgidocs_sms_track_data();		
+		foreach (($txgidocs_tracks ? $txgidocs_tracks : array()) as $txgidocs_track)
+		{							
+			if(!empty($txgidocs_track['phone_number']))
+			{
+				$user_id = $txgidocs_track['id'];											
+				if ($txgidocs_track['dldc_sms_open_link'] === '1') {
+					$txgidocs_sms_status = '<span class="label label-success">Open</span>';
+					$resend_sms = '<span class="label label-danger"></span>';
+				} else {
+					$txgidocs_sms_status = '<span class="label label-danger">Not Open</span>';
+					$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
+				}	
+				$this->table->add_row($txgidocs_track['name'], trim($txgidocs_track['email']), $txgidocs_track['phone_number'], $txgidocs_track['provider_name'], $txgidocs_track['dldc_sms_sent_date'],$txgidocs_sms_status,$txgidocs_track['dldc_sms_open_date'],$txgidocs_track['dldc_sms_tiny_url'],$resend_sms); 
+			}
+		}      
+        // Table open
+        $template = array(
+            'table_open' => '<table id="datatable-dldc-sms"
+								class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%"
+								cellspacing="0">'
+        );
+        $this->table->set_template($template);
+        
+        // Table heading row
+        $this->table->set_heading('Name', 'Email','Cell Phone', 'Provider Name', 'DLDC SMS Sent Date','DLDC SMS Status','DLDC SMS Open Date','Tiny Url','Resend DLDC SMS');
+        return $this->table->generate();	
+	}
+	
 	
 	function resend_dldc_sms($user_id)
 	{
