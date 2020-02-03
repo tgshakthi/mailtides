@@ -424,6 +424,7 @@ $(document).ready(function () {
 						table
 							.column(i)
 							.search(this.value)
+							.sort()
 							.draw();
 					}
 				});
