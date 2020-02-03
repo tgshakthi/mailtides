@@ -417,9 +417,9 @@ $(document).ready(function () {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
 				$('input', this).on('keyup change', function () {
-					if (table.column(i).search() !== this.value) {
+					if (table.column(5).search() !== this.value) {
 						table
-							.column(i)
+							.column(5)
 							.search(this.value)
 							.sort()
 							.draw();
