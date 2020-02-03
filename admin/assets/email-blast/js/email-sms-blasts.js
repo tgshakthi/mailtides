@@ -490,6 +490,8 @@ if ($('#datatable-sms').length) {
 		});
 	}
 
+});
+
 // Graphical Reports
 if ($('#mybarChart').length) {
 	var f = document.getElementById('mybarChart').getContext("2d");
@@ -844,7 +846,7 @@ if ($('#mybarChart').length) {
 			}
 		});
 	}
-}
+
 }
 //onchage function for campaign id
  $(document).ready(function () {
