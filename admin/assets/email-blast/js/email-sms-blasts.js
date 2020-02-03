@@ -489,7 +489,214 @@ if ($('#datatable-sms').length) {
 			table.draw();
 		});
 	}
+	
+	// FB Email Tracking Datatable Filter
+if ($('#datatable-fb-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
 
+		var table = $('#datatable-fb-email').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-fb-email>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-fb-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+if ($('#datatable-fb-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-fb-sms').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-fb-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-fb-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
+	if ($('#datatable-dldc-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-dldc-email').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-dldc-email>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-dldc-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
+	if ($('#datatable-dldc-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-dldc-sms').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-dldc-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-dldc-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
 });
 
 // Graphical Reports
