@@ -725,7 +725,7 @@ class Email_sms_blast extends MX_Controller
         
         // Table heading row
 
-        $this->table->set_heading('S.No', 'Name', 'Email','Cell Phone', 'Provider Name', 'Email Sent Date','Email Status','Email Open Date','Tiny Url','Resend Mail');
+        // $this->table->set_heading('S.No', 'Name', 'Email','Cell Phone', 'Provider Name', 'Email Sent Date','Email Status','Email Open Date','Tiny Url','Resend Mail');
         return $this->table->generate();
 	}
 	
