@@ -414,18 +414,18 @@ $(document).ready(function () {
 			.clone(true)
 			.appendTo('#datatable-email thead');
 		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
-			var title = $(this).text();
-			if (title.length > 0 && title != 'S.No') {
+			// var title = $(this).text();
+			// if (title.length > 0 && title != 'S.No') {
 				$('input', this).on('keyup change', function () {
-					if (table.column(5).search() !== this.value) {
+					if (table.column(i).search() !== this.value) {
 						table
-							.column(5)
+							.column(i)
 							.search(this.value)
 							.sort()
 							.draw();
 					}
 				});
-			}
+			// }
 		});
 
 		// Event listener to the two range filtering inputs to redraw on input
