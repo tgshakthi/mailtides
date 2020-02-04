@@ -109,7 +109,7 @@ class Email_link_open extends MX_Controller
 	{
 		if(isset($user_id))
 		{
-			$this->load->library('session');
+			session_start();
 			$_SESSION["tiny_url"] = "dldc_reviews";
 			//DLDC SMS Link
 			$campaign_tiny_urls = $this->Email_link_open_model->get_campaign_category('10');
