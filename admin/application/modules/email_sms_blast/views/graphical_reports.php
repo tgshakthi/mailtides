@@ -53,6 +53,19 @@
               </div>
             </div>
           </div>
+		  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">							
+				<div class="email-blast-date">
+			
+					<div>
+						<label>From Date:</label>
+						<input type="text" id="min">
+					</div>
+					<div>
+						<label>To Date:</label>
+						<input type="text" id="max">
+					</div>
+				</div>
+			</div>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">
