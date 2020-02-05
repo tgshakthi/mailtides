@@ -243,9 +243,9 @@ function include_style(string $url, string $version='', string $path=''){
 	id="preview" title="Preview" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
 	class="glyphicon glyphicon-zoom-in"></span></button>
 
-<button class="btn btn-lg setting-red btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button"
+<!--<button class="btn btn-lg setting-red btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button"
 	id="setting" title="Layout Options" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
-	class="fa fa-cog fa-spin"></span></button>
+	class="fa fa-cog fa-spin"></span></button>-->
 
 <div id="alerts"></div>
 
