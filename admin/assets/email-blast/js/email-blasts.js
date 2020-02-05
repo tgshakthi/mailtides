@@ -1047,7 +1047,6 @@ if ($('#mybarChart_type').length) {
 						}
 					}
 				});
-
 				window.bar = chart;
 			}
 		});
