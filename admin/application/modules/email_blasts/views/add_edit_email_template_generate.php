@@ -218,23 +218,23 @@ function include_style(string $url, string $version='', string $path=''){
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <ul>
       <li>
-      <a href="http://localhost/mail-editor/#no-sidebar" class="btn" id="no-sidebar">
-      <img src="assets/img/no-sidebar.jpg" class="img-responsive" alt="">
+      <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar" class="btn" id="no-sidebar">
+      <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/no-sidebar.jpg" class="img-responsive" alt="">
       <span>No Sidebar</span></a>
       </li>
       <li>
-      <a href="http://localhost/mail-editor/#left-sidebar" class="btn " id="left-sidebar">
-      <img src="assets/img/left-sidebar.jpg" class="img-responsive" alt="">
+      <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#left-sidebar" class="btn " id="left-sidebar">
+      <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/left-sidebar.jpg" class="img-responsive" alt="">
       <span>Left Sidebar</span></a>
       </li>
       <li>
-      <a href="http://localhost/mail-editor/#right-sidebar" class="btn" id="right-sidebar">
-      <img src="assets/img/right-sidebar.jpg" class="img-responsive" alt="">
+      <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#right-sidebar" class="btn" id="right-sidebar">
+      <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/right-sidebar.jpg" class="img-responsive" alt="">
       <span>Right Sidebar</span></a>
           </li>
           <li>
-          <a href="http://localhost/mail-editor/#both-sidebar" class="btn" id="both-sidebar">
-          <img src="assets/img/both-sidebar.jpg" class="img-responsive" alt="">
+          <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#both-sidebar" class="btn" id="both-sidebar">
+          <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/both-sidebar.jpg" class="img-responsive" alt="">
           <span>Both Sidebar</span></a>
           </li>
   </ul>
