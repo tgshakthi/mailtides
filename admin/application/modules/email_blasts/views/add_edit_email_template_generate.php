@@ -68,8 +68,8 @@ function include_style(string $url, string $version='', string $path=''){
 
         // console.log(window.location.href);
 
-        if (window.location.href == "http://localhost/mail-editor/") {
-            window.location.href = "http://localhost/mail-editor/#no-sidebar";
+        if (window.location.href == "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/") {
+            window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar";
         } 
 
         // if (window.location.href == "http://localhost/mail-editor/#left-sidebar") {
@@ -492,20 +492,7 @@ function include_style(string $url, string $version='', string $path=''){
             </div>
         </div>
     </div>
-    <script src="https://use.fontawesome.com/86c8941095.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootbox.min.js"></script>
-    <script src="assets/js/debounce.js"></script>
-    <script src="assets/js/bootstrap-colorpicker.min.js"></script>
-    <script src="assets/js/bootstrap-slider.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
-    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
-    <?=include_script('assets/js/creative.tools.js'); ?>
-    <?=include_script('assets/js/html2canvas.js'); ?>
-    <?=include_script('assets/js/image-edit.js'); ?>
-    <?=include_script('assets/js/editor.js'); ?>
+    
 
 
     <script>
@@ -515,22 +502,22 @@ function include_style(string $url, string $version='', string $path=''){
         const bothSideBarBtn = document.querySelector('#both-sidebar');
 
         leftSideBarBtn.addEventListener('click', () => {
-            window.location.href = "http://localhost/mail-editor/#left-sidebar";
+            window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#left-sidebar";
             window.location.reload();
         });
 
         noSideBarBtn.addEventListener('click', () => {
-            window.location.href = "http://localhost/mail-editor/#no-sidebar";
+            window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar";
             window.location.reload();
         });
 
         rightSideBarBtn.addEventListener('click', () => {
-            window.location.href = "http://localhost/mail-editor/#right-sidebar";
+            window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#right-sidebar";
             window.location.reload();
         });
 
         bothSideBarBtn.addEventListener('click', () => {
-            window.location.href = "http://localhost/mail-editor/#both-sidebar";
+            window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#both-sidebar";
             window.location.reload();
         });
 
