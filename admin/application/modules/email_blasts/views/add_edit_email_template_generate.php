@@ -181,24 +181,6 @@ function include_style(string $url, string $version='', string $path=''){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>MAIL EDITOR</title>
-
-    <?=include_style('assets/css/bootstrap.min.css'); ?>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <?=include_style('assets/css/bootstrap-colorpicker.min.css'); ?>
-    <?=include_style('assets/css/bootstrap-slider.min.css'); ?>
-    <?=include_style('assets/plugins/medium-editor/medium-editor.min.css'); ?>
-    <?=include_style('assets/plugins/medium-editor/template.min.css'); ?>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <?=include_style('assets/css/style.css'); ?>
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
