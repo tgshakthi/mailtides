@@ -2495,7 +2495,6 @@
 			data = data.replace(/(<button.*?>.*?<\/button>)/g,'');
 		console.log($button);
 		$button.tooltip('hide');
-		console.log($button);
 		$button.prop('disabled',true);
 		
 		$("#modal").createModal({
@@ -2512,7 +2511,7 @@
 			$("#modal #dd-body-background").css({
 				height:'',
 			});
-			
+			console.log($this);
 			setTimeout(function(){
 				var RD = $("#modal #dd-body-background table[data-edit]") || [],
 					RDmax = RD.length,
