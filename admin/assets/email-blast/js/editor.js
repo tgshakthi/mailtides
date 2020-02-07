@@ -2498,10 +2498,10 @@ $(document).on('click','#form-submit', function(e){
 			// }
 			// else
 			// {
-				var $template = $("#saved-template"),
+				/* var $template = $("#saved-template"),
 					oldHTML = $template.html(),
 					body = '<body>' + oldHTML + '</body>',
-					currentAttachments = $.storage('attachments');	
+					currentAttachments = $.storage('attachments');	 */
 				
 				if(null === currentAttachments || currentAttachments.length === 0){
 					currentAttachments = '';
