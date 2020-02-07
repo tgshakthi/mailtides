@@ -275,9 +275,11 @@ function include_style(string $url, string $version='', string $path=''){
 		<button class="btn btn-lg preview-green btn-materialize btn-left-bottom btn-left-bottom-1 hidden" type="button"
         id="preview" title="Preview" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
             class="glyphicon glyphicon-zoom-in"></span></button>
-		<form method="post" action="" class="btn btn-lg layout-blue btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button" id="form_submit_data">
-			<span class="glyphicon glyphicon-paperclip"></span><input type="submit" name="submit" value="submit"></form>
 		
+		<form method="post" 
+			class="btn btn-lg layout-blue btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button"
+			id="form_submit_data" data-toggle="tooltip" data-placement="left" data-trigger="hover">
+			<span class="glyphicon glyphicon-paperclip"></span><input type="submit" name="submit" value="submit"></form>
 
 			<button class="btn btn-lg setting-red btn-materialize btn-left-bottom btn-left-bottom-3 hidden" type="button"
 				id="setting" title="Layout Options" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
