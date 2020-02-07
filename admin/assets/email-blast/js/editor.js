@@ -2482,7 +2482,7 @@
 }(window.jQuery || window.Zepto));
 
 $(document).on('click','#form-submit', function(e){
-	alert('test');
+	alert('form-submit');
 	e.preventDefault();
 	var $button = $(this);	
 	$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {}).done(function(returns){
