@@ -2520,9 +2520,9 @@
 					IRmax = IR.length,
 					RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
 					REmax = RE.length;
-					alert(RD);
-					alert(IR);
-					alert(RE);
+					console.log(RD);
+					console.log(IR);
+					console.log(RE);
 					alert(RDmax);
 					alert(IRmax);
 					alert(REmax);
