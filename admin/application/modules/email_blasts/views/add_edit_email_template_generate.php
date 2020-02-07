@@ -195,7 +195,7 @@ function include_style(string $url, string $version='', string $path=''){
                 <!-- <a href="http://localhost/mail-editor/#left-sidebar" class="btn btn-primary" id="left-sidebar">Left Sidebar</a> -->
             </div>
         </div>
-       
+       <form action="" id="form_submit">
         <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <ul>
@@ -275,7 +275,8 @@ function include_style(string $url, string $version='', string $path=''){
         <div class="container-content hidden" id="mail-template">
             Content
         </div>
-
+		<input type="submit" id="submit" value="Submit">
+		</form>
 
     </div>
     <div id="modal" class="reset-this"></div>
