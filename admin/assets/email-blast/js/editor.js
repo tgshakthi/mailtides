@@ -2485,19 +2485,19 @@ $(document).on('click','#form-submit', function(e){
 	alert('test');
 		e.preventDefault();
 		var $button = $(this),
-			$input = $('#test-input'),
-			val = $input.val().trim();
+			// $input = $('#test-input'),
+			// val = $input.val().trim();
 		
-		$input.parent().parent().find('.alert').remove();
+		// $input.parent().parent().find('.alert').remove();
 		
-		if(val.length > 0)
-		{
-			if($.validate(val, 'EMAIL')===false)
-			{
-				$input.parent().after('<div class="alert alert-warning" role="alert">Email address have wrong format.</div>');
-			}
-			else
-			{
+		// if(val.length > 0)
+		// {
+			// if($.validate(val, 'EMAIL')===false)
+			// {
+				// $input.parent().after('<div class="alert alert-warning" role="alert">Email address have wrong format.</div>');
+			// }
+			// else
+			// {
 				var $template = $("#saved-template"),
 					oldHTML = $template.html(),
 					body = '<body>' + oldHTML + '</body>',
@@ -2522,8 +2522,8 @@ $(document).on('click','#form-submit', function(e){
 					console.log(a,b,c);
 					$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
 				});
-			}
-		}
-		else
-			$input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
+			// }
+		// }
+		// else
+			// $input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
 	});
