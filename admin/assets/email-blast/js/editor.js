@@ -2481,100 +2481,48 @@
 	
 }(window.jQuery || window.Zepto));
 
-/* Form Submit */
-	$("#form-submit").on('click touchstart',function(e){
-		alert('test');
-		// console.log(e);
+$(document).on('click','#form-submit', function(e){
 		e.preventDefault();
-		
-        /* MediumEditorHook.clean();
-        totalCleaner(); */
-        
 		var $button = $(this),
-			data = $("#mail-template").html();
-			data = data.replace(/(<button.*?>.*?<\/button>)/g,'');
-		console.log($button);
-		$button.tooltip('hide');
-		$button.prop('disabled',true);
+			$input = $('#test-input'),
+			val = $input.val().trim();
 		
-		$("#modal").createModal({
-			header		: "Mail Preview",
-			content		: data,
-			footer		: "",
-			keyboard 	: true,
-			static 		: true,
-			close		: true,
-			large		: true,
-			class		: 'modal-preview'
-		},
-		function($this){
-			$("#modal #dd-body-background").css({
-				height:'',
-			});
-			console.log($this);
-			setTimeout(function(){
-				var RD = $("#modal #dd-body-background table[data-edit]") || [],
-					RDmax = RD.length,
-					IR = $("#modal #dd-body-background img") || [],
-					IRmax = IR.length,
-					RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
-					REmax = RE.length;
-					console.log(RD);
-					console.log(IR);
-					console.log(RE);
-					alert(RDmax);
-					alert(IRmax);
-					alert(REmax);
-				$('#modal #dd-body-background .overly').remove();
-				console.log(RD.length);
-				console.log(IR.length);
-				console.log(RE.length);
-				for(i=0; i < RDmax; i++)
+		$input.parent().parent().find('.alert').remove();
+		
+		if(val.length > 0)
+		{
+			if($.validate(val, 'EMAIL')===false)
+			{
+				$input.parent().after('<div class="alert alert-warning" role="alert">Email address have wrong format.</div>');
+			}
+			else
+			{
+				var $template = $("#saved-template"),
+					oldHTML = $template.html(),
+					body = '<body>' + oldHTML + '</body>',
+					currentAttachments = $.storage('attachments');	
+				
+				if(null === currentAttachments || currentAttachments.length === 0){
+					currentAttachments = '';
+				}
+				
+				$.post('http://txgidocs.mailtides.com/admin/email_blasts/test-email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
+					if(returns == 'true')
 					{
-					$(RD[i]).css({
-						width : $(RD[i]).parent().width() + 'px'
-					});
-					$(RD[i]).find('tr > td').css({
-						padding:'15px 15px'
-					});
-					
-					$(RD[i]).find('table tr > td').css({
-						padding:'15px 15px'
-					});
-				}
-				console.log(RD.css);
-				console.log(RD.css);
-				console.log(RD.css);
-				for(j=0; j < IRmax; j++)
-				{
-					$(IR[j]).css({
-						width : '100%',
-						height : 'auto'
-					})
-					.removeAttr('class');
-				}
-				
-				for(r=0; r < REmax; r++)
-				{
-					var rem = $(RE[r]).html().trim();
-					if(rem == '')
-						$(RE[r]).remove();
-				}
-				
-				setTimeout(function(){
-					var AE = $("#modal .modal-body *"),
-						AEmax = AE.length;
-				
-					for(k=0; k < AEmax; k++)
-					{
-						$(AE[k])
-							.removeAttr('class')
-							.removeAttr('data-edit')
-							.removeAttr('id');
+						$input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
+						$input.parent().remove();
+						$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
 					}
-					
-					$button.prop('disabled',false);
-				},50);
-			},200);
-		});
+					else
+					{
+						$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
+					}
+				}).fail(function(a,b,c){
+					console.log(a,b,c);
+					$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
+				});
+			}
+		}
+		else
+			$input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
 	});

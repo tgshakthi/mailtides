@@ -3320,4 +3320,11 @@ class Email_blasts extends MX_Controller
 		}
 		redirect('email_blasts/send_sms_import_data_view');
 	}
+	
+	function test_email()
+	{
+		echo '<pre>';
+		print_r($_POST);
+		die;
+	}
 }
