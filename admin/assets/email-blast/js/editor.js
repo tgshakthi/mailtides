@@ -2520,11 +2520,14 @@
 					IRmax = IR.length,
 					RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
 					REmax = RE.length;
+					alert(RDmax);
+					alert(IRmax);
+					alert(REmax);
 				$('#modal #dd-body-background .overly').remove();
 				console.log(RD.length);
 				console.log(IR.length);
 				console.log(RE.length);
-				 for(i=0; i < RDmax; i++)
+				for(i=0; i < RDmax; i++)
 					{
 					$(RD[i]).css({
 						width : $(RD[i]).parent().width() + 'px'
