@@ -2498,7 +2498,7 @@
 		
 		$button.prop('disabled',true);
 		
-		$("#modal").createModal({
+		$("#modal1").createModal({
 			header		: "Mail Preview",
 			content		: data,
 			footer		: "",
