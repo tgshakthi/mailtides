@@ -2493,7 +2493,7 @@
 		var $button = $(this),
 			data = $("#mail-template").html();
 			data = data.replace(/(<button.*?>.*?<\/button>)/g,'');
-		
+		alert($button);
 		$button.tooltip('hide');
 		
 		$button.prop('disabled',true);
