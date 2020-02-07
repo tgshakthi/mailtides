@@ -2487,8 +2487,8 @@
 		// console.log(e);
 		e.preventDefault();
 		
-        MediumEditorHook.clean();
-        totalCleaner();
+        /* MediumEditorHook.clean();
+        totalCleaner(); */
         
 		var $button = $(this),
 			data = $("#mail-template").html();
