@@ -2483,47 +2483,24 @@
 
 $(document).on('click','#form-submit', function(e){
 	alert('test');
-		e.preventDefault();
-		var $button = $(this),
-			// $input = $('#test-input'),
-			// val = $input.val().trim();
-		
-		// $input.parent().parent().find('.alert').remove();
-		
-		// if(val.length > 0)
-		// {
-			// if($.validate(val, 'EMAIL')===false)
-			// {
-				// $input.parent().after('<div class="alert alert-warning" role="alert">Email address have wrong format.</div>');
-			// }
-			// else
-			// {
-				/* var $template = $("#saved-template"),
-					oldHTML = $template.html(),
-					body = '<body>' + oldHTML + '</body>',
-					currentAttachments = $.storage('attachments');	 */
-				
-				if(null === currentAttachments || currentAttachments.length === 0){
-					currentAttachments = '';
-				}
-				
-				$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
-					if(returns == 'true')
-					{
-						$input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
-						$input.parent().remove();
-						$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
-					}
-					else
-					{
-						$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
-					}
-				}).fail(function(a,b,c){
-					console.log(a,b,c);
-					$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
-				});
-			// }
-		// }
-		// else
-			// $input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
+	e.preventDefault();
+	var $button = $(this),		
+	$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
+		if(returns == 'true')
+		{
+			alert('if');
+			/* $input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
+			$input.parent().remove();
+			$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
+		 */
+		}
+		else
+		{
+			alert('else');
+			// $input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
+		}
+	}).fail(function(a,b,c){
+		console.log(a,b,c);
+		$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
 	});
+});
