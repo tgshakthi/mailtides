@@ -469,14 +469,12 @@ function include_style(string $url, string $version='', string $path=''){
                         class="glyphicon glyphicon-ok"></span> I'm Done</button>
                 <button class="btn btn-primary btn-sm" type="button" id="test"><span
                         class="glyphicon glyphicon-envelope"></span> Send Test</button>
-                <button class="btn btn-danger btn-sm" type="button" id="delete"><span
-                        class="glyphicon glyphicon-remove-sign"></span> Delete Project</button>
+                <!--<button class="btn btn-danger btn-sm" type="button" id="delete"><span
+                        class="glyphicon glyphicon-remove-sign"></span> Delete Project</button>-->
             </div>
         </div>
     </div>
     
-
-
     <script>
         const leftSideBarBtn = document.querySelector('#left-sidebar');
         const rightSideBarBtn = document.querySelector('#right-sidebar');
