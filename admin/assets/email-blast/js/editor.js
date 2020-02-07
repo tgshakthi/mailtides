@@ -1974,7 +1974,7 @@
 					currentAttachments = '';
 				}
 				
-				$.post('http://txgidocs.mailtides.com/admin/assets/email-blast/include/test-email.php', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
+				$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
 					if(returns == 'true')
 					{
 						$input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
