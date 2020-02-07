@@ -226,16 +226,16 @@ function include_style(string $url, string $version='', string $path=''){
         <div class="text-center" style="display:none">
                             <div id="choose-template" class="text-center hidden">
                                 <button class="choose" type="button" data-id="no-sidebar"><img
-                                        src="assets/img/no-sidebar.jpg" class="img-responsive" alt=""><span>No Sidebar
+                                        src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/no-sidebar.jpg" class="img-responsive" alt=""><span>No Sidebar
                                         (wide)</span></button>
                                 <button class="choose" type="button" data-id="left-sidebar"><img
-                                        src="assets/img/left-sidebar.jpg" class="img-responsive" alt=""><span>Left
+                                        src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/left-sidebar.jpg" class="img-responsive" alt=""><span>Left
                                         Sidebar</span></button>
                                 <button class="choose" type="button" data-id="right-sidebar"><img
-                                        src="assets/img/right-sidebar.jpg" class="img-responsive" alt=""><span>Right
+                                        src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/right-sidebar.jpg" class="img-responsive" alt=""><span>Right
                                         Sidebar</span></button>
                                 <button class="choose" type="button" data-id="both-sidebar"><img
-                                        src="assets/img/both-sidebar.jpg" class="img-responsive" alt=""><span>Both
+                                        src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/both-sidebar.jpg" class="img-responsive" alt=""><span>Both
                                         Sidebars</span></button>
                             </div>
                         </div>
