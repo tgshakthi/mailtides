@@ -2490,8 +2490,8 @@ $(document).on('click','#form-submit', function(e){
 		{
 			alert('if');
 			/* $input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
-			$input.parent().remove();
-			$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
+				$input.parent().remove();
+				$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
 			*/
 		}
 		else
