@@ -2484,6 +2484,15 @@
 $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
 	e.preventDefault();
+	var RD = $("#modal #dd-body-background table[data-edit]") || [],
+		RDmax = RD.length,
+		IR = $("#modal #dd-body-background img") || [],
+		IRmax = IR.length,
+		RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
+		REmax = RE.length;
+		alert(RDmax);
+		alert(IRmax);
+		alert(REmax);
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
