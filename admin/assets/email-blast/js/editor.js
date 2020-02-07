@@ -2485,7 +2485,7 @@ $(document).on('click','#form-submit', function(e){
 	alert('test');
 	e.preventDefault();
 	var $button = $(this);	
-	$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
+	$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {}).done(function(returns){
 		if(returns == 'true')
 		{
 			alert('if');
