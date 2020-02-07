@@ -277,10 +277,7 @@ function include_style(string $url, string $version='', string $path=''){
             class="glyphicon glyphicon-zoom-in"></span></button>
 		<form method="post" action="" class="btn btn-lg layout-blue btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button" id="form_submit_data">
 			<span class="glyphicon glyphicon-paperclip"></span><input type="submit" name="submit" value="submit"></form>
-		<form method="post" enctype="multipart/form-data"
-			class="btn btn-lg layout-blue btn-materialize btn-left-bottom btn-left-bottom-2 hidden" type="button"
-			id="attachment" title="Attachment 7Mb Max" data-toggle="tooltip" data-placement="left" data-trigger="hover">
-			<span class="glyphicon glyphicon-paperclip"></span><input type="file" name="attachment[]"></form>
+		
 
 			<button class="btn btn-lg setting-red btn-materialize btn-left-bottom btn-left-bottom-3 hidden" type="button"
 				id="setting" title="Layout Options" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
