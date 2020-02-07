@@ -2484,11 +2484,11 @@
 $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
 	e.preventDefault();
-	var RD = $("#modal #dd-body-background table[data-edit]") || [],
+	var RD = $("#dd-body-background table[data-edit]") || [],
 		RDmax = RD.length,
-		IR = $("#modal #dd-body-background img") || [],
+		IR = $("#dd-body-background img") || [],
 		IRmax = IR.length,
-		RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
+		RE = $("#dd-head, #dd-body, #dd-footer, #dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
 		alert(RDmax);
 		alert(IRmax);
