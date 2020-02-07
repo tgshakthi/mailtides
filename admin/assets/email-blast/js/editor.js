@@ -2495,7 +2495,7 @@
 			data = data.replace(/(<button.*?>.*?<\/button>)/g,'');
 		console.log($button);
 		$button.tooltip('hide');
-		
+		console.log($button);
 		$button.prop('disabled',true);
 		
 		$("#modal").createModal({
