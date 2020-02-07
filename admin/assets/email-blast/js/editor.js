@@ -2484,23 +2484,13 @@
 $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
 	e.preventDefault();
-	var $button = $(this);	
-	$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {}).done(function(returns){
-		if(returns == 'true')
-		{
-			alert('if');
-			/* $input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
-				$input.parent().remove();
-				$button.text('Done').attr({'data-dismiss':'modal', 'id':null}).removeClass('btn-success').addClass('btn-primary').prepend('<span class="glyphicon glyphicon-ok"></span> ');
-			*/
-		}
-		else
-		{
-			alert('else');
-			// $input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
-		}
-	}).fail(function(a,b,c){
-		console.log(a,b,c);
-		$input.parent().after('<div class="alert alert-danger" role="alert">Some error happen, can\'t send email.</div>');
-	});
+	$.ajax({
+		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
+		type: 'POST',
+		data: {
+			'test' : 'test'
+		},
+		cache: false
+		
+	})
 });
