@@ -275,7 +275,7 @@ function include_style(string $url, string $version='', string $path=''){
 		<button class="btn btn-lg preview-green btn-materialize btn-left-bottom btn-left-bottom-1 hidden" type="button"
         id="preview" title="Preview" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
             class="glyphicon glyphicon-zoom-in"></span></button>
-		<form action="" method="POST">
+		<form action="" method="POST" id="form-submit">
 			<input type="submit" id="data-submit" value="SUBMIT">
 		</form>
 

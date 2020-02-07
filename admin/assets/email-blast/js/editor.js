@@ -2480,3 +2480,96 @@
 	});
 	
 }(window.jQuery || window.Zepto));
+
+/* Form Submit */
+	$("#form-submit").on('click touchstart',function(e){
+		alert('test');
+		// console.log(e);
+		e.preventDefault();
+		
+        MediumEditorHook.clean();
+        totalCleaner();
+        
+		var $button = $(this),
+			data = $("#mail-template").html();
+			data = data.replace(/(<button.*?>.*?<\/button>)/g,'');
+		
+		$button.tooltip('hide');
+		
+		$button.prop('disabled',true);
+		
+		$("#modal").createModal({
+			header		: "Mail Preview",
+			content		: data,
+			footer		: "",
+			keyboard 	: true,
+			static 		: true,
+			close		: true,
+			large		: true,
+			class		: 'modal-preview'
+		},
+		function($this){
+			$("#modal #dd-body-background").css({
+				height:'',
+			});
+			
+			setTimeout(function(){
+				var RD = $("#modal #dd-body-background table[data-edit]") || [],
+					RDmax = RD.length,
+					IR = $("#modal #dd-body-background img") || [],
+					IRmax = IR.length,
+					RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
+					REmax = RE.length;
+				$('#modal #dd-body-background .overly').remove();
+				console.log(RD.length);
+				console.log(IR.length);
+				console.log(RE.length);
+				 for(i=0; i < RDmax; i++)
+					{
+					$(RD[i]).css({
+						width : $(RD[i]).parent().width() + 'px'
+					});
+					$(RD[i]).find('tr > td').css({
+						padding:'15px 15px'
+					});
+					
+					$(RD[i]).find('table tr > td').css({
+						padding:'15px 15px'
+					});
+				}
+				console.log(RD.css);
+				console.log(RD.css);
+				console.log(RD.css);
+				for(j=0; j < IRmax; j++)
+				{
+					$(IR[j]).css({
+						width : '100%',
+						height : 'auto'
+					})
+					.removeAttr('class');
+				}
+				
+				for(r=0; r < REmax; r++)
+				{
+					var rem = $(RE[r]).html().trim();
+					if(rem == '')
+						$(RE[r]).remove();
+				}
+				
+				setTimeout(function(){
+					var AE = $("#modal .modal-body *"),
+						AEmax = AE.length;
+				
+					for(k=0; k < AEmax; k++)
+					{
+						$(AE[k])
+							.removeAttr('class')
+							.removeAttr('data-edit')
+							.removeAttr('id');
+					}
+					
+					$button.prop('disabled',false);
+				},50);
+			},200);
+		});
+	});
