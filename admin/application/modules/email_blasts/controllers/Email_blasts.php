@@ -3330,7 +3330,7 @@ class Email_blasts extends MX_Controller
 		print_r($_POST);
 		
 		if(array("table[data-edit]")){
-			$RD = array("table[data-edit]");
+			$RD = "table[data-edit]";
 		}else{
 			$RD = array();
 		}
