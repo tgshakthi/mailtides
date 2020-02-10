@@ -3327,7 +3327,7 @@ class Email_blasts extends MX_Controller
 		$IRmax = $this->input->post('IR');
 		$REmax = $this->input->post('RE');
 		echo '<pre>';
-		print_r($_POST);die;
+		print_r($_POST);
 		
 		if(array("table[data-edit]")){
 			$RD = array("table[data-edit]");
