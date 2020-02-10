@@ -2500,7 +2500,7 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax
+			'RE' : RD
 		},
 		cache: false
 		
