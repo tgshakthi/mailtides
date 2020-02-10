@@ -2483,6 +2483,7 @@
 
 $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
+	alert('test');
 	e.preventDefault();
 	var RD = $("table[data-edit]") || [],
 		RDmax = RD.length,
