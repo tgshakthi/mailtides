@@ -3328,7 +3328,12 @@ class Email_blasts extends MX_Controller
 		$REmax = $this->input->post('RE');
 		echo '<pre>';
 		print_r($_POST);die;
-		$RD = array("table[data-edit]");
+		
+		if(array("table[data-edit]")){
+			$RD = array("table[data-edit]");
+		}else{
+			$RD = array();
+		}
 		$IR = array("img");
 		$RE = array("#dd-sidebar-left,#dd-sidebar-right");
 		
