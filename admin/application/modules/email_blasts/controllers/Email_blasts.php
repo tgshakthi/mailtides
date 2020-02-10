@@ -3340,7 +3340,7 @@ class Email_blasts extends MX_Controller
 		
 		for($i=0; $i < $RDmax; $i++)
 		{
-			($RD[$i]).css({
+			/* ($RD[$i]).css({
 				width : '100%'
 			});
 			($RD[$i]).find('tr > td').css({
@@ -3351,7 +3351,7 @@ class Email_blasts extends MX_Controller
 			($RD[$i]).find('table tr > td').css({
 				padding:'',
 				margin:''
-			});
+			}); */
 		}
 		
 		for($j=0; $j < $IRmax; $j++)
