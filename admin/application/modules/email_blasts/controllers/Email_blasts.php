@@ -3323,8 +3323,51 @@ class Email_blasts extends MX_Controller
 	
 	function test_email()
 	{
+		$RDmax = $this->input->post('RD');
+		$IRmax = $this->input->post('IR');
+		$REmax = $this->input->post('RE');
 		echo '<pre>';
 		print_r($_POST);
 		die;
+		$RD = $("table[data-edit]") || [];
+		$IR = $("img") || [];
+		RE = $(" #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
+		for(i=0; i < RDmax; i++)
+		{
+			
+			$(RD[i]).css({
+				width : '100%'
+			});
+			$(RD[i]).find('tr > td').css({
+				padding:'',
+				margin:''
+			});
+			
+			$(RD[i]).find('table tr > td').css({
+				padding:'',
+				margin:''
+			});
+		}
+		
+		for(j=0; j < IRmax; j++)
+		{
+			$(IR[j]).css({
+				width : '100%',
+				height : 'auto'
+			})
+			.removeAttr('class');
+		}
+		
+		for(r=0; r < REmax; r++)
+		{
+			var rem = $(RE[r]).html().trim();
+			if(rem == '')
+				$(RE[r]).remove();
+			else{
+				$(RE[r]).find('a').each(function(){
+					$(this).css('text-decoration','none');
+				});
+			}
+		}
 	}
 }
