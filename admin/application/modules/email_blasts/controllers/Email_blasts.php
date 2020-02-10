@@ -3329,12 +3329,13 @@ class Email_blasts extends MX_Controller
 		echo '<pre>';
 		print_r($_POST);
 		
-		// $RD = $("table[data-edit]") || [];
-		// $IR = $("img") || [];
-		// $RE = $("#dd-sidebar-left,#dd-sidebar-right");
+		$RD = "table[data-edit]";
+		$IR = "img";
+		$RE = "#dd-sidebar-left,#dd-sidebar-right";
+		
 		for($i=0; $i < $RDmax; $i++)
 		{
-			echo 'test1';
+			print_r($RD[$i]);die;
 			/* ($RD[$i]).css({
 				width : '100%'
 			});
