@@ -2498,9 +2498,9 @@ $(document).on('click','#form-submit', function(e){
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
-			'RD' : RD,
-			'IR' : IR,
-			'RE' : RE
+			'RD' : RDmax,
+			'IR' : IRmax,
+			'RE' : REmax
 		},
 		cache: false
 		
