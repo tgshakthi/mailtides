@@ -3331,43 +3331,43 @@ class Email_blasts extends MX_Controller
 		die;
 		$RD = $("table[data-edit]") || [];
 		$IR = $("img") || [];
-		RE = $(" #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
-		for(i=0; i < RDmax; i++)
+		$RE = $("#dd-sidebar-left,#dd-sidebar-right"),
+		for($i=0; $i < $RDmax; $i++)
 		{
 			
-			$(RD[i]).css({
+			/* ($RD[$i]).css({
 				width : '100%'
 			});
-			$(RD[i]).find('tr > td').css({
+			($RD[$i]).find('tr > td').css({
 				padding:'',
 				margin:''
 			});
 			
-			$(RD[i]).find('table tr > td').css({
+			($RD[$i]).find('table tr > td').css({
 				padding:'',
 				margin:''
-			});
+			}); */
 		}
 		
-		for(j=0; j < IRmax; j++)
+		for($j=0; $j < $IRmax; $j++)
 		{
-			$(IR[j]).css({
+			/* ($IR[$j]).css({
 				width : '100%',
 				height : 'auto'
 			})
-			.removeAttr('class');
+			.removeAttr('class'); */
 		}
 		
-		for(r=0; r < REmax; r++)
+		for($r=0; $r < $REmax; $r++)
 		{
-			var rem = $(RE[r]).html().trim();
-			if(rem == '')
-				$(RE[r]).remove();
+			/* $rem = $($RE[$r]).html().trim();
+			if($rem == '')
+				($RE[$r]).remove();
 			else{
-				$(RE[r]).find('a').each(function(){
+				($RE[$r]).find('a').each(function(){
 					$(this).css('text-decoration','none');
 				});
-			}
+			} */
 		}
 	}
 }
