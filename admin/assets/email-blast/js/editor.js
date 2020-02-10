@@ -2491,9 +2491,9 @@ $(document).on('click','#form-submit', function(e){
 		IRmax = IR.length,
 		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
-		alert(RD);
-		alert(IR);
-		alert(RE);
+		console.log(RD);
+		console.log(IR);
+		console.log(RE);
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
