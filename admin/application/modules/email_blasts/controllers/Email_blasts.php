@@ -3329,9 +3329,9 @@ class Email_blasts extends MX_Controller
 		echo '<pre>';
 		print_r($_POST);
 		
-		$RD = "table[data-edit]";
-		$IR = "img";
-		$RE = "#dd-sidebar-left,#dd-sidebar-right";
+		$RD = array("table[data-edit]");
+		$IR = array("img");
+		$RE = array("#dd-sidebar-left,#dd-sidebar-right");
 		
 		for($i=0; $i < $RDmax; $i++)
 		{
