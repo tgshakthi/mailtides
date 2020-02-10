@@ -3339,6 +3339,7 @@ class Email_blasts extends MX_Controller
 		
 		for($i=0; $i < $RDmax; $i++)
 		{
+			print_r($RD);
 			/* ($RD[$i]).css({
 				width : '100%'
 			});
