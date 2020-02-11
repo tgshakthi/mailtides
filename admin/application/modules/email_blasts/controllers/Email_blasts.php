@@ -3241,7 +3241,7 @@ class Email_blasts extends MX_Controller
      
 		foreach (($get_template_data ? $get_template_data : array()) as $get_template)
 		{        
-			$anchor_edit = anchor(site_url('email_blast/add_edit_email_template/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+			$anchor_edit = anchor(site_url('email_blasts/add_edit_email_template_generate/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
 								 'data-toggle' => 'tooltip',
 								 'data-placement' => 'left',
 								 'data-original-title' => 'Edit'
