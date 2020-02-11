@@ -2530,8 +2530,7 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax,
-			'data': data1
+			'RE' : REmax
 		},
 		cache: false		
 	})
