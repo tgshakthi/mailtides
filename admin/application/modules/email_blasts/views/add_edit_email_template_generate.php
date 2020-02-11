@@ -14,6 +14,14 @@
                <button type="button" class="btn" onclick="openNav()">
                <i class="fas fa-file-invoice"></i> Choose Template
                </button>
+				<?php
+					echo anchor(
+					'email_blasts/email_template_generate',
+					'<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
+					array(
+						'class' => 'btn'
+					));
+				?>			   
                <!-- <a href="http://localhost/mail-editor/#left-sidebar" class="btn btn-primary" id="left-sidebar">Left Sidebar</a> -->
             </div>
          </div>
