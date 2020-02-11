@@ -2504,8 +2504,8 @@ $(document).on('click','#form-submit', function(e){
 				padding:'15px 15px'
 			});
 			console.log(data);
-			console.log(data1);
-			console.log(data2);
+			// console.log(data1);
+			// console.log(data2);
 		}
 		
 		for(j=0; j < IRmax; j++)
