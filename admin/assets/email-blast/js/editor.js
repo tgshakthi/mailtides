@@ -2491,9 +2491,9 @@ $(document).on('click','#form-submit', function(e){
 		IRmax = IR.length,
 		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
-		console.log(RD.context);
-		console.log(IR);
-		console.log(RE);
+		var template = $('#mail-template').html();
+		console.log(template);
+		
 		for(i=0; i < RDmax; i++)
 		{
 			var data1 = $(RD[i]).css({
