@@ -2503,9 +2503,9 @@ $(document).on('click','#form-submit', function(e){
 			var data2 = $(RD[i]).find('table tr > td').css({
 				padding:'15px 15px'
 			});
-			alert(data);
-			alert(data1);
-			alert(data2);
+			console.log(data);
+			console.log(data1);
+			console.log(data2);
 		}
 		
 		for(j=0; j < IRmax; j++)
@@ -2515,7 +2515,7 @@ $(document).on('click','#form-submit', function(e){
 				height : 'auto'
 			})
 			.removeAttr('class');
-			alert(data3);
+			console.log(data3);
 		}
 		
 		for(r=0; r < REmax; r++)
@@ -2523,7 +2523,7 @@ $(document).on('click','#form-submit', function(e){
 			var rem = $(RE[r]).html().trim();
 			if(rem == '')
 				var data5 = $(RE[r]).remove();
-			alert(data5);
+			console.log(data5);
 		}
 		
 	$.ajax({
