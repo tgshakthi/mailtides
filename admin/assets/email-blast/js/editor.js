@@ -2521,8 +2521,10 @@ $(document).on('click','#form-submit', function(e){
 		for(r=0; r < REmax; r++)
 		{
 			var rem = $(RE[r]).html().trim();
-			if(rem == '')
+			console.log(rem);
+			if(rem == ''){
 				var data5 = $(RE[r]).remove();
+			}
 			console.log(data5);
 		}
 		
