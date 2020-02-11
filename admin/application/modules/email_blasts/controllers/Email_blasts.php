@@ -3323,8 +3323,8 @@ class Email_blasts extends MX_Controller
 	
 	function test_email()
 	{
-		echo '<pre>';
-		print_r($_POST);
-		die;
+		$email_template = $this->input->post('template');
+		$insert_email = $this->Email_blasts_model->insert_update_email_templates();
+		
 	}
 }
