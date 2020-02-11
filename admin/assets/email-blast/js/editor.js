@@ -2496,11 +2496,11 @@ $(document).on('click','#form-submit', function(e){
 			var data = $(RD[i]).css({
 				width : $(RD[i]).parent().width() + 'px'
 			});
-			var data1 = $(RD[i]).find('tr > td').css({
+			var data = $(RD[i]).find('tr > td').css({
 				padding:'15px 15px'
 			});
 			
-			var data2 = $(RD[i]).find('table tr > td').css({
+			var data = $(RD[i]).find('table tr > td').css({
 				padding:'15px 15px'
 			});
 			console.log(data);
@@ -2533,7 +2533,8 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax
+			'RE' : REmax,
+			'data': data
 		},
 		cache: false
 		
