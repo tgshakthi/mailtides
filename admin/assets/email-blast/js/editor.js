@@ -574,7 +574,7 @@
 	var openEditor = true;
 
 	/* Delete whole project */
-	$(document).on('click touchstart','#delete',function(e){
+	/* $(document).on('click touchstart','#delete',function(e){
 		e.preventDefault();
 		if(window.location.hash)
 		{
@@ -636,7 +636,7 @@
 				}
 			}});
 		}
-	});
+	 });*/
 
 	$(document).on('click touchstart','#mail-template button.copy',function(e){
 		e.preventDefault();
