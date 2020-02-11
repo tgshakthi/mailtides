@@ -2522,10 +2522,9 @@ $(document).on('click','#form-submit', function(e){
 		{
 			var rem = $(RE[r]).html().trim();
 			console.log(rem);
-			if(rem == ''){
-				var data5 = $(RE[r]).remove();
-			}
-			console.log(data5);
+			if(rem == '')
+				$(RE[r]).remove();
+			console.log($(RE[r]).remove());
 		}
 		
 	$.ajax({
