@@ -2485,55 +2485,12 @@ $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
 	alert('test');
 	e.preventDefault();
-	var RD = $("table[data-edit]") || [],
-		RDmax = RD.length,
-		IR = $("img") || [],
-		IRmax = IR.length,
-		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
-		REmax = RE.length;
-		var template = $('#mail-template').html();
-		console.log(template);
-		
-		for(i=0; i < RDmax; i++)
-		{
-			var data1 = $(RD[i]).css({
-				width : $(RD[i]).parent().width() + 'px'
-			});
-			var data2 = $(RD[i]).find('tr > td').css({
-				padding:'15px 15px'
-			});
-			
-			var data3 = $(RD[i]).find('table tr > td').css({
-				padding:'15px 15px'
-			});
-			// console.log(data1);
-			// console.log(data2);
-			// console.log(data3);
-		}		
-		for(j=0; j < IRmax; j++)
-		{
-			var data4 = $(IR[j]).css({
-				width : '100%',
-				height : 'auto'
-			})
-			.removeAttr('class');
-			// console.log(data4);
-		}		
-		for(r=0; r < REmax; r++)
-		{
-			var rem = $(RE[r]).html().trim();
-			// console.log(rem);
-			if(rem == '')
-				$(RE[r]).remove();
-			// console.log($(RE[r]).remove());
-		}		
+	var template = $('#mail-template').html();		
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
-			'RD' : RDmax,
-			'IR' : IRmax,
-			'RE' : REmax
+			'template' : template
 		},
 		cache: false		
 	})
