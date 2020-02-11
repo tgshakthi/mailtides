@@ -1899,8 +1899,8 @@
 				console.log(RD.length);
 				console.log(IR.length);
 				console.log(RE.length);
-				 for(i=0; i < RDmax; i++)
-					{
+				for(i=0; i < RDmax; i++)
+				{
 					$(RD[i]).css({
 						width : $(RD[i]).parent().width() + 'px'
 					});
@@ -2500,7 +2500,7 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax
+			'RE' : RD
 		},
 		cache: false
 		
