@@ -2491,6 +2491,9 @@ $(document).on('click','#form-submit', function(e){
 		IRmax = IR.length,
 		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
+		console.log(RD);
+		console.log(IR);
+		console.log(RE);
 		for(i=0; i < RDmax; i++)
 		{
 			var data1 = $(RD[i]).css({
@@ -2503,9 +2506,9 @@ $(document).on('click','#form-submit', function(e){
 			var data3 = $(RD[i]).find('table tr > td').css({
 				padding:'15px 15px'
 			});
-			console.log(data1);
-			console.log(data2);
-			console.log(data3);
+			// console.log(data1);
+			// console.log(data2);
+			// console.log(data3);
 		}		
 		for(j=0; j < IRmax; j++)
 		{
@@ -2514,15 +2517,15 @@ $(document).on('click','#form-submit', function(e){
 				height : 'auto'
 			})
 			.removeAttr('class');
-			console.log(data4);
+			// console.log(data4);
 		}		
 		for(r=0; r < REmax; r++)
 		{
 			var rem = $(RE[r]).html().trim();
-			console.log(rem);
+			// console.log(rem);
 			if(rem == '')
 				$(RE[r]).remove();
-			console.log($(RE[r]).remove());
+			// console.log($(RE[r]).remove());
 		}		
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
