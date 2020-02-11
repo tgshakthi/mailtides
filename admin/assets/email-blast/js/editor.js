@@ -2491,7 +2491,7 @@ $(document).on('click','#form-submit', function(e){
 		IRmax = IR.length,
 		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
-		console.log(RD);
+		console.log(RD.context);
 		console.log(IR);
 		console.log(RE);
 		for(i=0; i < RDmax; i++)
