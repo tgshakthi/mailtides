@@ -2491,16 +2491,48 @@ $(document).on('click','#form-submit', function(e){
 		IRmax = IR.length,
 		RE = $("#dd-sidebar-left,  #dd-sidebar-right"),
 		REmax = RE.length;
-		console.log(RD);
-		console.log(IR);
-		console.log(RE);
+		for(i=0; i < RDmax; i++)
+		{
+			var data = $(RD[i]).css({
+				width : $(RD[i]).parent().width() + 'px'
+			});
+			var data1 = $(RD[i]).find('tr > td').css({
+				padding:'15px 15px'
+			});
+			
+			var data2 = $(RD[i]).find('table tr > td').css({
+				padding:'15px 15px'
+			});
+			alert(data);
+			alert(data1);
+			alert(data2);
+		}
+		
+		for(j=0; j < IRmax; j++)
+		{
+			var data3 = $(IR[j]).css({
+				width : '100%',
+				height : 'auto'
+			})
+			.removeAttr('class');
+			alert(data3);
+		}
+		
+		for(r=0; r < REmax; r++)
+		{
+			var rem = $(RE[r]).html().trim();
+			if(rem == '')
+				var data5 = $(RE[r]).remove();
+			alert(data5);
+		}
+		
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : RD
+			'RE' : REmax
 		},
 		cache: false
 		
