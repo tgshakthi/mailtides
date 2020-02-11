@@ -2506,8 +2506,7 @@ $(document).on('click','#form-submit', function(e){
 			console.log(data1);
 			console.log(data2);
 			console.log(data3);
-		}
-		
+		}		
 		for(j=0; j < IRmax; j++)
 		{
 			var data4 = $(IR[j]).css({
@@ -2516,8 +2515,7 @@ $(document).on('click','#form-submit', function(e){
 			})
 			.removeAttr('class');
 			console.log(data4);
-		}
-		
+		}		
 		for(r=0; r < REmax; r++)
 		{
 			var rem = $(RE[r]).html().trim();
@@ -2532,7 +2530,8 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax
+			'RE' : REmax,
+			'data': data1
 		},
 		cache: false		
 	})
