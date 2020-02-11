@@ -408,7 +408,7 @@
 			mb.chooseTemplate.fadeOut(function(){
 				//$(this).hide().addClass('hidden');
 				mb.optionTabs.hide().removeClass('hidden').fadeIn();
-				//mb.mailTemplate.hide().removeClass('hidden').fadeIn();
+				mb.mailTemplate.hide().removeClass('hidden').fadeIn();
 			});
 		}, 
 		
