@@ -2525,18 +2525,15 @@ $(document).on('click','#form-submit', function(e){
 			if(rem == '')
 				$(RE[r]).remove();
 			console.log($(RE[r]).remove());
-		}
-		
+		}		
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
 			'RD' : RDmax,
 			'IR' : IRmax,
-			'RE' : REmax,
-			'data': data
+			'RE' : REmax
 		},
-		cache: false
-		
+		cache: false		
 	})
 });
