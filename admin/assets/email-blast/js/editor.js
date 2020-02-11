@@ -2493,29 +2493,29 @@ $(document).on('click','#form-submit', function(e){
 		REmax = RE.length;
 		for(i=0; i < RDmax; i++)
 		{
-			var data = $(RD[i]).css({
+			var data1 = $(RD[i]).css({
 				width : $(RD[i]).parent().width() + 'px'
 			});
-			var data = $(RD[i]).find('tr > td').css({
+			var data2 = $(RD[i]).find('tr > td').css({
 				padding:'15px 15px'
 			});
 			
-			var data = $(RD[i]).find('table tr > td').css({
+			var data3 = $(RD[i]).find('table tr > td').css({
 				padding:'15px 15px'
 			});
-			console.log(data);
-			// console.log(data1);
-			// console.log(data2);
+			console.log(data1);
+			console.log(data2);
+			console.log(data3);
 		}
 		
 		for(j=0; j < IRmax; j++)
 		{
-			var data3 = $(IR[j]).css({
+			var data4 = $(IR[j]).css({
 				width : '100%',
 				height : 'auto'
 			})
 			.removeAttr('class');
-			console.log(data3);
+			console.log(data4);
 		}
 		
 		for(r=0; r < REmax; r++)
