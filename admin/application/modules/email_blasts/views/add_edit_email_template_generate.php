@@ -100,7 +100,35 @@
             </div>
          </div>
          <div class="container-content hidden" id="mail-template">
-            Content
+            <table width="100%" border="0" cellpadding="15" bgcolor="#e1e1e1" align="center" id="dd-body-background" data-bkg-color="#e1e1e1" data-height="auto" style="background-color:#e1e1e1; width:100%">
+    <tbody><tr>
+        <td align="center" id="dd-body-container" style="width:100%;" width="100%" valign="top">
+            <br><br>
+            <center>
+                <table style="background-color:#ffffff; width:700px; margin:0 auto;" vspace="0" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+                    <thead>
+                        <tr>
+                            <td id="dd-head" colspan="2" style="vertical-align: top; padding: 0px 15px !important; background-color: rgb(196, 142, 142); height: 30px;" class="ui-sortable" bgcolor="#c48e8e" height="30"><table align="center" cellpadding="10" border="0" class="ui-draggable ui-draggable-handle editable ui-sortable-handle" style="width: 664px; margin: 0px auto; position: relative; z-index: 10; left: 0px; top: 0px;" width="100%" data-edit="content" data-set="content-1580985736"><tbody><tr><td align="left" style="padding: 15px;"><button type="button" class="copy" title="Copy"><span class="glyphicon glyphicon-copy"></span></button><div class="overly"></div><div class="save-remove"><button type="button" class="save" title="Save/Done"><span class="glyphicon glyphicon-ok"></span></button><button type="button" class="edit" title="Edit Section"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="remove" title="Delete"><span class="glyphicon glyphicon-remove-sign"></span></button></div><div class="ready-for-edit" style="text-align: center;"><h1><span style="background-color: transparent;"><b>TEST CONTENT</b></span></h1></div></td></tr></tbody></table></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                            
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td id="dd-footer" colspan="2" style="vertical-align: top; padding: 0px 15px !important; background-color: rgb(207, 152, 152);" class="ui-sortable" bgcolor="#cf9898"><table align="center" border="0" class="ui-draggable ui-draggable-handle editable ui-sortable-handle" style="width: 664px; margin: 0px auto;" width="100%" data-edit="image" data-set="image-1580989540"><tbody><tr><td align="left" style="padding: 15px;"><button type="button" class="copy" title="Copy"><span class="glyphicon glyphicon-copy"></span></button><div class="overly"></div><div class="save-remove"><button type="button" class="save" title="Save/Done"><span class="glyphicon glyphicon-ok"></span></button><button type="button" class="edit" title="Edit Section"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="remove" title="Delete"><span class="glyphicon glyphicon-remove-sign"></span></button></div><center><a href="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-left.png" target="_blank"><img src="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-left.png?h=8078738133" alt="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-left.png" title="" style="margin: 0px auto; display: block; width: 100%; height: auto; max-width: 1136px; max-height: 484px;" align="middle" id="add-image-1580989540"></a></center></td></tr></tbody></table><table align="center" border="0" class="ui-draggable ui-draggable-handle editable ui-sortable-handle" style="width: 664px; margin: 0px auto;" width="100%" data-edit="image" data-set="image-1581426253" cellpadding="10"><tbody><tr><td align="left" style="padding: 15px;"><button type="button" class="copy" title="Copy"><span class="glyphicon glyphicon-copy"></span></button><div class="overly"></div><div class="save-remove"><button type="button" class="save" title="Save/Done"><span class="glyphicon glyphicon-ok"></span></button><button type="button" class="edit" title="Edit Section"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="remove" title="Delete"><span class="glyphicon glyphicon-remove-sign"></span></button></div><center><a href="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-right.png" target="_blank"><img src="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-right.png?h=5248843779" alt="https://www.txgidocs.com/assets/images/txgidocs/banner/banner-right.png" title="" style="margin: 0px auto; display: block; width: 100%; height: auto; max-width: 770px; max-height: 484px;" align="middle" id="add-image-1581426253"></a></center></td></tr></tbody></table></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </center>
+        	<br><br>
+        </td>
+    </tr>
+</tbody></table>
+
          </div>
       </div>
       <div id="modal" class="reset-this"></div>
