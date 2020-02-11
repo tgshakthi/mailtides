@@ -2534,7 +2534,7 @@ $(document).on('click','#form-submit', function(e){
 			'RD' : RDmax,
 			'IR' : IRmax,
 			'RE' : REmax,
-			'data': JSON.stringify(data)
+			'data': data
 		},
 		cache: false
 		
