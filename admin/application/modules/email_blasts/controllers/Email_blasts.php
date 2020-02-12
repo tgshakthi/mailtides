@@ -3310,7 +3310,7 @@ class Email_blasts extends MX_Controller
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['get_email_template'] = $this->Email_blasts_model->get_email_template_by_id($data['id']);
-		print_r($get_email_template);die;
+		// print_r($get_email_template);die;
 		$data['heading']    = 'Add Edit Email Template';
 		$data['title']      = "Add Edit Email Template | Administrator";
 		$this->load->view('template/meta_head', $data);
