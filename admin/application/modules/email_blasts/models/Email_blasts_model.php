@@ -1491,6 +1491,20 @@ class Email_blasts_model extends CI_Model
         return $records;      
     }
 	
+	function get_email_template_by_id($id)
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+							'id' => $id
+						 ));
+        $query   = $this->db->get('zcms_email_template');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+	}
+	
 	function insert_update_email_templates()
 	{
 		$email_template = $this->input->post('template');

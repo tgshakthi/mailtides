@@ -102,17 +102,19 @@
 		<?php
 			if(!empty($id)){
 		?>
-			
+			<div class="container-content hidden" id="mail-template">
+				
+			</div>
 		<?php
 			}else{
 		?>
+		<div class="container-content hidden" id="mail-template">
+            Content
+         </div>
 		<?php
 			}
 		?>
-         <div class="container-content hidden" id="mail-template">
-            Content
-
-         </div>
+         
       </div>
       <div id="modal" class="reset-this"></div>
       <button class="btn btn-lg preview-green btn-materialize btn-left-bottom btn-left-bottom-1 hidden" type="button"
