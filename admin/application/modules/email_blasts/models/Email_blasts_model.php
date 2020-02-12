@@ -15,7 +15,7 @@ class Email_blasts_model extends CI_Model
     private $table_campaign = 'campaigns';
     private $table_campaign_users = 'campaign_users';
 	private $table_campaign_type = 'campaign_type';
-    private $table_template ='email_templates';
+    private $table_template ='email_template';
 	private $table_sms_gateway = 'sms_gateway';
 	private $table_campaign_category_import_data = 'campaign_category_import_data';
 	private $table_sms_template = 'sms_template';
