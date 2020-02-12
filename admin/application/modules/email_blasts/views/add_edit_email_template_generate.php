@@ -105,7 +105,7 @@
 			<div class="container-content hidden" id="mail-template">
 			<?php
 				if(!empty($get_email_template)){
-					echo $get_email_template[0]->template;die;
+					echo $get_email_template[0]->template;
 				}				 
 			?>
 			</div>
