@@ -2425,4 +2425,8 @@ $("#test").on('click',function(e){
 		large		: false,
 		class		: 'modal-preview'
 	});
+	$("#test-submit").on('click',function(e){
+	alert('send mail');
+	e.preventDefault();
+	});
 });
