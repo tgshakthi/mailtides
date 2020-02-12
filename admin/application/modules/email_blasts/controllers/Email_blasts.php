@@ -3307,6 +3307,7 @@ class Email_blasts extends MX_Controller
 	//Add & Edit Email Template
 	function add_edit_email_template_generate($id = null)
 	{
+		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['table']      = $this->get_dynamic_email_template();
 		$data['heading']    = 'Add Edit Email Template';
@@ -3322,7 +3323,6 @@ class Email_blasts extends MX_Controller
 	function test_email()
 	{
 		$email_template = $this->input->post('template');
-		$insert_email = $this->Email_blasts_model->insert_update_email_templates();
-		
+		$insert_email = $this->Email_blasts_model->insert_update_email_templates();		
 	}
 }

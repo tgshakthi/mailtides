@@ -99,6 +99,16 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
+		<?php
+			if(!empty($id)){
+		?>
+			
+		<?php
+			}else{
+		?>
+		<?php
+			}
+		?>
          <div class="container-content hidden" id="mail-template">
             Content
 
