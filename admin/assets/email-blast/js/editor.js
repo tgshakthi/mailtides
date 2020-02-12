@@ -2492,6 +2492,9 @@ $(document).on('click','#form-submit', function(e){
 		data: {
 			'template' : template
 		},
-		cache: false		
+		cache: false,
+		success: function(){
+			  window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
+			}		
 	})
 });
