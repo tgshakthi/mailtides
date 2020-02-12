@@ -375,8 +375,7 @@
          if (localStorage.getItem("session_id")) {
              window.session_id = localStorage.getItem("session_id");
          } */
-      </script>
-      <script>
+      
          const leftSideBarBtn = document.querySelector('#left-sidebar');
          const rightSideBarBtn = document.querySelector('#right-sidebar');
          const noSideBarBtn = document.querySelector('#no-sidebar');

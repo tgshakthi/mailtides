@@ -99,8 +99,8 @@
                 '</div>',/* + 
                 '<div class="overly"></div>',*/
 		attachments : function(){
-			var attachments = $.storage('attachments');	
-			if(null !== attachments && attachments.length > 0)
+			/* var attachments = $.storage('attachments');	
+			 if(null !== attachments && attachments.length > 0)
 			{
 				attachments = JSON.parse(attachments);
 				var attachList = $("#attach-data");
@@ -118,7 +118,7 @@
 						attachList.append(html.join("\r\n"));
 					}
 				});
-			}
+			} */
 		},
 		/* Load main options */
 		loadOptions : function(){			
