@@ -99,26 +99,21 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
+		 <div class="container-content hidden" id="mail-template">
 		<?php
-			if(!empty($id)){
-		?>
-			<div class="container-content hidden" id="mail-template">
-			<?php
-				if(!empty($get_email_template)){
-					print_r($get_email_template[0]->template);die;
-				}				 
-			?>
-			</div>
-		<?php
+			if(!empty($id))
+			{
+				if(!empty($get_email_template))
+				{
+					print_r($get_email_template[0]->template);
+				}				 			
 			}else{
 		?>
-		<div class="container-content hidden" id="mail-template">
             Content
-         </div>
 		<?php
 			}
 		?>
-         
+         </div>
       </div>
       <div id="modal" class="reset-this"></div>
       <button class="btn btn-lg preview-green btn-materialize btn-left-bottom btn-left-bottom-1 hidden" type="button"
