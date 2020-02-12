@@ -1995,14 +1995,7 @@
 			$input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
 	});
 	
-	/* Test Email Form */
-	$("#test").on('click',function(e){
-		alert('sendtest');
-		e.preventDefault();		
-		var $button = $(this),
-			data = $("#mail-template").html();
-			
-	});
+
 	
 	/*****************************************************************
 	 * Global Page Style Settings
@@ -2401,4 +2394,36 @@ $(document).on('click','#form-submit', function(e){
 			  window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 			}		
 	})
+});
+
+/* Test Email Form */
+$("#test").on('click',function(e){
+	alert('send test mail');
+	e.preventDefault();
+	
+	var $button = $(this),
+		data = $("#mail-template").html();
+		data = data.replace(/(<button.*?>.*?<\/button>)/g,''),
+		form = '';
+		
+		form+= '<div class="input-group input-group-lg">';
+			form+= '<span class="input-group-addon">@</span>';
+			form+= '<input type="text" class="form-control" placeholder="test@example.com" value="" id="test-input">';
+		form+= '</div>';
+		
+		data = '<div id="saved-template" class="hidden">' + data + '</div>' + form;
+	
+	$button.prop('disabled',true);
+	
+	$("#modal").createModal({
+		header		: "Send Test E-Mail",
+		content		: data,
+		footer		: '<button class="btn btn-block btn-success" id="test-submit" type="button">Send Message</button>',
+		keyboard 	: true,
+		static 		: true,
+		close		: true,
+		large		: false,
+		class		: 'modal-preview'
+	},
+	
 });
