@@ -2424,6 +2424,5 @@ $("#test").on('click',function(e){
 		close		: true,
 		large		: false,
 		class		: 'modal-preview'
-	}
-});
+	});
 });
