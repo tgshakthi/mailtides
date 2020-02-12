@@ -963,7 +963,7 @@
 
                             data = $this.find('a').parent().html();
 
-                            if(/<a.*?href="(.*?)".*?\/a>/g.test(data))
+                            if(/<a .*?href="(.*?)".*?\/a>/g.test(data))
                                 href = data.replace(/<a.*?href="(.*?)".*?\/a>/g,function(a,b){
                                     return b;
                                 });
