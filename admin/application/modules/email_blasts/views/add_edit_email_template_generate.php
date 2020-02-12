@@ -105,7 +105,7 @@
 			{
 				if(!empty($get_email_template))
 				{
-					print_r($get_email_template[0]->template);
+					print_r($get_email_template[0]->template);die;
 				}				 			
 			}else{
 		?>
