@@ -2427,9 +2427,20 @@ $("#test").on('click',function(e){
 	});
 	$("#test-submit").on('click',function(e){
 		var test_mail = $("#test-input").val();
+		var template = $('#mail-template').html();
 		alert(test_mail);
-		console.log($("#mail-template").html());
-		alert('send mail');
 		e.preventDefault();
+		$.ajax({
+			url: 'http://txgidocs.mailtides.com/admin/email_blasts/send_test_email',
+			type: 'POST',
+			data: {
+				'template' : template,
+				'mail' : test_mail
+			},
+			cache: false,
+			success: function(){
+				  // window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
+				}		
+		})
 	});
 });
