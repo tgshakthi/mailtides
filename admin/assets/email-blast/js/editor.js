@@ -692,7 +692,7 @@
 	});
     
     
-    $(document).on('click touchstart','.editable-open .save-remove > .save',function(e){
+    /* $(document).on('click touchstart','.editable-open .save-remove > .save',function(e){
 		e.preventDefault();
         var $this = $(this).parents('.editable-open'),
             id = $this.attr('data-set');
@@ -718,7 +718,7 @@
         
         MediumEditorHook.clean();
 
-	});
+	}); */
     
     // Remove editor on DONE
 	$(document).on('click touchstart','#remove-editor',function(e){
