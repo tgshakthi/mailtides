@@ -3372,7 +3372,8 @@ class Email_blasts extends MX_Controller
 		// Add a recipient
 		
 		$mail->addAddress($send_mail);
-		
+		echo '<pre>';
+		print_r($mail);die;
 		if(!$mail->send()){
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
