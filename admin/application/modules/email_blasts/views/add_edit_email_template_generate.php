@@ -105,10 +105,7 @@
 			{
 				if(!empty($get_email_template))
 				{
-					?>
-					<textarea><?php print_r($get_email_template[0]->template); ?></textarea>
-					<?php
-					// print_r($get_email_template[0]->template);die;
+					print_r($get_email_template[0]->template);die;
 				}				 			
 			}else{
 		?>
