@@ -3359,20 +3359,13 @@ class Email_blasts extends MX_Controller
 								<meta http-equiv="X-UA-Compatible" content="IE=edge">
 								<meta content="telephone=no" name="format-detection">
 								<title></title>
-								<!--[if (mso 16)]>
-								  <style type="text/css">
-								  a {text-decoration: none;}
-								  </style>
-								  <![endif]-->
-								<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
-								<!--[if !mso]><!-- -->
-								<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
-								<!--<![endif]-->
 							</head>
 							<body>
-							'.$template.'
-				</body>                  
-			</html>';
+							<div class="es-wrapper-color">
+								'.$template.'
+							</div>
+						</body>                  
+					</html>';
 		echo '<pre>';
 		print_r($mailContent);
 		die;
