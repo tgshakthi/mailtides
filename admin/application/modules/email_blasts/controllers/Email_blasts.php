@@ -3376,6 +3376,7 @@ class Email_blasts extends MX_Controller
 		$mail->Body = $mailContent;
 		$mail->clearAddresses();
 		// Add a recipient
+		print_r($mail);die;
 		$mail->addAddress($mail);
 		// $mail->addBCC('velusamy@desss.com');
 
