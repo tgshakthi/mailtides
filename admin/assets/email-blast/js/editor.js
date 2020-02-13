@@ -2433,7 +2433,7 @@ $("#test").on('click',function(e){
 			},
 			cache: false,
 			success: function(){
-				$('#modal').modal('hide');
+				$('#modal').modal('close');
 				  // window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 				}		
 		})
