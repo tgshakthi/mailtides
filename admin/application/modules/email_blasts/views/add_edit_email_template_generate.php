@@ -328,7 +328,7 @@
                          };
          
                      var baseURL = window.location.protocol + '//' + window.location.hostname + base;
-         /* 
+        
                      if (localStorage.getItem("session_id")) {
                          window.session_id = localStorage.getItem("session_id");
                      } else {
@@ -374,7 +374,7 @@
          }
          if (localStorage.getItem("session_id")) {
              window.session_id = localStorage.getItem("session_id");
-         } */
+         }
       
          const leftSideBarBtn = document.querySelector('#left-sidebar');
          const rightSideBarBtn = document.querySelector('#right-sidebar');
