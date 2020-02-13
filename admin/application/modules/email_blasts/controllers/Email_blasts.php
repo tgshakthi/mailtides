@@ -3330,7 +3330,7 @@ class Email_blasts extends MX_Controller
 	function send_test_email()
 	{
 		echo '<pre>';
-		print_r(send_test_email);
+		print_r($_POST);
 		die;
 	}
 }
