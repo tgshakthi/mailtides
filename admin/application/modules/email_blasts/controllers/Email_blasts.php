@@ -3345,7 +3345,7 @@ class Email_blasts extends MX_Controller
 		$mail->Username = $mail_configurations[0]->email;
 		$mail->Password = $mail_configurations[0]->password;
 		$mail->Port     = $mail_configurations[0]->port;						 							
-		$mail->setFrom('Test', 'info@desss.com');                    
+		$mail->setFrom('info@desss.com','Test');                    
 		$mail->Subject= 'Test';
 		// Set email format to HTML
 		$mail->isHTML(true);
