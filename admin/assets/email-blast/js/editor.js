@@ -2400,19 +2400,12 @@ $(document).on('click','#form-submit', function(e){
 $("#test").on('click',function(e){
 	alert('send test mail');
 	e.preventDefault();
-	
-	var $button = $(this),
-		data = $("#mail-template").html();
-		data = data.replace(/(<button.*?>.*?<\/button>)/g,''),
-		form = '';
-		
-		form+= '<div class="input-group input-group-lg">';
-			form+= '<span class="input-group-addon">@</span>';
-			form+= '<input type="text" class="form-control" placeholder="test@example.com" value="" id="test-input">';
-		form+= '</div>';
-		
-		data = '<div id="saved-template" class="hidden">' + data + '</div>' + form;
-	
+	form = '';
+	form+= '<div class="input-group input-group-lg">';
+		form+= '<span class="input-group-addon">@</span>';
+		form+= '<input type="text" class="form-control" placeholder="test@example.com" value="" id="test-input">';
+	form+= '</div>';		
+	data = '<div id="saved-template" class="hidden">' + data + '</div>' + form;	
 	$button.prop('disabled',true);
 	
 	$("#modal").createModal({
