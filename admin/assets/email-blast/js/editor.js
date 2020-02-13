@@ -2412,14 +2412,14 @@ $("#test").on('click',function(e){
 	$("#modal").createModal({
 		header		: "Send Test E-Mail",
 		content		: data,
-		footer		: '<button class="btn btn-block btn-success" id="test-submit" type="button">Send Message</button>',
+		footer		: '<button class="btn btn-block btn-success" id="test-email-submit" type="button">Send Message</button>',
 		keyboard 	: true,
 		static 		: true,
 		close		: true,
 		large		: false,
 		class		: 'modal-preview'
 	});
-	$("#test-submit").on('click',function(e){
+	$("#test-email-submit").on('click',function(e){
 		var test_mail = $("#test-input").val();
 		var template = $('#mail-template').html();
 		alert(test_mail);
