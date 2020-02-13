@@ -2428,6 +2428,7 @@ $("#test").on('click',function(e){
 	$("#test-submit").on('click',function(e){
 		var test_mail = $("#test-input").val();
 		alert(test_mail);
+		console.log($("#mail-template").html());
 		alert('send mail');
 		e.preventDefault();
 	});
