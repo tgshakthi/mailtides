@@ -99,7 +99,7 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
-		 <div class="container-content hidden" id="mail-template">
+		 <div id="mail-template">
 		<?php
 			if(!empty($id))
 			{
