@@ -3368,7 +3368,7 @@ class Email_blasts extends MX_Controller
 					</html>';
 		echo '<pre>';
 		print_r($mailContent);
-		die;
+		// die;
 		$mail->Body = $mailContent;
 		$mail->clearAddresses();
 		// Add a recipient
