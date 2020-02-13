@@ -289,7 +289,7 @@
          if (window.location.href == "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/") {
              window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar";
          }  
-         (function (base, search, replace) {
+        /*  (function (base, search, replace) {
          
              window.start_time = Math.round(new Date().getTime() / 1000);
          
@@ -367,14 +367,14 @@
              document.addEventListener("DOMContentLoaded", function () {
                  refactor();
              });
-         }('/mail-editor'));
+         }('/mail-editor')); */
          
-         if (localStorage.getItem("baseURL")) {
+         /* if (localStorage.getItem("baseURL")) {
              window.base = localStorage.getItem("baseURL");
          }
          if (localStorage.getItem("session_id")) {
              window.session_id = localStorage.getItem("session_id");
-         }
+         } */
       
          const leftSideBarBtn = document.querySelector('#left-sidebar');
          const rightSideBarBtn = document.querySelector('#right-sidebar');
