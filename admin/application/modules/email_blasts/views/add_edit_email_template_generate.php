@@ -66,7 +66,7 @@
                Sidebars</span></button>
             </div>
          </div>
-         <div class="container-sidebar hidden" id="option-tabs">
+         <div class="container-sidebar" id="option-tabs">
             <div id="get-options" class="">
                <h4>Blocks</h4>
                <!--    <div class="get-options choose" data-id="title" id="title"><span class="glyphicon glyphicon-text-size"></span><div>Heading</div></div>  -->
