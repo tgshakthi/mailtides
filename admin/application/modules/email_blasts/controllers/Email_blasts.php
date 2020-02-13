@@ -3329,9 +3329,7 @@ class Email_blasts extends MX_Controller
 	
 	function send_test_email()
 	{
-		echo '<pre>';
-		print_r($_POST);
-		die;
+		
 		$mail  = $this->input->post('mail');
 		$template  = $this->input->post('template');
 		$website_id = $this->admin_header->website_id();
