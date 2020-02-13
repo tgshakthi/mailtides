@@ -3332,5 +3332,60 @@ class Email_blasts extends MX_Controller
 		echo '<pre>';
 		print_r($_POST);
 		die;
+		$mail  = $this->input->post('mail');
+		$template  = $this->input->post('template');
+		$website_id = $this->admin_header->website_id();
+		$mail_configurations = $this->Email_blasts_model->get_mail_configuration($website_id);
+		require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+		$track_code = md5(rand());
+		$mail = new PHPMailer;
+		$mail->SMTPDebug = 0;
+		// SMTP configuration
+		$mail->isSMTP();
+		$mail->Host     = $mail_configurations[0]->host;
+		$mail->SMTPAuth = true;
+		$mail->Username = $mail_configurations[0]->email;
+		$mail->Password = $mail_configurations[0]->password;
+		$mail->Port     = $mail_configurations[0]->port;						 							
+		$mail->setFrom('Test', 'info@desss.com');                    
+		$mail->Subject= 'Test';
+		// Set email format to HTML
+		$mail->isHTML(true);
+		// Email body content
+		$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+							<html>
+							<head>
+								<meta charset="UTF-8">
+								<meta content="width=device-width, initial-scale=1" name="viewport">
+								<meta name="x-apple-disable-message-reformatting">
+								<meta http-equiv="X-UA-Compatible" content="IE=edge">
+								<meta content="telephone=no" name="format-detection">
+								<title></title>
+								<!--[if (mso 16)]>
+								  <style type="text/css">
+								  a {text-decoration: none;}
+								  </style>
+								  <![endif]-->
+								<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+								<!--[if !mso]><!-- -->
+								<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+								<!--<![endif]-->
+							</head>
+							<body>
+							'.$template.'
+				</body>                  
+			</html>';
+		$mail->Body = $mailContent;
+		$mail->clearAddresses();
+		// Add a recipient
+		$mail->addAddress($mail);
+		// $mail->addBCC('velusamy@desss.com');
+
+		if(!$mail->send()){
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {				
+			echo 'Message sent.';
+		}
 	}
 }
