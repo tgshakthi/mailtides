@@ -2426,7 +2426,9 @@ $("#test").on('click',function(e){
 		class		: 'modal-preview'
 	});
 	$("#test-submit").on('click',function(e){
-	alert('send mail');
-	e.preventDefault();
+		var test_mail = $("#test-input").val();
+		alert(test_mail);
+		alert('send mail');
+		e.preventDefault();
 	});
 });
