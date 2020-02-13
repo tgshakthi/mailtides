@@ -3330,7 +3330,7 @@ class Email_blasts extends MX_Controller
 	function send_test_email()
 	{
 		
-		$mail  = $this->input->post('mail');
+		$send_mail  = $this->input->post('mail');
 		$template  = $this->input->post('template');
 		$website_id = $this->admin_header->website_id();
 		$mail_configurations = $this->Email_blasts_model->get_mail_configuration($website_id);
@@ -3376,8 +3376,8 @@ class Email_blasts extends MX_Controller
 		$mail->Body = $mailContent;
 		$mail->clearAddresses();
 		// Add a recipient
-		print_r($mail);die;
-		$mail->addAddress($mail);
+		// print_r($send_mail);die;
+		$mail->addAddress($send_mail);
 		// $mail->addBCC('velusamy@desss.com');
 
 		if(!$mail->send()){
