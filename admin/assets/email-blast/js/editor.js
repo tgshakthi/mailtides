@@ -96,8 +96,8 @@
                     '<button type="button" class="save" title="Save/Done"><span class="glyphicon glyphicon-ok"></span></button>' + 
                     '<button type="button" class="edit" title="Edit Section"><span class="glyphicon glyphicon-pencil"></span></button>' + 
                     '<button type="button" class="remove" title="Delete"><span class="glyphicon glyphicon-remove-sign"></span></button>' + 
-                '</div>',/* + 
-                '<div class="overly"></div>',*/
+                '</div>', + 
+                '<div class="overly"></div>',
 		attachments : function(){
 			/* var attachments = $.storage('attachments');	
 			 if(null !== attachments && attachments.length > 0)
