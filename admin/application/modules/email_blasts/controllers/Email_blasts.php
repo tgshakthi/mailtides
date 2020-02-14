@@ -3263,9 +3263,9 @@ class Email_blasts extends MX_Controller
 				$status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
 			}    
 
-			if ($get_template->image != '')
+			if ($get_template->template != '')
 			{
-				$gallery_img = $get_template->image;
+				$gallery_img = $get_template->template;
 				$image = img(array(
 					'src' => $gallery_img ,
 					'style' => 'width:145px; height:86px'
