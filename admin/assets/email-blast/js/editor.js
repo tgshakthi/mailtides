@@ -1870,7 +1870,7 @@
 		
 		$button.tooltip('hide');
 		
-		$button.prop('disabled',true);
+		//$button.prop('disabled',true);
 		
 		$("#modal").createModal({
 			header		: "Mail Preview",
@@ -1937,7 +1937,7 @@
 							.removeAttr('id');
 					}
 					
-					$button.prop('disabled',false);
+					// $button.prop('disabled',false);
 				},50);
 			},200);
 		});
@@ -2408,7 +2408,7 @@ $("#test").on('click',function(e){
 		form+= '<input type="text" class="form-control" placeholder="test@example.com" value="" id="test-input">';
 		form+= '</div>';		
 		data = '<div id="saved-template" class="hidden">' + data + '</div>' + form;
-		$button.prop('disabled',true);	
+		// $button.prop('disabled',true);	
 	$("#modal").createModal({
 		header		: "Send Test E-Mail",
 		content		: data,
