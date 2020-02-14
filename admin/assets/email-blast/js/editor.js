@@ -2374,14 +2374,10 @@
 }(window.jQuery || window.Zepto));
 
 $(document).on('click','#form-submit', function(e){
-	alert('form-submit');
-	alert('test');
 	e.preventDefault();
 	var template = $('#mail-template').html();	
 	var template_id = $('#template_id').val();
 	var template_name = $('#template_name').val();
-	alert(template_id);
-	alert(template_name);
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
@@ -2399,7 +2395,6 @@ $(document).on('click','#form-submit', function(e){
 
 /* Test Email Form */
 $("#test").on('click',function(e){
-	alert('send test mail');
 	var $button = $(this),
 		data = $("#mail-template").html();
 		data = data.replace(/(<button.*?>.*?<\/button>)/g,''),
@@ -2409,7 +2404,7 @@ $("#test").on('click',function(e){
 		form+= '<input type="text" class="form-control" placeholder="test@example.com" value="" id="test-input">';
 		form+= '</div>';		
 		data = '<div id="saved-template" class="hidden">' + data + '</div>' + form;
-		$button.prop('disabled',true);	
+		// $button.prop('disabled',true);	
 	$("#modal").createModal({
 		header		: "Send Test E-Mail",
 		content		: data,
@@ -2423,7 +2418,6 @@ $("#test").on('click',function(e){
 	$("#test-email-submit").on('click',function(e){
 		var test_mail = $("#test-input").val();
 		var template = $('#mail-template').html();
-		alert(test_mail);
 		e.preventDefault();
 		$.ajax({
 			url: 'http://txgidocs.mailtides.com/admin/email_blasts/send_test_email',
