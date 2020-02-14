@@ -2383,13 +2383,13 @@ $(document).on('click','#form-submit', function(e){
 	alert('test');
 	e.preventDefault();
 	var template = $('#mail-template').html();	
-	var id = $('#id').val();
-	alert(id);
+	var template_id = $('#template_id').val();
+	alert(template_id);
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
-			'id' : id,
+			'id' : template_id,
 			'template' : template
 		},
 		cache: false,
