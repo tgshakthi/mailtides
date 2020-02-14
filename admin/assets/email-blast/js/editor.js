@@ -572,7 +572,9 @@
 	});
 	
 	$('.choose').ready(function() {
-        init.dragAndDrop();
+        init.editorLoad();
+		init.dragAndDrop();
+		init.loadOptions();
     });
  
 
