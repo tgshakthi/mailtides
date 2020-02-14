@@ -573,7 +573,10 @@
 	});
 	
 	/* Change theme on click */
-	mb.chooseTemplate.find('.choose').on('load',function(e){
+	 $( document ).ready(function() {
+		 alert('load');
+        mb.chooseTemplate.find('.choose').on('load',function(e){
+		
 		e.preventDefault();
 		init.chooseTheme(this, e, function(load){
 			if(load===true)
@@ -584,6 +587,8 @@
 			}
 		});
 	});
+    });
+	
 
 	var openEditor = true;
 
