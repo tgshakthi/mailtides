@@ -574,6 +574,7 @@
 	
 	/* Change theme on load */
 	mb.choose.find('.choose').on('load',function(e){
+		alert('load');
 		e.preventDefault();
 		init.chooseTheme(this, e, function(load){
 			if(load===true)
