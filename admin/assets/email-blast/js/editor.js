@@ -92,7 +92,7 @@
 		/* Tooltips */
 		tooltips : 	'<button type="button" class="copy" title="Copy"><span class="glyphicon glyphicon-copy"></span></button>' + 
                 '<div class="overly"></div>' + 
-                '<div class="save-remove">' + 
+                '<div class="save-remove" id="tooltips_buttons">' + 
                     '<button type="button" class="save" title="Save/Done"><span class="glyphicon glyphicon-ok"></span></button>' + 
                     '<button type="button" class="edit" title="Edit Section"><span class="glyphicon glyphicon-pencil"></span></button>' + 
                     '<button type="button" class="remove" title="Delete"><span class="glyphicon glyphicon-remove-sign"></span></button>' + 
