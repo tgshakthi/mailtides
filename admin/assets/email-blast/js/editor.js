@@ -50,7 +50,7 @@
 		editor : $("#editor"),
 		
 	};
-	
+	alert(mb.choose);
 	$.fn.info = function(message, type, offset){
 		type = type || 'info';
 		offset = offset || 0;
@@ -572,19 +572,6 @@
 		});
 	});
 	
-	/* Change theme on load */
-	mb.choose.find('.choose').on('load',function(e){
-		alert('load');
-		e.preventDefault();
-		init.chooseTheme(this, e, function(load){
-			if(load===true)
-			{
-				init.editorLoad();
-				init.dragAndDrop();
-				init.loadOptions();
-			}
-		});
-	});
 
 	var openEditor = true;
 
