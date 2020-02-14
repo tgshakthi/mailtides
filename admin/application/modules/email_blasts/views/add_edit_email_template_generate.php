@@ -102,6 +102,7 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
+		 
 		 <br></br>
 		 <?php
 			if(!empty($id))
@@ -121,7 +122,7 @@
 		 
 			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<input type="text" name="template_name" required value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
+				<input type="text" name="template_name" value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
 			</div>
 		</div><br></br>
 		 <div class="" id="mail-template">
@@ -132,11 +133,11 @@
          </div>
       </div>
       <div id="modal" class="reset-this"></div>
-      <button class="btn btn-lg preview-green btn-materialize btn-left-bottom-1 hidden" type="button"
+      <button class="btn btn-lg preview-green btn-materialize btn-left-bottom btn-left-bottom-1 hidden" type="button"
          id="preview" title="Preview" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
          class="glyphicon glyphicon-zoom-in"></span></button>
       
-      <button class="btn btn-lg setting-red btn-materialize btn-left-bottom-2 hidden" type="button"
+      <button class="btn btn-lg setting-red btn-materialize btn-left-bottom btn-left-bottom-3 hidden" type="button"
          id="setting" title="Layout Options" data-toggle="tooltip" data-placement="left" data-trigger="hover"><span
          class="fa fa-cog fa-spin"></span></button>
       <div id="alerts"></div>
