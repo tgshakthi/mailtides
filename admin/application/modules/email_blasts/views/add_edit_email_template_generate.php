@@ -74,13 +74,11 @@
                <h4>Blocks</h4>
                <!--    <div class="get-options choose" data-id="title" id="title"><span class="glyphicon glyphicon-text-size"></span><div>Heading</div></div>  -->
                <div class="get-options choose" data-id="content" id="content">
-                  <span
-                     class="glyphicon glyphicon-list-alt"></span>
+                  <span class="glyphicon glyphicon-list-alt"></span>
                   <div>Text</div>
                </div>
                <div class="get-options choose" data-id="image" id="image">
-                  <span
-                     class="glyphicon glyphicon-picture"></span>
+                  <span class="glyphicon glyphicon-picture"></span>
                   <div>Image</div>
                </div>
                <div class="get-options choose" data-id="link" id="link">
@@ -88,13 +86,11 @@
                   <div>Link</div>
                </div>
                <div class="get-options choose" data-id="video" id="video">
-                  <span
-                     class="glyphicon glyphicon-play"></span>
+                  <span class="glyphicon glyphicon-play"></span>
                   <div>Video</div>
                </div>
                <div class="get-options choose" data-id="divider" id="divider">
-                  <span
-                     class="glyphicon glyphicon-minus"></span>
+                  <span class="glyphicon glyphicon-minus"></span>
                   <div>Divider</div>
                </div>
                
