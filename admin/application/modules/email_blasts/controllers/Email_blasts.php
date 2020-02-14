@@ -3365,6 +3365,11 @@ class Email_blasts extends MX_Controller
 								<meta http-equiv="X-UA-Compatible" content="IE=edge">
 								<meta content="telephone=no" name="format-detection">
 								<title></title>
+								<style>
+								 #tooltips_buttons{
+									display : none; 
+								 }
+								</style>
 							</head>
 							<body>
 							<div class="es-wrapper-color">
