@@ -43,14 +43,14 @@
     
 	/* Global Selectors */
 	var mb = {
-		choose : $('.choose'),
+		choose : $('#get-options'),
 		chooseTemplate : $('#choose-template'),
 		optionTabs : $('#option-tabs'),
 		mailTemplate : $('#mail-template'),
 		editor : $("#editor"),
 		
 	};
-	console.log(mb.choose);
+
 	$.fn.info = function(message, type, offset){
 		type = type || 'info';
 		offset = offset || 0;
@@ -561,6 +561,20 @@
 	
 	/* Change theme on click */
 	mb.chooseTemplate.find('.choose').on('click',function(e){
+		e.preventDefault();
+		init.chooseTheme(this, e, function(load){
+			if(load===true)
+			{
+				init.editorLoad();
+				init.dragAndDrop();
+				init.loadOptions();
+			}
+		});
+	});
+	
+	/* Change theme on click */
+	mb.choose.find('.choose').on('load',function(e){
+		alert('load');
 		e.preventDefault();
 		init.chooseTheme(this, e, function(load){
 			if(load===true)
