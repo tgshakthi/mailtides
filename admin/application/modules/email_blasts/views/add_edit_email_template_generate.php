@@ -108,7 +108,7 @@
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<input type="text" name="template_name" value="" id="template_name" class="form-control col-md-7 col-xs-12">
 			</div>
-		</div>
+		</div><br></br>
 		 <div class="" id="mail-template">
 			
 		<?php
