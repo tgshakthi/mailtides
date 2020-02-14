@@ -113,8 +113,8 @@
 					$template = $get_email_template[0]->template;
 				}				 			
 			}else{
-				$template_name = ""
-				$template = array();
+				$template_name = "";
+				$template = "";
 			}
 		 ?>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
