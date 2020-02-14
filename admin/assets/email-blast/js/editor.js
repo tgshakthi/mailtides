@@ -1896,9 +1896,7 @@
 					RE = $("#modal #dd-head, #modal #dd-body, #modal #dd-footer, #modal #dd-sidebar-left, #modal #dd-sidebar-right"),
 					REmax = RE.length;
 				$('#modal #dd-body-background .overly').remove();
-				console.log(RD.length);
-				console.log(IR.length);
-				console.log(RE.length);
+
 				for(i=0; i < RDmax; i++)
 				{
 					$(RD[i]).css({
@@ -1912,9 +1910,6 @@
 						padding:'15px 15px'
 					});
 				}
-				console.log(RD.css);
-				console.log(RD.css);
-				console.log(RD.css);
 				for(j=0; j < IRmax; j++)
 				{
 					$(IR[j]).css({
@@ -2439,7 +2434,7 @@ $("#test").on('click',function(e){
 			},
 			cache: false,
 			success: function(){
-				$('#modal').modal('close');
+				$("#test-input").val('');
 				  // window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 				}		
 		})
