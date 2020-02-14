@@ -3366,7 +3366,7 @@ class Email_blasts extends MX_Controller
 								<meta content="telephone=no" name="format-detection">
 								<title></title>
 								<style>
-								 #tooltips_buttons{
+								 .save-remove{
 									display : none; 
 								 }
 								 .copy
