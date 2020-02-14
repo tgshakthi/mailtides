@@ -50,7 +50,7 @@
 		editor : $("#editor"),
 		
 	};
-	console.log(db.choose);
+	console.log(mb.choose);
 	$.fn.info = function(message, type, offset){
 		type = type || 'info';
 		offset = offset || 0;
