@@ -114,7 +114,7 @@
 				}				 			
 			}else{
 				$template_name = ""
-				$template = "";
+				$template = array();
 			}
 		 ?>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
