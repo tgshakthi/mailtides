@@ -3329,8 +3329,7 @@ class Email_blasts extends MX_Controller
 			$insert_email = $this->Email_blasts_model->insert_update_email_templates($id);
 		}else{
 			$insert_email = $this->Email_blasts_model->insert_update_email_templates();	
-		}
-			
+		}	
 	}
 	
 	function send_test_email()

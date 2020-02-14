@@ -2394,7 +2394,7 @@ $(document).on('click','#form-submit', function(e){
 		},
 		cache: false,
 		success: function(){
-			  // window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
+			  window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 			}		
 	})
 });
