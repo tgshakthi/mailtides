@@ -2438,5 +2438,6 @@ $("#test").on('click',function(e){
 	});
 });
 $( document ).ready(function() {
-    localStorage.removeItem(key);
+	alert('');
+    localStorage.removeItem(storage);
 });
