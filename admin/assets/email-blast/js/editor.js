@@ -1,3 +1,4 @@
+
 (function($){
 	/*****************************************************************
 	 * Here starting main functionality of mail builder
@@ -452,7 +453,7 @@
 			});
 			
 			// sort all elements
-			$( "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right" ).sortable({
+			$("#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right" ).sortable({
 				revert: true,
 				delay : 250,
 				grid: [ 10, 10 ],
@@ -1995,12 +1996,9 @@
 			$input.parent().after('<div class="alert alert-danger" role="alert">You must insert email address.</div>');
 	});
 	
-
-	
 	/*****************************************************************
 	 * Global Page Style Settings
 	**/
-	
 	//Head Height
 	$("#head-height").on("slide slideStop", function(slideEvt) {
 		
@@ -2438,4 +2436,7 @@ $("#test").on('click',function(e){
 				}		
 		})
 	});
+});
+$( document ).ready(function() {
+    localStorage.removeItem(key);
 });
