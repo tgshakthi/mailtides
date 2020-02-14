@@ -3265,7 +3265,7 @@ class Email_blasts extends MX_Controller
 
 			if ($get_template->image != '')
 			{
-				$gallery_img = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $get_template->image;
+				$gallery_img = $get_template->image;
 				$image = img(array(
 					'src' => $gallery_img ,
 					'style' => 'width:145px; height:86px'
