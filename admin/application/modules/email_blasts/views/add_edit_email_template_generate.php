@@ -27,9 +27,11 @@
 				));
 			?>			   
                <!-- <a href="http://localhost/mail-editor/#left-sidebar" class="btn btn-primary" id="left-sidebar">Left Sidebar</a> -->
-				<form action="" method="POST" id="form-submit">
-					<input type="submit" id="data-submit" value="SUBMIT">
-				</form>
+				<div>
+					<form action="" method="POST" id="form-submit">
+						<input type="submit" id="data-submit" value="SUBMIT">
+					</form>
+				</div>
             </div>
          </div>
          <div id="mySidenav" class="sidenav">
