@@ -575,7 +575,8 @@
 	/* Change theme on click */
 	 $( document ).ready(function() {
 		 alert('load');
-        mb.chooseTemplate.find('.choose').on('load',function(e){
+		 $('.choose').on( "load", function() {
+        // find('.choose').on('load',function(e){
 		
 		e.preventDefault();
 		init.chooseTheme(this, e, function(load){
