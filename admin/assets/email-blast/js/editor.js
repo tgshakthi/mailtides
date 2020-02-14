@@ -571,6 +571,19 @@
 			}
 		});
 	});
+	
+	/* Change theme on click */
+	mb.chooseTemplate.find('.choose').on('load',function(e){
+		e.preventDefault();
+		init.chooseTheme(this, e, function(load){
+			if(load===true)
+			{
+				init.editorLoad();
+				init.dragAndDrop();
+				init.loadOptions();
+			}
+		});
+	});
 
 	var openEditor = true;
 
