@@ -104,27 +104,31 @@
          </div>
 		 <br></br>
 		 <br></br>
+		 <?php
+			if(!empty($id))
+			{
+				if(!empty($get_email_template))
+				{
+					$template_name = $get_email_template[0]->template_name;
+					$template = $get_email_template[0]->template;
+				}				 			
+			}else{
+				$template_name = ""
+				$template = "";
+			}
+		 ?>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
 		 <div class="form-group  ">
+		 
 			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<input type="text" name="template_name" value="" id="template_name" class="form-control col-md-7 col-xs-12">
+				<input type="text" name="template_name" value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
 			</div>
 		</div><br></br>
 		 <div class="" id="mail-template">
 			
 		<?php
-			if(!empty($id))
-			{
-				if(!empty($get_email_template))
-				{
-					print_r($get_email_template[0]->template);
-				}				 			
-			}else{
-		?>
-            Content
-		<?php
-			}
+			print_r($template);
 		?>
          </div>
       </div>
