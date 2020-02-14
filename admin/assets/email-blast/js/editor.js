@@ -585,7 +585,11 @@
 			}
 		});
 	});
-	
+	$('.choose').ready(function() {
+			alert('load test');
+        init.dragAndDrop();
+    });
+ 
 
 	var openEditor = true;
 
