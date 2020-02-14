@@ -103,7 +103,6 @@
             </div>
          </div>
 		 <br></br>
-		 <br></br>
 		 <?php
 			if(!empty($id))
 			{
