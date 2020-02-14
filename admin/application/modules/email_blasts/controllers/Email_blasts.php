@@ -3317,7 +3317,7 @@ class Email_blasts extends MX_Controller
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
 		$this->load->view('add_edit_email_template_generate', $data);
-		$this->load->view('template/footer_content');
+		// $this->load->view('template/footer_content');
 		$this->load->view('script');
 		$this->load->view('template/footer');
 	}
