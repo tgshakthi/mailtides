@@ -3267,8 +3267,7 @@ class Email_blasts extends MX_Controller
 			{
 				$gallery_img = $get_template->template;
 				$image = img(array(
-					'src' => $gallery_img ,
-					'style' => 'width:145px; height:86px'
+					'src' => $gallery_img 
 				));
 			}
 			else
