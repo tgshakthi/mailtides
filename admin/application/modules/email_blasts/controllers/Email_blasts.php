@@ -3369,7 +3369,7 @@ class Email_blasts extends MX_Controller
 								 #tooltips_buttons{
 									display : none; 
 								 }
-								 #copy_tooltip_button
+								 .copy
 								 {
 									display : none; 
 								 }								 
