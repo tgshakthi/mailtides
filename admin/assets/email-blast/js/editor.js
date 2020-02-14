@@ -2438,6 +2438,6 @@ $("#test").on('click',function(e){
 	});
 });
 $( document ).ready(function() {
-	alert('');
+	// alert('');
     localStorage.removeItem(storage);
 });
