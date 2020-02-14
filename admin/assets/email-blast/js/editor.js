@@ -1858,10 +1858,8 @@
 	
 	/* Preview */
 	$("#preview").on('click touchstart',function(e){
-		alert('test');
 		// console.log(e);
-		e.preventDefault();
-		
+		e.preventDefault();		
         MediumEditorHook.clean();
         totalCleaner();
         
