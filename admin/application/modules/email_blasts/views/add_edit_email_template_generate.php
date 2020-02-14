@@ -103,8 +103,12 @@
             </div>
          </div>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
-		 <label>Template Name:</label>
-		 <input type="text" name="template_name" id="template_name" value="">
+		 <div class="form-group  ">
+			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<input type="text" name="template_name" value="" id="template_name" class="form-control col-md-7 col-xs-12">
+			</div>
+		</div>
 		 <div class="" id="mail-template">
 			
 		<?php
