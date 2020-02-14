@@ -121,7 +121,7 @@
 		 
 			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<input type="text" name="template_name" value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
+				<input type="text" name="template_name" required value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
 			</div>
 		</div><br></br>
 		 <div class="" id="mail-template">
