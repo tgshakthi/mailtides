@@ -573,7 +573,7 @@
 	});
 	
 	/* Change theme on click */
-	mb.choose.find('.choose').on('load',function(e){
+	mb.choose.find('.choose').on('click',function(e){
 		alert('load');
 		e.preventDefault();
 		init.chooseTheme(this, e, function(load){
