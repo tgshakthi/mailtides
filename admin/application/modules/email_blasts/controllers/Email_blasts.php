@@ -3325,6 +3325,7 @@ class Email_blasts extends MX_Controller
 	{
 		$email_template = $this->input->post('template');
 		$id = $this->input->post('id');
+		$template_name = $this->input->post('template_name');
 		if(!empty($id)){
 			$insert_email = $this->Email_blasts_model->insert_update_email_templates($id);
 		}else{

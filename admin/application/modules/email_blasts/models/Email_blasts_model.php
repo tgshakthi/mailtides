@@ -1494,8 +1494,10 @@ class Email_blasts_model extends CI_Model
 	function insert_update_email_templates($id = null)
 	{
 		$email_template = $this->input->post('template');
+		$template_name = $this->input->post('template_name');
 		if(!empty($id)){
 			$update_array = array(
+							'template_name' => $template_name,
 							'template' => $email_template,
 							'status' => '1'
 						);
@@ -1505,6 +1507,7 @@ class Email_blasts_model extends CI_Model
 		}else{
 			
 		$insert_data = array(
+							'template_name' => $template_name,
 							'template' => $email_template,
 							'status' => '1'
 						);

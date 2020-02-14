@@ -2384,12 +2384,15 @@ $(document).on('click','#form-submit', function(e){
 	e.preventDefault();
 	var template = $('#mail-template').html();	
 	var template_id = $('#template_id').val();
+	var template_name = $('#template_name').val();
 	alert(template_id);
+	alert(template_name);
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
 			'id' : template_id,
+			'template_name' : template_name,
 			'template' : template
 		},
 		cache: false,
