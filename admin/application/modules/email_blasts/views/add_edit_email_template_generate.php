@@ -103,6 +103,7 @@
             </div>
          </div>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
+		 <input type="text" name="template_name" id="template_name" value="">
 		 <div class="" id="mail-template">
 			
 		<?php
