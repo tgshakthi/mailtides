@@ -103,6 +103,7 @@
             </div>
          </div>
 		 <div class="" id="mail-template">
+			<input type="hidden" name="id" value="<?php echo $id;?>">
 		<?php
 			if(!empty($id))
 			{
