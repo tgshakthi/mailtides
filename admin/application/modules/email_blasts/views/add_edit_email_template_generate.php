@@ -102,6 +102,8 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
+		 <br></br>
+		 <br></br>
 		 <input type="hidden" name="template_id" id="template_id" value="<?php echo $id;?>">
 		 <div class="form-group  ">
 			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
