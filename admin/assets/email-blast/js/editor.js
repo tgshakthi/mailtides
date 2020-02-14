@@ -43,6 +43,7 @@
     
 	/* Global Selectors */
 	var mb = {
+		choose : $('.choose'),
 		chooseTemplate : $('#choose-template'),
 		optionTabs : $('#option-tabs'),
 		mailTemplate : $('#mail-template'),
@@ -329,8 +330,7 @@
 				link = 'http://txgidocs.mailtides.com/admin/assets/email-blast/themes/theme-' + id + '.html';
 
 			$.get(link).always(function() {
-				// mb.chooseTemplate.html(init.loader);
-				// mb.chooseTemplate.html("Test");
+				
 			}).done(function(data){
 				
 				mb.mailTemplate.html(data).promise().done(function(){
@@ -572,14 +572,18 @@
 		});
 	});
 	
-	/* Change theme on click */
-	$( document ).ready(function() {
-		alert('load');
-			editorLoad();
-			dragAndDrop();
-			loadOptions();
-    });
-	
+	/* Change theme on load */
+	mb.choose.find('.choose').on('load',function(e){
+		e.preventDefault();
+		init.chooseTheme(this, e, function(load){
+			if(load===true)
+			{
+				init.editorLoad();
+				init.dragAndDrop();
+				init.loadOptions();
+			}
+		});
+	});
 
 	var openEditor = true;
 
