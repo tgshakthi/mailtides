@@ -414,7 +414,6 @@
 		
 		/* Activate Drag & Drop */
 		dragAndDrop : function(){
-			alert('test');
 			// Activate draggable on buttons
 			$( "#get-options .choose" ).draggable({
 				connectToSortable: "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right",
@@ -572,21 +571,7 @@
 		});
 	});
 	
-	/* Change theme on click */
-	mb.choose.find('.choose').on('click',function(e){
-		alert('load');
-		e.preventDefault();
-		init.chooseTheme(this, e, function(load){
-			if(load===true)
-			{
-				init.editorLoad();
-				init.dragAndDrop();
-				init.loadOptions();
-			}
-		});
-	});
 	$('.choose').ready(function() {
-			alert('load test');
         init.dragAndDrop();
     });
  
