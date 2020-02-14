@@ -91,10 +91,10 @@
                   <span class="glyphicon glyphicon-link"></span>
                   <div>Link</div>
                </div>
-               <div class="get-options choose" data-id="video" id="video">
+               <!--<div class="get-options choose" data-id="video" id="video">
                   <span class="glyphicon glyphicon-play"></span>
                   <div>Video</div>
-               </div>
+               </div> -->
                <div class="get-options choose" data-id="divider" id="divider">
                   <span class="glyphicon glyphicon-minus"></span>
                   <div>Divider</div>
