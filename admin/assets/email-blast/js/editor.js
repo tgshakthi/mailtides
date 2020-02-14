@@ -573,21 +573,13 @@
 	});
 	
 	/* Change theme on click */
-	 $( document ).ready(function() {
-		 alert('load');
-		 $('.choose').on( "load", function() {
-        // find('.choose').on('load',function(e){
-		
-		e.preventDefault();
-		init.chooseTheme(this, e, function(load){
-			if(load===true)
-			{
-				init.editorLoad();
-				init.dragAndDrop();
-				init.loadOptions();
-			}
+	$( document ).ready(function() {
+		alert('load');
+		$('.choose').on( "load", function() {
+			editorLoad();
+			dragAndDrop();
+			loadOptions();
 		});
-	});
     });
 	
 
