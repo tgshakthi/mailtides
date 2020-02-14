@@ -575,11 +575,9 @@
 	/* Change theme on click */
 	$( document ).ready(function() {
 		alert('load');
-		$('.choose').on( "load", function() {
 			editorLoad();
 			dragAndDrop();
 			loadOptions();
-		});
     });
 	
 
