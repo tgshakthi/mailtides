@@ -11,17 +11,21 @@
          <div class="top-header">
             <a href="#" class="logo">Mail Template</a>
             <div class="mini-setting">
-               <button type="button" class="btn" onclick="openNav()">
-               <i class="fas fa-file-invoice"></i> Choose Template
-               </button>
-				<?php
-					echo anchor(
-					'email_blasts/email_template_generate',
-					'<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
-					array(
-						'class' => 'btn btn-success'
-					));
-				?>			   
+			<?php
+				if(empty($id)){
+			?>
+					<button type="button" class="btn" onclick="openNav()">
+						<i class="fas fa-file-invoice"></i> Choose Template
+					</button>
+			<?php
+				}			
+				echo anchor(
+				'email_blasts/email_template_generate',
+				'<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
+				array(
+					'class' => 'btn btn-success'
+				));
+			?>			   
                <!-- <a href="http://localhost/mail-editor/#left-sidebar" class="btn btn-primary" id="left-sidebar">Left Sidebar</a> -->
 				<form action="" method="POST" id="form-submit">
 					<input type="submit" id="data-submit" value="SUBMIT">
