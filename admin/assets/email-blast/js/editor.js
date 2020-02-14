@@ -2382,11 +2382,13 @@ $(document).on('click','#form-submit', function(e){
 	alert('form-submit');
 	alert('test');
 	e.preventDefault();
-	var template = $('#mail-template').html();		
+	var template = $('#mail-template').html();	
+	var id = $('#id').val();	
 	$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
 		type: 'POST',
 		data: {
+			'id' : id,
 			'template' : template
 		},
 		cache: false,
