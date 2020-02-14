@@ -102,8 +102,9 @@
                <ul id="attach-data" class="list-group"></ul>
             </div>
          </div>
+		 <input type="hidden" name="id" value="<?php echo $id;?>">
 		 <div class="" id="mail-template">
-			<input type="hidden" name="id" value="<?php echo $id;?>">
+			
 		<?php
 			if(!empty($id))
 			{
