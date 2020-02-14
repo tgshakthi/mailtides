@@ -412,7 +412,7 @@
          });
          
          bothSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#both-sidebar";
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate";
          	window.location.reload();
          });
          
