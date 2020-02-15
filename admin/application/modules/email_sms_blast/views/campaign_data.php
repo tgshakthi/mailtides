@@ -52,7 +52,7 @@
 			<div class="page_buut_right">
 			<?php
 			echo '<pre>';print_r($campaign_datas);die;
-				foreach($campaign_datas as $campaign_data);
+				foreach($campaign_datas as $campaign_data):
 			?>
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 						<a href="<?php echo base_url();?>email_sms_blast/email_campaign" class="btn btn-warning">
