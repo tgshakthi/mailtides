@@ -3719,7 +3719,7 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		$website_folder_name = $this->admin_header->website_folder_name();
 		$ImageUrl = $this->admin_header->image_url();
-		$get_template_data = $this->Email_blasts_model->get_dynamic_email_template();   
+		$get_template_data = $this->Email_sms_blast_model->get_dynamic_email_template();   
      
 		foreach (($get_template_data ? $get_template_data : array()) as $get_template)
 		{        
@@ -3791,7 +3791,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['get_email_template'] = $this->Email_blasts_model->get_email_template_by_id($data['id']);
+		$data['get_email_template'] = $this->Email_sms_blast_model->get_email_template_by_id($data['id']);
 		// print_r($get_email_template);die;
 		$data['heading']    = 'Add Edit Email Template';
 		$data['title']      = "Add Edit Email Template | Administrator";
@@ -3809,9 +3809,9 @@ class Email_sms_blast extends MX_Controller
 		$id = $this->input->post('id');
 		$template_name = $this->input->post('template_name');
 		if(!empty($id)){
-			$insert_email = $this->Email_blasts_model->insert_update_email_templates($id);
+			$insert_email = $this->Email_sms_blast_model->insert_update_email_templates($id);
 		}else{
-			$insert_email = $this->Email_blasts_model->insert_update_email_templates();	
+			$insert_email = $this->Email_sms_blast_model->insert_update_email_templates();	
 		}	
 	}
 	
@@ -3821,7 +3821,7 @@ class Email_sms_blast extends MX_Controller
 		$send_mail  = $this->input->post('mail');
 		$template  = $this->input->post('template');
 		$website_id = $this->admin_header->website_id();
-		$mail_configurations = $this->Email_blasts_model->get_mail_configuration($website_id);
+		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 		require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 		$track_code = md5(rand());
 		$mail = new PHPMailer;
