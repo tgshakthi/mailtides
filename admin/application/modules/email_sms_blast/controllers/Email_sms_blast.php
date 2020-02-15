@@ -3697,4 +3697,183 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('script');
 	    $this->load->view('template/footer');
 	}
+	
+	//Dynamic Email Template Generate
+	function email_template_generate()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['table']      = $this->get_dynamic_email_template();
+		$data['heading']    = 'Email Template';
+		$data['title']      = "Email Template | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('email_template_generate', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+	
+	function get_dynamic_email_template()
+	{       
+		$website_id = $this->admin_header->website_id();
+		$website_folder_name = $this->admin_header->website_folder_name();
+		$ImageUrl = $this->admin_header->image_url();
+		$get_template_data = $this->Email_blasts_model->get_dynamic_email_template();   
+     
+		foreach (($get_template_data ? $get_template_data : array()) as $get_template)
+		{        
+			$anchor_edit = anchor(site_url('email_blasts/add_edit_email_template_generate/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+								 'data-toggle' => 'tooltip',
+								 'data-placement' => 'left',
+								 'data-original-title' => 'Edit'
+							   ));
+         
+			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+								 'data-toggle' => 'tooltip',
+								 'data-placement' => 'right',
+								 'data-original-title' => 'Delete',
+								 'onclick' => 'return delete_record(' . $get_template->id . ', \'' . base_url('email_blast/delete_email_template/' . $website_id) . '\')'
+							   ));
+         
+			if ($get_template->status === '1') 
+			{
+				$status = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+			} 
+			else
+			{
+				$status = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+			}    
+
+			if ($get_template->image != '')
+			{
+				$gallery_img = $ImageUrl . 'images' . DIRECTORY_SEPARATOR . $website_folder_name . DIRECTORY_SEPARATOR . $get_template->image;
+				$image = img(array(
+					'src' => $gallery_img ,
+					'style' => 'width:145px; height:86px'
+				));
+			}
+			else
+			{
+				$image = img(array(
+					'src' => $ImageUrl . 'images/noimage.png',
+					'style' => 'width:145px; height:86px'
+				));
+			}
+         
+			$cell = array(
+						 'class' => 'last',
+						 'data' =>  $anchor_edit.' '.$anchor_delete
+					   );
+
+      
+     
+		    $this->table->add_row('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_template->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_template->id . '">', $get_template->template_name,$image , $status, $cell);
+		}
+           
+		$template = array(
+						   'table_open' => '<table
+						   id="datatable-responsive"
+						   class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+						   width="100%" cellspacing="0">'
+					    );
+
+		$this->table->set_template($template);
+     
+		// Table heading row
+		 
+		$this->table->set_heading('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Image','Status', 'Action');
+		return $this->table->generate();
+	}
+	
+	//Add & Edit Email Template
+	function add_edit_email_template_generate($id = null)
+	{
+		$data['id'] = $id;
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['get_email_template'] = $this->Email_blasts_model->get_email_template_by_id($data['id']);
+		// print_r($get_email_template);die;
+		$data['heading']    = 'Add Edit Email Template';
+		$data['title']      = "Add Edit Email Template | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('add_edit_email_template_generate', $data);
+		// $this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+	function test_email()
+	{
+		$email_template = $this->input->post('template');
+		$id = $this->input->post('id');
+		$template_name = $this->input->post('template_name');
+		if(!empty($id)){
+			$insert_email = $this->Email_blasts_model->insert_update_email_templates($id);
+		}else{
+			$insert_email = $this->Email_blasts_model->insert_update_email_templates();	
+		}	
+	}
+	
+	function send_test_email()
+	{
+		
+		$send_mail  = $this->input->post('mail');
+		$template  = $this->input->post('template');
+		$website_id = $this->admin_header->website_id();
+		$mail_configurations = $this->Email_blasts_model->get_mail_configuration($website_id);
+		require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+		$track_code = md5(rand());
+		$mail = new PHPMailer;
+		$mail->SMTPDebug = 0;
+		// SMTP configuration
+		$mail->isSMTP();
+		$mail->Host     = $mail_configurations[0]->host;
+		$mail->SMTPAuth = true;
+		$mail->Username = $mail_configurations[0]->email;
+		$mail->Password = $mail_configurations[0]->password;
+		$mail->Port     = $mail_configurations[0]->port;						 							
+		$mail->setFrom('info@desss.com','Test');                    
+		$mail->Subject= 'Test';
+		// Set email format to HTML
+		$mail->isHTML(true);
+		// Email body content
+		$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+							<html>
+							<head>
+								<meta charset="UTF-8">
+								<meta content="width=device-width, initial-scale=1" name="viewport">
+								<meta name="x-apple-disable-message-reformatting">
+								<meta http-equiv="X-UA-Compatible" content="IE=edge">
+								<meta content="telephone=no" name="format-detection">
+								<title></title>
+								<style>
+								 .save-remove{
+									display : none; 
+								 }
+								 .copy
+								 {
+									display : none; 
+								 }								 
+								</style>
+							</head>
+							<body>
+							<div class="es-wrapper-color">
+								'.$template.'
+							</div>
+						</body>                  
+					</html>';
+		
+		$mail->Body = $mailContent;
+		$mail->clearAddresses();
+		// Add a recipient		
+		$mail->addAddress($send_mail);
+
+		if(!$mail->send()){
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {				
+			echo 'Message sent.';
+		}
+	}
 }

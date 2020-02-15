@@ -1038,4 +1038,29 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
+	
+	function insert_update_email_templates($id = null)
+	{
+		$email_template = $this->input->post('template');
+		$template_name = $this->input->post('template_name');
+		if(!empty($id)){
+			$update_array = array(
+							'template_name' => $template_name,
+							'template' => $email_template,
+							'status' => '1'
+						);
+
+            $this->db->where('id', $id);
+            $this->db->update('zcms_email_template', $update_array);
+		}else{
+			
+		$insert_data = array(
+							'template_name' => $template_name,
+							'template' => $email_template,
+							'status' => '1'
+						);
+		// Insert into Email Template Data
+		$this->db->insert('zcms_email_template', $insert_data);
+		}		
+	}
 }
