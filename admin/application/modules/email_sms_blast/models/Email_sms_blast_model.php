@@ -488,6 +488,7 @@ class Email_sms_blast_model extends CI_Model
 		$this->db->select('*');
 		 $this->db->where(array(
 			'website_id' => $website_id,
+			'status' => '1',
             'is_deleted' => '0'
         ));
         $query   = $this->db->get('zcms_campaign_category');
