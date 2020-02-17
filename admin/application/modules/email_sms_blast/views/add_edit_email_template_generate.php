@@ -20,7 +20,7 @@
 			<?php
 				}			
 				echo anchor(
-				'email_blasts/email_template_generate',
+				'email_sms_blast/email_template_generate',
 				'<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
 				array(
 					'class' => 'btn btn-success'
@@ -38,22 +38,22 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
                <li>
-                  <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar" class="btn" id="no-sidebar">
+                  <a href="http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar" class="btn" id="no-sidebar">
                   <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/no-sidebar.jpg" class="img-responsive" alt="">
                   <span>No Sidebar</span></a>
                </li>
                <li>
-                  <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#left-sidebar" class="btn " id="left-sidebar">
+                  <a href="http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar" class="btn " id="left-sidebar">
                   <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/left-sidebar.jpg" class="img-responsive" alt="">
                   <span>Left Sidebar</span></a>
                </li>
                <li>
-                  <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#right-sidebar" class="btn" id="right-sidebar">
+                  <a href="http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar" class="btn" id="right-sidebar">
                   <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/right-sidebar.jpg" class="img-responsive" alt="">
                   <span>Right Sidebar</span></a>
                </li>
                <li>
-                  <a href="http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#both-sidebar" class="btn" id="both-sidebar">
+                  <a href="http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar" class="btn" id="both-sidebar">
                   <img src="http://txgidocs.mailtides.com/admin/assets/email-blast/image/both-sidebar.jpg" class="img-responsive" alt="">
                   <span>Both Sidebar</span></a>
                </li>
@@ -124,7 +124,8 @@
 		 
 			<label for="template_name" class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>										
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<input type="text" name="template_name" value="<?php echo $template_name;?>" id="template_name" class="form-control col-md-7 col-xs-12">
+				<input type="text" name="template_name" value="<?php echo $template_name;?>" id="template_name" class="form-control">
+				<span id="template_name_err"></span>
 			</div>
 		</div><br></br>
 		 <div class="" id="mail-template">
@@ -303,8 +304,8 @@
       <script type="text/javascript">
          // console.log(window.location.href);
          
-         if (window.location.href == "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/") {
-             window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar";
+         if (window.location.href == "http://txgidocs.mailtides.com/admin/email_sms_blasts/add_edit_email_template_generate/") {
+             window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
          }  
         /*  (function (base, search, replace) {
          
@@ -399,22 +400,22 @@
          const bothSideBarBtn = document.querySelector('#both-sidebar');
          
          leftSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#left-sidebar";
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
          	window.location.reload();
          });
          
          noSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#no-sidebar";
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
          	window.location.reload();
          });
          
          rightSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#right-sidebar";
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
          	window.location.reload();
          });
          
          bothSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/add_edit_email_template_generate/#both-sidebar";
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";
          	window.location.reload();
          });
          

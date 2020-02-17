@@ -1975,7 +1975,7 @@
 					currentAttachments = '';
 				}
 				
-				$.post('http://txgidocs.mailtides.com/admin/email_blasts/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
+				$.post('http://txgidocs.mailtides.com/admin/email_sms_blast/test_email', {mail:val, body:body, attachments : currentAttachments}).done(function(returns){
 					if(returns == 'true')
 					{
 						$input.parent().after('<div class="alert alert-success" role="alert">Test email was successfully sent!</div>');
@@ -2381,8 +2381,14 @@ $(document).on('click','#form-submit', function(e){
 	var template = $('#mail-template').html();	
 	var template_id = $('#template_id').val();
 	var template_name = $('#template_name').val();
-	$.ajax({
-		url: 'http://txgidocs.mailtides.com/admin/email_blasts/test_email',
+	if(template_name === false)
+	{
+		var errormsg = '<div class="alert alert-warning" role="alert">Email address have wrong format.</div>'
+		$('#template_name').val('');
+		$('#template_name_err').html(errormsg);
+	}else{
+		$.ajax({
+		url: 'http://txgidocs.mailtides.com/admin/email_sms_blast/test_email',
 		type: 'POST',
 		data: {
 			'id' : template_id,
@@ -2391,9 +2397,11 @@ $(document).on('click','#form-submit', function(e){
 		},
 		cache: false,
 		success: function(){
-			  window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
+			  window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/email_template_generate";
 			}		
 	})
+	}
+	
 });
 
 /* Test Email Form */
@@ -2423,7 +2431,7 @@ $("#test").on('click',function(e){
 		var template = $('#mail-template').html();
 		e.preventDefault();
 		$.ajax({
-			url: 'http://txgidocs.mailtides.com/admin/email_blasts/send_test_email',
+			url: 'http://txgidocs.mailtides.com/admin/email_sms_blasts/send_test_email',
 			type: 'POST',
 			data: {
 				'template' : template,
