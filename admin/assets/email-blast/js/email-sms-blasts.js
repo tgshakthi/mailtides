@@ -321,6 +321,36 @@ $(document).ready(function () {
 				});
 			} else {
 				alert('please upload some users!');
+			}		
+	});
+	
+	// Import Email SMS Filter Data
+	$('#send-email-sms-filter-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_send_email_sms_filter_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('send-email-sms-filter-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
 			}
 		
 	});

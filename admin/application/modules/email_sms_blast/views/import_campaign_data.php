@@ -43,7 +43,7 @@
 										</div>
 									</div>
 								</div>
-								<button class="btn btn-default" id="send_email_sms_filter-data-import">Send</button>
+								<button class="btn btn-default" id="send-email-sms-filter-data-import">Send</button>
 								<br/>
 								<?php echo $table;?>
 								<br/>

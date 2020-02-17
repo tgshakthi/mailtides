@@ -3920,4 +3920,10 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('script');
 		$this->load->view('template/footer');
 	}
+	
+	function import_send_email_sms_filter_data()
+	{
+		$user_id = $this->input->post('user_id');
+		echo '<pre>';print_r($user_id);die;
+	}
 }
