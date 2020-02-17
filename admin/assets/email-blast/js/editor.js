@@ -2383,6 +2383,7 @@ $(document).on('click','#form-submit', function(e){
 	var template_name = $('#template_name').val();
 	if(template_name === false)
 	{
+		alert();
 		var errormsg = '<div class="alert alert-warning" role="alert">Email address have wrong format.</div>'
 		$('#template_name').val('');
 		$('#template_name_err').html(errormsg);
