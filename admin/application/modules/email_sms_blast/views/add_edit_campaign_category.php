@@ -150,12 +150,12 @@
                                       	</div>
                                         
                                  	</div>
-                                    <div class="">
+                                    <div>
 										<?php
 										  echo form_label('Template <span class="required">*</span>','template',
 												   'class="control-label col-md-3 col-sm-3 col-xs-12"');
 										?>
-									<div>
+									<div class="col-md-6 col-sm-6 col-xs-12">
 										<?php
 											$selected ="";
 											$options = array('0' => 'Select Template');
@@ -170,7 +170,7 @@
 											$attributes = array(
 																'id'       => 'template',
 																'name'     => 'template',
-																'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
+																'class'    => 'form-control col-md-7 col-xs-12',
 															);
 											echo form_dropdown($attributes, $options, $selected_template);
 										?>
