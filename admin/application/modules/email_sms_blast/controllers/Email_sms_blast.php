@@ -3902,4 +3902,9 @@ class Email_sms_blast extends MX_Controller
 		   redirect('email_sms_blast/email_template_generate');
 		}
     }
+	
+	function campaign_import($id)
+	{
+		print_r($id);die;
+	}
 }

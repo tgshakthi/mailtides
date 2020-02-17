@@ -2116,12 +2116,12 @@ class Email_blast extends MX_Controller
 											Thank You";
 							if(!$mail->Send())
 							{
-							  echo "Mailer Error: " . $mail->ErrorInfo;
+							   echo "Mailer Error: " . $mail->ErrorInfo;
 							}
 							else
 							{
 								$this->Email_blast_model->insert_sms_gateway_status($patient_phone_no->id);
-							  echo "Message sent!";
+							    echo "Message sent!";
 							}
 						}
 					}	
@@ -2130,6 +2130,4 @@ class Email_blast extends MX_Controller
 		}
 		redirect('email_blast');
 	}
-    
-   
 }
