@@ -1078,4 +1078,21 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
     }
+	
+	 // Get Campaign By Id
+    function get_email_template_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->where(array(
+            'id' => $id,
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_template);
+
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
 }
