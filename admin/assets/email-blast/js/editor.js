@@ -2431,7 +2431,7 @@ $("#test").on('click',function(e){
 		var template = $('#mail-template').html();
 		e.preventDefault();
 		$.ajax({
-			url: 'http://txgidocs.mailtides.com/admin/email_sms_blasts/send_test_email',
+			url: 'http://txgidocs.mailtides.com/admin/email_sms_blast/send_test_email',
 			type: 'POST',
 			data: {
 				'template' : template,

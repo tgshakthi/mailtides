@@ -3820,7 +3820,6 @@ class Email_sms_blast extends MX_Controller
 	
 	function send_test_email()
 	{
-		
 		$send_mail  = $this->input->post('mail');
 		$template  = $this->input->post('template');
 		$website_id = $this->admin_header->website_id();
