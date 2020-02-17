@@ -1087,7 +1087,7 @@ class Email_sms_blast_model extends CI_Model
             'id' => $id,
             'is_deleted' => '0'
         ));
-        $query   = $this->db->get($this->table_template);
+        $query   = $this->db->get('email_template');
 
         $records = array();
         if ($query->num_rows() > 0):
