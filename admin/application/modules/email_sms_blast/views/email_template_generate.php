@@ -8,7 +8,7 @@
          <div class="btn-right" style="text-align:right;">	
             <?php
                echo anchor(
-               'email_blasts',
+               'email_sms_blast',
                '<i class="fa fa-chevron-left" aria-hidden="true"></i> Back',
                array(
                	'class' => 'btn btn-primary'
@@ -41,7 +41,7 @@
       <div class="x_content">
          <?php
             echo form_open(
-            	'email_blasts/delete_multiple_template',
+            	'email_sms_blast/delete_multiple_template',
             	'id="form_selected_record"'
             );
             ?>
@@ -60,7 +60,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;">
                <?php
                   echo anchor(
-                  	'email_blasts/add_edit_email_template_generate',
+                  	'email_sms_blast/add_edit_email_template_generate',
                   	'<i class="fa fa-plus" aria-hidden="true"></i> Add Email Template ',
                   	array(
                   	'class' => 'btn btn-success'

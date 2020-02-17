@@ -3723,7 +3723,7 @@ class Email_sms_blast extends MX_Controller
      
 		foreach (($get_template_data ? $get_template_data : array()) as $get_template)
 		{        
-			$anchor_edit = anchor(site_url('email_blasts/add_edit_email_template_generate/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
+			$anchor_edit = anchor(site_url('email_sms_blast/add_edit_email_template_generate/' . $get_template->id), '<span class="glyphicon c_edit_icon glyphicon-edit" aria-hidden="true"></span>', array(
 								 'data-toggle' => 'tooltip',
 								 'data-placement' => 'left',
 								 'data-original-title' => 'Edit'
@@ -3733,7 +3733,7 @@ class Email_sms_blast extends MX_Controller
 								 'data-toggle' => 'tooltip',
 								 'data-placement' => 'right',
 								 'data-original-title' => 'Delete',
-								 'onclick' => 'return delete_record(' . $get_template->id . ', \'' . base_url('email_blast/delete_email_template/' . $website_id) . '\')'
+								 'onclick' => 'return delete_record(' . $get_template->id . ', \'' . base_url('email_sms_blast/delete_email_template/' . $website_id) . '\')'
 							   ));
          
 			if ($get_template->status === '1') 
