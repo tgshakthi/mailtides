@@ -1095,4 +1095,27 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
     }
+	
+	function delete_template_data()
+     {
+         $id   = $this->input->post('id');
+         $data = array(
+             'is_deleted' => '1'
+         );
+         $this->db->where('id', $id);
+         return $this->db->update('email_template', $data);
+     }
+     
+     // Delete multiple user
+     function delete_multiple_template_data()
+     {
+         $ids = $this->input->post('table_records');
+         foreach ($ids as $media_id):
+             $data = array(
+                 'is_deleted' => '1'
+             );
+             $this->db->where('id', $media_id);
+             $this->db->update('email_template', $data);
+         endforeach;
+     }
 }
