@@ -1063,4 +1063,19 @@ class Email_sms_blast_model extends CI_Model
 		$this->db->insert('zcms_email_template', $insert_data);
 		}		
 	}
+	
+	// Get Dynamic Email Template
+    function get_dynamic_email_template()
+	{
+        $this->db->select('*');
+        $this->db->where(array(
+							'is_deleted' => '0'
+						 ));
+        $query   = $this->db->get('email_template');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+    }
 }
