@@ -43,6 +43,7 @@
 										</div>
 									</div>
 								</div>
+								<input type="hidden" id="base-url" name="base-url" value=<?php echo base_url();?>>
 								<button class="btn btn-default" id="send-email-sms-filter-data-import">Send</button>
 								<br/>
 								<?php echo $table;?>

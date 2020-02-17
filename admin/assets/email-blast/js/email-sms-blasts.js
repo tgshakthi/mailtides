@@ -327,6 +327,7 @@ $(document).ready(function () {
 	
 	// Import Email SMS Filter Data
 	$('#send-email-sms-filter-data-import').click(function () {
+		var base_url = $('#base-url').val();
 		var values = $("input[name='row_sort_order[]']")
 			.map(function () {
 				return $(this).val();
@@ -335,7 +336,7 @@ $(document).ready(function () {
 			if (values.length > 0) {
 				$.ajax({
 					method: 'POST',
-					url: 'email_sms_blast/import_send_email_sms_filter_data',
+					url: base_url + 'email_sms_blast/import_send_email_sms_filter_data',
 					data: {
 						user_id: values
 					},
