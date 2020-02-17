@@ -3876,4 +3876,28 @@ class Email_sms_blast extends MX_Controller
 			echo 'Message sent.';
 		}
 	}
+	
+	function delete_email_template()
+	{
+	   $this->Email_sms_blast_model->delete_template_data();
+	   $this->session->set_flashdata('success', 'Successfully Deleted');
+	}
+ 
+    function delete_multiple_template()
+    {
+		$this->form_validation->set_rules('table_records[]', 'Row', 'required', array(
+		   'required' => 'You must select at least one row!'
+		 ));
+		if ($this->form_validation->run() == FALSE)
+		{
+		   $this->session->set_flashdata('error', validation_errors());
+		   redirect('email_sms_blast/email_template_generate');
+		}
+		else
+		{
+		   $this->Email_sms_blast_model->delete_multiple_template_data();
+		   $this->session->set_flashdata('success', 'Successfully Deleted');
+		   redirect('email_sms_blast/email_template_generate');
+		}
+    }
 }
