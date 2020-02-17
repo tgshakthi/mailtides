@@ -3923,7 +3923,7 @@ class Email_sms_blast extends MX_Controller
 	
 	function import_send_email_sms_filter_data()
 	{
-		$user_id = $this->input->post('user_id');
-		echo '<pre>';print_r($user_id);die;
+		$campaign_users = $this->input->post('user_id');
+		echo '<pre>';print_r($campaign_users);die;
 	}
 }
