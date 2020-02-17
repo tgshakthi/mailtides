@@ -25,13 +25,14 @@ $(document).ready(function () {
 		changeYear: true
 	});
 	
-	/* // Datatable - One ( Master Campaign )
+	// Email Tracking Datatable Report
 	if ($('#datatable-buttons').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
 		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
 			var min = $('#min').datepicker('getDate');
 			var max = $('#max').datepicker('getDate');
-			var startDate = new Date(data[3]);
+			
+			var startDate = new Date(data[6]);
 			if (min == null && max == null) {
 				return true;
 			}
@@ -45,75 +46,15 @@ $(document).ready(function () {
 				return true;
 			}
 			return false;
-		});
-		var table = $('#datatable-buttons').DataTable({
-			pageLength: 100,
-			dom: 'Bfrtip',
-			buttons: [{
-				extend: 'csvHtml5',
-				text: 'Export CSV',
-				filename: 'patient-files',
-				className: 'btn-sm',
-				exportOptions: {
-					columns: [1, 2, 3]
-				}
-			}],
-			orderCellsTop: true,
-			responsive: !0
 		});
 
-		// Clone Previous Row for filter input
-		$('#datatable-buttons>thead>tr')
-			.clone(true)
-			.appendTo('#datatable-buttons thead');
-		$('#datatable-buttons>thead>tr:eq(1)>th').each(function (i) {
-			var title = $(this).text();
-			if (title.length > 0 && title != 'Action' && title != 'Status') {
-				$(this).html(
-					'<input type="text" placeholder="Search ' + title + '" />'
-				);
-				$('input', this).on('keyup change', function () {
-					if (table.column(i).search() !== this.value) {
-						table
-							.column(i)
-							.search(this.value)
-							.draw();
-					}
-				});
-			}
-		});
-		// Event listener to the two range filtering inputs to redraw on input
-		$('#min, #max').change(function () {
-			table.draw();
-		});
-	} */
-	// Datatable - Two ( Campaign )
-	if ($('#datatable-buttons').length) {
-		// Datatable - One ( Master Campaign Datepicker Filter)
-		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-			var min = $('#min').datepicker('getDate');
-			var max = $('#max').datepicker('getDate');
-			var startDate = new Date(data[3]);
-			if (min == null && max == null) {
-				return true;
-			}
-			if (min == null && startDate <= max) {
-				return true;
-			}
-			if (max == null && startDate >= min) {
-				return true;
-			}
-			if (startDate <= max && startDate >= min) {
-				return true;
-			}
-			return false;
-		});
 		var table = $('#datatable-buttons').DataTable({
 			"pageLength": 200
 		});
+
 		$('#datatable-buttons>thead>tr')
-			.clone(true)
-			.appendTo('#datatable-buttons thead');
+			.clone(true);
+			//.appendTo('#datatable-email thead');
 		$('#datatable-buttons>thead>tr:eq(1)>th').each(function (i) {
 			var title = $(this).text();
 			if (title.length > 0 && title != 'S.No') {
@@ -130,6 +71,7 @@ $(document).ready(function () {
 				});
 			}
 		});
+
 		// Event listener to the two range filtering inputs to redraw on input
 		$('#min, #max').change(function () {
 			table.draw();
