@@ -45,7 +45,9 @@
 								</div>
 								<button class="btn btn-default" id="filter-data-import">Import</button>
 								<br/>
-								<?php //echo $table;?>
+								<?php 
+									echo 'test';
+								//echo $table;?>
 								<br/>
 							</div>
 						</div>
