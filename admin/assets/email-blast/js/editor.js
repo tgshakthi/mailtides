@@ -2383,8 +2383,7 @@ $(document).on('click','#form-submit', function(e){
 	var template_name = $('#template_name').val();
 	if(template_name == '')
 	{
-		alert();
-		var errormsg = '<div class="alert alert-warning" role="alert">Email address have wrong format.</div>'
+		var errormsg = '<div class="alert alert-warning" role="alert">Enter template name</div>'
 		$('#template_name').val('');
 		$('#template_name_err').html(errormsg);
 		return false;
@@ -2403,7 +2402,6 @@ $(document).on('click','#form-submit', function(e){
 			}		
 	})
 	}
-	
 });
 
 /* Test Email Form */
