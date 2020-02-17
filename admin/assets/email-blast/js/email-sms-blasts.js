@@ -342,6 +342,7 @@ $(document).ready(function () {
 					},
 					success: function (data) {
 						alert(data);
+						console.log(data);
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
