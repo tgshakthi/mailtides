@@ -2381,12 +2381,13 @@ $(document).on('click','#form-submit', function(e){
 	var template = $('#mail-template').html();	
 	var template_id = $('#template_id').val();
 	var template_name = $('#template_name').val();
-	if(template_name === false)
+	if(template_name == '')
 	{
 		alert();
 		var errormsg = '<div class="alert alert-warning" role="alert">Email address have wrong format.</div>'
 		$('#template_name').val('');
 		$('#template_name_err').html(errormsg);
+		return false;
 	}else{
 		$.ajax({
 		url: 'http://txgidocs.mailtides.com/admin/email_sms_blast/test_email',
