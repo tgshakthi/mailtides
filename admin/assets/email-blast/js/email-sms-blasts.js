@@ -309,14 +309,14 @@ $(document).ready(function () {
 						user_id: values
 					},
 					success: function (data) {
-						alert(data);
+						
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('filter-dldc-sms-data-import').disabled = true;
-							// window.location.href = 'email_sms_blast/campaign_data';
+							window.location.href = 'email_sms_blast/campaign_data';
 						} else {
 							alert('Something Went Wrong!. Please try again!.');
-							// window.location.href = 'email_sms_blast/campaign_data';
+							window.location.href = 'email_sms_blast/campaign_data';
 						}
 					}
 				});
@@ -340,13 +340,14 @@ $(document).ready(function () {
 						user_id: values
 					},
 					success: function (data) {
+						alert(data);
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
-							window.location.href = 'email_sms_blast/campaign';
+							// window.location.href = 'email_sms_blast/campaign';
 						} else {
 							alert('Something Went Wrong!. Please try again!.');
-							window.location.href = 'email_sms_blast/campaign';
+							// window.location.href = 'email_sms_blast/campaign';
 						}
 					}
 				});
