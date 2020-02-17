@@ -172,7 +172,7 @@
 																'name'     => 'template',
 																'class'    => 'form-control col-md-6 col-sm-6 col-xs-12',
 															);
-											echo form_dropdown($attributes, $options, $selected);
+											echo form_dropdown($attributes, $options, $selected_template);
 										?>
 									   </div>
 									</div>
