@@ -1126,9 +1126,16 @@ class Email_sms_blast_model extends CI_Model
         endforeach;
     }
 	 
-	function insert_send_email_sms_filter_data($website_id)
+	function insert_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code)
 	{
-		
-		
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_data = array(
+							'user_id' => $user_id,
+							'campaign_category_id' => $campaign_category_id,
+							'track_code' => $track_code,
+							'sent_date' => $date->format('m/d/Y')
+						);
+		// Insert into Import Data
+		$this->db->insert('zcms_import_data', $insert_data);		
 	}
 }
