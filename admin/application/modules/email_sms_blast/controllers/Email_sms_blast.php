@@ -1297,6 +1297,7 @@ class Email_sms_blast extends MX_Controller
 			$data['web_url'] = $campaign_category[0]->web_url;
 			$data['tiny_url'] = $campaign_category[0]->tiny_url;
 			$data['mail_content'] = $campaign_category[0]->mail_content;
+			$data['campaign_type'] = $campaign_category[0]->campaign_type;
 			$data['selected_template'] = $campaign_category[0]->template;
 			$data['status'] = $campaign_category[0]->status;
 			$data['sort_order'] = $campaign_category[0]->sort_order;
@@ -1306,6 +1307,7 @@ class Email_sms_blast extends MX_Controller
 			$data['web_url'] = "";
 			$data['tiny_url'] = "";
 			$data['mail_content'] = "";
+			$data['campaign_type'] =  "";
 			$data['selected_template'] = "";
 			$data['status'] = "";
 			$data['sort_order'] = "";
@@ -3945,6 +3947,30 @@ class Email_sms_blast extends MX_Controller
 			if(!empty($get_user[0]->email)):
 				$patient_email = $get_user[0]->email;
 			endif;
+			// Patient Phone Number
+			if(!empty($get_user[0]->phone_number)):
+				$phone_numbers = str_replace("-","",$get_user[0]->phone_number);
+				$phone_id = "+1";
+				$phone_number = $phone_id.''.$phone_numbers;
+			endif;
+			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
+			if(!empty($get_check_sms_data))
+			{
+				$sms_data_email = $get_check_sms_data[0]['sms_data_email'];						
+			}else
+			{
+				// Replace key value with your own api key					
+				$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+				$result = @file_get_contents($url);						
+				if ($result)
+				{
+					$result = @json_decode($result, true);
+					if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+					{	
+						$sms_data_email = $result['response']['results'][0]['sms_address'];
+					}
+				}
+			}
 			
 			/* $mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
@@ -4165,6 +4191,7 @@ class Email_sms_blast extends MX_Controller
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {				
 				echo 'Message sent.';
+				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_id, );
 			} 
 			die;
 		}
