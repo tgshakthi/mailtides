@@ -1124,6 +1124,6 @@ class Email_sms_blast_model extends CI_Model
 	 
 	function insert_send_email_sms_filter_data()
 	{
-		$user_id = $this->input->post(''); 
+		$user_id = $this->input->post('user_id'); 
 	}
 }
