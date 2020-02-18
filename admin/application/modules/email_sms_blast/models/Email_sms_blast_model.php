@@ -1128,6 +1128,9 @@ class Email_sms_blast_model extends CI_Model
 	 
 	function insert_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code)
 	{
+		print_r($user_id);
+		print_r($campaign_category_id);
+		print_r($track_code);
 		$date = new DateTime("now", new DateTimeZone('America/New_York') );
 		$insert_data = array(
 							'user_id' => $user_id,
