@@ -3941,8 +3941,8 @@ class Email_sms_blast extends MX_Controller
 		}
 		for($patient_user =0; $patient_user < $patient_count; $patient_user++)
 		{	
-			print_r($patient_user);die;
-			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+			print_r($user_ids[$patient_user]);die;
+			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_ids);
 			if(!empty($get_user))
 			{
 				// Patient Name
