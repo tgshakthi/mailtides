@@ -1127,9 +1127,11 @@ class Email_sms_blast_model extends CI_Model
 		$user_ids = $this->input->post('user_id'); 
 		$campaign_category_id = $this->input->post('campaign_category_id');	
 		$campaign_category = $this->get_campaign_category_by_id($campaign_category_id);
-		echo '<pre>';print_r($campaign_category);die;
+		echo '<pre>';print_r($campaign_category);
 		foreach($user_ids as $user_id){
 			$get_patient_user = $this->get_users_by_id($user_id);
+			print_r($get_patient_user);die;
 		}
+		
 	}
 }
