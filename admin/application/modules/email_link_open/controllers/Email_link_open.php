@@ -160,8 +160,8 @@ class Email_link_open extends MX_Controller
 		redirect($campaign_tiny_urls[0]['tiny_url']);
 	}
 	
-	// Update Feedback Email 
-	function update_feedback($id, $route)
+	// Update SMS Email 
+	function update_email_sms_blast_feedback($id,$campaign_category_id,$track_code)
 	{
 		$this->Email_link_open_model->update_email_sms_blast_feedback($id,$campaign_category_id,$track_code);
 	}
