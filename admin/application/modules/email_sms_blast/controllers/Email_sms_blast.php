@@ -3933,8 +3933,15 @@ class Email_sms_blast extends MX_Controller
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
 		$mail_template = $get_mail_template[0]->template;
-		foreach($user_ids as $user_id)
-		{
+		$patient_user_count = count($user_ids);
+		if($patient_user_count >90){
+			$patient_count = '90';
+		}else{
+			$patient_count = $patient_user_count;
+		}
+		for($patient_user =0; $patient_user < $patient_count; $patient_user++)
+		{	
+			print_r($patient_user);die;
 			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
 			if(!empty($get_user))
 			{
