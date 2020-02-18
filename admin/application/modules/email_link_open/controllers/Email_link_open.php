@@ -157,6 +157,8 @@ class Email_link_open extends MX_Controller
 	{
 		print_r($id);
 		print_r($campaign_category_id);
-		print_r($track_code);die;
+		print_r($track_code)
+		$campaign_tiny_urls = $this->Email_link_open_model->get_campaign_category($campaign_category_id);
+		print_r($campaign_tiny_urls);die;
 	}
 }
