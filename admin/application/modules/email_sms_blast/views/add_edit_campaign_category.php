@@ -150,6 +150,25 @@
                                       	</div>
                                         
                                  	</div>
+									<div class="form-group">
+
+										<?php
+                                      	echo form_label('Mail Content','mail_content','class="control-label col-md-3 col-sm-3 col-xs-12"');
+                                      	?>
+            
+                                      	<div class="col-md-6 col-sm-6 col-xs-12">
+                                        	<?php
+                                          	// Input tag
+                                          	echo form_input(array(
+                                            	'id'       => 'mail_content',
+                                            	'name'     => 'mail_content',
+                                            	'class'    => 'form-control col-md-7 col-xs-12',
+                                            	'value'    => $mail_content
+                                          	));
+                                        	?>
+                                      	</div>
+                                        
+                                 	</div>
                                     <div class="form-group">
 										<?php
 										  echo form_label('Template <span class="required">*</span>','template',

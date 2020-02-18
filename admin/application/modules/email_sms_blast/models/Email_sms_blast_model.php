@@ -525,6 +525,7 @@ class Email_sms_blast_model extends CI_Model
 								'category' => $this->input->post('category_name'),
 								'web_url' => $this->input->post('web_url'),
 								'tiny_url' => $this->input->post('tiny_url'),
+								'mail_content' => $this->input->post('mail_content'),
 								'template' => $this->input->post('template'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
@@ -539,6 +540,7 @@ class Email_sms_blast_model extends CI_Model
 								'category' => $this->input->post('category_name'),
 								'web_url' => $this->input->post('web_url'),
 								'tiny_url' => $this->input->post('tiny_url'),
+								'mail_content' => $this->input->post('mail_content'),
 								'template' => $this->input->post('template'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
