@@ -43,12 +43,14 @@
 										</div>
 									</div>
 								</div>
+							<form action="<?php echo base_url();?>email_sms_blast/import_send_email_sms_filter_data">
 								<input type="hidden" id="base-url" name="base-url" value=<?php echo base_url();?>>
 								<input type="hidden" id="campaign_category_id" name="campaign_category_id" value=<?php echo $id;?>>
-								<button class="btn btn-default" id="send-email-sms-filter-data-import">Send</button>
+								<button type="submit" class="btn btn-default" id="send-email-sms-filter-data-import">Send</button>
 								<br/>
 								<?php echo $table;?>
 								<br/>
+							</form>
 							</div>
 						</div>
 					</div>
