@@ -3941,8 +3941,7 @@ class Email_sms_blast extends MX_Controller
 		}
 		for($patient_user =0; $patient_user < $patient_count; $patient_user++)
 		{	
-			print_r($user_ids[$patient_user]);die;
-			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_ids);
+			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_ids[$patient_user]);
 			if(!empty($get_user))
 			{
 				// Patient Name
@@ -4138,7 +4137,7 @@ class Email_sms_blast extends MX_Controller
 																					<table cellspacing="0" cellpadding="0">
 																					<tr>';								
 															$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																				<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																				<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																				'.$campaign_category[0]->category.'
 																				</a>
 																			 </td>';
@@ -4208,7 +4207,7 @@ class Email_sms_blast extends MX_Controller
 					echo 'Message could not be sent.';
 					echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {									
-					$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_id,$campaign_category[0]->id,$track_code);
+					$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_ids[$patient_user],$campaign_category[0]->id,$track_code);
 					// echo 'Message sent.';
 					echo '1';
 				}	
