@@ -4181,7 +4181,7 @@ class Email_sms_blast extends MX_Controller
 					</body>                  
 				</html>';
 			}elseif($campaign_category[0]->campaign_type == 'sms'){
-				$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content;
+				$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content '. .'$campaign_category[0]->tiny_url;
 			}
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
