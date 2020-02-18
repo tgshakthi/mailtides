@@ -158,6 +158,7 @@
 											$attributes = array(
 												'name' => 'campaign_type',
 												'id' => 'campaign_type',
+												'required' => 'required',
 												'class'	=> 'form-control col-md-7 col-xs-12'
 											);
 											echo form_dropdown($attributes, $options, $campaign_type);
