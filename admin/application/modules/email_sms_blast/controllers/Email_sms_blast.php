@@ -4201,7 +4201,6 @@ class Email_sms_blast extends MX_Controller
 				echo 'Message sent.';
 				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_id,$campaign_category[0]->id,$track_code);
 			} 
-			die;
 		}
 		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data($website_id);
 	}
