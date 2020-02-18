@@ -3924,6 +3924,83 @@ class Email_sms_blast extends MX_Controller
 	function import_send_email_sms_filter_data()
 	{
 		$website_id = $this->admin_header->website_id();
+		$user_ids = $this->input->post('user_id'); 
+		$campaign_category_id = $this->input->post('campaign_category_id');	
+		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
+		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
+		$mail_template = $get_mail_template[0]->template;
+		foreach($user_ids as $user_id){
+			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+			// Patient Name
+			if(!empty($get_user[0]->name)):
+				$patient_names = explode(",",$get_user[0]->name);
+				$patient_name = $patient_names[1];
+				$patient = explode(" ",trim($patient_name));
+				$patient_first_name = $patient[0];
+			endif;
+			
+			// Patient Email
+			if(!empty($get_user[0]->email)):
+				$patient_email = $get_user[0]->email;
+			endif;
+			
+			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+			$track_code = md5(rand());
+			$mail = new PHPMailer;
+			$mail->SMTPDebug = 0;
+			// SMTP configuration
+			$mail->isSMTP();
+			$mail->Host     = $mail_configurations[0]->host;
+			$mail->SMTPAuth = true;
+			$mail->Username = $mail_configurations[0]->email;
+			$mail->Password = $mail_configurations[0]->password;
+			$mail->Port     = $mail_configurations[0]->port;						 							
+			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');              
+			$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
+			// Set email format to HTML
+			$mail->isHTML(true);
+			// Email body content
+			$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+								<html>
+								<head>
+									<meta charset="UTF-8">
+									<meta content="width=device-width, initial-scale=1" name="viewport">
+									<meta name="x-apple-disable-message-reformatting">
+									<meta http-equiv="X-UA-Compatible" content="IE=edge">
+									<meta content="telephone=no" name="format-detection">
+									<title></title>
+									<style>
+									 .save-remove{
+										display : none; 
+									 }
+									 .copy
+									 {
+										display : none; 
+									 }								 
+									</style>
+								</head>
+								<body>
+								<div class="es-wrapper-color">
+									'.$mail_template.'
+								</div>
+							</body>                  
+						</html>';
+			
+			$mail->Body = $mailContent;
+			$mail->clearAddresses();
+			// Add a recipient		
+			$mail->addAddress($patient_email);
+			$mail->addBCC('velusamy@desss.com');
+
+			if(!$mail->send()){
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {				
+				echo 'Message sent.';
+			}
+			die;
+		}
 		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data($website_id);
 	}
 }
