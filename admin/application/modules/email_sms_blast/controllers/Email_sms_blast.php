@@ -3923,9 +3923,6 @@ class Email_sms_blast extends MX_Controller
 	
 	function import_send_email_sms_filter_data()
 	{
-		echo '<pre>';
-		$user_id  = $this->input->post('user_id');
-		print_r($user_id);
-		print_r($_POST);die;
+		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data();
 	}
 }

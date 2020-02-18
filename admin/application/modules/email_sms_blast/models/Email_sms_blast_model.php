@@ -1109,16 +1109,21 @@ class Email_sms_blast_model extends CI_Model
          return $this->db->update('email_template', $data);
      }
      
-     // Delete multiple user
-     function delete_multiple_template_data()
-     {
-         $ids = $this->input->post('table_records');
-         foreach ($ids as $media_id):
-             $data = array(
+    // Delete multiple user
+    function delete_multiple_template_data()
+    {
+        $ids = $this->input->post('table_records');
+        foreach ($ids as $media_id):
+            $data = array(
                  'is_deleted' => '1'
              );
-             $this->db->where('id', $media_id);
-             $this->db->update('email_template', $data);
-         endforeach;
-     }
+            $this->db->where('id', $media_id);
+            $this->db->update('email_template', $data);
+        endforeach;
+    }
+	 
+	function insert_send_email_sms_filter_data()
+	{
+		$user_id = $this->input->post(''); 
+	}
 }
