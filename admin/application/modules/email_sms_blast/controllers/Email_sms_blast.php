@@ -4206,13 +4206,16 @@ class Email_sms_blast extends MX_Controller
 				if(!$mail->send()){
 					echo 'Message could not be sent.';
 					echo 'Mailer Error: ' . $mail->ErrorInfo;
-				} else {									
+				} else {
+					if(empty($get_check_sms_data))
+					{
+						$this->Email_sms_blast_model->insert_sms_data($user_ids[$patient_user],$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
+					}					
 					$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_ids[$patient_user],$campaign_category[0]->id,$track_code);
 					// echo 'Message sent.';
 					echo '1';
 				}	
-			}
-		die;			
+			}			
 		}		
 	}
 }
