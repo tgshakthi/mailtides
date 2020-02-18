@@ -4191,7 +4191,7 @@ class Email_sms_blast extends MX_Controller
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {				
 				echo 'Message sent.';
-				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_id, );
+				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_id);
 			} 
 			die;
 		}
