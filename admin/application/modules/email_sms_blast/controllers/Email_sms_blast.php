@@ -4131,7 +4131,7 @@ class Email_sms_blast extends MX_Controller
 																					<table cellspacing="0" cellpadding="0">
 																					<tr>';								
 															$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																				<a href="http://txgidocs.mailtides.com/admin/email_link_open/fb_email_status/'.$user_id.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																				<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																				'.$campaign_category[0]->category.'
 																				</a>
 																			 </td>';
