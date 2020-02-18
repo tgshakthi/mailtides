@@ -4060,7 +4060,7 @@ class Email_sms_blast extends MX_Controller
 				  
 											<tr>
 												<td style="text-align: center;"><img
-													src="'.base_url().'assets/images/txgidocs/logo/logo%20(1).png"
+													src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png"
 													width="100" />
 												  <h3
 													style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; text-align:center;font-size: 25px;font-weight: 300;">
