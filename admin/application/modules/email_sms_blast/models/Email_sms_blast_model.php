@@ -1127,12 +1127,10 @@ class Email_sms_blast_model extends CI_Model
 		$user_ids = $this->input->post('user_id'); 
 		$campaign_category_id = $this->input->post('campaign_category_id');	
 		$campaign_category = $this->get_campaign_category_by_id($campaign_category_id);
-		echo '<pre>';print_r($campaign_category[0]->template);
 		$get_mail_template = $this->get_email_template_by_id($campaign_category[0]->template);
-		print_r($get_mail_template);
+		$mail_template = $get_mail_template[0]->template;
 		foreach($user_ids as $user_id){
 			$get_user = $this->get_users_by_id($user_id);
-			print_r($get_user);die;
 			// Patient Name
 			if(!empty($get_user[0]->name)):
 				$patient_names = explode(",",$get_user[0]->name);
@@ -1184,7 +1182,7 @@ class Email_sms_blast_model extends CI_Model
 								</head>
 								<body>
 								<div class="es-wrapper-color">
-									'.$template.'
+									'.$mail_template.'
 								</div>
 							</body>                  
 						</html>';
@@ -1192,7 +1190,8 @@ class Email_sms_blast_model extends CI_Model
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
 			// Add a recipient		
-			$mail->addAddress($send_mail);
+			$mail->addAddress($patient_email);
+			$mail->addBCC('velusamy@desss.com');
 
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
@@ -1200,6 +1199,7 @@ class Email_sms_blast_model extends CI_Model
 			} else {				
 				echo 'Message sent.';
 			}
+			die;
 		}
 		
 	}
