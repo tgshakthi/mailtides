@@ -152,7 +152,7 @@
 											$options = array(
 												''	=> 'Select',
 												'sms' => 'SMS',
-												'email' => 'EMAIL'
+											 	'email' => 'EMAIL'
 											);
 
 											$attributes = array(

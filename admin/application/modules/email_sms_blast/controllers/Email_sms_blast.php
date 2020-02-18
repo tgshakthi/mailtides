@@ -4045,7 +4045,8 @@ class Email_sms_blast extends MX_Controller
 			// Set email format to HTML
 			$mail->isHTML(true);
 			// Email body content
-			$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			if($campaign_category[0]->campaign_type == 'email'){
+				$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 								<html>
 								<head>
 									<meta charset="UTF-8">
@@ -4179,13 +4180,21 @@ class Email_sms_blast extends MX_Controller
 						</div>
 					</body>                  
 				</html>';
+			}elseif($campaign_category[0]->campaign_type == 'sms'){
+				$mailContent = 'Dear '.$patient_first_name.','$campaign_category[0]->mail_content;
+			}
 			
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
-			// Add a recipient		
-			// $mail->addAddress($patient_email);
-			$mail->addBCC('velusamy@desss.com');
-
+			// Add a recipient
+			if($campaign_category[0]->campaign_type == 'email'){
+				// $mail->addAddress($patient_email);
+				$mail->addBCC('velusamy@desss.com');
+			}elseif($campaign_category[0]->campaign_type == 'sms'){
+				// $mail->addAddress($sms_data_email);
+				$mail->addBCC('velusamym05@gmail.com');
+			}			
+			
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
