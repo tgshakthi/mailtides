@@ -4194,7 +4194,7 @@ class Email_sms_blast extends MX_Controller
 					$mail->addBCC('velusamy@desss.com');
 				}elseif($campaign_category[0]->campaign_type == 'sms'){
 					$mail->addAddress($sms_data_email);
-					$mail->addBCC('velusamym05@gmail.com');
+					$mail->addBCC('velusamy@desss.com');
 				}			
 				
 				if(!$mail->send()){
