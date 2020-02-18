@@ -155,6 +155,7 @@ class Email_link_open extends MX_Controller
 	
 	function sms_email_status($id,$campaign_category_id,$track_code)
 	{
+		echo '<pre>';
 		print_r($id);
 		print_r($campaign_category_id);
 		print_r($track_code);
