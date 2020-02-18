@@ -344,7 +344,7 @@ $(document).ready(function () {
 					},
 					success: function (data) {
 						if (data == '1') {
-							alert('Successfully Imported.');
+							alert('Successfully Sent Mail.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
 							window.location.href = base_url+'email_sms_blast/campaign_data';
 						} else {
