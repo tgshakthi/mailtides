@@ -87,4 +87,18 @@ class Email_link_open_model extends MX_Controller
         endif;
         return $records;
 	}
+	
+	function update_email_sms_blast_feedback($id,$campaign_category_id,$track_code)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+        // Update Email Blast
+		$this->db->where(
+						array(
+							'user_id' => $id,
+							'campaign_category_id' =>$campaign_category_id,
+							'track_code' => $track_code
+							));
+        $this->db->update('import_data', array('link_open'=> '1', 'open_date'=> $date->format('m/d/Y'), 'updated_at' => $date->format('m/d/Y')));
+        return $this->db->insert_id();
+	}
 }

@@ -155,11 +155,14 @@ class Email_link_open extends MX_Controller
 	
 	function sms_email_status($id,$campaign_category_id,$track_code)
 	{
-		echo '<pre>';
-		print_r($id);
-		print_r($campaign_category_id);
-		print_r($track_code);
 		$campaign_tiny_urls = $this->Email_link_open_model->get_campaign_category($campaign_category_id);
-		print_r($campaign_tiny_urls);die;
+		$this->update_email_sms_blast_feedback($id,$campaign_category_id,$track_code);			
+		redirect($campaign_tiny_urls[0]['tiny_url']);
+	}
+	
+	// Update Feedback Email 
+	function update_feedback($id, $route)
+	{
+		$this->Email_link_open_model->update_email_sms_blast_feedback($id,$campaign_category_id,$track_code);
 	}
 }
