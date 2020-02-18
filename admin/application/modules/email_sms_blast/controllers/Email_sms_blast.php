@@ -4183,7 +4183,7 @@ class Email_sms_blast extends MX_Controller
 			}elseif($campaign_category[0]->campaign_type == 'sms'){
 				$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content;
 			}
-			
+			print_r($mailContent);die;
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
 			// Add a recipient
