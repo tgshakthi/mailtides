@@ -3923,6 +3923,7 @@ class Email_sms_blast extends MX_Controller
 	
 	function import_send_email_sms_filter_data()
 	{
-		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data();
+		$website_id = $this->admin_header->website_id();
+		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data($website_id);
 	}
 }
