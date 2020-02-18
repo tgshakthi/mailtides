@@ -343,7 +343,6 @@ $(document).ready(function () {
 						campaign_category_id: campaign_category_id
 					},
 					success: function (data) {
-						alert(data);
 						if (data == '1') {
 							alert('Successfully Imported.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
