@@ -4190,10 +4190,10 @@ class Email_sms_blast extends MX_Controller
 				$mail->clearAddresses();
 				// Add a recipient
 				if($campaign_category[0]->campaign_type == 'email'){
-					// $mail->addAddress($patient_email);
+					$mail->addAddress($patient_email);
 					$mail->addBCC('velusamy@desss.com');
 				}elseif($campaign_category[0]->campaign_type == 'sms'){
-					// $mail->addAddress($sms_data_email);
+					$mail->addAddress($sms_data_email);
 					$mail->addBCC('velusamym05@gmail.com');
 				}			
 				
