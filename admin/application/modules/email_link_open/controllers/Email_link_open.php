@@ -152,4 +152,11 @@ class Email_link_open extends MX_Controller
 	{
 		$this->Email_link_open_model->update_feedback($id, $route);
 	}
+	
+	function sms_email_status($id,$campaign_category_id,$track_code)
+	{
+		print_r($id);
+		print_r($campaign_category_id);
+		print_r($track_code);die;
+	}
 }
