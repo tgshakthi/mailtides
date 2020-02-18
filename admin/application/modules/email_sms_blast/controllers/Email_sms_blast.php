@@ -4166,7 +4166,7 @@ class Email_sms_blast extends MX_Controller
 			} else {				
 				echo 'Message sent.';
 			} 
-			
+			die;
 		}
 		$send_email_sms_data = $this->Email_sms_blast_model->insert_send_email_sms_filter_data($website_id);
 	}
