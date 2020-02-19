@@ -460,14 +460,14 @@ $(document).ready(function () {
 						if(data == '1') {
 							alert('Successfully Sent Mail.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
-							window.location.href = base_url+'email_sms_blast/campaign_data';
+							// window.location.href = base_url+'email_sms_blast/campaign_data';
 						}else if(data == '0') {
 							alert('Something Went Wrong!. Please try again!.');
-							window.location.href = base_url+'email_sms_blast/campaign_data';
+							// window.location.href = base_url+'email_sms_blast/campaign_data';
 						}else{
 							alert('Successfully Sent Mail.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
-							window.location.href = base_url+'email_sms_blast/campaign_data';
+							// window.location.href = base_url+'email_sms_blast/campaign_data';
 						}
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
