@@ -451,7 +451,6 @@ $(document).ready(function () {
 						campaign_category_id: campaign_category_id
 					},
 					success: function (data) {
-						alert(data);
 						if(data == '1') {
 							alert('Successfully Sent Mail.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
@@ -467,7 +466,7 @@ $(document).ready(function () {
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
 						alert(errorThrown);
-						console.log(errorThrown);
+						alert('Please resend message');
 						location.reload();
 					}
 				});
@@ -1518,7 +1517,6 @@ if ($('#mybarChart_type').length) {
 						}
 					}
 				});
-
 				window.bar = chart;
 			}
 		});
