@@ -4248,5 +4248,6 @@ class Email_sms_blast extends MX_Controller
 			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email, $get_user_details[0]->facility_name ,$get_user_details[0]->provider_name, $get_user_details[0]->phone_number, $get_user_details[0]->visited_date);
 			$heading_data = array_merge($heading_data,array($cell));
 			$this->table->add_row($heading_data);
+		}
 	}
 }
