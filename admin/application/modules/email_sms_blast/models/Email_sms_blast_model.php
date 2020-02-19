@@ -1171,7 +1171,7 @@ class Email_sms_blast_model extends CI_Model
 	{
 		$array_count = count($array1);
 		for($i=0;$i<=$array_count;$i++){
-			return array_diff($array1[$i], $array2[$i]);
+			return array_diff(array($array1[$i]), array($array2[$i]));
 		}
 		
 	}
