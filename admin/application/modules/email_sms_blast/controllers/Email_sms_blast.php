@@ -924,7 +924,7 @@ class Email_sms_blast extends MX_Controller
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
 		//$mail_template = $get_mail_template[0]->template;		
 		$user_ids = array_merge($user_ids_data,$data);
-		print_r($user_ids);die;
+		//print_r($user_ids);die;
 		// array(
 			// 'id' => '4813',
 			// 'name' => 'Chandler,Chandler',
