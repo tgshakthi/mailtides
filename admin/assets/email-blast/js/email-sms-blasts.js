@@ -327,7 +327,7 @@ $(document).ready(function () {
 	
 	// Import Email SMS Filter Data
 	$('#send-email-sms-filter-data-import').click(function () {
-		$('#css_loader').html('<div class="loader"></div>');
+		
 		var base_url = $('#base-url').val();
 		var campaign_category_id = $('#campaign_category_id').val();
 		var values = $("input[name='row_sort_order[]']")
@@ -335,6 +335,7 @@ $(document).ready(function () {
 				return $(this).val();
 			})
 			.get();
+			
 			if (values.length > 0) {
 				$.ajax({
 					method: 'POST',
@@ -344,7 +345,7 @@ $(document).ready(function () {
 						campaign_category_id: campaign_category_id
 					},
 					success: function (data) {
-						$('#css_loader').html('');
+						$('#css_loader').html('<div class="loader"></div>');
 						alert(data);
 						if(data == '1') {
 							alert('Successfully Sent Mail.');
