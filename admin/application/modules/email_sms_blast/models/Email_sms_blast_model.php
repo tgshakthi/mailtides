@@ -1169,22 +1169,13 @@ class Email_sms_blast_model extends CI_Model
 	
 	function check_diff_multi($array1, $array2)
 	{
-		$result = array();
-		foreach($array1 as $key => $val) {
-			if(isset($array2[$key]))
-			{
-				echo '<pre>';
-				print_r($val);
-				print_r($key);
-				print_r($array2[$key]);die;
-				if(is_array($val) && $array2[$key]){
-				   $result[$key] = check_diff_multi($val, $array2[$key]);
-				}
-			} else {
-				$result[$key] = $val;
-			}
+		foreach($array1 as $aV){
+			$aTmp1[] = $aV['id'];
 		}
-
-		return $result;
+		foreach($array2 as $aV){
+			$aTmp2[] = $aV['user_id'];
+		}
+		$new_array = array_diff($aTmp1,$aTmp2);
+		return $new_array;
 	}
 }
