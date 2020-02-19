@@ -918,17 +918,13 @@ class Email_sms_blast extends MX_Controller
 	function import_send_email_sms_filter_data()
 	{
 		$website_id = $this->admin_header->website_id();
-		$user_ids = $this->input->post('user_id'); 
+		$user_ids_data = $this->input->post('user_id'); 
 		$campaign_category_id = $this->input->post('campaign_category_id');	
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
-		//$mail_template = $get_mail_template[0]->template;
-		print_r($user_ids);
-		$data = array(
-					'0'=>'4813'
-				);
-				print_r($data);
-		print_r(array_merge($user_ids,$data));die;
+		//$mail_template = $get_mail_template[0]->template;		
+		$user_ids = array_merge($user_ids_data,$data);
+		print_r($user_ids);die;
 		// array(
 			// 'id' => '4813',
 			// 'name' => 'Chandler,Chandler',
