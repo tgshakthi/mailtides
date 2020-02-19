@@ -4329,7 +4329,7 @@ class Email_sms_blast extends MX_Controller
 				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 				$mail = new PHPMailer;
-				$mail->SMTPDebug = 0;
+				$mail->SMTPDebug = 2;
 				// SMTP configuration
 				$mail->isSMTP();
 				$mail->Host     = $mail_configurations[0]->host;
