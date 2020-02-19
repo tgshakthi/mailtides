@@ -139,7 +139,7 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		$get_users  = $this->Email_sms_blast_model->get_users();
 		$heading=array();
-		print_r($get_users);die;
+		// print_r($get_users);die;
 		foreach (($get_users ? $get_users : array()) as $get_user) 
 		{  
 			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
