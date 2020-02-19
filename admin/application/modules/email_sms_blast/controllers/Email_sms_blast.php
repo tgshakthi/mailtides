@@ -4248,7 +4248,7 @@ class Email_sms_blast extends MX_Controller
 				$resend_sms = '<span class="label label-danger"></span>';
 			} else {
 				$link_open_status = '<span class="label label-danger">Not Open</span>';
-				$resend_sms = '<span class="label label-success"><a href="resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
+				$resend_sms = '<span class="label label-success"><a href="'.base_url().'email_sms_blast/resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
 			}
 			$campaign_name = array();
 			$heading_data = array();
