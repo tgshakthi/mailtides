@@ -362,6 +362,7 @@ $(document).ready(function () {
 					error: function (jqXHR, textStatus, errorThrown) {
 						alert(errorThrown);
 						console.log(errorThrown);
+						location.reload();
 					}
 				});
 			} else {
