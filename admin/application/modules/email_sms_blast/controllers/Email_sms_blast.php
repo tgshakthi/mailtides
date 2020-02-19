@@ -4253,7 +4253,7 @@ class Email_sms_blast extends MX_Controller
 			$campaign_name = array();
 			$heading_data = array();
 			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email, $get_user_details[0]->facility_name ,$get_user_details[0]->provider_name, $get_user_details[0]->phone_number, $get_user_details[0]->visited_date);
-			$heading_data = array_merge($heading_data,$link_open_status);
+			$heading_data = array_merge($heading_data,array($link_open_status));
 			$this->table->add_row($heading_data);
 		}
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Open');
