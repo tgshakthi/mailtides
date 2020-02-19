@@ -1174,7 +1174,7 @@ class Email_sms_blast_model extends CI_Model
 			if(isset($array2[$key]))
 			{
 				print_r($key);
-				print_r($array2[$key]));die;
+				print_r($array2[$key]);die;
 				if(is_array($val) && $array2[$key]){
 				   $result[$key] = check_diff_multi($val, $array2[$key]);
 				}
