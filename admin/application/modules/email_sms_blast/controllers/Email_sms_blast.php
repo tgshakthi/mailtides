@@ -4229,7 +4229,7 @@ class Email_sms_blast extends MX_Controller
 	function get_import_send_data_users_id($id)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_id = $this->Email_sms_blast_model->get_import_send_data($id);
+		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
 			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
@@ -4243,13 +4243,20 @@ class Email_sms_blast extends MX_Controller
 				'class' => 'last',
 				'data' => $anchor_delete
 			  );
+			if ($get_user->link_open === '1') {
+				$link_open_status = '<span class="label label-success">Open</span>';
+				$resend_sms = '<span class="label label-danger"></span>';
+			} else {
+				$link_open_status = '<span class="label label-danger">Not Open</span>';
+				$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
+			}
 			$campaign_name = array();
 			$heading_data = array();
 			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email, $get_user_details[0]->facility_name ,$get_user_details[0]->provider_name, $get_user_details[0]->phone_number, $get_user_details[0]->visited_date);
-			$heading_data = array_merge($heading_data,array($cell));
+			$heading_data = array_merge($heading_data,$link_open_status);
 			$this->table->add_row($heading_data);
 		}
-		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Action');
+		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Open');
 		$template = array(
 			  'table_open' => '<table
 			  id="datatable-buttons-import-data"

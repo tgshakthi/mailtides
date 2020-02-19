@@ -1166,6 +1166,19 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
+	function get_import_send_user_data($id)
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+							'campaign_category_id' => $id
+						 ));
+        $query   = $this->db->get('import_data');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;
+	}
 	
 	function check_diff_multi($array1, $array2)
 	{
