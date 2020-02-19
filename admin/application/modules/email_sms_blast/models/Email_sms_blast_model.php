@@ -1173,6 +1173,7 @@ class Email_sms_blast_model extends CI_Model
 			$av = json_decode(json_encode($aV));
 			$aTmp1[] = $av->id;
 		}
+		print_r($aTmp1);die;
 		foreach($array2 as $aV){
 			$av = json_decode(json_encode($aV));
 			$aTmp2[] = $av->user_id;
