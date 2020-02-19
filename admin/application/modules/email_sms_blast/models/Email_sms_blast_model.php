@@ -26,6 +26,20 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;      
     }
+	// Get Patient  Users
+    function get_users()
+    {
+        $this->db->select('id');
+        $this->db->where(array(
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get($this->table_name);
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records;      
+    }
 	
 	// Get Patient  Users by Id
     function get_users_by_id($user_id)
@@ -1141,7 +1155,7 @@ class Email_sms_blast_model extends CI_Model
 	
 	function get_import_send_data($id)
 	{
-		$this->db->select('*');
+		$this->db->select('user_id');
         $this->db->where(array(
 							'campaign_category_id' => $id
 						 ));
