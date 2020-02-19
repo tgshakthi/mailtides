@@ -4221,9 +4221,8 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['table']      = $this->get_import_send_data_users_id($id);
-		// print_r($data['get_campaign_category']);die;
-		$data['heading']    = 'Campaign';
+		$data['table']  = $this->get_import_send_data_users_id($id);
+		$data['heading']  = 'Campaign';
 		$data['title']  = "Add Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
@@ -4233,6 +4232,7 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('script');
 		$this->load->view('template/footer');
 	}
+	
 	function get_import_send_data_users_id($id)
 	{
 		$website_id = $this->admin_header->website_id();
@@ -4512,8 +4512,7 @@ class Email_sms_blast extends MX_Controller
 					$this->Email_sms_blast_model->update_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code);
 					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/campaign_report_import/".$campaign_category_id."');</script>";
 				}	
-			}			
-			
+			}						
 		}
 	}
 }
