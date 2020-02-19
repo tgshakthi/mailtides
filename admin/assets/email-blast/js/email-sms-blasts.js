@@ -345,7 +345,6 @@ $(document).ready(function () {
 						campaign_category_id: campaign_category_id
 					},
 					success: function (data) {
-						$('#css_loader').html('<div class="loader"></div>');
 						alert(data);
 						if(data == '1') {
 							alert('Successfully Sent Mail.');
@@ -363,7 +362,7 @@ $(document).ready(function () {
 					error: function (jqXHR, textStatus, errorThrown) {
 						alert(errorThrown);
 						console.log(errorThrown);
-				}
+					}
 				});
 			} else {
 				alert('please upload some users!');
