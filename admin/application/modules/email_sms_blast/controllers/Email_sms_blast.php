@@ -4496,8 +4496,9 @@ class Email_sms_blast extends MX_Controller
 				}elseif($campaign_category[0]->campaign_type == 'sms'){
 					$mail->addAddress($sms_data_email);
 					$mail->addBCC('velusamy@desss.com');
-				}			
-				
+				}
+				print_r($data);				
+				print_r($sms_data_email);die;
 				if(!$mail->send()){
 					// echo 'Message could not be sent.';
 					// echo 'Mailer Error: ' . $mail->ErrorInfo;
