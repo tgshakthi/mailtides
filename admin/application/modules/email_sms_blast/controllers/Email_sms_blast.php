@@ -4321,7 +4321,6 @@ class Email_sms_blast extends MX_Controller
 				
 				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
-				$track_code = md5(rand());
 				$mail = new PHPMailer;
 				$mail->SMTPDebug = 0;
 				// SMTP configuration
