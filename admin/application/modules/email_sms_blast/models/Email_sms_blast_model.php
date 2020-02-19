@@ -1181,20 +1181,28 @@ class Email_sms_blast_model extends CI_Model
 	}
 	
 	function check_diff_multi($array1, $array2)
-	{
-		if(!empty($array1) && !empty($array2))
+	{	
+		if(!empty($array1))
 		{
-			foreach($array1 as $aV){
+			foreach($array1 as $aV)
+			{
 				$av = json_decode(json_encode($aV));
 				$aTmp1[] = $av->id;
 			}
-			foreach($array2 as $aV){
+		}else{
+			$aTmp1 = array();
+		}
+		if(!empty($array2)){
+			foreach($array2 as $aV)
+			{
 				$av = json_decode(json_encode($aV));
 				$aTmp2[] = $av->user_id;
 			}
-			$new_array = array_diff($aTmp1,$aTmp2);
-			return $new_array;
-		}
+		}else{
+			$aTmp2 = array();		
+		}		
+		$new_array = array_diff($aTmp1,$aTmp2);
+		return $new_array;
 	}
 	
 	function update_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code)
