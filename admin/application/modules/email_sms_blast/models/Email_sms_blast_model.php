@@ -22,7 +22,7 @@ class Email_sms_blast_model extends CI_Model
         $query   = $this->db->get($this->table_name);
         $records = array();
         if ($query->num_rows() > 0):
-            $records = $query->result_array();
+            $records = $query->result();
         endif;
         return $records;      
     }
@@ -36,7 +36,7 @@ class Email_sms_blast_model extends CI_Model
         $query   = $this->db->get($this->table_name);
         $records = array();
         if ($query->num_rows() > 0):
-            $records = $query->result_array();
+            $records = $query->result();
         endif;
         return $records;      
     }
