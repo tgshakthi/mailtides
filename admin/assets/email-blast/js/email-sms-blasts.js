@@ -359,7 +359,11 @@ $(document).ready(function () {
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
 							window.location.href = base_url+'email_sms_blast/campaign_data';
 						}
-					}
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+						console.log(errorThrown);
+				}
 				});
 			} else {
 				alert('please upload some users!');
