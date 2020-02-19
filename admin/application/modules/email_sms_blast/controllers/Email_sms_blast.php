@@ -4245,10 +4245,10 @@ class Email_sms_blast extends MX_Controller
 			  );
 			if ($get_user->link_open === '1') {
 				$link_open_status = '<span class="label label-success">Open</span>';
-				$resend_sms = '<span class="label label-danger"></span>';
+				//$resend_sms = '<span class="label label-danger"></span>';
 			} else {
 				$link_open_status = '<span class="label label-danger">Not Open</span>';
-				$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
+				//$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
 			}
 			$campaign_name = array();
 			$heading_data = array();
