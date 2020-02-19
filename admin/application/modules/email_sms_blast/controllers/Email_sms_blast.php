@@ -4179,7 +4179,14 @@ class Email_sms_blast extends MX_Controller
 							</body>                  
 						</html>';
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
-						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
+						$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
+						$ch = curl_init();  
+						$timeout = '5';  
+						curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+						curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+						curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+						$data = curl_exec($ch);
+						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $data;
 					}
 					$mail->Body = $mailContent;
 					$mail->clearAddresses();
