@@ -4248,7 +4248,7 @@ class Email_sms_blast extends MX_Controller
 				$resend_sms = '<span class="label label-danger"></span>';
 			} else {
 				$link_open_status = '<span class="label label-danger">Not Open</span>';
-				$resend_sms = '<span class="label label-success"><a href="resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->track_code.'/'.$get_user->track_code.'">Resend</a></span>';
+				$resend_sms = '<span class="label label-success"><a href="resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
 			}
 			$campaign_name = array();
 			$heading_data = array();
@@ -4270,5 +4270,236 @@ class Email_sms_blast extends MX_Controller
 		// Table heading row
 		$this->table->set_heading($heading);
 		return $this->table->generate();
+	}
+	
+	function resend_email_sms_user_data($user_id,$campaign_category_id,$track_code)
+	{
+		$website_id = $this->admin_header->website_id();
+		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
+		
+		if(!empty($user_id))
+		{				
+				$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
+				if(!empty($get_user))
+				{
+					// Patient Name
+					if(!empty($get_user[0]->name)):
+						$patient_names = explode(",",$get_user[0]->name);
+						$patient_name = $patient_names[1];
+						$patient = explode(" ",trim($patient_name));
+						$patient_first_name = $patient[0];
+					endif;
+					
+					// Patient Email
+					if(!empty($get_user[0]->email)):
+						$patient_email = $get_user[0]->email;
+					endif;
+					// Patient Phone Number
+					if(!empty($get_user[0]->phone_number)):
+						$phone_numbers = str_replace("-","",$get_user[0]->phone_number);
+						$phone_id = "+1";
+						$phone_number = $phone_id.''.$phone_numbers;
+					endif;
+					$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($get_user[0]->phone_number);
+					if(!empty($get_check_sms_data))
+					{
+						$sms_data_email = $get_check_sms_data[0]['sms_data_email'];						
+					}else
+					{
+						// Replace key value with your own api key					
+						$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number.'';
+						$result = @file_get_contents($url);						
+						if ($result)
+						{
+							$result = @json_decode($result, true);
+							if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+							{	
+								$sms_data_email = $result['response']['results'][0]['sms_address'];
+							}
+						}
+					}
+					
+					$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+					require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+					$track_code = md5(rand());
+					$mail = new PHPMailer;
+					$mail->SMTPDebug = 0;
+					// SMTP configuration
+					$mail->isSMTP();
+					$mail->Host     = $mail_configurations[0]->host;
+					$mail->SMTPAuth = true;
+					$mail->Username = $mail_configurations[0]->email;
+					$mail->Password = $mail_configurations[0]->password;
+					$mail->Port     = $mail_configurations[0]->port;						 							
+					$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');              
+					$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
+					// Set email format to HTML
+					$mail->isHTML(true);
+					// Email body content
+					if($campaign_category[0]->campaign_type == 'email'){
+						$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+										<html>
+										<head>
+											<meta charset="UTF-8">
+											<meta content="width=device-width, initial-scale=1" name="viewport">
+											<meta name="x-apple-disable-message-reformatting">
+											<meta http-equiv="X-UA-Compatible" content="IE=edge">
+											<meta content="telephone=no" name="format-detection">
+											<title></title>
+											<!--[if (mso 16)]>
+											  <style type="text/css">
+											  a {text-decoration: none;}
+											  </style>
+											  <![endif]-->
+											<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+											<!--[if !mso]><!-- -->
+											<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+											<!--<![endif]-->
+										</head>
+										<body>
+											<div class="es-wrapper-color">
+											<!--[if gte mso 9]>
+												  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+													  <v:fill type="tile" color="#f6f6f6"></v:fill>
+												  </v:background>
+											<![endif]-->
+											<table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+											<tbody>
+											  <tr>
+											<td class="esd-email-paddings">
+											  <table class="es-content esd-footer-popover" cellspacing="0" cellpadding="0" align="center"
+												style="border: 5px solid #603;padding: 10px;background: #fff;">
+												<tbody>
+													<tr>
+														<td class="esd-stripe" align="center">
+															<table class="es-content-body" width="600" cellspacing="0" cellpadding="0" align="center"
+															style="border-left:3px solid transparent;">
+															<tbody>
+						  
+													<tr>
+														<td style="text-align: center;"><img
+															src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png"
+															width="100" />
+														  <h3
+															style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; text-align:center;font-size: 25px;font-weight: 300;">
+															Digestive & Liver Disease Consultants, P.A. </h3>
+															<br>
+														</td>
+													</tr>
+						  
+													<tr>
+													<td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left">
+													  <table width="100%" cellspacing="0" cellpadding="0">
+														<tbody>
+														  <tr>
+															<td class="esd-container-frame" width="557" valign="top" align="center">
+															  <table width="100%" cellspacing="0" cellpadding="0">
+																<tbody>
+																  <tr>
+																	<td align="left" class="esd-block-text es-p15b">
+																	  <h2
+																		style="color: rgb(102, 0, 51); font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif;font-size: 21px;font-weight: 600;">
+																		Dear '. $patient_first_name .',</h2>
+																	</td>
+																  </tr>';
+																	
+																$mailContent .= '<tr>
+																					<td class="esd-block-text es-p20t" align="left">
+																					  <p
+																						style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																							'.$campaign_category[0]->mail_content.'
+																					  </pre>
+																					</td>
+																				  </tr>';
+																$mailContent .= ' <tr>
+																					  </tr>
+																					  <tr>
+																						<td align="center" esd-links-color="#ffffff" class="esd-block-text">
+																						<br>
+																						<table cellspacing="0" cellpadding="0">
+																						<tr>';								
+																$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
+																					<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																					'.$campaign_category[0]->category.'
+																					</a>
+																				 </td>';
+																	
+																$mailContent .= ' </tr>
+																	</table>
+																	<br> 
+																		  </td>
+																	  </tr>
+																	  <tr>
+																	<td class="esd-block-text es-p15t" align="left">
+																	  
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		<br>
+																	  </p>
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		Sincerely,</p>                                                              
+																	  <p
+																		style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																		<img src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png" width="90" />
+																		<h3
+																		  style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 16px;font-weight: 300;">
+																		  Digestive &amp; Liver Disease Consultants, P.A. </h3>
+																	  </p>			
+																	  <p><br>
+																	  </p>
+																	</td>
+																  </tr>                                                          
+																</tbody>
+															  </table>
+															</td>
+														  </tr>
+														</tbody>
+													  </table>
+													</td>
+												  </tr>
+												</tbody>
+											  </table>
+											</td>
+										  </tr>
+										</tbody>
+									  </table>
+									</td>
+								  </tr>
+								</tbody>
+								</table>
+								</div>
+							</body>                  
+						</html>';
+					}elseif($campaign_category[0]->campaign_type == 'sms'){
+						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
+					}
+					$mail->Body = $mailContent;
+					$mail->clearAddresses();
+					// Add a recipient
+					if($campaign_category[0]->campaign_type == 'email'){
+						$mail->addAddress($patient_email);
+						$mail->addBCC('velusamy@desss.com');
+					}elseif($campaign_category[0]->campaign_type == 'sms'){
+						$mail->addAddress($sms_data_email);
+						$mail->addBCC('velusamy@desss.com');
+					}			
+					
+					if(!$mail->send()){
+						// echo 'Message could not be sent.';
+						// echo 'Mailer Error: ' . $mail->ErrorInfo;
+						echo '0';
+					} else {
+						if(empty($get_check_sms_data))
+						{
+							$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
+						}					
+						$this->Email_sms_blast_model->update_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code);
+						// echo 'Message sent.';
+						echo '1';
+					}	
+				}			
+			
+		}
 	}
 }
