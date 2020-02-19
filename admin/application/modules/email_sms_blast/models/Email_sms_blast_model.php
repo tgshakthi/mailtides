@@ -1162,7 +1162,7 @@ class Email_sms_blast_model extends CI_Model
         $query   = $this->db->get('import_data');
         $records = array();
         if ($query->num_rows() > 0):
-            $records = $query->result();
+            $records = $query->result_array();
         endif;
         return $records;
 	}
