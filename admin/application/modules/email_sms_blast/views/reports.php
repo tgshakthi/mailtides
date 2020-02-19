@@ -47,12 +47,20 @@
 	</div>
 
 	<div class="x_panel">
-
 		<div class="x_content">
-
 			<div class="page_buut_right">
-
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+				<?php
+					foreach($campaign_datas as $campaign_data):
+				?>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+							<a href='<?php echo base_url();?>email_sms_blast/campaign_report_import/<?php echo $campaign_data->id;?>' class="btn btn-warning">
+								<i class="fa fa-flag"></i><?php echo $campaign_data->category;?>
+							</a>
+						</div>
+				<?php
+					endforeach;
+				?>		
+				<!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<a href="<?php echo base_url();?>email_sms_blast/email_tracking" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Email Reports
 					</a>
@@ -81,7 +89,7 @@
 					<a href="<?php echo base_url();?>email_sms_blast/txgidocs_sms_tracking" class="btn btn-warning">
 						<i class="fa fa-flag"></i> Txgidocs SMS Reports
 					</a>
-				</div>
+				</div> -->
 
 			</div>
 
