@@ -4228,6 +4228,7 @@ class Email_sms_blast extends MX_Controller
 	}
 	function get_import_send_data_users_id($id)
 	{
+		$website_id = $this->admin_header->website_id();
 		$get_user_id = $this->Email_sms_blast_model->get_import_send_data($id);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
