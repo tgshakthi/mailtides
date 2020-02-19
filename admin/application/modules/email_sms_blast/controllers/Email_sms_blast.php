@@ -3912,7 +3912,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['table']      = $this->get_table_exixts_users($id);
+		// $data['table']      = $this->get_table_exixts_users($id);
 		$data['get_campaign_category'] = $this->Email_sms_blast_model->get_campaign_category_by_id($data['id']);
 		if(!empty($data['get_campaign_category'])){
 			print_r($data['get_campaign_category']);
