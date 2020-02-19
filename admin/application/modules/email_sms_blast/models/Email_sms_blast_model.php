@@ -1193,4 +1193,20 @@ class Email_sms_blast_model extends CI_Model
 		$new_array = array_diff($aTmp1,$aTmp2);
 		return $new_array;
 	}
+	
+	function update_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code)
+	{
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
+		$insert_array = array(
+								'link_open' => '0',
+								'sent_date' => $date->format('m/d/Y'),
+								'open_date'  => ''
+							);
+		$this->db->where(array(
+						'user_id' =>$user_id,
+						'campaign_category_id' => $campaign_category_id,
+						'track_code' => $track_code
+						));
+		$this->db->update($this->table_name, $insert_array);
+	}
 }
