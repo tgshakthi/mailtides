@@ -244,6 +244,192 @@ $(document).ready(function () {
 			table.draw();
 		});
 	}
+
+	// Import Filter Data
+	$('#filter-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
+	
+	// Import Filter Data
+	$('#filter-sms-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_sms_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-sms-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
+	
+	// Import Facebook Filter Data
+	$('#filter-fb-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_fb_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-fb-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
+	
+	// Import Facebook Filter Data
+	$('#filter-fb-email-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_fb_email_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-fb-email-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
+	
+	// Import Txgidocs Email Filter Data
+	$('#filter-dldc-email-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_dldc_email_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-dldc-email-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}
+		
+	});
+	
+	// Import Txgidocs SMS Filter Data
+	$('#filter-dldc-sms-data-import').click(function () {
+		var values = $("input[name='row_sort_order[]']")
+			.map(function () {
+				return $(this).val();
+			})
+			.get();
+			if (values.length > 0) {
+				$.ajax({
+					method: 'POST',
+					url: 'email_sms_blast/import_filter_dldc_sms_data',
+					data: {
+						user_id: values
+					},
+					success: function (data) {
+						
+						if (data == '1') {
+							alert('Successfully Imported.');
+							document.getElementById('filter-dldc-sms-data-import').disabled = true;
+							window.location.href = 'email_sms_blast/campaign_data';
+						} else {
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = 'email_sms_blast/campaign_data';
+						}
+					}
+				});
+			} else {
+				alert('please upload some users!');
+			}		
+	});
 	
 	// Import Email SMS Filter Data
 	$('#send-email-sms-filter-data-import').click(function () {
@@ -375,6 +561,322 @@ $(document).ready(function () {
 		$('.buttonFinish')
 		.addClass('btn btn-default')
 		.text('Save');
+	
+	// Email Tracking Datatable Report
+	if ($('#datatable-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-email').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-email>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+
+	// SMS Tracking Datatable Report
+	if ($('#datatable-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-sms').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
+	// FB Email Tracking Datatable Report
+	if ($('#datatable-fb-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-fb-email').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-fb-email>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-fb-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	// FB SMS Tracking Datatable Report
+	if ($('#datatable-fb-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-fb-sms').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-fb-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-fb-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	// DLDC Email Tracking Datatable Report
+	if ($('#datatable-dldc-email').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-dldc-email').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-dldc-email>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-dldc-email>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
+	// DLDC SMS Tracking Datatable Report
+	if ($('#datatable-dldc-sms').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			
+			var startDate = new Date(data[4]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+
+		var table = $('#datatable-dldc-sms').DataTable({
+			"pageLength": 200
+		});
+
+		$('#datatable-dldc-sms>thead>tr')
+			.clone(true);
+			//.appendTo('#datatable-email thead');
+		$('#datatable-dldc-sms>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'S.No') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
 });
 
 // Graphical Reports
@@ -805,6 +1307,7 @@ $(document).ready(function () {
 	});
 
 	// Preview Template Campaign
+
 	$('#preview-template-campaign').click(function () {
 		var selectedTemplate = $('#template_id option:selected').val();
 		var imageUrl = $('#image-url').val();
