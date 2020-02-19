@@ -4231,7 +4231,7 @@ class Email_sms_blast extends MX_Controller
 		$get_user_id = $this->Email_sms_blast_model->get_import_send_data($id);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
-		print_r($get_user);die;
+		print_r($get_user->user_id);die;
 			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user);
 			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
 				  'data-toggle' => 'tooltip',
