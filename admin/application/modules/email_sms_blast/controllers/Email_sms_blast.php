@@ -923,6 +923,15 @@ class Email_sms_blast extends MX_Controller
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
 		//$mail_template = $get_mail_template[0]->template;
+		print_r($user_ids);die;
+		// array(
+			// 'id' => '4813',
+			// 'name' => 'Chandler,Chandler',
+			// 'email' => 'dev@desss.com',
+			// 'phone_number' => '7135578001',
+			// 'provider_name' => 'DLDC',
+			// 'facility_name' => 'DLDC'          
+		// )
 		if(!empty($user_ids))
 		{
 			$patient_user_count = count($user_ids);
