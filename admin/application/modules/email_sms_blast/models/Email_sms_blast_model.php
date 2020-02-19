@@ -1170,6 +1170,7 @@ class Email_sms_blast_model extends CI_Model
 	function check_diff_multi($array1, $array2)
 	{
 		foreach($array1 as $aV){
+			print_r($aV);die;
 			$aTmp1[] = $aV['id'];
 		}
 		foreach($array2 as $aV){
