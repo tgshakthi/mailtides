@@ -4179,7 +4179,7 @@ class Email_sms_blast extends MX_Controller
 							</body>                  
 						</html>';
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
-						$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
+						$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'';
 						$ch = curl_init();  
 						$timeout = '5';  
 						curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
