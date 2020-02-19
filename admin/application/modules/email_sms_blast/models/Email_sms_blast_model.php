@@ -27,7 +27,7 @@ class Email_sms_blast_model extends CI_Model
         return $records;      
     }
 	// Get Patient  Users
-    function get_users()
+    function get_users_data()
     {
         $this->db->select('id');
         $this->db->where(array(
