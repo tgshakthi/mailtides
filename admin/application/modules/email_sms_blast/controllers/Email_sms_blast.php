@@ -4212,7 +4212,23 @@ class Email_sms_blast extends MX_Controller
 	
 	function campaign_report_import($id)
 	{
-		echo $id;
-		echo 'test';die;
+		$data['id'] = $id;
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['table']      = $this->get_import_send_data_users_id($id);
+		// print_r($data['get_campaign_category']);die;
+		$data['heading']    = 'Campaign';
+		$data['title']  = "Add Campaign | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('import_campaign_data', $data);
+		// $this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
+	}
+	function get_import_send_data_users_id($id)
+	{
+		$get_user_id = $this->Email_sms_blast_model->get_import_send_data($id);
+		echo '<pre>';print_r($get_user_id);die;
 	}
 }
