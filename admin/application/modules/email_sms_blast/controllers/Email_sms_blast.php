@@ -3914,7 +3914,10 @@ class Email_sms_blast extends MX_Controller
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['table']      = $this->get_table_exixts_users($id);
 		$data['get_campaign_category'] = $this->Email_sms_blast_model->get_campaign_category_by_id($data['id']);
-		// print_r($data['get_campaign_category']);die;
+		if(!empty($data['get_campaign_category'])){
+			print_r($data['get_campaign_category']);die;
+			$heading = $data['get_campaign_category']
+		}
 		$data['heading']    = 'Campaign';
 		$data['title']  = "Add Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
