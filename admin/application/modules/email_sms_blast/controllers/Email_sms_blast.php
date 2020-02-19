@@ -4245,19 +4245,20 @@ class Email_sms_blast extends MX_Controller
 			  );
 			if ($get_user->link_open === '1') {
 				$link_open_status = '<span class="label label-success">Open</span>';
-				//$resend_sms = '<span class="label label-danger"></span>';
+				$resend_sms = '<span class="label label-danger"></span>';
 			} else {
 				$link_open_status = '<span class="label label-danger">Not Open</span>';
-				//$resend_sms = '<span class="label label-success"><a href="resend_dldc_sms/'.$user_id.'">Resend</a></span>';
+				$resend_sms = '<span class="label label-success"><a href="resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->track_code.'/'.$get_user->track_code.'">Resend</a></span>';
 			}
 			$campaign_name = array();
 			$heading_data = array();
 			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email,$get_user_details[0]->phone_number,$get_user->sent_date);
 			$heading_data = array_merge($heading_data,array($link_open_status));
 			$heading_data = array_merge($heading_data,array($get_user->open_date));
+			$heading_data = array_merge($heading_data,array($resend_sms));
 			$this->table->add_row($heading_data);
 		}
-		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Phone Number','Sent Date','Link Open','Open Date');
+		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Phone Number','Sent Date','Link Open','Open Date','Resend');
 		$template = array(
 			  'table_open' => '<table
 			  id="datatable-buttons-import-data"
