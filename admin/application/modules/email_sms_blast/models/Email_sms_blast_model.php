@@ -1173,6 +1173,8 @@ class Email_sms_blast_model extends CI_Model
 		foreach($array1 as $key => $val) {
 			if(isset($array2[$key]))
 			{
+				echo '<pre>';
+				print_r($val);
 				print_r($key);
 				print_r($array2[$key]);die;
 				if(is_array($val) && $array2[$key]){
