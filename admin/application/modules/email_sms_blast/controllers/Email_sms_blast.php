@@ -4249,5 +4249,17 @@ class Email_sms_blast extends MX_Controller
 			$heading_data = array_merge($heading_data,array($cell));
 			$this->table->add_row($heading_data);
 		}
+		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Action');
+		$template = array(
+			  'table_open' => '<table
+			  id="datatable-buttons-import-data"
+			  class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+			  width="100%" cellspacing="0">'
+		  );
+		$this->table->set_template($template);
+      
+		// Table heading row
+		$this->table->set_heading($heading);
+		return $this->table->generate();
 	}
 }

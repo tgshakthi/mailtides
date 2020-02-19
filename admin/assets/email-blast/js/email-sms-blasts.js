@@ -130,7 +130,69 @@ $(document).ready(function () {
 			table.draw();
 		});
 	}
-
+	
+	// Datatable - One ( Master Campaign )
+	if ($('#datatable-buttons-import-data').length) {
+		// Datatable - One ( Master Campaign Datepicker Filter)
+		$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+			var min = $('#min').datepicker('getDate');
+			var max = $('#max').datepicker('getDate');
+			var startDate = new Date(data[6]);
+			if (min == null && max == null) {
+				return true;
+			}
+			if (min == null && startDate <= max) {
+				return true;
+			}
+			if (max == null && startDate >= min) {
+				return true;
+			}
+			if (startDate <= max && startDate >= min) {
+				return true;
+			}
+			return false;
+		});
+		var table = $('#datatable-buttons-import-data').DataTable({
+			pageLength: 100,
+			dom: 'Bfrtip',
+			buttons: [{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
+				}
+			}],
+			orderCellsTop: true,
+			responsive: !0
+		});
+		// Clone Previous Row for filter input
+		$('#datatable-buttons-import-data>thead>tr')
+			.clone(true)
+			.appendTo('#datatable-buttons-import-data thead');
+		$('#datatable-buttons-import-data>thead>tr:eq(1)>th').each(function (i) {
+			var title = $(this).text();
+			if (title.length > 0 && title != 'Action' && title != 'Status') {
+				$(this).html(
+					'<input type="text" placeholder="Search ' + title + '" />'
+				);
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table
+							.column(i)
+							.search(this.value)
+							.draw();
+					}
+				});
+			}
+		});
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
 	// Datatable - Two ( Campaign )
 	if ($('#datatable-campaign-users').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)
