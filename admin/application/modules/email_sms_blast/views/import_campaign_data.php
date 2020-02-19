@@ -37,8 +37,7 @@
   100% { transform: rotate(360deg); }
 }
 </style>
-
-<div class="loader"></div>
+<span id="css_loader"><span>
 		<div class="row">
 
 			<div class="col-md-12 col-sm-12 col-xs-12">
