@@ -882,7 +882,7 @@ class Email_sms_blast extends MX_Controller
 		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id);
 		$heading=array();
 		$get_users= $this->Email_sms_blast_model->check_diff_multi($get_user_data,$get_user_exist_data);
-		
+		print_r($get_users);die;
 		foreach (($get_users ? $get_users : array()) as $get_user) 
 		{  
 			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user);
