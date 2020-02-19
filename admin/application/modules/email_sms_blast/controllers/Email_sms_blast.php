@@ -926,7 +926,7 @@ class Email_sms_blast extends MX_Controller
 		$data = array(
 					'0'=>'4813'
 				);
-		$user_ids = array_merge($user_ids,$data);
+		$user_ids = array_merge($user_ids_data,$data);
 		// array(
 			// 'id' => '4813',
 			// 'name' => 'Chandler,Chandler',
