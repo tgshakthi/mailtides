@@ -3930,6 +3930,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$website_id = $this->admin_header->website_id();
 		$get_user_data  = $this->Email_sms_blast_model->get_users();
+		echo '<pre>';print_r($get_user_data);die;		
 		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id);
 		$heading=array();
 		$array_data = $this->Email_sms_blast_model->flatten($get_user_exist_data);
