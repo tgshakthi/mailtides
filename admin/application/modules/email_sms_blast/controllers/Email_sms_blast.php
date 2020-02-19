@@ -4274,7 +4274,6 @@ class Email_sms_blast extends MX_Controller
 	
 	function resend_email_sms_user_data($user_id,$campaign_category_id,$track_code)
 	{
-		echo 'test';die;
 		$website_id = $this->admin_header->website_id();
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		
