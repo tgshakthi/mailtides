@@ -4221,7 +4221,7 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
-		$this->load->view('import_campaign_data', $data);
+		$this->load->view('import_campaign_user_data', $data);
 		// $this->load->view('template/footer_content');
 		$this->load->view('script');
 		$this->load->view('template/footer');
