@@ -3911,7 +3911,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['table']      = $this->get_table_users();
+		$data['table']      = $this->get_table_exixts_users($id);
 		$data['get_campaign_category'] = $this->Email_sms_blast_model->get_campaign_category_by_id($data['id']);
 		// print_r($data['get_campaign_category']);die;
 		$data['heading']    = 'Campaign';
@@ -3923,6 +3923,48 @@ class Email_sms_blast extends MX_Controller
 		// $this->load->view('template/footer_content');
 		$this->load->view('script');
 		$this->load->view('template/footer');
+	}
+	
+	//Get all patients
+	function get_table_exixts_users($id)
+	{
+		$website_id = $this->admin_header->website_id();
+		$get_user_data  = $this->Email_sms_blast_model->get_users();
+		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id)
+		$heading=array();
+		$array_data = $this->Email_sms_blast_model->flatten($get_user_exist_data);
+		echo '<pre>';print_r($array_data);die;		
+		$get_users = array_diff($get_user_data, $get_user_exist_data);
+		foreach (($get_users ? $get_users : array()) as $get_user) 
+		{  
+			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+				  'data-toggle' => 'tooltip',
+				  'data-placement' => 'right',
+				  'data-original-title' => 'Delete',
+				  'onclick' => 'return delete_record(' . $get_user->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
+			  ));
+			$cell = array(
+				'class' => 'last',
+				'data' => $anchor_delete
+			  );
+			$campaign_name = array();
+			$heading_data = array();
+			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' . $get_user->id . '">', $get_user->name, $get_user->email, $get_user->facility_name ,$get_user->provider_name, $get_user->phone_number, $get_user->visited_date);
+			$heading_data = array_merge($heading_data,array($cell));
+			$this->table->add_row($heading_data);
+		}
+		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Action');
+		$template = array(
+			  'table_open' => '<table
+			  id="datatable-buttons"
+			  class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
+			  width="100%" cellspacing="0">'
+		  );
+		$this->table->set_template($template);
+      
+		// Table heading row
+		$this->table->set_heading($heading);
+		return $this->table->generate();
 	}
 	
 	function import_send_email_sms_filter_data()
