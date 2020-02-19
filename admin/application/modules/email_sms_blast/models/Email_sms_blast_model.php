@@ -1171,12 +1171,11 @@ class Email_sms_blast_model extends CI_Model
 	{
 		foreach($array1 as $aV){
 			$av = json_decode(json_encode($aV));
-			print_r($av->id);die;
-			$aTmp1[] = $av['id'];
+			$aTmp1[] = $av->id;
 		}
 		foreach($array2 as $aV){
 			$av = json_decode(json_encode($aV));
-			$aTmp2[] = $av['user_id'];
+			$aTmp2[] = $av->user_id;
 		}
 		$new_array = array_diff($aTmp1,$aTmp1);
 		print_r($new_array);die;
