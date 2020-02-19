@@ -3934,6 +3934,8 @@ class Email_sms_blast extends MX_Controller
 		$heading=array();
 		echo '<pre>';print_r($get_user_data);
 		echo '<pre>';print_r($get_user_exist_data);
+		$array_data= $this->flatten($get_user_exist_data);
+		echo '<pre>';print_r($array_data);die;
 		$get_users = array_diff($get_user_data, $get_user_exist_data);
 		echo '<pre>';print_r($get_users);die;		
 		foreach (($get_users ? $get_users : array()) as $get_user) 
