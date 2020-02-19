@@ -24,14 +24,14 @@
 							<i class="fa fa-bomb" aria-hidden="true"></i>Campaign Category
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/campaign_data" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Assign to Campaign
+							<i class="fa fa-bomb" aria-hidden="true"></i>Send Mail && SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Mail
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/sms_blast" class="btn btn-success">
 							<i class="fa fa-comment"></i> SMS
-						</a>
+						</a> -->
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-warning">
 							<i class="fa fa-rss"></i> Reports
 						</a>
@@ -55,14 +55,14 @@
 							<i class="fa fa-bomb" aria-hidden="true"></i>Campaign Category
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/campaign_data" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Assign to Campaign
+							<i class="fa fa-bomb" aria-hidden="true"></i>Send Mail && SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Mail
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/sms_blast" class="btn btn-success">
 							<i class="fa fa-comment"></i> SMS
-						</a>
+						</a> -->
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-warning">
 							<i class="fa fa-rss"></i> Reports
 						</a>
@@ -86,14 +86,14 @@
 							<i class="fa fa-bomb" aria-hidden="true"></i>Campaign Category
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/campaign_data" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Assign to Campaign
+							<i class="fa fa-bomb" aria-hidden="true"></i>Send Mail && SMS
 						</a>
-						<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
+						<!--<a href="<?php echo base_url();?>email_sms_blast/email_blast" class="btn btn-danger">
 							<i class="fa fa-envelope"></i> Mail
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/sms_blast" class="btn btn-success">
 							<i class="fa fa-comment"></i> SMS
-						</a>
+						</a>-->
 						<a href="<?php echo base_url();?>email_sms_blast/reports" class="btn btn-warning">
 							<i class="fa fa-rss"></i> Reports
 						</a>
