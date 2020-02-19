@@ -450,6 +450,12 @@ $(document).ready(function () {
 						user_id : values,
 						campaign_category_id: campaign_category_id
 					},
+					beforeSend: function(){
+						 $("#loading").show();
+					   },
+					   complete: function(){
+						 $("#loading").hide();
+					   },
 					success: function (data) {
 						if(data == '1') {
 							alert('Successfully Sent Mail.');
