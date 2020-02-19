@@ -161,7 +161,7 @@ class Email_sms_blast extends MX_Controller
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email', 'Facility Name', 'Provider Name' , 'Phone Number', 'Visited Date','Action');
 		$template = array(
 			  'table_open' => '<table
-			  id="datatable-buttons"
+			  id="datatable-button-data"
 			  class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action"
 			  width="100%" cellspacing="0">'
 		  );
