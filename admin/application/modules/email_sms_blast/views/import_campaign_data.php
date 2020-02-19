@@ -7,7 +7,7 @@
 				<h3>Campaign</h3>				
 			</div>
 			<div class="btn_right" style="text-align:right;">
-				<a href="<?php echo base_url();?>email_sms_blast/campaign" class="btn btn-primary">
+				<a href="<?php echo base_url();?>email_sms_blast/campaign_data" class="btn btn-primary">
 					<i class="fa fa-chevron-left"></i> 
 					Back
 				</a>
