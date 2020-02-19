@@ -4229,6 +4229,24 @@ class Email_sms_blast extends MX_Controller
 	function get_import_send_data_users_id($id)
 	{
 		$get_user_id = $this->Email_sms_blast_model->get_import_send_data($id);
-		echo '<pre>';print_r($get_user_id);die;
+		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
+		{  
+		print_r($get_user);die;
+			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user);
+			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+				  'data-toggle' => 'tooltip',
+				  'data-placement' => 'right',
+				  'data-original-title' => 'Delete',
+				  'onclick' => 'return delete_record(' . $get_user_details[0]->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
+			  ));
+			$cell = array(
+				'class' => 'last',
+				'data' => $anchor_delete
+			  );
+			$campaign_name = array();
+			$heading_data = array();
+			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email, $get_user_details[0]->facility_name ,$get_user_details[0]->provider_name, $get_user_details[0]->phone_number, $get_user_details[0]->visited_date);
+			$heading_data = array_merge($heading_data,array($cell));
+			$this->table->add_row($heading_data);
 	}
 }
