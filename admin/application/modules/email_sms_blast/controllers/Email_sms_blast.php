@@ -4488,14 +4488,14 @@ class Email_sms_blast extends MX_Controller
 				if(!$mail->send()){
 					// echo 'Message could not be sent.';
 					// echo 'Mailer Error: ' . $mail->ErrorInfo;
-					echo "<script type='text/javascript'> alert('Message not sent!');location.replace('".base_url()."email_sms_blast/campaign_report_import/".$campaign_category_id).";</script>";
+					echo "<script type='text/javascript'> alert('Message not sent!');location.replace('".base_url()."email_sms_blast/campaign_report_import/".$campaign_category_id."');</script>";
 				} else {
 					if(empty($get_check_sms_data))
 					{
 						$this->Email_sms_blast_model->insert_sms_data($user_id,$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
 					}					
 					$this->Email_sms_blast_model->update_send_email_sms_filter_data($user_id,$campaign_category_id,$track_code);
-					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/campaign_report_import/".$campaign_category_id).";</script>";
+					echo "<script type='text/javascript'> alert('Message sent!');location.replace('".base_url()."email_sms_blast/campaign_report_import/".$campaign_category_id."');</script>";
 				}	
 			}			
 			
