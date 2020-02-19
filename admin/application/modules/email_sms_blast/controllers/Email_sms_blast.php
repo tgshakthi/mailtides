@@ -4150,8 +4150,9 @@ class Email_sms_blast extends MX_Controller
 					}			
 					
 					if(!$mail->send()){
-						echo 'Message could not be sent.';
-						echo 'Mailer Error: ' . $mail->ErrorInfo;
+						// echo 'Message could not be sent.';
+						// echo 'Mailer Error: ' . $mail->ErrorInfo;
+						echo '0';
 					} else {
 						if(empty($get_check_sms_data))
 						{
