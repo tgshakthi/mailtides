@@ -4497,8 +4497,8 @@ class Email_sms_blast extends MX_Controller
 					$mail->addAddress($sms_data_email);
 					$mail->addBCC('velusamy@desss.com');
 				}
-				echo '<pre>';
-				print_r($mail);die;
+				// echo '<pre>';
+				// print_r($mail);die;
 				
 				if(!$mail->send()){
 					// echo 'Message could not be sent.';
