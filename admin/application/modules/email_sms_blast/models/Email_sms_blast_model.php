@@ -1207,6 +1207,6 @@ class Email_sms_blast_model extends CI_Model
 						'campaign_category_id' => $campaign_category_id,
 						'track_code' => $track_code
 						));
-		$this->db->update($this->table_name, $insert_array);
+		$this->db->update('import_data', $insert_array);
 	}
 }
