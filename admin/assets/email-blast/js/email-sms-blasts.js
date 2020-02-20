@@ -43,12 +43,6 @@ $(document).ready(function () {
 					columns: [1, 2, 3]
 				}
 			}],
-			columnDefs:[  
-                {  
-                    "targets":[0, 3, 4],  
-                    "orderable":false,  
-                },  
-			], 
 			orderCellsTop: true,
 			responsive: !0
 		});
