@@ -462,7 +462,7 @@ $(document).ready(function () {
 						$("#loader").css("display", "block");
 					},
 					complete: function(){
-						$("#wait").css("display", "none");
+						$("#loader").css("display", "none");
 					},
 					success: function (data) {
 						if(data == '1') {

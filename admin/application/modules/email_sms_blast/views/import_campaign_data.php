@@ -38,7 +38,7 @@
 }
 </style>
 <div id='loader' style='display: none;'>
-  <div id="loader" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='http://txgidocs.mailtides.com/assets/images/demo_wait.webp' width="64" height="64" /><br>Loading..</div>
+  <div style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='http://txgidocs.mailtides.com/assets/images/demo_wait.webp' width="64" height="64" /><br>Loading..</div>
 </div>
 
 
