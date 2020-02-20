@@ -290,6 +290,10 @@ $(document).ready(function () {
 					data: {
 						user_id: values
 					},
+					 beforeSend: function(){
+						// Show image container
+						$("#loader").show();
+					},
 					success: function (data) {
 						if (data == '1') {
 							alert('Successfully Imported.');
@@ -299,6 +303,10 @@ $(document).ready(function () {
 							alert('Something Went Wrong!. Please try again!.');
 							window.location.href = 'email_sms_blast/campaign';
 						}
+					},
+					complete:function(data){
+						// Hide image container
+						$("#loader").hide();
 					}
 				});
 			} else {
