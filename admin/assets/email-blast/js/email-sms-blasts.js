@@ -31,6 +31,9 @@ $(document).ready(function () {
 		var table = $('#datatable-button-data').DataTable({
 			pageLength: 100,
 			dom: 'Bfrtip',
+			processing: true,  
+            serverSide: true,  
+            order: [],
 			buttons: [{
 				extend: 'csvHtml5',
 				text: 'Export CSV',
@@ -40,6 +43,12 @@ $(document).ready(function () {
 					columns: [1, 2, 3]
 				}
 			}],
+			columnDefs:[  
+                {  
+                    "targets":[0, 3, 4],  
+                    "orderable":false,  
+                },  
+			], 
 			orderCellsTop: true,
 			responsive: !0
 		});
