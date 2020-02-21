@@ -136,25 +136,7 @@ class Email_sms_blast extends MX_Controller
 	//Get all patients
 	function get_table_users()
 	{
-		$data = $row = array();      
-        // Fetch member's records
-        $memData = $this->Email_sms_blast_model->get_users_table($_POST); 
-		// echo '<pre>';print_r($memData);die;		
-        $i =1;
-        foreach($memData as $member){
-            $data[] = array($i, $member->name, $member->email, $member->facility_name, $member->provider_name, $member->phone_number, $member->visited_date);
-			$i++;
-		}        
-        $output = array(
-            
-            "recordsTotal" => $this->Email_sms_blast_model->countAll(),
-            "recordsFiltered" => $this->Email_sms_blast_model->countFiltered($_POST),
-            "data" => $data,
-        );        
-        // Output to JSON format
-        echo json_encode($output); 
-	
-		/* $website_id = $this->admin_header->website_id();
+		$website_id = $this->admin_header->website_id();
 		$get_users  = $this->Email_sms_blast_model->get_users();
 		$heading=array();
 		// print_r($get_users);die;
@@ -187,7 +169,7 @@ class Email_sms_blast extends MX_Controller
       
 		// Table heading row
 		$this->table->set_heading($heading);
-		return $this->table->generate(); */
+		return $this->table->generate();
 	}
 	
 	//delete

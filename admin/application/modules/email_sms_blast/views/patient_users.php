@@ -1,9 +1,4 @@
 <!-- page content -->
-<!-- DataTables CSS library -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url() ;?>assets/DataTables/datatables.min.css"/>
-<!-- DataTables JS library -->
-<script src="<?php echo base_url() ;?>assets/datatables.net/js/jquery.dataTables.min.js"></script>
-
 <div class="right_col" role="main">
 	<div class="">
 		<div class="page-title">
@@ -48,42 +43,7 @@
 									</button>
 								</div>
 							</div>
-<script>
-	$(document).ready(function(){
-		$('#memListTable').DataTable({
-			// Processing indicator
-			"processing": true,
-			// DataTables server-side processing mode
-			"serverSide": true,
-			// Initial no order.
-			"order": [],
-			// Load data from an Ajax source
-			"ajax": {
-				"url": "<?php echo base_url('email_sms_blast/get_table_users'); ?>",
-				"type": "POST"
-			},
-			//Set column definition initialisation properties
-			"columnDefs": [{ 
-				"targets": [0],
-				"orderable": false
-			}]
-		});
-	});
-</script>
-							<table id="memListTable" class="display" style="width:100%">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Facility Name</th>
-										<th>Provider Name</th>
-										<th>Phone Number</th>
-										<th>Visited Date</th>
-										<th>Action</th>
-									</tr>
-								</thead>								
-							</table>
-							<?php// echo $table;?>
+							<?php echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
