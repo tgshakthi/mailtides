@@ -136,10 +136,10 @@ class Email_sms_blast extends MX_Controller
 	//Get all patients
 	function get_table_users()
 	{
-		echo '<pre>';print_r($_POST);die;
 		$data = $row = array();      
         // Fetch member's records
-        $memData = $this->Email_sms_blast_model->get_users();        
+        $memData = $this->Email_sms_blast_model->get_users(); 
+		echo '<pre>';print_r($memData);die;		
         $i = $_POST['start'];
         foreach($memData as $member){
             $i++;
