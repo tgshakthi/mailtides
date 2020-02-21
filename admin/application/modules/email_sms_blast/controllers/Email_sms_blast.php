@@ -140,17 +140,15 @@ class Email_sms_blast extends MX_Controller
         // Fetch member's records
         $memData = $this->Email_sms_blast_model->get_users(); 
 		echo '<pre>';print_r($memData);die;		
-        $i = $_POST['start'];
+        $i =1;
         foreach($memData as $member){
-            $i++;
-            $created = date( 'jS M Y', strtotime($member->created));
-            $status = ($member->status == 1)?'Active':'Inactive';
-            $data[] = array($i, $member->first_name, $member->last_name, $member->email, $member->gender, $member->country, $created, $status);
-        }        
+            $data[] = array($i, $member->name, $member->email, $member->facility_name, $member->provider_name, $member->phone_number, $member->visited_date);
+			$i++;
+		}        
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->member->countAll(),
-            "recordsFiltered" => $this->member->countFiltered($_POST),
+            "recordsTotal" => count($memData),
+            "recordsFiltered" => 100,
             "data" => $data,
         );        
         // Output to JSON format
