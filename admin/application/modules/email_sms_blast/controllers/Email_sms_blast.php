@@ -139,7 +139,7 @@ class Email_sms_blast extends MX_Controller
 		$data = $row = array();      
         // Fetch member's records
         $memData = $this->Email_sms_blast_model->get_users(); 
-		echo '<pre>';print_r($memData);die;		
+		// echo '<pre>';print_r($memData);die;		
         $i =1;
         foreach($memData as $member){
             $data[] = array($i, $member->name, $member->email, $member->facility_name, $member->provider_name, $member->phone_number, $member->visited_date);
