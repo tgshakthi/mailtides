@@ -146,8 +146,8 @@ class Email_sms_blast extends MX_Controller
 			$i++;
 		}        
         $output = array(
-            "draw" => '',
-            "recordsTotal" => $this->Email_sms_blast_model->countAll(),,
+            
+            "recordsTotal" => $this->Email_sms_blast_model->countAll(),
             "recordsFiltered" => $this->Email_sms_blast_model->countFiltered($_POST),
             "data" => $data,
         );        
