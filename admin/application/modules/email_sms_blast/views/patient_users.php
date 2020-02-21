@@ -43,7 +43,20 @@
 									</button>
 								</div>
 							</div>
-							<?php echo $table;?>
+							<table id="memListTable" class="display" style="width:100%">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Facility Name</th>
+										<th>Provider Name</th>
+										<th>Phone Number</th>
+										<th>Visited Date</th>
+										<th>Action</th>
+									</tr>
+								</thead>								
+							</table>
+							<?php// echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -71,3 +84,25 @@
 	</div>
 </div>
 <!-- page content -->
+<script>
+$(document).ready(function(){
+    $('#memListTable').DataTable({
+        // Processing indicator
+        "processing": true,
+        // DataTables server-side processing mode
+        "serverSide": true,
+        // Initial no order.
+        "order": [],
+        // Load data from an Ajax source
+        "ajax": {
+            "url": "<?php echo base_url('email_sms_blast/get_table_users'); ?>",
+            "type": "POST"
+        },
+        //Set column definition initialisation properties
+        "columnDefs": [{ 
+            "targets": [0],
+            "orderable": false
+        }]
+    });
+});
+</script>
