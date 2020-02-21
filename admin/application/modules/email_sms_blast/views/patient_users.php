@@ -43,6 +43,28 @@
 									</button>
 								</div>
 							</div>
+<script>
+	$(document).ready(function(){
+		$('#memListTable').DataTable({
+			// Processing indicator
+			"processing": true,
+			// DataTables server-side processing mode
+			"serverSide": true,
+			// Initial no order.
+			"order": [],
+			// Load data from an Ajax source
+			"ajax": {
+				"url": "<?php echo base_url('email_sms_blast/get_table_users'); ?>",
+				"type": "POST"
+			},
+			//Set column definition initialisation properties
+			"columnDefs": [{ 
+				"targets": [0],
+				"orderable": false
+			}]
+		});
+	});
+</script>
 							<table id="memListTable" class="display" style="width:100%">
 								<thead>
 									<tr>
@@ -84,25 +106,3 @@
 	</div>
 </div>
 <!-- page content -->
-<script>
-$(document).ready(function(){
-    $('#memListTable').DataTable({
-        // Processing indicator
-        "processing": true,
-        // DataTables server-side processing mode
-        "serverSide": true,
-        // Initial no order.
-        "order": [],
-        // Load data from an Ajax source
-        "ajax": {
-            "url": "<?php echo base_url('email_sms_blast/get_table_users'); ?>",
-            "type": "POST"
-        },
-        //Set column definition initialisation properties
-        "columnDefs": [{ 
-            "targets": [0],
-            "orderable": false
-        }]
-    });
-});
-</script>
