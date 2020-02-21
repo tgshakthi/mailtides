@@ -138,7 +138,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data = $row = array();      
         // Fetch member's records
-        $memData = $this->Email_sms_blast_model->get_users(); 
+        $memData = $this->Email_sms_blast_model->get_users_table($_POST); 
 		// echo '<pre>';print_r($memData);die;		
         $i =1;
         foreach($memData as $member){
@@ -146,9 +146,9 @@ class Email_sms_blast extends MX_Controller
 			$i++;
 		}        
         $output = array(
-            "draw" => '',
-            "recordsTotal" => count($memData),
-            "recordsFiltered" => 100,
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Email_sms_blast_model->countAll(),,
+            "recordsFiltered" => $this->Email_sms_blast_model->countFiltered($_POST),
             "data" => $data,
         );        
         // Output to JSON format
