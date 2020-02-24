@@ -1468,7 +1468,7 @@ $('#campaign-name').blur(function () {
 	}
 });
 
-$('#campaign_type').blur(function () {
+/* $('#campaign_type').blur(function () {
 	$('#error').html('');
 	var base_url = $('#base-url').val();
 	var Name = $(this).val();
@@ -1496,7 +1496,7 @@ $('#campaign_type').blur(function () {
 			}
 		});
 	}
-});
+}); */
 
 
 // User Reports
