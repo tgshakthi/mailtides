@@ -1252,6 +1252,7 @@ if ($('#mybarChart').length) {
 			},
 			cache: false,
 			success: function (data) {
+				alert(data);
 				if(data != '')
 				{
 					var campaignData = JSON.parse(data);
