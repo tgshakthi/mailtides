@@ -1257,6 +1257,221 @@ if ($('#mybarChart').length) {
 				console.log(campaignData);
 				var chartData = [];
 				var chartsData = [];
+				if (campaignData.type != '') {
+					$('#barchart').show();
+					$('#title').show();
+					$('#title-report').show();
+					var link_not_opened = (campaignData.sent - campaignData.link_open);
+					chartData.push(campaignData.sent);
+					chartData.push(campaignData.link_open);
+					chartData.push(link_not_opened);
+					chartsData.push(campaignData.link_open);
+					// chartsData.push(campaignData.posted);
+					// chartsData.push(campaignData.not_posted);
+
+					if (window.bar != undefined) {
+						window.bar.destroy();
+					}
+					chart = new Chart(f, {
+						type: 'bar',
+						data: {
+							labels: [
+								'Sent',
+								'Opened',
+								'Unopened'
+							],
+							datasets: [{
+								backgroundColor: [
+									'#26B99A',
+									'#EE82EE',
+									'#DA70D6'
+								],
+								data: chartData
+							}]
+						},
+						options: {
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: !0,
+										stepSize: 100
+									}
+								}]
+							}
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 100
+									}
+								}]
+							}
+						}
+					});
+
+					if (window.chart != undefined) {
+						window.chart.destroy();
+					}
+					charts = new Chart(p, {
+						type: 'bar',
+						data: {
+							labels: [
+								'Opened',
+								'Comments Posted'
+							],
+							datasets: [{
+								backgroundColor: [
+									'#CC0066',
+									'#000099'
+								],
+								data: chartsData
+							}]
+						},
+						options: {
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: !0,
+										stepSize: 100
+									}
+								}]
+							}
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 100
+									}
+								}]
+							}
+						}
+					});
+
+					window.bar = chart;
+					window.chart = charts;
+
+				} else {
+					$('#barchart').show();
+					$('#title').show();
+					$('#title-report').show();
+					var link_not_opened = (campaignData.not_opened - campaignData.sms_link);
+					chartData.push(campaignData.sent);
+					chartData.push(campaignData.sms_link);
+					chartData.push(link_not_opened);
+					chartsData.push(campaignData.sms_link);
+					chartsData.push(campaignData.posted);
+					// chartsData.push(campaignData.not_posted);
+
+					if (window.bar != undefined) {
+						window.bar.destroy();
+					}
+
+					var chart = new Chart(f, {
+						type: 'bar',
+						data: {
+							labels: [
+								'Sent',
+								'Opened',
+								'Unopened'
+							],
+							datasets: [{
+								backgroundColor: [
+									'#26B99A',
+									'#EE82EE',
+									'#DA70D6'
+								],
+								data: chartData
+							}]
+						},
+						options: {
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: !0,
+										stepSize: 100
+									}
+								}]
+							}
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 100
+									}
+								}]
+							}
+						}
+					});
+
+					if (window.chart != undefined) {
+						window.chart.destroy();
+					}
+					charts = new Chart(p, {
+						type: 'bar',
+						data: {
+							labels: [
+								'Opened',
+								'Comments Posted'
+							],
+							datasets: [{
+								backgroundColor: [
+									'#CC0066',
+									'#000099'
+								],
+								data: chartsData
+							}]
+						},
+						options: {
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: !0,
+										stepSize: 100
+									}
+								}]
+							}
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true,
+										stepSize: 100
+									}
+								}]
+							}
+						}
+					});
+
+					window.bar = chart;
+					window.chart = charts;
+				}
 			}	
 		});
 	}
