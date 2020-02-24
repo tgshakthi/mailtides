@@ -1271,7 +1271,6 @@ function campaign_type(value)
 			value: value
 		},
 		success: function (data) {
-			alert(data);
 			if (data == "") {
 				$('#campaign_name_data').html(data);
 				$('#barchart').hide();
