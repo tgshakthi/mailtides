@@ -1220,4 +1220,8 @@ class Email_sms_blast_model extends CI_Model
 						));
 		$this->db->update('import_data', $insert_array);
 	}
+	function get_graphics_data($campaign_type)
+	{
+		
+	}
 }
