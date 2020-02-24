@@ -1241,7 +1241,6 @@ if ($('#mybarChart').length) {
 		});
 	} */
 	function campaign(e) {
-		alert(e);
 		var baseUrl = $('#base_url').val();
 		var campaign_type = $('#campaign_type').val();
 		$.ajax({
@@ -1252,11 +1251,9 @@ if ($('#mybarChart').length) {
 			},
 			cache: false,
 			success: function (data) {
-				alert(data);
 				if(data != '')
 				{
 					var campaignData = JSON.parse(data);
-					console.log(campaignData);
 					var chartData = [];
 					var chartsData = [];
 					if (campaignData != '') {
@@ -1396,7 +1393,6 @@ if ($('#mybarChart').length) {
 } */
 function campaign_type(value) 
 {
-	alert();
 	var baseUrl = $('#base_url').val();
 	$.ajax({
 		method: 'POST',
