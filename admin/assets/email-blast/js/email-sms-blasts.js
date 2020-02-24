@@ -1260,9 +1260,10 @@ if ($('#mybarChart').length) {
 			}	
 		});
 	}
+}
 //onchage function for campaign id
  $(document).ready(function () {
-	var option = '<option value="">Select Provider Name</option>';
+	var option = '<option value="">Select Campaign</option>';
 		$('#campaign_name_data').html(option);
 		$('#barchart').hide();
 });
