@@ -69,6 +69,7 @@ $(document).ready(function () {
 		});
 	} */
 if ($('#datatable-button-data').length) {
+	alert();
 	var base_url = $('#base_url').val();
 	$('#datatable-button-data .searchbox').each(function () {
             var title = $(this).text();
