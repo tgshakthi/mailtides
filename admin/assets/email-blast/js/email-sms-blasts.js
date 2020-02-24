@@ -1261,33 +1261,27 @@ if ($('#mybarChart').length) {
 		$('#barchart').hide();
 	}	
 } */
- function campaign_type(value) {
+function campaign_type(value) 
+{
 	var baseUrl = $('#base_url').val();
 	$.ajax({
-			method: 'POST',
-			url: baseUrl + 'email_sms_blast/get_graphics_data',
-			data: {
-				value: value
-			},
-			success: function (data) {
-				alert(data);
-				if (data != 0) {
-					
-					
-				} else {
-					
-				}
+		method: 'POST',
+		url: baseUrl + 'email_sms_blast/get_graphics_data',
+		data: {
+			value: value
+		},
+		success: function (data) {
+			alert(data);
+			if (data == "") {
+				$('#campaign_name_data').html(data);
+				$('#barchart').hide();
+				
+			} else {
+				$('#campaign_name_data').html(data);
+				$('#barchart').hide();
 			}
-		});
-	/* if (value == "") {
-		var option = '<option value="">Select Provider Name</option>';
-		$('#campaign_name_data').html(option);
-		$('#barchart').hide();
-	}else{
-		var option = '<option value="">Select Provider Name</option><option value="dldc">DLDC</option><option value="reddy">REDDY</option><option value="hamat">HAMAT</option><option value="facebook">Facebook</option><option value="txgidocs">Txgidocs</option>';
-		$('#campaign_name_data').html(option);
-		$('#barchart').hide();
-	}	 */
+		}
+	});
 }
 
 // Email Template Preview
