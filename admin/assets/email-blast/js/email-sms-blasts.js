@@ -25,7 +25,7 @@ $(document).ready(function () {
 		changeYear: true
 	});
 	
-	// Datatable - One ( Master Campaign )
+	/* // Datatable - One ( Master Campaign )
 	if ($('#datatable-button-data').length) {
 		
 		var table = $('#datatable-button-data').DataTable({
@@ -67,8 +67,53 @@ $(document).ready(function () {
 		$('#min, #max').change(function () {
 			table.draw();
 		});
-	}
-	
+	} */
+if ($('#datatable-button-data').length) {
+	var base_url = $('#base_url').val();
+	$('#datatable-button-data .searchbox').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        });
+		
+        var dataTable = $('#datatable-button-data').DataTable({
+			oLanguage: {
+				sProcessing: '<div class="load_first loadericon1"><div class="load_second loadericon2"><div class="load_third loadericon3"></div></div></div>'
+			},
+			"processing": true,
+			"serverSide": true,
+            "aLengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
+            "iDisplayLength": 25,
+            // "dom": 'lBfrtip',       
+            // "buttons": [{
+            //     extend: 'collection',
+            //     text: 'Export',
+            //     buttons: [                    
+            //         'excel',
+            //         'csv',                    
+            //     ]
+			// }],      
+            "ajax": {
+            	url: base_url + 'email_sms_blast/check_patient_phone_number', 
+                type: "post",  
+                error: function(){  
+                	$(".employee-grid-error").html("");
+                    $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+                    $("#employee-grid_processing").css("display", "none");
+                }
+            },
+			initComplete:function(){ 
+                this.api().columns([0, 1, 2, 3, 4]).every(function () { 
+                    var column = this;                    
+                    $("input", column.footer()).on('keyup change', function () {                                                
+                        if (column.search() !== this.value){ 
+							column.search(this.value).draw() ;
+                        }
+                    });
+                });
+            } 
+        });
+    });
+}	
 	// Datatable - One ( Master Campaign )
 	if ($('#datatable-buttons').length) {
 		// Datatable - One ( Master Campaign Datepicker Filter)

@@ -34,6 +34,7 @@
 						<form action="<?php echo base_url()?>email_sms_blast/delete_multiple_user" id="form_selected_record"
 							method="post">
 							<input type="hidden" name="website_id" value="<?php echo $website_id;?>">
+							<input type="hidden" name="base_url" id="base_url" value="<?php echo $base_url;?>">
 							<div class="page_buut_right">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 									<button type="button" class="btn btn-danger" id="delete_selected_record"
