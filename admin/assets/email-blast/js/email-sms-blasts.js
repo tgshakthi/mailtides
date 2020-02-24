@@ -1281,6 +1281,7 @@ if ($('#mybarChart').length) {
 } */
 function campaign_type(value) 
 {
+	alert();
 	var baseUrl = $('#base_url').val();
 	$.ajax({
 		method: 'POST',
