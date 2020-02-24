@@ -93,7 +93,7 @@ if ($('#datatable-button-data').length) {
             //     ]
 			// }],      
             "ajax": {
-            	url: base_url + 'email_sms_blast/check_patient_phone_number', 
+            	url: base_url + 'email_sms_blast/datatable/', 
                 type: "post",  
                 error: function(){  
                 	$(".employee-grid-error").html("");
