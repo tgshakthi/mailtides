@@ -1480,10 +1480,10 @@ class Email_sms_blast extends MX_Controller
 		$campaign_datas = $this->Email_sms_blast_model->get_graphics_data($campaign_type);
 		if(!empty($campaign_datas)){
 			foreach($campaign_datas as $campaign_data){
-				$data = '<option value='.$campaign_data->id.'>'.$campaign_data->category.'</option>';
+				$data[] = "<option value='.$campaign_data->id.'>'.$campaign_data->category.'</option>";
 			}			
 		}else{
-			$data = '<option value=''>Select Campaign</option>';
+			$data[] = "<option value=''>Select Campaign</option>";
 		}
 		echo $data;
 	}
