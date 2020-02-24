@@ -1248,11 +1248,11 @@ if ($('#mybarChart').length) {
 			method: 'POST',
 			url: baseUrl + 'email_sms_blast/graphical_campaign_id',
 			data: {
-				campaign_id: e,
-				campaign_type: campaign_type
+				campaign_id: e
 			},
 			cache: false,
 			success: function (data) {
+				alert(data);
 				var campaignData = JSON.parse(data);
 				console.log(campaignData);
 				var chartData = [];
@@ -1266,9 +1266,7 @@ if ($('#mybarChart').length) {
 					chartData.push(campaignData.link_open);
 					chartData.push(link_not_opened);
 					chartsData.push(campaignData.link_open);
-					// chartsData.push(campaignData.posted);
-					// chartsData.push(campaignData.not_posted);
-
+					
 					if (window.bar != undefined) {
 						window.bar.destroy();
 					}
