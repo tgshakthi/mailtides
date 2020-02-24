@@ -655,7 +655,7 @@ class Email_sms_blast extends MX_Controller
 			$data['sent'] = $sent; 
 			echo json_encode($data);
 		}else{
-			$data = "";
+			$data = array();
 			echo json_encode($data);
 		}
 		
