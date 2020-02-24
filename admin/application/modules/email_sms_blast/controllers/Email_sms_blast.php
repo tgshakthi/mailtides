@@ -1093,11 +1093,12 @@ class Email_sms_blast extends MX_Controller
 					$mail->Password = $mail_configurations[0]->password;
 					$mail->Port     = $mail_configurations[0]->port;						 							
 					$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');              
-					$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
+					
 					// Set email format to HTML
 					$mail->isHTML(true);
 					// Email body content
 					if($campaign_category[0]->campaign_type == 'email'){
+						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 						$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 										<html>
 										<head>
@@ -1233,6 +1234,7 @@ class Email_sms_blast extends MX_Controller
 							</body>                  
 						</html>';
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
+						$mail->Subject= '';
 						$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'';
 						$ch = curl_init();  
 						$timeout = '5';  
@@ -1395,11 +1397,12 @@ class Email_sms_blast extends MX_Controller
 				$mail->Password = $mail_configurations[0]->password;
 				$mail->Port     = $mail_configurations[0]->port;						 							
 				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');              
-				$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
+				
 				// Set email format to HTML
 				$mail->isHTML(true);
 				// Email body content
 				if($campaign_category[0]->campaign_type == 'email'){
+					$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 					$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 									<html>
 									<head>
@@ -1535,6 +1538,7 @@ class Email_sms_blast extends MX_Controller
 						</body>                  
 					</html>';
 				}elseif($campaign_category[0]->campaign_type == 'sms'){
+					$mail->Subject= '';
 					$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
 					$ch = curl_init();  
 					$timeout = '5';  
