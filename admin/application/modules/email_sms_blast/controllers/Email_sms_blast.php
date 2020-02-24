@@ -641,9 +641,13 @@ class Email_sms_blast extends MX_Controller
 		{
 			if(!empty($get_users)){
 				$sent = count($get_users);
+			}else{
+				$sent = '';
 			}
 			if($get_user->link_open == '1'){
 				$link[] = $get_user->link_open;
+			}else{
+				$link = '';
 			}			
 		}
 		$data['link_open'] = count($link); 
