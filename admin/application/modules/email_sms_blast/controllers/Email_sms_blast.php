@@ -1485,7 +1485,7 @@ class Email_sms_blast extends MX_Controller
 		}else{
 			$data[] = "<option value=''>Select Campaign</option>";
 		}
-		echo $data;
+		print_r($data);
 	}
 }
 
