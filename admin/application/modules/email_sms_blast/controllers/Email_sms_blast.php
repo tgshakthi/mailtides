@@ -637,7 +637,6 @@ class Email_sms_blast extends MX_Controller
 		echo json_encode($data); */
 		$campaign_id = $this->input->post('campaign_id');
 		$get_users = $this->Email_sms_blast_model->get_import_send_user_data($campaign_id);
-		print_r($get_users);die;
 		foreach($get_users as $get_user)		
 		{
 			if(!empty($get_users)){
