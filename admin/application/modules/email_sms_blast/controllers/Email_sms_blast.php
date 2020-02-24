@@ -1473,62 +1473,6 @@ class Email_sms_blast extends MX_Controller
 			}						
 		}
 	}
-	function datatable()
-	{		
-        $requestData = $_REQUEST;
-        $columns = array(
-            0 => 'id',
-            1 => "CONCAT(firstName,' ',lastName)",
-			2 => 'REPLACE(phone,"-","")',
-			3 => '',
-            4 => 'status',
-            5 => 'created_at',
-			6 => ''
-        );
-        $sql           = "SELECT *";
-        $sql          .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0";
-        $query         = $this->db->query($sql);        
-        $totalData     = $query->num_rows();
-        $totalFiltered = $totalData;  
-		$can = 0; 
-		for($c=0;$c<count($requestData['columns']);$c++)
-		{
-			
-		}		
-        $data = array();
-        $i = $requestData['start'] + 1;       
-		foreach ($query->result_array() as $row)
-		{          
-           echo '<pre>';
-		   print_r($row);die;
-			/* $nestedData = array();
-            $nestedData[] = '<p>'.$i.'</p>';
-            $nestedData[] = '<p><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '">' . $row["firstName"] .' '.$row["lastName"]. '</a></p>';
-            $nestedData[] = '<p>'.$row["phone"].'</p>';
-			$nestedData[] = '<p>'.$job_names.'</p>';
-			//$nestedData[] = '<p>'.count($talentfile[$candid_id]).'</p>';
-			//$nestedData[] = '<p>'.$row["file_count"].'</p>';
-			//$nestedData[] = '<p>'.$row["notes_count"].'</p>';			
-            //$nestedData[] = '<p>'.count($talentnotes[$candid_id]).'</p>'; 
-            $nestedData[] = '<p>'.$row['status'].'</p>';
-            $nestedData[] = '<p>'.$row['created_at'].'</p>';
-            $nestedData[] = '<div class="action_btn_container">
-	<div class="action_btn edit_bt"><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '"><i class="fa  fa-edit"></i></a></div>
-	<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/deleteCat/' . $row["id"] . '" onclick="return myFunction();"><i class="fa  fa-trash"></i></a></div>
-     <!--<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/viewtalent/' . $row["id"] . '"><i class="fa  fa-binoculars"></i></a></div></div>-->'; */
-
-            // $data[] = $nestedData;
-            $i++;
-        }
-        $json_data = array(
-            "draw" => intval($requestData['draw']),   
-            "recordsTotal" => intval($totalData),  
-            "recordsFiltered" => intval($totalFiltered), 
-            "data" => $data   
-        );
-
-        echo json_encode($json_data);  
-    }
 }
 
 
