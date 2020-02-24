@@ -638,6 +638,18 @@ class Email_sms_blast extends MX_Controller
 		$campaign_id = $this->input->post('campaign_id');
 		$get_users = $this->Email_sms_blast_model->get_import_send_user_data($campaign_id);
 		print_r($get_users);die;
+		foreach($get_users as $get_user)		
+		{
+			if(!empty($get_users)){
+				$sent = count($get_users);
+			}
+			if($get_user->link_open == '1'){
+				$link[] = $get_user->link_open;
+			}			
+		}
+		$data['link_open'] = count($link); 
+		$data['sent'] = $sent; 
+		echo json_encode($data);
 		/* foreach($get_users as $get_user){				
 			if($campaign_type == 'email'):
 				if($provider_name == 'facebook'){

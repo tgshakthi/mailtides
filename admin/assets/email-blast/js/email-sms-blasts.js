@@ -1254,9 +1254,10 @@ if ($('#mybarChart').length) {
 			cache: false,
 			success: function (data) {
 				var campaignData = JSON.parse(data);
+				alert(campaignData);
 				var chartData = [];
 				var chartsData = [];
-				if (campaignData.type == 'email') {
+				/* if (campaignData.type == 'email') {
 					$('#barchart').show();
 					$('#title').show();
 					$('#title-report').show();
@@ -1581,7 +1582,7 @@ if ($('#mybarChart').length) {
 				}
 			}
 		});
-	}
+	} */
 }
 //onchage function for campaign id
  $(document).ready(function () {
