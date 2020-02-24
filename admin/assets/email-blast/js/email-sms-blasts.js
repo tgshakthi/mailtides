@@ -1259,7 +1259,7 @@ if ($('#mybarChart').length) {
 					console.log(campaignData);
 					var chartData = [];
 					var chartsData = [];
-					if (campaignData.type != '') {
+					if (campaignData != '') {
 						$('#barchart').show();
 						$('#title').show();
 						$('#title-report').show();
