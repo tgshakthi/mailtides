@@ -1473,6 +1473,11 @@ class Email_sms_blast extends MX_Controller
 			}						
 		}
 	}
+	
+	function get_graphics_data()
+	{
+		$campaign_type = $this->input->post('value');
+	}
 }
 
 
