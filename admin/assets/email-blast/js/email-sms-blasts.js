@@ -1248,7 +1248,7 @@ if ($('#mybarChart').length) {
 			method: 'POST',
 			url: baseUrl + 'email_sms_blast/graphical_campaign_id',
 			data: {
-				provider_name: e,
+				campaign_id: e,
 				campaign_type: campaign_type
 			},
 			cache: false,

@@ -635,11 +635,10 @@ class Email_sms_blast extends MX_Controller
 		$data['sent'] = $sent; 
 		$data['type'] = $campaign_type;
 		echo json_encode($data); */
-		$provider_name = $this->input->post('provider_name');
-		$campaign_type = $this->input->post('campaign_type');
-		$get_users = $this->Email_sms_blast_model->get_provider_name_by_user($provider_name);
-		
-		foreach($get_users as $get_user){				
+		$campaign_id = $this->input->post('campaign_id');
+		$get_users = $this->Email_sms_blast_model->get_import_send_user_data($campaign_id);
+		print_r($get_users);die;
+		/* foreach($get_users as $get_user){				
 			if($campaign_type == 'email'):
 				if($provider_name == 'facebook'){
 					
@@ -712,11 +711,11 @@ class Email_sms_blast extends MX_Controller
 				}
 				
 			endif;
-		}
-		$data['link_open'] = count($link); 
-		$data['sent'] = $sent; 
-		$data['type'] = $campaign_type;
-		echo json_encode($data);
+		} */
+		// $data['link_open'] = count($link); 
+		// $data['sent'] = $sent; 
+		// $data['type'] = $campaign_type;
+		// echo json_encode($data);
 	}
 
 	function campaign_data()
