@@ -1369,6 +1369,7 @@ if ($('#mybarChart').length) {
 					$('#title').hide();
 					$('#title-report').hide();					
 				}	
+			}
 		});
 	}
 }
