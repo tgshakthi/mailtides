@@ -1476,9 +1476,9 @@ class Email_sms_blast extends MX_Controller
 	
 	function get_graphics_data()
 	{
-		$campaign_type = $this->input->post('value');
-		print_r($campaign_type);die;
+		$campaign_type = $this->input->post('value');		
 		$campaign_data = $this->Email_sms_blast_model->get_graphics_data($campaign_type);
+		print_r($campaign_data);die;
 	}
 }
 
