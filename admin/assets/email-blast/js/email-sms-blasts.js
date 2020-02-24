@@ -1268,7 +1268,8 @@ if ($('#mybarChart').length) {
 						chartData.push(campaignData.link_open);
 						chartData.push(link_not_opened);
 						chartsData.push(campaignData.link_open);
-						
+						// chartsData.push(campaignData.posted);
+						// chartsData.push(campaignData.not_posted);
 						if (window.bar != undefined) {
 							window.bar.destroy();
 						}
