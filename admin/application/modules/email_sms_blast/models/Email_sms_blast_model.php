@@ -1265,7 +1265,7 @@ class Email_sms_blast_model extends CI_Model
     /*
      * Count all records
      */
-    public function countAll(){
+    function countAll(){
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -1274,7 +1274,7 @@ class Email_sms_blast_model extends CI_Model
      * Count records based on the filter params
      * @param $_POST filter data based on the posted parameters
      */
-    public function countFiltered($postData){
+    function countFiltered($postData){
         $this->_get_datatables_query($postData);
         $query = $this->db->get();
         return $query->num_rows();
@@ -1284,11 +1284,10 @@ class Email_sms_blast_model extends CI_Model
      * Perform the SQL queries needed for an server-side processing requested
      * @param $_POST filter data based on the posted parameters
      */
-    private function _get_datatables_query($postData){
-         
-        $this->db->from($this->table);
- 
+     function _get_datatables_query($postData){         
+        $this->db->from($this->table); 
         $i = 0;
+		echo '<pre>';print_r($this->column_search);die;
         // loop searchable columns 
         foreach($this->column_search as $item){
             // if datatable send POST for search
