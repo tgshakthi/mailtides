@@ -1088,7 +1088,7 @@ class Email_sms_blast extends MX_Controller
 					require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 					$track_code = md5(rand());
 					$mail = new PHPMailer;
-					$mail->SMTPDebug = 2;
+					$mail->SMTPDebug = 0;
 					// SMTP configuration
 					$mail->isSMTP();
 					$mail->Host     = $mail_configurations[0]->host;
@@ -1257,8 +1257,7 @@ class Email_sms_blast extends MX_Controller
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
 						$mail->addAddress($sms_data_email);
 						$mail->addBCC('velusamy@desss.com');
-					}	
-echo '<pre>';print_r($mail);die;					
+					}						
 					if(!$mail->send()){
 						// echo 'Message could not be sent.';
 						// echo 'Mailer Error: ' . $mail->ErrorInfo;
