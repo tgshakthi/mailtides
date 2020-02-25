@@ -165,7 +165,44 @@
 										?>
 										</div>
 									</div>
-									
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
+											User Email
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<?php
+											// Input
+											echo form_input(array(
+												'id'       => 'user_email',
+												'name'     => 'user_email',
+												'required' => 'required',
+												'type' 	   => 'email',
+												'class'    => 'form-control col-md-7 col-xs-12',
+												'value'    => $email
+											));
+											?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
+											Password
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<?php
+											// Input
+											echo form_input(array(
+												'id'       => 'password',
+												'name'     => 'password',
+												'type'     => 'password',
+												'required' => 'required',
+												'class'    => 'form-control col-md-7 col-xs-12',
+												'value'    => $password
+											));
+											?>
+										</div>
+									</div>
 									<div class="form-group">
 										<?php
                                       	echo form_label('Mail Content','mail_content','class="control-label col-md-3 col-sm-3 col-xs-12"');

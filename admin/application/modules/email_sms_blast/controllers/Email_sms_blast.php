@@ -1341,8 +1341,7 @@ class Email_sms_blast extends MX_Controller
 	function resend_email_sms_user_data($user_id,$campaign_category_id,$track_code)
 	{
 		$website_id = $this->admin_header->website_id();
-		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
-		
+		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);		
 		if(!empty($user_id))
 		{				
 			$get_user = $this->Email_sms_blast_model->get_users_by_id($user_id);
@@ -1355,7 +1354,6 @@ class Email_sms_blast extends MX_Controller
 					$patient = explode(" ",trim($patient_name));
 					$patient_first_name = $patient[0];
 				endif;
-				
 				// Patient Email
 				if(!empty($get_user[0]->email)):
 					$patient_email = $get_user[0]->email;
@@ -1384,7 +1382,6 @@ class Email_sms_blast extends MX_Controller
 						}
 					}
 				}
-				
 				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 				$mail = new PHPMailer;
@@ -1395,13 +1392,12 @@ class Email_sms_blast extends MX_Controller
 				$mail->SMTPAuth = true;
 				$mail->Username = $mail_configurations[0]->email;
 				$mail->Password = $mail_configurations[0]->password;
-				$mail->Port     = $mail_configurations[0]->port;						 							
-				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');              
-				
+				$mail->Port     = $mail_configurations[0]->port;						 								            				
 				// Set email format to HTML
 				$mail->isHTML(true);
 				// Email body content
 				if($campaign_category[0]->campaign_type == 'email'){
+					$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');  
 					$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 					$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 									<html>
@@ -1558,9 +1554,6 @@ class Email_sms_blast extends MX_Controller
 					$mail->addAddress($sms_data_email);
 					$mail->addBCC('velusamy@desss.com');
 				}
-				// echo '<pre>';
-				// print_r($mail);die;
-				
 				if(!$mail->send()){
 					// echo 'Message could not be sent.';
 					// echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -1592,6 +1585,3 @@ class Email_sms_blast extends MX_Controller
 		print_r($data);
 	}
 }
-
-
-
