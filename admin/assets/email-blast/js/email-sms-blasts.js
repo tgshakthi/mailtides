@@ -459,28 +459,27 @@ $(document).ready(function () {
 						campaign_category_id: campaign_category_id
 					},
 					beforeSend: function() {
-					alert();
 					  $("#loading-image").show();
 				   },
 					
 					success: function (data) {
 						$("#loading-image").hide();
 						if(data == '1') {
-							// alert('Successfully sent mail.');
-							// document.getElementById('send-email-sms-filter-data-import').disabled = true;
-							// window.location.href = base_url+'email_sms_blast/campaign_data';
+							alert('Successfully sent mail.');
+							document.getElementById('send-email-sms-filter-data-import').disabled = true;
+							window.location.href = base_url+'email_sms_blast/campaign_data';
 						}else if(data == '0') {
-							// alert('Something Went Wrong!. Please try again!.');
-							// window.location.href = base_url+'email_sms_blast/campaign_data';
+							alert('Something Went Wrong!. Please try again!.');
+							window.location.href = base_url+'email_sms_blast/campaign_data';
 						}else{
-							// alert('Successfully sent mail.');
-							// document.getElementById('send-email-sms-filter-data-import').disabled = true;
-							// window.location.href = base_url+'email_sms_blast/campaign_data';
+							alert('Successfully sent mail.');
+							document.getElementById('send-email-sms-filter-data-import').disabled = true;
+							window.location.href = base_url+'email_sms_blast/campaign_data';
 						}
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
-						// alert('Successfully sent mail.');
-						// location.reload();
+						alert('Successfully sent mail.');
+						location.reload();
 					}
 				});
 			} else {
