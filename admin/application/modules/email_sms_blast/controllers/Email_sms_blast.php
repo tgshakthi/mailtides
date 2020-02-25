@@ -1591,6 +1591,23 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
-		
+		$data = $row = array();
+        
+        // Fetch member's records
+        $memData  = $this->Email_sms_blast_model->get_users();
+        
+        $i = $_POST['start'];
+        foreach($memData as $member){
+            $i++;
+            $data[] = array($i, $member->name, $member->email, $member->phone_number, $member->provider_name, $member->facility_name, $member->visited_date);
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Email_sms_blast_model->countAll(),
+            "recordsFiltered" => $this->Email_sms_blast_model->countFiltered($_POST),
+            "data" => $data,
+        );
+        // Output to JSON format
+        echo json_encode($output);
 	}
 }

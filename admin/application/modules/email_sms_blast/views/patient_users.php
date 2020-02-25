@@ -48,25 +48,23 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Gender</th>
-            <th>Country</th>
-            <th>Created</th>
-            <th>Status</th>
+            <th>Phone Number</th>
+            <th>Provider Name</th>
+            <th>Facility Name</th>
+            <th>Visited Date</th>
         </tr>
     </thead>
     <tfoot>
         <tr>
-            <th></th>
-            <th>First name</th>
-            <th>Last name</th>
+             <th>#</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Gender</th>
-            <th>Country</th>
-            <th>Created</th>
-            <th>Status</th>
+            <th>Phone Number</th>
+            <th>Provider Name</th>
+            <th>Facility Name</th>
+            <th>Visited Date</th>
         </tr>
     </tfoot>
 </table>
