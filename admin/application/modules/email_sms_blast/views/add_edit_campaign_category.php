@@ -145,7 +145,7 @@
                                  	</div>
 									<div class="form-group">
 										<?php
-											echo form_label('Select Type','campaign_type_name','class="control-label col-md-3 col-sm-3 col-xs-12"');
+											echo form_label('Select Type <span class="required">*</span>','campaign_type_name','class="control-label col-md-3 col-sm-3 col-xs-12"');
 										?>            
                                       	<div class="col-md-6 col-sm-6 col-xs-12">
                                         <?php
