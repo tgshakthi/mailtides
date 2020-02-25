@@ -37,8 +37,10 @@
 			  100% { transform: rotate(360deg); }
 			}
 		</style>
-	<div id='loader' style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='http://txgidocs.mailtides.com/assets/images/demo_wait.webp' width="64" height="64" /><br>Loading..</div>
-		<div class="row">
+	<div id="myDiv">
+        <img id="loading-image" src="<?php echo base_url();?>assets\images\giphy.gif" style="display:none;"/>
+    </div>
+	<div class="row">
 
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
