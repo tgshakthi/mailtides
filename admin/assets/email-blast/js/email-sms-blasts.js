@@ -460,10 +460,10 @@ $(document).ready(function () {
 					},
 					beforeSend: function() {
 					  $("#loading-image").show();
-				   },
-					
+				   }, 
+				 
 					success: function (data) {
-						$("#loading-image").hide();
+						$("#myDiv").hide();
 						if(data == '1') {
 							alert('Successfully sent mail.');
 							document.getElementById('send-email-sms-filter-data-import').disabled = true;
