@@ -45,29 +45,29 @@
 								</div>
 							</div>
 							<table id="memListTable" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Provider Name</th>
-            <th>Facility Name</th>
-            <th>Visited Date</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-             <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Provider Name</th>
-            <th>Facility Name</th>
-            <th>Visited Date</th>
-        </tr>
-    </tfoot>
-</table>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone Number</th>
+										<th>Provider Name</th>
+										<th>Facility Name</th>
+										<th>Visited Date</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										 <th>#</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone Number</th>
+										<th>Provider Name</th>
+										<th>Facility Name</th>
+										<th>Visited Date</th>
+									</tr>
+								</tfoot>
+							</table>
 							<?php //echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
