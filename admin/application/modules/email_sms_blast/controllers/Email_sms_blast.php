@@ -121,7 +121,7 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['admin_user_id'] = $this->session_data['id'];
         $data['website_id'] = $this->admin_header->website_id();
-		// $data['table']      = $this->get_table_users();
+		$data['table']      = $this->get_table_users();
         $data['heading']    = 'Email Sms Blast';
         $data['title']      = "Email Sms Blast | Administrator";
         $this->load->view('template/meta_head', $data);

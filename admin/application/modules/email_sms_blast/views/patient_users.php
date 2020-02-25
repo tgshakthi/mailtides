@@ -44,7 +44,7 @@
 									</button>
 								</div>
 							</div>
-							<table id="memListTable" class="display" style="width:100%">
+							<!--<table id="memListTable" class="display" style="width:100%">
 								<thead>
 									<tr>
 										<th>#</th>
@@ -67,8 +67,8 @@
 										<th>Visited Date</th>
 									</tr>
 								</tfoot>
-							</table>
-							<?php //echo $table;?>
+							</table>-->
+							<?php echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
