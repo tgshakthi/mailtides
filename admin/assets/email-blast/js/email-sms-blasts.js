@@ -441,7 +441,7 @@ $(document).ready(function () {
 	
 	// Import Email SMS Filter Data
 	$('#send-email-sms-filter-data-import').click(function () {
-		
+		document.getElementById('send-email-sms-filter-data-import').disabled = true;
 		var base_url = $('#base-url').val();
 		var campaign_category_id = $('#campaign_category_id').val();
 		var values = $("input[name='row_sort_order[]']")
