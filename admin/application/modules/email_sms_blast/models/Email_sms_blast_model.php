@@ -1287,7 +1287,6 @@ class Email_sms_blast_model extends CI_Model
      function _get_datatables_query($postData){         
         $this->db->from($this->table); 
         $i = 0;
-		echo '<pre>';print_r($this->column_search);die;
         // loop searchable columns 
         foreach($this->column_search as $item){
             // if datatable send POST for search
