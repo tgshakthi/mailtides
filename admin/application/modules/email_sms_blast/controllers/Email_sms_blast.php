@@ -450,6 +450,8 @@ class Email_sms_blast extends MX_Controller
 			$data['tiny_url'] = $campaign_category[0]->tiny_url;
 			$data['mail_content'] = $campaign_category[0]->mail_content;
 			$data['campaign_type'] = $campaign_category[0]->campaign_type;
+			$data['email'] = $campaign_category[0]->send_email;
+			$data['password'] = $campaign_category[0]->password;
 			$data['selected_template'] = $campaign_category[0]->template;
 			$data['status'] = $campaign_category[0]->status;
 			$data['sort_order'] = $campaign_category[0]->sort_order;
@@ -460,6 +462,8 @@ class Email_sms_blast extends MX_Controller
 			$data['tiny_url'] = "";
 			$data['mail_content'] = "";
 			$data['campaign_type'] =  "";
+			$data['email'] = "";
+			$data['password'] = "";
 			$data['selected_template'] = "";
 			$data['status'] = "";
 			$data['sort_order'] = "";
