@@ -460,10 +460,8 @@ $(document).ready(function () {
 					},
 					beforeSend: function() {
 					  $("#loading-image").show();
-				   }, 
-				 
-					success: function (data) {
-						
+				   }, 				 
+					success: function (data) {						
 						if(data == '1') {
 							$("#myDiv").hide();
 							alert('Successfully sent mail.');
