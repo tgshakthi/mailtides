@@ -1772,7 +1772,7 @@ $(document).ready(function(){
         "order": [],
         // Load data from an Ajax source
         "ajax": {
-            url: base_url + 'email_sms_blast/check_patient_phone_number',
+            url: base_url + 'email_sms_blast/test_datatable',
             "type": "POST"
         },
         //Set column definition initialisation properties
