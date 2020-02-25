@@ -1596,10 +1596,11 @@ class Email_sms_blast extends MX_Controller
         $memData  = $this->Email_sms_blast_model->get_users();        
         $i = $_POST['start'];
         foreach($memData as $member){
-            $i++;
+            
             $data[] = array($i, $member->name, $member->email, $member->phone_number, $member->provider_name, $member->facility_name, $member->visited_date);
-        }
-		echo'<pre>';print_r($_POST);die;
+			$i++;
+	   }
+		echo'<pre>';print_r($data);die;
         $output = array(
             "draw" => $_POST['draw'],
             "recordsTotal" => $this->Email_sms_blast_model->countAll(),
