@@ -1772,13 +1772,13 @@ $(document).ready(function(){
         "order": [],
         // Load data from an Ajax source
         "ajax": {
-            url: base_url + 'email_sms_blast/test_datatable',
+            url: base_url + 'email_sms_blast/check_patient_phone_number',
             "type": "POST"
         },
         //Set column definition initialisation properties
         "columnDefs": [{ 
-            "targets": [0],
-            "orderable": false
-        }]
+						"targets": [0],
+						"orderable": false
+					  }]
     });
 });
