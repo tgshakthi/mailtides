@@ -479,8 +479,8 @@ $(document).ready(function () {
 						}
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
-						alert('Successfully sent mail.');
-						location.reload();
+						// alert('Successfully sent mail.');
+						// location.reload();
 					}
 				});
 			} else {
