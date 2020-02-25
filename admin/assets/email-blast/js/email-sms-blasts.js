@@ -1268,6 +1268,7 @@ if ($('#mybarChart').length) {
 						chartsData.push(campaignData.link_open);
 						// chartsData.push(campaignData.posted);
 						// chartsData.push(campaignData.not_posted);
+						alert(window.bar);
 						if (window.bar != undefined) {
 							window.bar.destroy();
 						}
@@ -1314,7 +1315,7 @@ if ($('#mybarChart').length) {
 								}
 							}
 						});
-
+						alert(window.chart);
 						if (window.chart != undefined) {
 							window.chart.destroy();
 						}
