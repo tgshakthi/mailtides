@@ -30,7 +30,7 @@
 			 }
 			 .x_panel
 			 {
-				position:relative important;
+				position:relative !important;
 			 }
 		</style>
 	<div id="myDiv">
