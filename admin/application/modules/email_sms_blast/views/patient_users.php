@@ -44,7 +44,33 @@
 									</button>
 								</div>
 							</div>
-							<?php echo $table;?>
+							<table id="memListTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>Created</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>Created</th>
+            <th>Status</th>
+        </tr>
+    </tfoot>
+</table>
+							<?php //echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

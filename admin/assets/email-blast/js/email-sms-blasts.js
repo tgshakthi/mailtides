@@ -1760,3 +1760,25 @@ $('#phone_number').blur(function () {
 		}
 	});
 });
+
+$(document).ready(function(){
+	var base_url = $('#base_url').val();
+    $('#memListTable').DataTable({
+        // Processing indicator
+        "processing": true,
+        // DataTables server-side processing mode
+        "serverSide": true,
+        // Initial no order.
+        "order": [],
+        // Load data from an Ajax source
+        "ajax": {
+            url: base_url + 'email_sms_blast/test_datatable',
+            "type": "POST"
+        },
+        //Set column definition initialisation properties
+        "columnDefs": [{ 
+            "targets": [0],
+            "orderable": false
+        }]
+    });
+});
