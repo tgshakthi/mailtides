@@ -67,7 +67,7 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;      
     }
-	// Get Patient  Users by Id
+	/* // Get Patient  Users by Id
     function get_patient_users_by_id($user_id,$provider_name,$facility_name)
     {
         $this->db->select('*');
@@ -82,7 +82,7 @@ class Email_sms_blast_model extends CI_Model
             $records = $query->result();
         endif;
         return $records;      
-    }
+    } */
 	
 	// Get Existing Users
     function get_existing_users()
@@ -1201,7 +1201,7 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
-	function get_import_send_user_data($id,$provider_name,$facility_name)
+	function get_import_send_user_data($id)
 	{
 		$this->db->select('*');
         $this->db->where(array(

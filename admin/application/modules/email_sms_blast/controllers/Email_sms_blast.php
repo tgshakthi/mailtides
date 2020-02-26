@@ -1308,36 +1308,35 @@ class Email_sms_blast extends MX_Controller
 	function get_import_send_data_users_id($id,$provider_name,$facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id,$provider_name,$facility_name);
+		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
-			$get_user_details = $this->Email_sms_blast_model->get_patient_users_by_id($get_user->user_id,$provider_name,$facility_name);
-			if(!empty($get_user_details)):
-				$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
-					  'data-toggle' => 'tooltip',
-					  'data-placement' => 'right',
-					  'data-original-title' => 'Delete',
-					  'onclick' => 'return delete_record(' . $get_user_details[0]->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
-				  ));
-				$cell = array(
-					'class' => 'last',
-					'data' => $anchor_delete
-				  );
-				if ($get_user->link_open === '1') {
-					$link_open_status = '<span class="label label-success">Open</span>';
-					$resend_sms = '<span class="label label-danger"></span>';
-				} else {
-					$link_open_status = '<span class="label label-danger">Not Open</span>';
-					$resend_sms = '<span class="label label-success"><a href="'.base_url().'email_sms_blast/resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
-				}
-				$campaign_name = array();
-				$heading_data = array();
-				$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email,$get_user_details[0]->phone_number,$get_user->sent_date);
-				$heading_data = array_merge($heading_data,array($link_open_status));
-				$heading_data = array_merge($heading_data,array($get_user->open_date));
-				$heading_data = array_merge($heading_data,array($resend_sms));
-				$this->table->add_row($heading_data);
-			endif;
+			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
+			//$get_user_details = $this->Email_sms_blast_model->get_patient_users_by_id($get_user->user_id,$provider_name,$facility_name);
+			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+				  'data-toggle' => 'tooltip',
+				  'data-placement' => 'right',
+				  'data-original-title' => 'Delete',
+				  'onclick' => 'return delete_record(' . $get_user_details[0]->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
+			  ));
+			$cell = array(
+				'class' => 'last',
+				'data' => $anchor_delete
+			  );
+			if ($get_user->link_open === '1') {
+				$link_open_status = '<span class="label label-success">Open</span>';
+				$resend_sms = '<span class="label label-danger"></span>';
+			} else {
+				$link_open_status = '<span class="label label-danger">Not Open</span>';
+				$resend_sms = '<span class="label label-success"><a href="'.base_url().'email_sms_blast/resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
+			}
+			$campaign_name = array();
+			$heading_data = array();
+			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email,$get_user_details[0]->phone_number,$get_user->sent_date);
+			$heading_data = array_merge($heading_data,array($link_open_status));
+			$heading_data = array_merge($heading_data,array($get_user->open_date));
+			$heading_data = array_merge($heading_data,array($resend_sms));
+			$this->table->add_row($heading_data);
 		}
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Phone Number','Sent Date','Link Open','Open Date','Resend');
 		$template = array(
