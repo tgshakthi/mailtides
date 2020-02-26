@@ -1605,7 +1605,7 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
-		echo '<pre>';print_r($requestData);
+		// echo '<pre>';print_r($requestData);
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
 		$columns = array(
             0 => 'id',
@@ -1621,7 +1621,7 @@ class Email_sms_blast extends MX_Controller
 		for($c=0;$c<count($requestData['columns']);$c++)
 		{	
 			echo'<pre>';print_r(count($requestData['columns']));die;	
-			if (!empty($requestData['columns'][$c]['search']['value']))
+			if (!empty($requestData['columns'][$c]['order']['search']['value']))
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
