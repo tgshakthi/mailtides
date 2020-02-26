@@ -1312,7 +1312,7 @@ class Email_sms_blast extends MX_Controller
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
 			$get_user_details = $this->Email_sms_blast_model->get_patient_users_by_id($get_user->user_id,$provider_name,$facility_name);
-			print_r($get_user_details);die;
+			//print_r($get_user_details);die;
 			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
 				  'data-toggle' => 'tooltip',
 				  'data-placement' => 'right',
