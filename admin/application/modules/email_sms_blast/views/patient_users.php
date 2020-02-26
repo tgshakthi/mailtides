@@ -59,14 +59,15 @@
 										</tr>
 										</thead>
 										<tfoot>
-										<tr>	
-											<td class="searchbox">ID</td>
-											<td class="searchbox">Name</td>
-											<td class="searchbox">Email</td>
-											<td class="searchbox">Phone Number</td>
-											<td class="searchbox">Provider Name</td>
-											<td class="searchbox">Facility Name</td>
-											<td class="searchbox">Visited Date</td>
+										<tr>
+											<th class="searchbox"></th>										
+											<th class="searchbox">ID</th>
+											<th class="searchbox">Name</th>
+											<th class="searchbox">Email</th>
+											<th class="searchbox">Phone Number</th>
+											<th class="searchbox">Provider Name</th>
+											<th class="searchbox">Facility Name</th>
+											<th class="searchbox">Visited Date</th>
 										</tr>
 										<tfoot>
 									</table>
