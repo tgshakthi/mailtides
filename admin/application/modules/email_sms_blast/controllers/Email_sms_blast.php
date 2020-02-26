@@ -1597,6 +1597,7 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
+		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
@@ -1666,7 +1667,7 @@ class Email_sms_blast extends MX_Controller
             $nestedData[] = '<p>'.$row['facility_name'].'</p>';
 			$nestedData[] = '<p>'.$row['visited_date'].'</p>';
             $nestedData[] = '<div class="action_btn_container">
-			<div class="action_btn preview_bt">onclick="return delete_record(' . $get_user->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')"<i class="fa  fa-trash"></i></div>';
+			<div class="action_btn preview_bt">onclick="return delete_record(' .$i. ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')"<i class="fa  fa-trash"></i></div>';
             $data[] = $nestedData;
             $i++;
         }
