@@ -45,7 +45,7 @@
 								</div>
 							</div>
 							<div class="table_main_container">
-									<table id="table_grid1" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action">
+									<table id="table_grid1" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%" cellspacing="0">
 										<thead>
 										<tr>
 											<th><input type="checkbox" id="check-all" class="flat"></th>
