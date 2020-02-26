@@ -1619,7 +1619,7 @@ class Email_sms_blast extends MX_Controller
         $totalFiltered = $get_data;  
 		$can = 0; 
 		for($c=0;$c<count($requestData['columns']);$c++)
-		{	
+		{
 			if (!empty($requestData['columns'][$c]['order']['search']['value']))
 			{
 				$sql = "SELECT *";
@@ -1642,7 +1642,7 @@ class Email_sms_blast extends MX_Controller
 		} 
 		if($can == 0)
 		{
-			if (!empty($requestData['columns'][$c]['order']['search']['value']))
+			if (!empty($requestData['search']['value']))
 			{
 				
 				$sql = "SELECT *";
