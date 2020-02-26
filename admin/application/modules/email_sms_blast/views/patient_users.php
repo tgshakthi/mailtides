@@ -57,8 +57,6 @@
 											<th>Facility Name</th>
 											<th>Visited Date</th>
 										</tr>
-										</thead>
-										<tfoot>
 										<tr>
 											<th class="searchbox"></th>										
 											<th class="searchbox">ID</th>
@@ -69,7 +67,7 @@
 											<th class="searchbox">Facility Name</th>
 											<th class="searchbox">Visited Date</th>
 										</tr>
-										<tfoot>
+										</thead>
 									</table>
 								</div>
 							<?php //echo $table;?>
