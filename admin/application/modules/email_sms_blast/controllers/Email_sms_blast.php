@@ -1659,33 +1659,27 @@ class Email_sms_blast extends MX_Controller
 		{
 			echo'<pre>';print_r($row);die;
             
-			/* $nestedData = array();
+			$nestedData = array();
             $nestedData[] = '<p>'.$i.'</p>';
-            $nestedData[] = '<p><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '">' . $row["firstName"] .' '.$row["lastName"]. '</a></p>';
-            $nestedData[] = '<p>'.$row["phone"].'</p>';
-			//$nestedData[] = '<p>'.$job_names.'</p>';
-			//$nestedData[] = '<p>'.count($talentfile[$candid_id]).'</p>';
-			//$nestedData[] = '<p>'.$row["file_count"].'</p>';
-			//$nestedData[] = '<p>'.$row["notes_count"].'</p>';			
-            //$nestedData[] = '<p>'.count($talentnotes[$candid_id]).'</p>'; 
-            $nestedData[] = '<p>'.$row['status'].'</p>';
-            $nestedData[] = '<p>'.$row['created_at'].'</p>';
+            $nestedData[] = '<p>'.$row["name"].'</p>';
+            $nestedData[] = '<p>'.$row["email"].'</p>';
+			$nestedData[] = '<p>'.$row["phone_number"].'</p>';
+            $nestedData[] = '<p>'.$row['provider_name'].'</p>';
+            $nestedData[] = '<p>'.$row['facility_name'].'</p>';
+			$nestedData[] = '<p>'.$row['visited_date'].'</p>';
             $nestedData[] = '<div class="action_btn_container">
-			<div class="action_btn edit_bt"><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '"><i class="fa  fa-edit"></i></a></div>
-			<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/deleteCat/' . $row["id"] . '" onclick="return myFunction();"><i class="fa  fa-trash"></i></a></div>
-			<!--<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/viewtalent/' . $row["id"] . '"><i class="fa  fa-binoculars"></i></a></div></div>-->';
-
+			<div class="action_btn preview_bt">onclick="return delete_record(' . $get_user->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')"<i class="fa  fa-trash"></i></div>';
             $data[] = $nestedData;
-            $i++; */
+            $i++;
         }
 
-        /* $json_data = array(
+       $json_data = array(
             "draw" => intval($requestData['draw']),   
-            "recordsTotal" => intval($totalData),  
+            "recordsTotal" => intval($get_data),  
             "recordsFiltered" => intval($totalFiltered), 
             "data" => $data   
         );
 
-        echo json_encode($json_data);  */ 
+        echo json_encode($json_data);
 	}
 }
