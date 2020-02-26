@@ -1615,7 +1615,7 @@ class Email_sms_blast extends MX_Controller
 		$can = 0; 
 		 for($c=0;$c<count($requestData['columns']);$c++)
 		{
-			echo'<pre>';print_r($requestData['columns']);die;
+			echo'<pre>';print_r($requestData['columns'][$c]['search']['value']);die;
 			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
 				$sql = "SELECT *";
