@@ -1597,22 +1597,196 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
-		$data = $row = array();        
-        // Fetch member's records
-        $memData  = $this->Email_sms_blast_model->get_users();        
-        $i = $_POST['start'];
-        foreach($memData as $member){            
-            $data[] = array($i, $member->name, $member->email, $member->phone_number, $member->provider_name, $member->facility_name, $member->visited_date);
-			$i++;
+		$user_id = $this->session->userdata['logged_in']['id'];
+		$user_role = $this->session->userdata['logged_in']['userrole'];
+		$placed_status = '';
+		if($user_role == 'REC')
+		{
+			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.user_role = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
+			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
+			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
 		}
-        $output = array(
-            "draw" => $_POST['draw'],
-            "recordsTotal" => $this->Email_sms_blast_model->countAll(),
-            "recordsFiltered" => $this->Email_sms_blast_model->countFiltered($_POST),
-            "data" => $data,
+		elseif($user_role == 'HR')
+		{
+			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.human_resource = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
+			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
+			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
+		}
+		elseif($user_role == 'TM')
+		{
+			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.technical_manager = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
+			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
+			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
+		}
+		elseif($user_role == 'AC')
+		{
+			$placed_status = " AND status = 'Placed'";
+		}
+        $requestData = $_REQUEST;
+        $columns = array(
+            0 => 'id',
+            1 => "CONCAT(firstName,' ',lastName)",
+			2 => 'REPLACE(phone,"-","")',
+			3 => '',
+            4 => 'status',
+            5 => 'created_at',
+			6 => ''
         );
-        // Output to JSON format
-		
-        echo json_encode($output);
+        $sql           = "SELECT firstName, lastName, name,status, phone, userID, can_dateAdded, created_at";
+        $sql          .= " FROM candidate WHERE is_deleted = 0".$placed_status;
+        $query         = $this->db->query($sql);        
+        $totalData     = $query->num_rows();
+        $totalFiltered = $totalData;  
+		$can = 0; 
+		for($c=0;$c<count($requestData['columns']);$c++)
+		{
+			if (!empty($requestData['columns'][$c]['search']['value']))
+			{
+				$sql = "SELECT id, firstName, lastName, name,status, userID,phone, can_dateAdded, created_at";
+				$sql .= " FROM candidate";
+				if($placed_status != '')
+				{
+					$sql .= " WHERE is_deleted = 0 AND status = 'Placed' AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%' ";  
+				}
+				else
+				{
+					$sql .= " WHERE is_deleted = 0 AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%' ";  
+				}
+				$query = $this->db->query($sql);
+				$totalFiltered = $query->num_rows(); 
+	
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   DESC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   "; 
+				$query = $this->db->query($sql) or die("employee-grid-data.php: get employees"); 
+				$can++;				
+			}
+		}
+		if($can == 0)
+		{
+			if (!empty($requestData['search']['value']))
+			{
+				$sql = "SELECT id, firstName, lastName, name, phone,status, userID, can_dateAdded, created_at";
+				$sql .= " FROM candidate";
+				if($placed_status != '')
+				{
+					$sql .= " WHERE is_deleted = 0 AND status = 'Placed' AND (name LIKE '%" . $requestData['search']['value'] . "%' ";  
+				}
+				else
+				{
+					$sql .= " WHERE is_deleted = 0 AND name LIKE '%" . $requestData['search']['value'] . "%' ";    
+				}
+				$sql .= " OR REPLACE(phone,'-','') LIKE '%" . $requestData['search']['value'] . "%' ";
+				$sql .= " OR CONCAT(firstName,' ',lastName) LIKE '%" . $requestData['search']['value'] . "%' ";
+				if($placed_status != '')
+				{
+					$sql .= " OR status LIKE '%" . $requestData['search']['value'] . "%')";  
+				}
+				else
+				{
+					$sql .= " OR status LIKE '%" . $requestData['search']['value'] . "%' ";    
+				}
+				$query = $this->db->query($sql);
+				$totalFiltered = $query->num_rows(); 
+	
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   "; 
+				$query = $this->db->query($sql) or die("employee-grid-data.php: get employees"); 
+			}
+			else
+			{
+				$sql = "SELECT id, firstName, lastName, name,status, userID,phone, can_dateAdded, created_at";
+				$sql .= " FROM candidate WHERE is_deleted = 0".$placed_status;
+				$sql .= " ORDER BY id DESC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
+				$query = $this->db->query($sql) or die("employee-grid-data.php: get employees");
+			}
+		}
+        $data = array();
+        $i = $requestData['start'] + 1;
+        foreach ($query->result_array() as $row)
+		{
+   			if($user_role == 'REC')
+			{
+				$emp_status = "select a.*, b.JobTitle as job_title, b.id as job_tbl_id from job_submission as a, job_tbl as b, client_contacts_tbl as c where a.Refrence_id = ".$row["id"]." and a.job_id = b.id and c.user_role = ".$user_id." and c.company = b.ClientCompany";
+			}
+			elseif($user_role == 'TM')
+			{
+				$emp_status = "select a.*, b.JobTitle as job_title, b.id as job_tbl_id from job_submission as a, job_tbl as b, client_contacts_tbl as c where a.Refrence_id = ".$row["id"]." and a.job_id = b.id and c.technical_manager = ".$user_id." and c.company = b.ClientCompany";
+			}
+            elseif($user_role == 'HR')
+			{
+				$emp_status = "select a.*, b.JobTitle as job_title, b.id as job_tbl_id from job_submission as a, job_tbl as b, client_contacts_tbl as c where a.Refrence_id = ".$row["id"]." and a.job_id = b.id and c.human_resource = ".$user_id." and c.company = b.ClientCompany";
+			}
+			else
+			{
+				$emp_status = "select a.*, b.JobTitle as job_title, b.id as job_tbl_id from job_submission as a, job_tbl as b where a.Refrence_id = ".$row["id"]." and a.job_id = b.id";
+			}
+            
+            $job_sub_status = $this->db->query($emp_status);
+			$job_names = '';
+            if($job_sub_status->num_rows() > 0)
+            {
+				$job_id = array();
+				foreach($job_sub_status->result_array() as $job_status)
+				{
+					if($user_role == 'HR' || $user_role == 'REC' || $user_role == 'TM')
+					{
+						$job_id[] = '<a href="'.base_url().'index.php/job/applied_candidate/'.$job_status['job_tbl_id'].'" target="_blank">'.$job_status['job_title'].'</a>';
+					}
+					else
+					{
+						$job_id[] = '<a href="'.base_url().'index.php/job/editjob/'.$job_status['job_tbl_id'].'" target="_blank">'.$job_status['job_title'].'</a>';
+					}
+				}
+				$job_names = (!empty($job_id)) ? implode(' | ', $job_id): ''; 
+                $applied_job_status_query = "select * from applied_job where candidate_id = ".$row['id'];
+                $applied_job_selected     = $this->db->query($applied_job_status_query);
+                if($applied_job_selected->num_rows() > 0)
+                {
+                    foreach($applied_job_selected->result_array() as $emp_seleced_res)
+                    {
+                        $emp_selected = $emp_seleced_res['assign_job'];
+                    }                    
+                }
+                else
+                {
+                    $emp_selected = 0;
+                }
+            }
+
+            if(isset($emp_selected) && $emp_selected != "" && $emp_selected != 0)
+            {
+                $emp_selected = "Placed";
+            }
+            else
+            {
+                $emp_selected = "Available";
+            }
+           
+			$nestedData = array();
+            $nestedData[] = '<p>'.$i.'</p>';
+            $nestedData[] = '<p><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '">' . $row["firstName"] .' '.$row["lastName"]. '</a></p>';
+            $nestedData[] = '<p>'.$row["phone"].'</p>';
+			$nestedData[] = '<p>'.$job_names.'</p>';
+			//$nestedData[] = '<p>'.count($talentfile[$candid_id]).'</p>';
+			//$nestedData[] = '<p>'.$row["file_count"].'</p>';
+			//$nestedData[] = '<p>'.$row["notes_count"].'</p>';			
+            //$nestedData[] = '<p>'.count($talentnotes[$candid_id]).'</p>'; 
+            $nestedData[] = '<p>'.$row['status'].'</p>';
+            $nestedData[] = '<p>'.$row['created_at'].'</p>';
+            $nestedData[] = '<div class="action_btn_container">
+			<div class="action_btn edit_bt"><a href="' . base_url() . 'index.php/talent/edittalent/' . $row["id"] . '"><i class="fa  fa-edit"></i></a></div>
+			<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/deleteCat/' . $row["id"] . '" onclick="return myFunction();"><i class="fa  fa-trash"></i></a></div>
+			<!--<div class="action_btn preview_bt"><a href="' . base_url() . 'index.php/talent/viewtalent/' . $row["id"] . '"><i class="fa  fa-binoculars"></i></a></div></div>-->';
+
+            $data[] = $nestedData;
+            $i++;
+        }
+
+        $json_data = array(
+            "draw" => intval($requestData['draw']),   
+            "recordsTotal" => intval($totalData),  
+            "recordsFiltered" => intval($totalFiltered), 
+            "data" => $data   
+        );
+
+        echo json_encode($json_data);  
 	}
 }

@@ -44,31 +44,33 @@
 									</button>
 								</div>
 							</div>
-							<!--<table id="memListTable" class="display" style="width:100%">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Phone Number</th>
-										<th>Provider Name</th>
-										<th>Facility Name</th>
-										<th>Visited Date</th>
-									</tr>
-								</thead>
-								<tfoot>
-									<tr>
-										 <th>#</th>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Phone Number</th>
-										<th>Provider Name</th>
-										<th>Facility Name</th>
-										<th>Visited Date</th>
-									</tr>
-								</tfoot>
-							</table>-->
-							<?php echo $table;?>
+							<div class="table_main_container">
+									<table id="table_grid1" class="table_container table_design1 display">
+										<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone Number</th>
+											<th>Provider Name</th>
+											<th>Facility Name</th>
+											<th>Visited Date</th>
+										</tr>
+										</thead>
+										<tfoot>
+										<tr>	
+											<td class="searchbox">ID</td>
+											<td class="searchbox">Name</td>
+											<td class="searchbox">Email</td>
+											<td class="searchbox">Phone Number</td>
+											<td class="searchbox">Provider Name</td>
+											<td class="searchbox">Facility Name</td>
+											<td class="searchbox">Visited Date</td>
+										</tr>
+										<tfoot>
+									</table>
+								</div>
+							<?php //echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
 						<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
