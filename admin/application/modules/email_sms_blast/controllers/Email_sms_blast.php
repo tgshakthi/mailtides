@@ -1658,8 +1658,9 @@ class Email_sms_blast extends MX_Controller
         $i = $requestData['start'] + 1;
         foreach ($query->result_array() as $row)
 		{
-			$nestedData = array();
-            $nestedData[] = '<p>'.$i.'</p>';
+			$nestedData = array();			
+            $nestedData[] = '<p><input type="checkbox" class="flat" id="table_records" name="table_records[]" value="" . $row["id"] . ""><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="" . $row["id"] . ""></p>';
+			$nestedData[] = '<p>'.$i.'</p>';
             $nestedData[] = '<p>'.$row["name"].'</p>';
             $nestedData[] = '<p>'.$row["email"].'</p>';
 			$nestedData[] = '<p>'.$row["phone_number"].'</p>';
