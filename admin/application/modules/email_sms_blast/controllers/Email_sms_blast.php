@@ -1621,16 +1621,16 @@ class Email_sms_blast extends MX_Controller
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
 				{
-					$sql .= " WHERE is_deleted = 0 AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%'  ASC";  
+					$sql .= " WHERE is_deleted = 0 AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%'";  
 				}
 				else
 				{
-					$sql .= " WHERE is_deleted = 0 AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%' ASC";  
+					$sql .= " WHERE is_deleted = 0 AND ".$columns[$c]." LIKE '%" . $requestData['columns'][$c]['search']['value'] . "%'";  
 				}
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
 	
-				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   DESC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " ASC"; 
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
 				$query = $this->db->query($sql); 
 				$can++;				
 			}
@@ -1643,23 +1643,23 @@ class Email_sms_blast extends MX_Controller
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
 				{
-					$sql .= " WHERE is_deleted = 0 AND (name LIKE '%" . $requestData['search']['value'] . "%' ASC";  
+					$sql .= " WHERE is_deleted = 0 AND (name LIKE '%" . $requestData['search']['value'] . "%' ";  
 				}
 				else
 				{
-					$sql .= " WHERE is_deleted = 0 AND name LIKE '%" . $requestData['search']['value'] . "%' ASC";    
+					$sql .= " WHERE is_deleted = 0 AND name LIKE '%" . $requestData['search']['value'] . "%' ";    
 				}
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
 	
-				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " ASC"; 
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
 				$query = $this->db->query($sql); 
 			}
 			else
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0";
-				$sql .= " ORDER BY id DESC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " ASC";
+				$sql .= " ORDER BY id ASC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "";
 				$query = $this->db->query($sql);
 			}
 		}
