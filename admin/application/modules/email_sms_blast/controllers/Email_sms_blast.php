@@ -1665,7 +1665,7 @@ class Email_sms_blast extends MX_Controller
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0";
-				$sql .= " ORDER BY id ASC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "";
+				$sql .= " ORDER BY name ASC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "";
 				$query = $this->db->query($sql);
 			}
 		}
