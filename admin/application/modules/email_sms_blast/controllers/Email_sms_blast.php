@@ -1597,48 +1597,13 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
-		$user_id = $this->session->userdata['logged_in']['id'];
-		$user_role = $this->session->userdata['logged_in']['userrole'];
 		$placed_status = '';
-		if($user_role == 'REC')
-		{
-			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.user_role = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
-			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
-			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
-		}
-		elseif($user_role == 'HR')
-		{
-			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.human_resource = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
-			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
-			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
-		}
-		elseif($user_role == 'TM')
-		{
-			$get_candidates = $this->db->query('SELECT distinct(a.Refrence_id) FROM job_submission as a, job_tbl as b, client_contacts_tbl as c where c.technical_manager = '.$user_id.' and c.company = b.ClientCompany and b.id = a.job_id');
-			$candidate_id = implode(',', array_column($get_candidates->result_array(), 'Refrence_id', 1));
-			$placed_status = " AND FIND_IN_SET(id, '".$candidate_id."')";
-		}
-		elseif($user_role == 'AC')
-		{
-			$placed_status = " AND status = 'Placed'";
-		}
         $requestData = $_REQUEST;
-        $columns = array(
-            0 => 'id',
-            1 => "CONCAT(firstName,' ',lastName)",
-			2 => 'REPLACE(phone,"-","")',
-			3 => '',
-            4 => 'status',
-            5 => 'created_at',
-			6 => ''
-        );
-        $sql           = "SELECT firstName, lastName, name,status, phone, userID, can_dateAdded, created_at";
-        $sql          .= " FROM candidate WHERE is_deleted = 0".$placed_status;
-        $query         = $this->db->query($sql);        
-        $totalData     = $query->num_rows();
+        $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
+		echo'<pre>';print($get_data);die;
         $totalFiltered = $totalData;  
-		$can = 0; 
-		for($c=0;$c<count($requestData['columns']);$c++)
+		// $can = 0; 
+		/* for($c=0;$c<count($requestData['columns']);$c++)
 		{
 			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
@@ -1659,8 +1624,8 @@ class Email_sms_blast extends MX_Controller
 				$query = $this->db->query($sql) or die("employee-grid-data.php: get employees"); 
 				$can++;				
 			}
-		}
-		if($can == 0)
+		} */
+		/* if($can == 0)
 		{
 			if (!empty($requestData['search']['value']))
 			{
@@ -1697,8 +1662,8 @@ class Email_sms_blast extends MX_Controller
 				$sql .= " ORDER BY id DESC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 				$query = $this->db->query($sql) or die("employee-grid-data.php: get employees");
 			}
-		}
-        $data = array();
+		} */
+       /*  $data = array();
         $i = $requestData['start'] + 1;
         foreach ($query->result_array() as $row)
 		{
@@ -1778,15 +1743,15 @@ class Email_sms_blast extends MX_Controller
 
             $data[] = $nestedData;
             $i++;
-        }
+        } */
 
-        $json_data = array(
+        /* $json_data = array(
             "draw" => intval($requestData['draw']),   
             "recordsTotal" => intval($totalData),  
             "recordsFiltered" => intval($totalFiltered), 
             "data" => $data   
         );
 
-        echo json_encode($json_data);  
+        echo json_encode($json_data);  */ 
 	}
 }
