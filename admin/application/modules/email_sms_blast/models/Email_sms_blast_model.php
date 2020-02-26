@@ -72,10 +72,10 @@ class Email_sms_blast_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->where(array(
-			'id' => $user_id 
+			'id' => $user_id ,
+			'provider_name' => $provider_name,
+			'facility_name' => $facility_name
         ));
-		// $this->db->like('provider_name', $provider_name);
-		// $this->db->like('facility_name', $facility_name);
         $query   = $this->db->get($this->table_name);
         $records = array();
         if ($query->num_rows() > 0):
