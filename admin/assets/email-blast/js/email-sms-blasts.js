@@ -1776,14 +1776,15 @@ $(document).ready(function () {
 		"serverSide": true,
 		"aLengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
 		"iDisplayLength": 100,
-		"dom": 'lBfrtip',       
-		/* "buttons": [{
-		    extend: 'collection',
-		    text: 'Export',
-		    buttons: [                    
-		        'excel'                 
-		    ]
-		}],  */     
+		// "dom": 'lBfrtip',       
+		// "buttons": [{
+		//     extend: 'collection',
+		//     text: 'Export',
+		//     buttons: [                    
+		//         'excel',
+		//         'csv',                    
+		//     ]
+		// }],      
 		"ajax": {
 			url: base_url + 'email_sms_blast/test_datatable',
 			type: "post",  
