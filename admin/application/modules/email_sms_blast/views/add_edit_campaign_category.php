@@ -186,6 +186,44 @@
 									</div>
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
+											Provider Name
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<?php
+												// Input
+												echo form_input(array(
+													'id'       => 'provider_name',
+													'name'     => 'provider_name',
+													'required' => 'required',
+													'type' 	   => 'text',
+													'class'    => 'form-control col-md-7 col-xs-12',
+													'value'    => $provider_name
+												));
+											?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
+											Facility Name
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<?php
+												// Input
+												echo form_input(array(
+													'id'       => 'facility_name',
+													'name'     => 'facility_name',
+													'required' => 'required',
+													'type' 	   => 'text',
+													'class'    => 'form-control col-md-7 col-xs-12',
+													'value'    => $facility_name
+												));
+											?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
 											Password
 											<span class="required">*</span>
 										</label>

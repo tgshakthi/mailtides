@@ -552,6 +552,8 @@ class Email_sms_blast_model extends CI_Model
 								'campaign_type' => $this->input->post('campaign_type_name'),
 								'send_email' => $this->input->post('user_email'),
 								'password' => $this->input->post('password'),
+								'provider_name' => $this->input->post('provider_name'),
+								'facility_name' => $this->input->post('facility_name'),
 								'template' => $this->input->post('template'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
@@ -570,6 +572,8 @@ class Email_sms_blast_model extends CI_Model
 								'campaign_type' => $this->input->post('campaign_type_name'),
 								'send_email' => $this->input->post('user_email'),
 								'password' => $this->input->post('password'),
+								'provider_name' => $this->input->post('provider_name'),
+								'facility_name' => $this->input->post('facility_name'),
 								'template' => $this->input->post('template'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
@@ -581,14 +585,14 @@ class Email_sms_blast_model extends CI_Model
 	}
 	
 	function delete_campaign_category()
-     {
-         $id   = $this->input->post('id');
-         $data = array(
+	{
+		$id   = $this->input->post('id');
+		$data = array(
 						'is_deleted' => '1'
 					);
-         $this->db->where('id', $id);
-         return $this->db->update('zcms_campaign_category', $data);
-     }
+		$this->db->where('id', $id);
+		return $this->db->update('zcms_campaign_category', $data);
+	 }
      
      // Delete multiple user
 	 function delete_multiple_campaign_category()
