@@ -965,11 +965,13 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['table']      = $this->get_table_exixts_users($id);
 		$data['get_campaign_category'] = $this->Email_sms_blast_model->get_campaign_category_by_id($data['id']);
 		if(!empty($data['get_campaign_category'])){
 			$heading = $data['get_campaign_category'][0]->category;
+			$provider_name = $data['get_campaign_category'][0]->provider_name;
+			$facility_name = $data['get_campaign_category'][0]->facility_name;
 		}
+		$data['table']      = $this->get_table_exixts_users($id, $provider_name, $facility_name);
 		$data['heading']    = $heading;
 		$data['title']  = "Add Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
@@ -982,10 +984,10 @@ class Email_sms_blast extends MX_Controller
 	}
 	
 	//Get all patients
-	function get_table_exixts_users($id)
+	function get_table_exixts_users($id, $provider_name, $facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_data  = $this->Email_sms_blast_model->get_users_data();	
+		$get_user_data  = $this->Email_sms_blast_model->get_users_data($provider_name, $facility_name);	
 		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id);
 		$heading=array();
 		$get_users= $this->Email_sms_blast_model->check_diff_multi($get_user_data,$get_user_exist_data);
