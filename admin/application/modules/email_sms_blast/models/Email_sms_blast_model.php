@@ -1191,8 +1191,6 @@ class Email_sms_blast_model extends CI_Model
         $this->db->where(array(
 							'campaign_category_id' => $id
 						 ));
-		$this->db->like('provider_name', $provider_name);
-		$this->db->like('facility_name', $facility_name);
         $query   = $this->db->get('import_data');
         $records = array();
         if ($query->num_rows() > 0):
