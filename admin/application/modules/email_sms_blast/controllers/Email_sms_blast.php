@@ -1597,11 +1597,20 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
+		
 		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
-		
+		$columns = array(
+            0 => 'id',
+            1 => "name",
+			2 => 'email',
+			3 => 'phone_number',
+            4 => 'provider_name',
+            5 => 'facility_name',
+			6 => 'visited_date'
+        );
         $totalFiltered = $get_data;  
 		$can = 0; 
 		 for($c=0;$c<count($requestData['columns']);$c++)
