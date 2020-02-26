@@ -1644,6 +1644,7 @@ class Email_sms_blast extends MX_Controller
 		{
 			if (!empty($requestData['search']['value']))
 			{
+				echo '<pre>';print_r($requestData['search']['value']);die;
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
