@@ -1286,11 +1286,14 @@ class Email_sms_blast extends MX_Controller
 	{
 		$data['id'] = $id;
 		$data['website_id'] = $this->admin_header->website_id();
-		$data['table']  = $this->get_import_send_data_users_id($id);
+		
 		$data['get_campaign_category'] = $this->Email_sms_blast_model->get_campaign_category_by_id($data['id']);
 		if(!empty($data['get_campaign_category'])){
 			$heading = $data['get_campaign_category'][0]->category;
+			$provider_name = $data['get_campaign_category'][0]->provider_name;
+			$facility_name = $data['get_campaign_category'][0]->facility_name;
 		}
+		$data['table']  = $this->get_import_send_data_users_id($id,$provider_name,$facility_name);
 		$data['heading']  = $heading;
 		$data['title']  = "Add Campaign | Administrator";
 		$this->load->view('template/meta_head', $data);
@@ -1302,10 +1305,10 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('template/footer');
 	}
 	
-	function get_import_send_data_users_id($id)
+	function get_import_send_data_users_id($id,$provider_name,$facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id);
+		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id,$provider_name,$facility_name);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
 			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
