@@ -1775,7 +1775,7 @@ $(document).ready(function () {
 		"processing": true,
 		"serverSide": true,
 		"aLengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
-		"iDisplayLength": 25,
+		"iDisplayLength": 100,
 		// "dom": 'lBfrtip',       
 		// "buttons": [{
 		//     extend: 'collection',
