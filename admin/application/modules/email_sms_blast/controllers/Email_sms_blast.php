@@ -1613,11 +1613,11 @@ class Email_sms_blast extends MX_Controller
         );
         $totalFiltered = $get_data;  
 		$can = 0; 
-		 for($c=0;$c<count($requestData['columns']);$c++)
-		{
-			echo'<pre>';print_r($requestData['columns'][$c]['search']['value']);die;
+		for($c=0;$c<count($requestData['columns']);$c++)
+		{		
 			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
+				echo'<pre>';print_r($columns[$requestData['order'][0]['column']]);die;
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
