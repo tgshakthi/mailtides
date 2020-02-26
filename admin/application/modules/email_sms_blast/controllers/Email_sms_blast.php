@@ -1600,7 +1600,7 @@ class Email_sms_blast extends MX_Controller
 		$placed_status = '';
         $requestData = $_REQUEST;
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
-		echo'<pre>';print($requestData);die;
+		echo'<pre>';print_r($requestData);die;
         $totalFiltered = $totalData;  
 		// $can = 0; 
 		/* for($c=0;$c<count($requestData['columns']);$c++)
