@@ -1667,7 +1667,7 @@ class Email_sms_blast extends MX_Controller
             $nestedData[] = '<p>'.$row['facility_name'].'</p>';
 			$nestedData[] = '<p>'.$row['visited_date'].'</p>';
             $nestedData[] = '<div class="action_btn_container">
-			<div class="action_btn preview_bt">onclick="return delete_record(' .$i. ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')"<i class="fa  fa-trash"></i></div>';
+			<div class="action_btn preview_bt">onclick="return delete_record(' .$row["id"]. ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')"<i class="fa  fa-trash"></i></div>';
             $data[] = $nestedData;
             $i++;
         }
