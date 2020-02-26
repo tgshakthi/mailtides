@@ -1311,7 +1311,7 @@ class Email_sms_blast extends MX_Controller
 		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id,$provider_name,$facility_name);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
-			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
+			$get_user_details = $this->Email_sms_blast_model->get_patient_users_by_id($get_user->user_id,$provider_name,$facility_name);
 			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
 				  'data-toggle' => 'tooltip',
 				  'data-placement' => 'right',
