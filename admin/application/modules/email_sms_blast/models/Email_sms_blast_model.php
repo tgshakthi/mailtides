@@ -1325,9 +1325,8 @@ class Email_sms_blast_model extends CI_Model
 	
 	function get_patient_user_data()
 	{
-		$placed_status = "";
 		$sql           = "SELECT *";
-        $sql          .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0".$placed_status;
+        $sql          .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0 ASC";
         $query         = $this->db->query($sql);        
         $totalData     = $query->num_rows();
 		return $totalData;
