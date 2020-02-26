@@ -1605,7 +1605,7 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
-		// echo '<pre>';print_r($requestData);die;
+		echo '<pre>';print_r($requestData);die;
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
 		$columns = array(
             0 => 'id',
