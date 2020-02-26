@@ -49,7 +49,6 @@
 										<thead>
 										<tr>
 											<th><input type="checkbox" id="check-all" class="flat"></th>
-											<th>ID</th>
 											<th>Name</th>
 											<th>Email</th>
 											<th>Phone Number</th>
@@ -58,8 +57,7 @@
 											<th>Visited Date</th>
 										</tr>
 										<tr>
-											<th class="searchbox"></th>										
-											<th class="searchbox">ID</th>
+											<th class="searchbox"></th>	
 											<th class="searchbox">Name</th>
 											<th class="searchbox">Email</th>
 											<th class="searchbox">Phone Number</th>
