@@ -57,7 +57,7 @@
 											<th>Visited Date</th>
 										</tr>
 										<tr>
-											<th class="searchbox"></th>	
+											<th></th>	
 											<th class="searchbox">Name</th>
 											<th class="searchbox">Email</th>
 											<th class="searchbox">Phone Number</th>
