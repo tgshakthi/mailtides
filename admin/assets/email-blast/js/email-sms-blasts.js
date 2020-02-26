@@ -1788,11 +1788,11 @@ $(document).ready(function () {
 		"ajax": {
 			url: base_url + 'email_sms_blast/test_datatable',
 			type: "post",  
-			// error: function(){  
-				// $(".employee-grid-error").html("");
-				// $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
-				// $("#employee-grid_processing").css("display", "none");
-			// }
+			error: function(){  
+				$(".employee-grid-error").html("");
+				$("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+				$("#employee-grid_processing").css("display", "none");
+			}
 		},
 		initComplete:function(){ 
 			this.api().columns([0, 1, 2, 3, 4]).every(function () { 
