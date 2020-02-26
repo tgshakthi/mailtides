@@ -1777,13 +1777,13 @@ $(document).ready(function () {
 		"aLengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
 		"iDisplayLength": 100,
 		"dom": 'lBfrtip',       
-		"buttons": [{
+		/* "buttons": [{
 		    extend: 'collection',
 		    text: 'Export',
 		    buttons: [                    
 		        'excel'                 
 		    ]
-		}],      
+		}],  */     
 		"ajax": {
 			url: base_url + 'email_sms_blast/test_datatable',
 			type: "post",  
