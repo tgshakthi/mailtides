@@ -1618,7 +1618,7 @@ class Email_sms_blast extends MX_Controller
         );
         $totalFiltered = $get_data;  
 		$can = 0; 
-		print_r($requestData);
+		echo '<pre>';print_r($requestData);
 		print_r($columns[$requestData['order'][0]['column']]);
 		print_r($requestData['order'][0]['dir']);
 		for($c=0;$c<count($requestData['columns']);$c++)
