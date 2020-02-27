@@ -1421,6 +1421,23 @@ $('#phone_number').blur(function () {
 });
 
 $(document).ready(function () {
+	// Datepickers
+	$('#Graphics_min').datepicker({
+		onSelect: function () {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+
+	$('#Graphics_max').datepicker({
+		onSelect: function () {
+			table.draw();
+		},
+		changeMonth: true,
+		changeYear: true
+	});
+	
 	var base_url = $('#base_url').val();
 	$('#table_grid1 .searchbox').each(function () {
 		var title = $(this).text();
