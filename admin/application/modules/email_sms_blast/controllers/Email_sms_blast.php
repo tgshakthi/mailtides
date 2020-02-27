@@ -561,6 +561,88 @@ class Email_sms_blast extends MX_Controller
 	
 	function graphical_campaign_id()
 	{
+		/* $provider_name = $this->input->post('provider_name');
+		$campaign_type = $this->input->post('campaign_type');
+		$get_users = $this->Email_sms_blast_model->get_provider_name_by_user($provider_name);
+		
+		foreach($get_users as $get_user){				
+			if($campaign_type == 'email'):
+				if($provider_name == 'facebook'){
+					
+					if($get_user->fb_email_sent_status == '1'){
+						$email_sent = $get_user->fb_email_sent_status;
+					}
+					
+					if($get_user->fb_email_link_open == '1'){
+						$link[] = $get_user->fb_email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->fb_email_link_open;
+					
+				}elseif($provider_name == 'txgidocs'){
+					
+					if($get_user->dldc_sent_email_status == '1'){
+						$email_sent = $get_user->dldc_sent_email_status;
+					}
+					
+					if($get_user->dldc_email_link_open == '1'){
+						$link[] = $get_user->dldc_email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->dldc_email_link_open;
+					
+				}else{
+					if($get_user->email_sent == '1'){
+						$email_sent = $get_user->email_sent;
+					}
+					
+					if($get_user->email_link_open == '1'){
+						$link[] = $get_user->email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->email_link_open;
+				}
+				
+			elseif($campaign_type == 'sms'):
+				
+				if($provider_name == 'facebook'){
+					if($get_user->fb_link_open == '1'){
+						$link[] = $get_user->fb_link_open;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}elseif($provider_name == 'txgidocs'){
+					if($get_user->dldc_sms_open_link == '1'){
+						$link[] = $get_user->dldc_sms_open_link;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}else{
+					if($get_user->sms_link_open == '1'){
+						$link[] = $get_user->sms_link_open;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}
+				
+			endif;
+		}
+		$data['link_open'] = count($link); 
+		$data['sent'] = $sent; 
+		$data['type'] = $campaign_type;
+		echo json_encode($data); */
 		$campaign_id = $this->input->post('campaign_id');
 		$get_users = $this->Email_sms_blast_model->get_import_send_user_data($campaign_id);
 		if(!empty($get_users)){
@@ -580,7 +662,86 @@ class Email_sms_blast extends MX_Controller
 			$data['link_open'] = ''; 
 			$data['sent'] = '';
 			echo json_encode($data);
-		}	
+		}
+		
+		/* foreach($get_users as $get_user){				
+			if($campaign_type == 'email'):
+				if($provider_name == 'facebook'){
+					
+					if($get_user->fb_email_sent_status == '1'){
+						$email_sent = $get_user->fb_email_sent_status;
+					}
+					
+					if($get_user->fb_email_link_open == '1'){
+						$link[] = $get_user->fb_email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->fb_email_link_open;
+					
+				}elseif($provider_name == 'txgidocs'){
+					
+					if($get_user->dldc_sent_email_status == '1'){
+						$email_sent = $get_user->dldc_sent_email_status;
+					}
+					
+					if($get_user->dldc_email_link_open == '1'){
+						$link[] = $get_user->dldc_email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->dldc_email_link_open;
+					
+				}else{
+					if($get_user->email_sent == '1'){
+						$email_sent = $get_user->email_sent;
+					}
+					
+					if($get_user->email_link_open == '1'){
+						$link[] = $get_user->email_link_open;
+					}
+					
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}					
+					$email_link_open = $get_user->email_link_open;
+				}
+				
+			elseif($campaign_type == 'sms'):
+				
+				if($provider_name == 'facebook'){
+					if($get_user->fb_link_open == '1'){
+						$link[] = $get_user->fb_link_open;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}elseif($provider_name == 'txgidocs'){
+					if($get_user->dldc_sms_open_link == '1'){
+						$link[] = $get_user->dldc_sms_open_link;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}else{
+					if($get_user->sms_link_open == '1'){
+						$link[] = $get_user->sms_link_open;
+					}
+					if(!empty($get_users)){
+						$sent = count($get_users);
+					}
+				}
+				
+			endif;
+		} */
+		// $data['link_open'] = count($link); 
+		// $data['sent'] = $sent; 
+		// $data['type'] = $campaign_type;
+		// echo json_encode($data);
 	}
 
 	function campaign_data()
@@ -826,7 +987,7 @@ class Email_sms_blast extends MX_Controller
 	function get_table_exixts_users($id, $provider_name, $facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_data  = $this->Email_sms_blast_model->get_users_data($provider_name, $facility_name);
+		$get_user_data  = $this->Email_sms_blast_model->get_users_data($provider_name, $facility_name);	
 		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id);
 		$heading=array();
 		$get_users= $this->Email_sms_blast_model->check_diff_multi($get_user_data,$get_user_exist_data);
@@ -1147,37 +1308,34 @@ class Email_sms_blast extends MX_Controller
 	function get_import_send_data_users_id($id,$provider_name,$facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id);
+		$get_user_id = $this->Email_sms_blast_model->get_import_send_user_data($id,$provider_name,$facility_name);
 		foreach (($get_user_id ? $get_user_id : array()) as $get_user) 
 		{  
-			// $get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
-			$get_user_details = $this->Email_sms_blast_model->get_patient_users_by_id($get_user->user_id,$provider_name,$facility_name);
-			if(!empty($get_user_details)){
-				$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
-						  'data-toggle' => 'tooltip',
-						  'data-placement' => 'right',
-						  'data-original-title' => 'Delete',
-						  'onclick' => 'return delete_record(' . $get_user_details[0]->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
-					  ));
-				$cell = array(
-					'class' => 'last',
-					'data' => $anchor_delete
-				  );
-				if ($get_user->link_open === '1') {
-					$link_open_status = '<span class="label label-success">Open</span>';
-					$resend_sms = '<span class="label label-danger"></span>';
-				} else {
-					$link_open_status = '<span class="label label-danger">Not Open</span>';
-					$resend_sms = '<span class="label label-success"><a href="'.base_url().'email_sms_blast/resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
-				}
-				$campaign_name = array();
-				$heading_data = array();
-				$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email,$get_user_details[0]->phone_number,$get_user->sent_date);
-				$heading_data = array_merge($heading_data,array($link_open_status));
-				$heading_data = array_merge($heading_data,array($get_user->open_date));
-				$heading_data = array_merge($heading_data,array($resend_sms));
-				$this->table->add_row($heading_data);
+			$get_user_details = $this->Email_sms_blast_model->get_users_by_id($get_user->user_id);
+			$anchor_delete = anchor('', '<span class="glyphicon c_delete_icon glyphicon-trash" aria-hidden="true"></span>', array(
+				  'data-toggle' => 'tooltip',
+				  'data-placement' => 'right',
+				  'data-original-title' => 'Delete',
+				  'onclick' => 'return delete_record(' . $get_user_details[0]->id . ', \'' . base_url('email_sms_blast/delete_user/' . $website_id) . '\')'
+			  ));
+			$cell = array(
+				'class' => 'last',
+				'data' => $anchor_delete
+			  );
+			if ($get_user->link_open === '1') {
+				$link_open_status = '<span class="label label-success">Open</span>';
+				$resend_sms = '<span class="label label-danger"></span>';
+			} else {
+				$link_open_status = '<span class="label label-danger">Not Open</span>';
+				$resend_sms = '<span class="label label-success"><a href="'.base_url().'email_sms_blast/resend_email_sms_user_data/'.$get_user->user_id.'/'.$get_user->campaign_category_id.'/'.$get_user->track_code.'">Resend</a></span>';
 			}
+			$campaign_name = array();
+			$heading_data = array();
+			$heading_data = array('<input type="checkbox" class="flat" id="table_records" name="table_records[]" value="' . $get_user_details[0]->id . '"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="' .$get_user_details[0]->id . '">', $get_user_details[0]->name, $get_user_details[0]->email,$get_user_details[0]->phone_number,$get_user->sent_date);
+			$heading_data = array_merge($heading_data,array($link_open_status));
+			$heading_data = array_merge($heading_data,array($get_user->open_date));
+			$heading_data = array_merge($heading_data,array($resend_sms));
+			$this->table->add_row($heading_data);
 		}
 		$heading = array('<input type="checkbox" id="check-all" class="flat">', 'Name', 'Email','Phone Number','Sent Date','Link Open','Open Date','Resend');
 		$template = array(
@@ -1446,11 +1604,10 @@ class Email_sms_blast extends MX_Controller
 		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
-		// echo '<pre>';print_r($requestData);
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
 		$columns = array(
             0 => 'id',
-            1 => "name",
+            1 => 'name',
 			2 => 'email',
 			3 => 'phone_number',
             4 => 'provider_name',
@@ -1459,12 +1616,10 @@ class Email_sms_blast extends MX_Controller
         );
         $totalFiltered = $get_data;  
 		$can = 0; 
-		// echo '<pre>';print_r($requestData);
-		// print_r($columns[$requestData['order'][0]['column']]);
-		// print_r($requestData['order'][0]['dir']);
 		for($c=0;$c<count($requestData['columns']);$c++)
-		{
-			if (!empty($requestData['columns'][$c]['order']['search']['value']))
+		{	
+			//echo'<pre>';print_r($requestData['columns']);die;	
+			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
@@ -1479,7 +1634,7 @@ class Email_sms_blast extends MX_Controller
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
 	
-				$sql .= " ORDER BY " .$columns[$requestData['order'][0]['column']]. "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
 				$query = $this->db->query($sql); 
 				$can++;				
 			}
@@ -1487,7 +1642,7 @@ class Email_sms_blast extends MX_Controller
 		if($can == 0)
 		{
 			if (!empty($requestData['search']['value']))
-			{	
+			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
@@ -1500,14 +1655,15 @@ class Email_sms_blast extends MX_Controller
 				}
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
-				$sql .= "ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
+	
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . " ASC  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
 				$query = $this->db->query($sql); 
 			}
 			else
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users WHERE is_deleted = 0";
-				$sql .= " ORDER BY name ASC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "";
+				$sql .= " ORDER BY id ASC LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "";
 				$query = $this->db->query($sql);
 			}
 		}

@@ -56,7 +56,7 @@
 											<th>Facility Name</th>
 											<th>Visited Date</th>
 										</tr>
-										<!--<tr>
+										<tr>
 											<th></th>	
 											<th class="searchbox">Name</th>
 											<th class="searchbox">Email</th>
@@ -64,7 +64,7 @@
 											<th class="searchbox">Provider Name</th>
 											<th class="searchbox">Facility Name</th>
 											<th class="searchbox">Visited Date</th>
-										</tr> -->
+										</tr>
 										</thead>
 									</table>
 								</div>

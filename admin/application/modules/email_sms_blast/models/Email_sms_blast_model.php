@@ -44,7 +44,7 @@ class Email_sms_blast_model extends CI_Model
         ));
 		$this->db->like('provider_name', $provider_name);
 		$this->db->like('facility_name', $facility_name);
-        $query   = $this->db->get($this->table_name); 
+        $query   = $this->db->get($this->table_name);
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
@@ -60,24 +60,6 @@ class Email_sms_blast_model extends CI_Model
 			'id' => $user_id,
             'is_deleted' => '0'
         ));
-        $query   = $this->db->get($this->table_name);
-        $records = array();
-        if ($query->num_rows() > 0):
-            $records = $query->result();
-        endif;
-        return $records;      
-    }
-	
-	// Get Patient  Users by Id
-    function get_patient_users_by_id($user_id,$provider_name,$facility_name)
-    {
-        $this->db->select('*');
-        $this->db->where(array(
-			'id' => $user_id,
-			'is_deleted'=> '0'
-        ));
-		$this->db->like('provider_name', $provider_name);
-		$this->db->like('facility_name', $facility_name);
         $query   = $this->db->get($this->table_name);
         $records = array();
         if ($query->num_rows() > 0):
@@ -1203,7 +1185,7 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records;
 	}
-	function get_import_send_user_data($id)
+	function get_import_send_user_data($id,$provider_name,$facility_name)
 	{
 		$this->db->select('*');
         $this->db->where(array(
