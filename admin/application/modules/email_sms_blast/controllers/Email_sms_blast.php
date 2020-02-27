@@ -987,7 +987,8 @@ class Email_sms_blast extends MX_Controller
 	function get_table_exixts_users($id, $provider_name, $facility_name)
 	{
 		$website_id = $this->admin_header->website_id();
-		$get_user_data  = $this->Email_sms_blast_model->get_users_data($provider_name, $facility_name);	
+		$get_user_data  = $this->Email_sms_blast_model->get_users_data($provider_name, $facility_name);
+		print_r($get_user_data);die;
 		$get_user_exist_data = $this->Email_sms_blast_model->get_import_send_data($id);
 		$heading=array();
 		$get_users= $this->Email_sms_blast_model->check_diff_multi($get_user_data,$get_user_exist_data);
