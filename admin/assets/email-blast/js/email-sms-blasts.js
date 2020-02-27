@@ -1454,7 +1454,7 @@ $(document).ready(function () {
 			}
 		},
 		initComplete:function(){ 
-			$('##table_grid1>thead>tr:eq(1)>th').each(function (i) {
+			$('#table_grid1>thead>tr:eq(1)>th').each(function (i) {
 				var title = $(this).text();
 				if (title.length > 0 && title != 'S.No') {
 					$(this).html(
