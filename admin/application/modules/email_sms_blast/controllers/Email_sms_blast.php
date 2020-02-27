@@ -1623,7 +1623,7 @@ class Email_sms_blast extends MX_Controller
 		// print_r($requestData['order'][0]['dir']);
 		for($c=0;$c<count($requestData['columns']);$c++)
 		{
-			if (!empty($requestData['columns'][$c]['order']['search']['value']))
+			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
@@ -1640,8 +1640,7 @@ class Email_sms_blast extends MX_Controller
 	
 				$sql .= " ORDER BY " .$columns[$requestData['order'][0]['column']]. "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
 				$query = $this->db->query($sql); 
-				$can++;	
-print_r($sql);				
+				$can++;				
 			}
 		} 
 		if($can == 0)
