@@ -44,8 +44,7 @@ class Email_sms_blast_model extends CI_Model
         ));
 		$this->db->like('provider_name', $provider_name);
 		$this->db->like('facility_name', $facility_name);
-        $query   = $this->db->get($this->table_name);
-		echo $this->db->last_query(); 
+        $query   = $this->db->get($this->table_name); 
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
