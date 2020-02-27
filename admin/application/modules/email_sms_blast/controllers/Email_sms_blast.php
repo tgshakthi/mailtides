@@ -1640,7 +1640,8 @@ class Email_sms_blast extends MX_Controller
 	
 				$sql .= " ORDER BY " .$columns[$requestData['order'][0]['column']]. "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
 				$query = $this->db->query($sql); 
-				$can++;				
+				$can++;	
+print_r($sql);				
 			}
 		} 
 		if($can == 0)
