@@ -1607,7 +1607,7 @@ class Email_sms_blast extends MX_Controller
         $get_data = $this->Email_sms_blast_model->get_patient_user_data(); 
 		$columns = array(
             0 => 'id',
-            1 => "name",
+            1 => 'name',
 			2 => 'email',
 			3 => 'phone_number',
             4 => 'provider_name',
@@ -1618,7 +1618,7 @@ class Email_sms_blast extends MX_Controller
 		$can = 0; 
 		for($c=0;$c<count($requestData['columns']);$c++)
 		{	
-			echo'<pre>';print_r($requestData['columns']);die;	
+			//echo'<pre>';print_r($requestData['columns']);die;	
 			if (!empty($requestData['columns'][$c]['search']['value']))
 			{
 				$sql = "SELECT *";
