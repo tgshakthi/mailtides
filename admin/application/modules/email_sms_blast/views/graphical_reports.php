@@ -53,11 +53,11 @@
 			
 					<div>
 						<label>From Date:</label>
-						<input type="text" id="min">
+						<input type="text" id="Graphics_min">
 					</div>
 					<div>
 						<label>To Date:</label>
-						<input type="text" id="max">
+						<input type="text" id="Graphics_max">
 					</div>
 				</div>
 			</div>
