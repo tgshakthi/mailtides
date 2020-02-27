@@ -1635,7 +1635,7 @@ class Email_sms_blast extends MX_Controller
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
 	
-				$sql .= " ORDER BY " .$columns[$c]. "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
+				$sql .= " ORDER BY " .$columns[$requestData['order'][0]['column']]. "   ASC   LIMIT " . $requestData['start'] . " ," . $requestData['length'] . " "; 
 				$query = $this->db->query($sql); 
 				$can++;				
 			}
@@ -1643,8 +1643,7 @@ class Email_sms_blast extends MX_Controller
 		if($can == 0)
 		{
 			if (!empty($requestData['search']['value']))
-			{
-				
+			{	
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
@@ -1657,7 +1656,7 @@ class Email_sms_blast extends MX_Controller
 				}
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
-				$sql .= "ORDER BY name ASC  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
+				$sql .= "ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
 				$query = $this->db->query($sql); 
 			}
 			else
