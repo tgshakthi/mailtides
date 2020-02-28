@@ -1656,7 +1656,7 @@ class Email_sms_blast extends MX_Controller
 				$query = $this->db->query($sql);
 				$totalFiltered = $query->num_rows(); 
 	
-				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . " ASC  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
+				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . " LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
 				$query = $this->db->query($sql); 
 			}
 			else
