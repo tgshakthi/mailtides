@@ -1764,10 +1764,6 @@ $('#phone_number').blur(function () {
 $(document).ready(function () {
 	
 	var base_url = $('#base_url').val();
-	$('#table_grid1 .searchbox').each(function () {
-		var title = $(this).text();
-		$(this).html('<input type="text" placeholder="Search ' + title + '" />');
-	});
 	
 	var dataTable = $('#table_grid1').DataTable({
 		oLanguage: {
