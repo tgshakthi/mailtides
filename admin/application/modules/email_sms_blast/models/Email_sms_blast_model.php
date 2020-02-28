@@ -1354,6 +1354,7 @@ class Email_sms_blast_model extends CI_Model
 	   ));
 	  
         if(!empty($this->_startDate)){
+			print_r($this->_startDate);die;
             $this->db->where(array(
 					'visited_date' => $this->_startDate
 				));
