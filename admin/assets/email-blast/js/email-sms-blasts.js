@@ -1760,7 +1760,7 @@ $('#phone_number').blur(function () {
 		}
 	});
 });
-
+/* 
 $(document).ready(function () {
 	
 	var base_url = $('#base_url').val();
@@ -1806,7 +1806,7 @@ $(document).ready(function () {
 			
 		} 
 	});
-});
+}); */
 
   // render order list data table
   // default render page
