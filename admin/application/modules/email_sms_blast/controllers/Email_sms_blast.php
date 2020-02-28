@@ -1618,7 +1618,7 @@ class Email_sms_blast extends MX_Controller
 		$can = 0; 
 		for($c=0;$c<count($requestData['columns']);$c++)
 		{	
-			echo'<pre>';print_r($requestData['columns']);die;	
+			echo'<pre>';print_r($requestData['columns']);	
 			if (!empty($requestData['columns'][$c]['order']['search']['value']))
 			{
 				echo 'test';
@@ -1649,7 +1649,7 @@ class Email_sms_blast extends MX_Controller
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
 				{
-					$sql .= " WHERE is_deleted = 0 AND (name LIKE '%" . $requestData['search']['value'] . "%' ";  
+					$sql .= " WHERE is_deleted = 0 AND name LIKE '%" . $requestData['search']['value'] . "%' ";  
 				}
 				else
 				{
@@ -1698,4 +1698,27 @@ class Email_sms_blast extends MX_Controller
 
         echo json_encode($json_data);
 	}
+	 // get Orders List
+    public function getOrderList() {    
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $phone_number = $this->input->post('phone_number');
+        $provider_name = $this->input->post('provider_name'); 
+		$facility_name = $this->input->post('facility_name');
+		$visited_date = $this->input->post('visited_date'); 
+             
+        $getOrderInfo = $this->Email_sms_blast_model->get_users();
+        $dataArray = array();
+        foreach ($getOrderInfo as $element) {            
+            $dataArray[] = array(
+                $element['name'],                
+                $element['email'],
+                $element['phone_number'],
+                $element['provider_name'],
+                $element['facility_name'],
+				date(DATE_FORMAT_SIMPLE, $element['visited_date']),
+            );
+        }
+        echo json_encode(array("data" => $dataArray));
+    }
 }

@@ -44,7 +44,61 @@
 									</button>
 								</div>
 							</div>
-							<div class="table_main_container">
+							<div class="row">
+    <div class="col-lg-12">
+        <h2>DataTable using Codeigniter, MySQL and AJAX</h2>                 
+    </div>
+</div><!-- /.row -->
+ 
+<div class="row">   
+            <div class="col-lg-2">                                        
+                <div class="form-group">
+                    <input type="text" name="name" value="" class="form-control" id="filter-name" placeholder="Name">
+                </div>
+            </div> 
+            <div class="col-lg-2">   
+                <div class="form-group">
+                     <input type="text" name="email" value="" class="form-control" id="filter-email" placeholder="Email">
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <input type="text" name="phone_number" value="" class="form-control" id="filter-phone-number" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <input type="text" name="provider_name" value="" class="form-control" id="filter-provider-name" placeholder="Provider Name">
+                </div> 
+            </div>
+			<div class="col-lg-2">
+                <div class="form-group">
+                    <input type="text" name="facility_name" value="" class="form-control" id="filter-facility-name" placeholder="Facility Name">
+                </div> 
+            </div>
+			<div class="col-lg-1">
+                <div class="form-group">
+                    <input type="text" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
+                </div> 
+            </div>
+            <div class="col-lg-1">                                      
+                <div class="form-group">
+                    <button name="filter_email_filter" type="button" class="btn btn-primary btn-block" id="filter_email_filter" value="filter"><i class="fa fa-search fa-fw"></i></button>
+                </div>
+            </div>                                        
+        </div>
+        <div class="row">
+        <div class="col-lg-12">      
+        <div id="render-list-of-order">
+        </div>
+        </div>        
+    </div>
+    <div class="row">
+    <div class="col-lg-12">       
+        <a class="btn btn-info btn-xs" style="margin: 2px" href="https://techarise.com/"><i class="fa fa-mail-reply"></i> Tutorial</a>          
+    </div>
+</div><!-- /.row -->
+							<!--<div class="table_main_container">
 									<table id="table_grid1" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%" cellspacing="0">
 										<thead>
 										<tr>
@@ -67,7 +121,7 @@
 										</tr> -->
 										</thead>
 									</table>
-								</div>
+								</div>-->
 							<?php //echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->

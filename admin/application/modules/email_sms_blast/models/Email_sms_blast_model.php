@@ -1331,4 +1331,23 @@ class Email_sms_blast_model extends CI_Model
         $totalData     = $query->num_rows();
 		return $totalData;
 	}
+	
+	
+    // get Orders List
+    public function getOrders() {        
+        $this->db->select('*');
+        $this->db->from($this->table);
+        /* if(!empty($this->_startDate) && !empty($this->_endDate)) {
+            $this->db->where('DATE_FORMAT(FROM_UNIXTIME(`o`.`order_date`),"%Y-%m-%d") BETWEEN \'' . $this->_startDate . '\' AND \'' . $this->_endDate . '\'');
+        }     */    
+        /* if(!empty($this->_order_id)){
+            $this->db->where('o.order_id', $this->_order_id);
+        }  */       
+        /* if(!empty($this->_name)){            
+            $this->db->like('o.name', $this->_name, 'both');
+        }  */      
+        $this->db->order_by('name', 'ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
