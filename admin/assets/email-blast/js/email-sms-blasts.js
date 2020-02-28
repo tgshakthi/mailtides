@@ -1811,6 +1811,7 @@ $(document).ready(function () {
   // render order list data table
   // default render page
   jQuery(document).ready(function() {
+	  alert();
     var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
     generateOrderTable(data);
   });
