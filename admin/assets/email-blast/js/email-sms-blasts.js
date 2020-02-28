@@ -1807,7 +1807,7 @@ $(document).ready(function () {
 		} 
 	});
 }); */
-/* 
+
   // render order list data table
   // default render page
   jQuery(document).ready(function() {
@@ -1860,7 +1860,7 @@ $(document).ready(function () {
         });
       }    
     });
-  } */
+  }
   
   
    // default render page
@@ -1870,15 +1870,13 @@ $(document).ready(function () {
   });
  
   // render date datewise
-  jQuery(document).on('click','#filter_email_filter', function(){  
- 
+  jQuery(document).on('click','#filter-order-filter', function(){  
     var name = jQuery('input#filter-name').val();    
     var email = jQuery('input#filter-email').val();
     var phone_number = jQuery('input#filter-phone-number').val();    
     var provider_name = jQuery('input#filter-provider-name').val();
 	var facility_name = jQuery('input#filter-facility-name').val();
 	var visited_date = jQuery('input#filter-visited-date').val();
-	alert(visited_date);
     var data = {name:name, email:email, phone_number:phone_number, provider_name:provider_name, facility_name:facility_name, visited_date:visited_date};
     generateOrderTable(data);
   });
@@ -1894,24 +1892,23 @@ $(document).ready(function () {
         jQuery('#render-list-of-order').html('<div class="text-center mrgA padA"><i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i></div>');
       },       
       success: function (html) {
-        var dataTable='<table id="order-datatable" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%" cellspacing="0"></table>';
+        var dataTable='<table id="order-datatable" class="table table-striped" cellspacing="0" width="100%"></table>';
         jQuery('#render-list-of-order').html(dataTable);    
         var table = $('#order-datatable').DataTable({
           data: html.data,
-		  "pageLength": 100,
           "bPaginate": true,
           "bLengthChange": true,
           "bFilter": false,
           "bInfo": true,
           "bAutoWidth": true,
           columns: [
-			{ title: "Check Box", "width": "2%"},
-            { title: "Name", "width": "15%"},
-            { title: "Email.", "width": "15%"},
-            { title: "Phone Number", "width": "15%"},
-            { title: "Provider Name", "width": "15%"},         
-            { title: "Facility Name", "width": "15%"},
-			{ title: "Visited Date", "width": "15%"}
+			{ title: "Check Box", "width": "3%"},
+            { title: "Name", "width": "16%"},
+            { title: "Email.", "width": "16%"},
+            { title: "Phone Number", "width": "16%"},
+            { title: "Provider Name", "width": "16%"},         
+            { title: "Facility Name", "width": "16%"},
+			{ title: "Visited Date", "width": "16%"}
           ],        
         });
       }    
