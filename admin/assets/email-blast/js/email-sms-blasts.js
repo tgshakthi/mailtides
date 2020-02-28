@@ -1892,7 +1892,7 @@ $(document).ready(function () {
         jQuery('#render-list-of-order').html('<div class="text-center mrgA padA"><i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i></div>');
       },       
       success: function (html) {
-        var dataTable='<table id="order-datatable" class="table table-striped" cellspacing="0" width="100%"></table>';
+        var dataTable='<table id="order-datatable" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%" cellspacing="0"></table>';
         jQuery('#render-list-of-order').html(dataTable);    
         var table = $('#order-datatable').DataTable({
           data: html.data,
