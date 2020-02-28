@@ -1350,6 +1350,7 @@ class Email_sms_blast_model extends CI_Model
          $this->db->select('*');
       //'id,product_name,product_price,product_image,status,created_at'
 	   $this->db->from($this->table_name);
+	   print_r($this->_startDate);die;
         if(!empty($this->_startDate)){
             $this->db->where(array(
 					'visited_date' => $this->_startDate
