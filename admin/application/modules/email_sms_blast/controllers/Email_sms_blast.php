@@ -1716,7 +1716,7 @@ class Email_sms_blast extends MX_Controller
                 $element->phone_number,
                 $element->provider_name,
                 $element->facility_name,
-				date(DATE_FORMAT_SIMPLE, $element->visited_date),
+				$element->visited_date
             );
         }
         echo json_encode(array("data" => $dataArray));
