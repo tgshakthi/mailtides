@@ -1829,7 +1829,7 @@ alert(data);
   });
   // generate Order Table
   function generateOrderTable(element){ 
-  alert(element);
+  console.log(element);
   var base_url = $('#base_url').val();
     jQuery.ajax({
      url: base_url + 'email_sms_blast/getOrderList',
