@@ -1347,10 +1347,12 @@ class Email_sms_blast_model extends CI_Model
    
 	// get Orders List
     function getOrders() {        
-         $this->db->select('*');
-      //'id,product_name,product_price,product_image,status,created_at'
+       $this->db->select('*');
 	   $this->db->from($this->table_name);
-	   // print_r($this->_startDate);die;
+	   $this->db->where(array(
+					'is_deleted' => '0'
+	   ));
+	  
         if(!empty($this->_startDate)){
             $this->db->where(array(
 					'visited_date' => $this->_startDate

@@ -1877,7 +1877,6 @@ $(document).ready(function () {
     var provider_name = jQuery('input#filter-provider-name').val();
 	var facility_name = jQuery('input#filter-facility-name').val();
 	var visited_date = jQuery('input#filter-visited-date').val();
-	alert(visited_date);
     var data = {name:name, email:email, phone_number:phone_number, provider_name:provider_name, facility_name:facility_name, visited_date:visited_date};
     generateOrderTable(data);
   });
