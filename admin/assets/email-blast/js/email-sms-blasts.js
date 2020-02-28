@@ -1814,7 +1814,7 @@ $(document).ready(function () {
     var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
     generateOrderTable(data);
   });
-
+alert(data);
   // render date datewise
   jQuery(document).on('click','#filter_email_filter', function(){
     var name = jQuery('input#filter-name').val();    
@@ -1828,6 +1828,7 @@ $(document).ready(function () {
   });
   // generate Order Table
   function generateOrderTable(element){ 
+  var base_url = $('#base_url').val();
     jQuery.ajax({
      url: base_url + 'email_sms_blast/getOrderList',
       data: {'name' : element.name , 'email' : element.email, 'phone_number' : element.phone_number , 'provider_name' : element.provider_name, 'facility_name' : element.facility_name, 'visited_date' : element.visited_date},
