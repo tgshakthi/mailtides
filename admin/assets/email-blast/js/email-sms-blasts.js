@@ -1815,7 +1815,7 @@ $(document).ready(function () {
     var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
     generateOrderTable(data);
   });
-alert(data);
+
   // render date datewise
   jQuery(document).on('click','#filter_email_filter', function(){
     var name = jQuery('input#filter-name').val();    
