@@ -1709,7 +1709,8 @@ class Email_sms_blast extends MX_Controller
              
         $getOrderInfo = $this->Email_sms_blast_model->get_users();
         $dataArray = array();
-        foreach ($getOrderInfo as $element) {            
+        foreach ($getOrderInfo as $element) { 
+echo '<pre>';print_r($element);die;		
             $dataArray[] = array(
                 $element['name'],                
                 $element['email'],
