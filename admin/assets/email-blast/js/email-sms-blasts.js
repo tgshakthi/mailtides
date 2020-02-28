@@ -1795,13 +1795,21 @@ $(document).ready(function () {
 			}
 		},
 		initComplete:function(){ 
-			this.api().columns([0, 1, 2, 3, 4]).every(function () { 
-				var column = this;                    
-				$("input", column.footer()).on('keyup change', function () {                                                
-					if (column.search() !== this.value){ 
-						column.search(this.value).draw() ;
-					}
-				});
+			$('#table_grid1>thead>tr:eq(1)>th').each(function (i) {
+				var title = $(this).text();
+				if (title.length > 0 && title != 'S.No') {
+					$(this).html(
+						'<input type="text" placeholder="Search ' + title + '" />'
+					);
+					$('input', this).on('keyup change', function () {
+						if (dataTable.column(i).search() !== this.value) {
+							dataTable
+								.column(i)
+								.search(this.value)
+								.draw();
+						}
+					});
+				}
 			});
 		} 
 	});
