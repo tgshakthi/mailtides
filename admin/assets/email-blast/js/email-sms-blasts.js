@@ -1897,6 +1897,7 @@ $(document).ready(function () {
         jQuery('#render-list-of-order').html(dataTable);    
         var table = $('#order-datatable').DataTable({
           data: html.data,
+		  "pageLength": 100,
           "bPaginate": true,
           "bLengthChange": true,
           "bFilter": false,
