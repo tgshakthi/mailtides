@@ -1902,11 +1902,12 @@ $(document).ready(function () {
           "bInfo": true,
           "bAutoWidth": true,
           columns: [
-            { title: "Name", "width": "16%"},
-            { title: "Email.", "width": "16%"},
-            { title: "Phone Number", "width": "16%"},
-            { title: "Provider Name", "width": "16%"},         
-            { title: "Facility Name", "width": "16%"},
+			{ title: "Check Box", "width": "5%"},
+            { title: "Name", "width": "15%"},
+            { title: "Email.", "width": "15%"},
+            { title: "Phone Number", "width": "15%"},
+            { title: "Provider Name", "width": "15%"},         
+            { title: "Facility Name", "width": "15%"},
 			{ title: "Visited Date", "width": "16%"}
           ],        
         });
