@@ -108,7 +108,7 @@
 											<th class="searchbox">Provider Name</th>
 											<th class="searchbox">Facility Name</th>
 											<th class="searchbox">Visited Date</th>
-										</tr> -->
+										</tr> 
 										</thead>
 									</table>
 								</div>-->
