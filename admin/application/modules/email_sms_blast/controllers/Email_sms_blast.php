@@ -1711,7 +1711,7 @@ class Email_sms_blast extends MX_Controller
             $this->Email_sms_blast_model->setName($name);
         }                
         if(!empty($visited_date)) {
-           $this->Email_sms_blast_model->setStartDate(date('mm/dd/yyyy', strtotime($visited_date))); 
+           $this->Email_sms_blast_model->setStartDate(date('m/d/yy', strtotime($visited_date))); 
         }        
         $getOrderInfo = $this->Email_sms_blast_model->getOrders();
         $data = array();
