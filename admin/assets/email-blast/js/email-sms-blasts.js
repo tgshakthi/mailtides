@@ -1861,3 +1861,55 @@ $(document).ready(function () {
       }    
     });
   }
+  
+  
+   // default render page
+  jQuery(document).ready(function() {
+   var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
+    generateOrderTable(data);
+  });
+ 
+  // render date datewise
+  jQuery(document).on('click','#filter-order-filter', function(){  
+    var name = jQuery('input#filter-name').val();    
+    var email = jQuery('input#filter-email').val();
+    var phone_number = jQuery('input#filter-phone-number').val();    
+    var provider_name = jQuery('input#filter-provider-name').val();
+	var facility_name = jQuery('input#filter-facility-name').val();
+	var visited_date = jQuery('input#filter-visited-date').val();
+    var data = {name:name, email:email, phone_number:phone_number, provider_name:provider_name, facility_name:facility_name, visited_date:visited_date};
+    generateOrderTable(data);
+  });
+  // generate Order Table
+  function generateOrderTable(element){ 
+  var base_url = $('#base_url').val();
+    jQuery.ajax({
+      url: base_url + 'email_sms_blast/get_table',
+      data: {'name' : element.name , 'email' : element.email, 'phone_number' : element.phone_number , 'provider_name' : element.provider_name, 'facility_name' : element.facility_name, 'visited_date' : element.visited_date},
+      type: 'post', 
+      dataType: 'json',
+      beforeSend: function () {
+        jQuery('#render-list-of-order').html('<div class="text-center mrgA padA"><i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i></div>');
+      },       
+      success: function (html) {
+        var dataTable='<table id="order-datatable" class="table table-striped" cellspacing="0" width="100%"></table>';
+        jQuery('#render-list-of-order').html(dataTable);    
+        var table = $('#order-datatable').DataTable({
+          data: html.data,
+          "bPaginate": true,
+          "bLengthChange": true,
+          "bFilter": false,
+          "bInfo": true,
+          "bAutoWidth": true,
+          columns: [
+            { title: "Name", "width": "16%"},
+            { title: "Email.", "width": "16%"},
+            { title: "Phone Number", "width": "16%"},
+            { title: "Provider Name", "width": "16%"},         
+            { title: "Facility Name", "width": "16%"},
+			{ title: "Visited Date", "width": "16%"}
+          ],        
+        });
+      }    
+    });
+  }

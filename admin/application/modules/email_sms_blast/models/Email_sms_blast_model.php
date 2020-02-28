@@ -11,6 +11,10 @@ if (!defined('BASEPATH'))
 class Email_sms_blast_model extends CI_Model
 {
 	private $table_name = 'email_sms_blast_users';
+	private $_name;
+   // private $_city;
+    private $_startDate;
+   
 	function __construct() {
         // Set table name
         $this->table = 'email_sms_blast_users';
@@ -1333,19 +1337,28 @@ class Email_sms_blast_model extends CI_Model
 	}
 	
 	
-    // get Orders List
-    public function getOrders() {        
-        $this->db->select('*');
-        $this->db->from($this->table);
-        /* if(!empty($this->_startDate) && !empty($this->_endDate)) {
-            $this->db->where('DATE_FORMAT(FROM_UNIXTIME(`o`.`order_date`),"%Y-%m-%d") BETWEEN \'' . $this->_startDate . '\' AND \'' . $this->_endDate . '\'');
-        }     */    
-        /* if(!empty($this->_order_id)){
-            $this->db->where('o.order_id', $this->_order_id);
-        }  */       
-        /* if(!empty($this->_name)){            
-            $this->db->like('o.name', $this->_name, 'both');
-        }  */      
+    function setName($name) {
+        $this->_name = $name;
+    }    
+    function setStartDate($startDate) {
+		
+        $this->_startDate = $startDate;
+    }
+   
+	// get Orders List
+    function getOrders() {        
+         $this->db->select('*');
+      //'id,product_name,product_price,product_image,status,created_at'
+	   $this->db->from($this->table_name);
+        if(!empty($this->_startDate)){
+            $this->db->where(array(
+					'visited_date' => $this->_startDate
+				));
+          $this->db->last_query();
+	   }            
+        if(!empty($this->_name)){            
+            $this->db->like('name', $this->_name, 'both');
+        }       
         $this->db->order_by('name', 'ASC');
         $query = $this->db->get();
         return $query->result_array();
