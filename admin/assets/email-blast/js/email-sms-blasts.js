@@ -1861,15 +1861,10 @@ $(document).ready(function () {
       }    
     });
   } */
-  jQuery(document).ready(function() {
-     // Datepickers
-	$('#filter-visited-date').datepicker({
-		changeMonth: true,
-		changeYear: true
-	});
+  
+  
    // default render page
   jQuery(document).ready(function() {
-	
    var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
     generateOrderTable(data);
   });
@@ -1882,14 +1877,13 @@ $(document).ready(function () {
     var phone_number = jQuery('input#filter-phone-number').val();    
     var provider_name = jQuery('input#filter-provider-name').val();
 	var facility_name = jQuery('input#filter-facility-name').val();
-	var visited_date = $('#filter-visited-date').datepicker('getDate');	  
+	var visited_date = jQuery('input#filter-visited-date').val();
 	alert(visited_date);
     var data = {name:name, email:email, phone_number:phone_number, provider_name:provider_name, facility_name:facility_name, visited_date:visited_date};
     generateOrderTable(data);
   });
   // generate Order Table
-  function generateOrderTable(element){
-
+  function generateOrderTable(element){ 
   var base_url = $('#base_url').val();
     jQuery.ajax({
       url: base_url + 'email_sms_blast/get_table',
@@ -1923,4 +1917,3 @@ $(document).ready(function () {
       }    
     });
   }
-});
