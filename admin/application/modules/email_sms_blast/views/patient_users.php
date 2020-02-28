@@ -46,7 +46,7 @@
 							</div>
 							
 							<div class="row">   
-								<div class="col-lg-2">                                        
+								<div class="col-lg-1">                                        
 									<div class="form-group">
 										<input type="text" name="name" value="" class="form-control" id="filter-name" placeholder="Name">
 									</div>
@@ -71,7 +71,7 @@
 										<input type="text" name="facility_name" value="" class="form-control" id="filter-facility-name" placeholder="Facility Name">
 									</div> 
 								</div>
-								<div class="col-lg-1">
+								<div class="col-lg-2">
 									<div class="form-group">
 										<input type="date" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
 									</div> 
