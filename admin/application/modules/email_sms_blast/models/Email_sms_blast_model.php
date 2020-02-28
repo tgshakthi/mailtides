@@ -1341,20 +1341,19 @@ class Email_sms_blast_model extends CI_Model
         $this->_name = $name;
     }    
     function setStartDate($startDate) {
-		print_r($startDate);die;
+		
         $this->_startDate = $startDate;
     }
    
 	// get Orders List
     function getOrders() {        
-       $this->db->select('*');
+         $this->db->select('*');
+      //'id,product_name,product_price,product_image,status,created_at'
 	   $this->db->from($this->table_name);
-	   $this->db->where(array(
+	    $this->db->where(array(
 					'is_deleted' => '0'
 	   ));
-	  
         if(!empty($this->_startDate)){
-			print_r($this->_startDate);die;
             $this->db->where(array(
 					'visited_date' => $this->_startDate
 				));

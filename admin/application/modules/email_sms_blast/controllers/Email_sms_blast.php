@@ -1598,7 +1598,7 @@ class Email_sms_blast extends MX_Controller
 		print_r($data);
 	}
 	
-	/* function test_datatable()
+	function test_datatable()
 	{
 		
 		$website_id = $this->admin_header->website_id();
@@ -1697,7 +1697,7 @@ class Email_sms_blast extends MX_Controller
         );
 
         echo json_encode($json_data);
-	} */
+	}
 	public function get_table() {    
 	 
         $name = $this->input->post('name');
@@ -1711,15 +1711,17 @@ class Email_sms_blast extends MX_Controller
             $this->Email_sms_blast_model->setName($name);
         }                
         if(!empty($visited_date)) {
-           $this->Email_sms_blast_model->setStartDate(date('mm/dd/yyyy', strtotime($this->startDate))); 
+            $this->Email_sms_blast_model->setStartDate(date('m/d/yy', strtotime($visited_date)));
+            
         }        
         $getOrderInfo = $this->Email_sms_blast_model->getOrders();
         $data = array();
         foreach ($getOrderInfo as $element) {   
-		  
+		  // print_r($element);die;
+           
+		
             $nestedData = array();			
             $nestedData[] = '<p><input type="checkbox" class="flat" id="table_records" name="product_records[]" value="" . $row["id"] . ""><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="" . $element["id"] . ""></p>';
-
             $nestedData[] = '<p>'.$element["name"].'</p>';
             $nestedData[] = '<p>'.$element["email"].'</p>';
             $nestedData[] = '<p>'.$element["phone_number"].'</p>';
@@ -1731,7 +1733,7 @@ class Email_sms_blast extends MX_Controller
         }
         echo json_encode(array("data" => $data));
     }
-/* 	
+	
 	 // get Orders List
     public function getOrderList() {    
         $name = $this->input->post('name');
@@ -1754,5 +1756,5 @@ class Email_sms_blast extends MX_Controller
             );
         }
         echo json_encode(array("data" => $dataArray));
-    } */
+    }
 }
