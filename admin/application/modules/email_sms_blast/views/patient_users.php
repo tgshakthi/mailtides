@@ -44,49 +44,44 @@
 									</button>
 								</div>
 							</div>
-							<div class="row">
-    <div class="col-lg-12">
-        <h2>DataTable using Codeigniter, MySQL and AJAX</h2>                 
-    </div>
-</div>
- 
-<div class="row">   
-            <div class="col-lg-2">                                        
-                <div class="form-group">
-                    <input type="text" name="name" value="" class="form-control" id="filter-name" placeholder="Name">
-                </div>
-            </div> 
-            <div class="col-lg-2">   
-                <div class="form-group">
-                     <input type="text" name="email" value="" class="form-control" id="filter-email" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <input type="text" name="phone_number" value="" class="form-control" id="filter-phone-number" placeholder="Phone Number">
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <input type="text" name="provider_name" value="" class="form-control" id="filter-provider-name" placeholder="Provider Name">
-                </div> 
-            </div>
-			<div class="col-lg-2">
-                <div class="form-group">
-                    <input type="text" name="facility_name" value="" class="form-control" id="filter-facility-name" placeholder="Facility Name">
-                </div> 
-            </div>
-			<div class="col-lg-1">
-                <div class="form-group">
-                    <input type="text" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
-                </div> 
-            </div>
-            <div class="col-lg-1">                                      
-                <div class="form-group">
-                    <button name="filter_email_filter" type="button" class="btn btn-primary btn-block" id="filter_email_filter" value="filter"><i class="fa fa-search fa-fw"></i></button>
-                </div>
-            </div>                                        
-        </div>
+							
+							<div class="row">   
+								<div class="col-lg-2">                                        
+									<div class="form-group">
+										<input type="text" name="name" value="" class="form-control" id="filter-name" placeholder="Name">
+									</div>
+								</div> 
+								<div class="col-lg-2">   
+									<div class="form-group">
+										 <input type="text" name="email" value="" class="form-control" id="filter-email" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<input type="text" name="phone_number" value="" class="form-control" id="filter-phone-number" placeholder="Phone Number">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<input type="text" name="provider_name" value="" class="form-control" id="filter-provider-name" placeholder="Provider Name">
+									</div> 
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<input type="text" name="facility_name" value="" class="form-control" id="filter-facility-name" placeholder="Facility Name">
+									</div> 
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<input type="text" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
+									</div> 
+								</div>
+								<div class="col-lg-1">                                      
+									<div class="form-group">
+										<button name="filter_email_filter" type="button" class="btn btn-primary btn-block" id="filter_email_filter" value="filter"><i class="fa fa-search fa-fw"></i></button>
+									</div>
+								</div>                                        
+							</div>
         <div class="row">
         <div class="col-lg-12">      
         <div id="render-list-of-order">
