@@ -73,7 +73,7 @@
 								</div>
 								<div class="col-lg-1">
 									<div class="form-group">
-										<input type="text" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
+										<input type="date" name="visited_date" value="" class="form-control getDatePicker" id="filter-visited-date" placeholder="Visited Date">
 									</div> 
 								</div>
 								<div class="col-lg-1">                                      
