@@ -1870,7 +1870,7 @@ $(document).ready(function () {
   });
  
   // render date datewise
-  jQuery(document).on('click','#filter-order-filter', function(){  
+  jQuery(document).on('click','#filter_email_filter', function(){  
     var name = jQuery('input#filter-name').val();    
     var email = jQuery('input#filter-email').val();
     var phone_number = jQuery('input#filter-phone-number').val();    
