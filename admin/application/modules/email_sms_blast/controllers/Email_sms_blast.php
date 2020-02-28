@@ -1711,14 +1711,12 @@ class Email_sms_blast extends MX_Controller
             $this->Email_sms_blast_model->setName($name);
         }                
         if(!empty($visited_date)) {
-           $this->Email_sms_blast_model->setStartDate(date('m/d/yy', strtotime($visited_date))); 
+           $this->Email_sms_blast_model->setStartDate(Date_format($visited_date, "m/d/Y");); 
         }        
         $getOrderInfo = $this->Email_sms_blast_model->getOrders();
         $data = array();
         foreach ($getOrderInfo as $element) {   
-		  // print_r($element);die;
-           
-		
+		  
             $nestedData = array();			
             $nestedData[] = '<p><input type="checkbox" class="flat" id="table_records" name="product_records[]" value="" . $row["id"] . ""><input type="hidden" id="row_sort_order" name="row_sort_order[]" value="" . $element["id"] . ""></p>';
 
