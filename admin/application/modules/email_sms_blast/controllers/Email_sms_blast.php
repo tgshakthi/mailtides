@@ -1709,15 +1709,14 @@ class Email_sms_blast extends MX_Controller
              
         $getOrderInfo = $this->Email_sms_blast_model->get_users();
         $dataArray = array();
-        foreach ($getOrderInfo as $element) { 
-echo '<pre>';print_r($element->name);die;		
+        foreach ($getOrderInfo as $element) { 		
             $dataArray[] = array(
-                $element['name'],                
-                $element['email'],
-                $element['phone_number'],
-                $element['provider_name'],
-                $element['facility_name'],
-				date(DATE_FORMAT_SIMPLE, $element['visited_date']),
+                $element->name,                
+                $element->email,
+                $element->phone_number,
+                $element->provider_name,
+                $element->facility_name,
+				date(DATE_FORMAT_SIMPLE, $element->visited_date),
             );
         }
         echo json_encode(array("data" => $dataArray));
