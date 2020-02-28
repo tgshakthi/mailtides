@@ -1777,9 +1777,6 @@ $(document).ready(function () {
 		"buttons": [{
 		    extend: 'collection',
 		    text: 'Export',
-		    buttons: [                    
-		        'excel'                 
-		    ]
 		}],      
 		"ajax": {
 			url: base_url + 'email_sms_blast/test_datatable',
