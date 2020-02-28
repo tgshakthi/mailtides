@@ -1807,7 +1807,7 @@ $(document).ready(function () {
 		} 
 	});
 }); */
-
+/* 
   // render order list data table
   // default render page
   jQuery(document).ready(function() {
@@ -1860,7 +1860,7 @@ $(document).ready(function () {
         });
       }    
     });
-  }
+  } */
   
   
    // default render page
