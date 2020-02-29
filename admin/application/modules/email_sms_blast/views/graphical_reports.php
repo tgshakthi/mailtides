@@ -58,8 +58,10 @@
 						<label>To Date:</label>
 						<input type="text" id="Graphics_max">
 					</div>
-					<div>                                      
-						<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>					
+					<div class="col-lg-1">                                      
+						<div class="form-group">
+							<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>
+						</div>
 					</div>
 				</div>
 				 
