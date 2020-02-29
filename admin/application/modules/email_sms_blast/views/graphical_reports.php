@@ -49,8 +49,7 @@
             </div>
           </div>
 		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">							
-				<div class="email-blast-date">
-			
+				<div class="email-blast-date">			
 					<div>
 						<label>From Date:</label>
 						<input type="text" id="Graphics_min">
@@ -60,6 +59,11 @@
 						<input type="text" id="Graphics_max">
 					</div>
 				</div>
+				<div class="col-lg-1">                                      
+					<div class="form-group">
+						<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>
+					</div>
+				</div> 
 			</div>
         </div>
       </div>
