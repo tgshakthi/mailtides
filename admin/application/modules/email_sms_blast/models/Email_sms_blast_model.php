@@ -1341,7 +1341,6 @@ class Email_sms_blast_model extends CI_Model
         $this->_name = $name;
     }    
     function setStartDate($startDate) {
-		print_r($startDate);die;
         $this->_startDate = $startDate;
     }
    
