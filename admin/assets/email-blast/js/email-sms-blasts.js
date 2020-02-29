@@ -1876,8 +1876,8 @@ $(document).ready(function () {
 });
 
 jQuery(document).on('click','#date_filter_graphical_report', function(){ 
-	var graphics_min = $('#min').datepicker('Graphics_min');
-	var graphics_max = $('#max').datepicker('Graphics_max');
+	var graphics_min = $('#Graphics_min').datepicker('getDate');
+	var graphics_max = $('#Graphics_max').datepicker('getDate');
 	alert(graphics_min);
 	alert(graphics_max);
 });
