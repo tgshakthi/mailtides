@@ -1861,3 +1861,16 @@ $(document).ready(function () {
       }    
     });
   }
+  
+  $(document).ready(function () {
+	// Datepickers	
+	$('#Graphics_max').datepicker()
+		.on('changeDate', function(ev){                 
+		$('#Graphics_max').datepicker('hide');
+	});
+		// Datepickers	
+	$('#Graphics_min').datepicker()
+		.on('changeDate', function(ev){                 
+		$('#Graphics_min').datepicker('hide');
+	});
+});
