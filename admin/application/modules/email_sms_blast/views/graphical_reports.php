@@ -49,15 +49,19 @@
             </div>
           </div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-			<div>
-				<label>From Date:</label>
-				<input type="text" id="Graphics_min">
+			<div class="email-blast-date">
+				<div>
+					<label>From Date:</label>
+					<input type="text" id="Graphics_min">
+				</div>
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-			<div>
-				<label>To Date:</label>
-				<input type="text" id="Graphics_max">
+			<div class="email-blast-date">
+				<div>
+					<label>To Date:</label>
+					<input type="text" id="Graphics_max">
+				</div>
 			</div>
 		</div>	
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
