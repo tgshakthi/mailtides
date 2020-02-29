@@ -1875,6 +1875,6 @@ $(document).ready(function () {
 	});
 });
 
-jQuery(document).on('click','#filter_email_filter', function(){ 
-		
+jQuery(document).on('click','#date_filter_graphical_report', function(){ 
+		alert();
 });
