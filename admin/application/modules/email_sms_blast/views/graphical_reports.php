@@ -48,24 +48,29 @@
               </div>
             </div>
           </div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">							
-				<div class="email-blast-date">			
-					<div>
-						<label>From Date:</label>
-						<input type="text" id="Graphics_min">
-					</div>
-					<div>
-						<label>To Date:</label>
-						<input type="text" id="Graphics_max">
-					</div>
-					<div class="col-lg-1">                                      
-						<div class="form-group">
-							<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>
-						</div>
-					</div>
-				</div>
-				 
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+			<div>
+				<label>From Date:</label>
+				<input type="text" id="Graphics_min">
 			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+			<div>
+				<label>To Date:</label>
+				<input type="text" id="Graphics_max">
+			</div>
+		</div>	
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+			<div class="col-lg-1">                                      
+				<div class="form-group">
+					<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>
+				</div>
+			</div>
+		</div>			
+					 
+			
+			
+			
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">
