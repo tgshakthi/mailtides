@@ -1874,3 +1874,7 @@ $(document).ready(function () {
 		$('#Graphics_min').datepicker('hide');
 	});
 });
+
+jQuery(document).on('click','#filter_email_filter', function(){ 
+		
+});
