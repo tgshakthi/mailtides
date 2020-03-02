@@ -1265,7 +1265,7 @@ if ($('#mybarChart').length) {
 						chartData.push(campaignData.sent);
 						chartData.push(campaignData.link_open);
 						chartData.push(link_not_opened);
-						chartsData.push(campaignData.link_open);
+						// chartsData.push(campaignData.link_open);
 						// chartsData.push(campaignData.posted);
 						// chartsData.push(campaignData.not_posted);
 
@@ -1828,7 +1828,7 @@ $(document).ready(function () {
   });
   // generate Order Table
   function generateOrderTable(element){ 
-  var base_url = $('#base_url').val();
+	var base_url = $('#base_url').val();
     jQuery.ajax({
       url: base_url + 'email_sms_blast/get_table',
       data: {'name' : element.name , 'email' : element.email, 'phone_number' : element.phone_number , 'provider_name' : element.provider_name, 'facility_name' : element.facility_name, 'visited_date' : element.visited_date},
