@@ -1636,8 +1636,17 @@ $(document).ready(function () {
 });
 
 jQuery(document).on('click','#date_filter_graphical_report', function(){ 
+	var base_url = $('#base_url').val();
 	var graphics_min = $('#Graphics_min').datepicker('getDate');
 	var graphics_max = $('#Graphics_max').datepicker('getDate');
-	alert(graphics_min);
-	alert(graphics_max);
+	$.ajax({
+		type: 'POST',
+		url: base_url + 'email_sms_blast/check_patient_phone_number',
+		data: {
+			phone_number: phone_number
+		},
+		success: function (result) {
+			
+		}
+	});
 });

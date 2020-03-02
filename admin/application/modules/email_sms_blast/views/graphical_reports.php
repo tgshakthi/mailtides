@@ -38,7 +38,7 @@
           </div>
 		  <div class="x_content">
             <div class="form-group">
-              <label for="campaign_type" class="control-label col-md-3 col-sm-3 col-xs-12"> Select Provider Name </label>
+              <label for="campaign_type" class="control-label col-md-3 col-sm-3 col-xs-12"> Select Campaign Name </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id;?>">
                 <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url();?>">
