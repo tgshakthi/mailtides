@@ -1595,7 +1595,7 @@ class Email_sms_blast extends MX_Controller
 		$campaign_name_data_id = $this->input->post('campaign_name_data');
 		$start_date = date("m/d/Y", strtotime($graphics_min));
 		$end_date = date("m/d/Y", strtotime($graphics_max));
-		print_r($start_date);
+		echo '<pre>';print_r($start_date);
 		print_r($end_date);die;
 	}
 }
