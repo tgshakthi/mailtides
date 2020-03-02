@@ -912,6 +912,7 @@ if ($('#mybarChart').length) {
 			cache: false,
 			success: function (data) {
 				var campaignData = JSON.parse(data);
+				console.log(campaignData);
 				var chartData = [];
 				var chartsData = [];
 				if (campaignData.type == 'email') {
