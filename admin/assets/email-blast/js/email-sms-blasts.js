@@ -891,14 +891,14 @@ $(document).ready(function () {
 if ($('#mybarChart').length) {
 	var f = document.getElementById('mybarChart').getContext("2d");
 	var p = document.getElementById('piechart').getContext("2d");
-	var opened = document.getElementById('mail-opened').value;
+	/* var opened = document.getElementById('mail-opened').value;
 	var notOpened = document.getElementById('mail-unopened').value;
 	var commentsPosted = document.getElementById('mail-comments-posted').value;
 	var commentsNotPosted = document.getElementById('mail-comments-not-posted').value;
 	var txgidocsReviews = document.getElementById('mail-txgidocs').value;
 	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
-	var mailSent = document.getElementById('mail-sent').value;
+	var mailSent = document.getElementById('mail-sent').value; */
 
 	/* function campaign(e) {
 		var baseUrl = $('#base_url').val();
