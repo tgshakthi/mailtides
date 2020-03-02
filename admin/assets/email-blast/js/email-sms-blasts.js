@@ -1639,7 +1639,12 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 	var base_url = $('#base_url').val();
 	var graphics_min = $('#Graphics_min').datepicker('getDate');
 	var graphics_max = $('#Graphics_max').datepicker('getDate');
-	$.ajax({
+	var campaign_name_data = $('#Graphics_max').datepicker('campaign_name_data');
+	alert();
+	alert();
+	alert();
+	alert();
+	/* $.ajax({
 		type: 'POST',
 		url: base_url + 'email_sms_blast/check_patient_phone_number',
 		data: {
@@ -1648,5 +1653,5 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 		success: function (result) {
 			
 		}
-	});
+	}); */
 });
