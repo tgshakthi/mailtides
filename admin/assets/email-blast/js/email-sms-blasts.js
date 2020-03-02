@@ -1642,7 +1642,7 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 		data: {
 			graphics_min: graphics_min,
 			graphics_max: graphics_max,
-			campaign_name_data_id: campaign_name_data,
+			campaign_name_data_id: campaign_name_data_id,
 		},
 		success: function (result) {
 			alert(result);
