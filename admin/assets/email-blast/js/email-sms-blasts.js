@@ -902,6 +902,8 @@ if ($('#mybarChart').length) {
 	function campaign(e) {
 		var baseUrl = $('#base_url').val();
 		var campaign_type = $('#campaign_type').val();
+		alert(e);
+		alert(campaign_type);
 		$.ajax({
 			method: 'POST',
 			url: baseUrl + 'email_sms_blast/graphical_campaign_id',
