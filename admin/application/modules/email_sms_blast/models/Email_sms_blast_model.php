@@ -1387,6 +1387,7 @@ class Email_sms_blast_model extends CI_Model
         ));
 		$this->db->where('sent_date BETWEEN'.$graphics_min.' AND '.$graphics_max.'');
         $query   = $this->db->get('zcms_import_data');
+		$this->db->last_query();die;
         $records = array();
         if ($query->num_rows() > 0):
             $records = $query->result();
