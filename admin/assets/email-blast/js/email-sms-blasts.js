@@ -1629,8 +1629,8 @@ $(document).ready(function () {
 
 jQuery(document).on('click','#date_filter_graphical_report', function(){ 
 	var base_url = $('#base_url').val();
-	var graphics_min = $('#Graphics_min').datepicker('getDate');
-	var graphics_max = $('#Graphics_max').datepicker('getDate');
+	var graphics_min = $('#Graphics_min').val();
+	var graphics_max = $('#Graphics_max').val();
 	var campaign_name_data = $('#campaign_name_data').val();
 	alert(base_url);
 	alert(graphics_min);
