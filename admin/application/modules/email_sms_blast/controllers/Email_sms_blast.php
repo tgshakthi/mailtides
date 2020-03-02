@@ -1439,7 +1439,6 @@ class Email_sms_blast extends MX_Controller
 	
 	function test_datatable()
 	{
-		
 		$website_id = $this->admin_header->website_id();
 		$placed_status = '';
         $requestData = $_REQUEST;
@@ -1456,11 +1455,9 @@ class Email_sms_blast extends MX_Controller
         $totalFiltered = $get_data;  
 		$can = 0; 
 		for($c=0;$c<count($requestData['columns']);$c++)
-		{	
-			echo'<pre>';print_r($requestData['columns']);	
+		{		
 			if (!empty($requestData['columns'][$c]['order']['search']['value']))
 			{
-				echo 'test';
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
@@ -1483,7 +1480,6 @@ class Email_sms_blast extends MX_Controller
 		{
 			if (!empty($requestData['search']['value']))
 			{
-				echo 'test1';
 				$sql = "SELECT *";
 				$sql .= " FROM zcms_email_sms_blast_users";
 				if($placed_status != '')
@@ -1498,7 +1494,6 @@ class Email_sms_blast extends MX_Controller
 				$totalFiltered = $query->num_rows(); 
 	
 				$sql .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . " LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ""; 
-				print_r($sql);die;
 				$query = $this->db->query($sql); 
 			}
 			else
@@ -1594,4 +1589,13 @@ class Email_sms_blast extends MX_Controller
         }
         echo json_encode(array("data" => $dataArray));
     }
+	function date_range_graphical_report(){
+		$graphics_min = $this->input->post('graphics_min');
+		$graphics_max = $this->input->post('graphics_max');
+		$campaign_name_data_id = $this->input->post('campaign_name_data_id');
+		$start_date = date("m/d/Y", strtotime($graphics_min));
+		$end_date = date("m/d/Y", strtotime($graphics_max));
+		print_r($start_date);
+		print_r($end_date);die;
+	}
 }

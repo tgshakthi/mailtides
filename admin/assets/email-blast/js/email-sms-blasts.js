@@ -1644,14 +1644,16 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 	alert(graphics_min);
 	alert(graphics_max);
 	alert(campaign_name_data);
-	/* $.ajax({
+	$.ajax({
 		type: 'POST',
-		url: base_url + 'email_sms_blast/check_patient_phone_number',
+		url: base_url + 'email_sms_blast/date_range_graphical_report',
 		data: {
-			phone_number: phone_number
+			graphics_min: graphics_min,
+			graphics_max: graphics_max,
+			campaign_name_data_id: campaign_name_data_id,
 		},
 		success: function (result) {
-			
+			alert(result);
 		}
-	}); */
+	});
 });
