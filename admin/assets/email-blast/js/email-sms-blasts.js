@@ -1240,6 +1240,7 @@ if ($('#mybarChart').length) {
 			}
 		});
 	} 
+}
 //onchage function for campaign id
  $(document).ready(function () {
 	var option = '<option value="">Select Campaign</option>';
