@@ -48,7 +48,7 @@
               </div>
             </div>
           </div>
-		<!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 			<div class="email-blast-date">
 				<div>
 					<label>From Date:</label>
@@ -70,11 +70,7 @@
 					<button name="date_filter_graphical_report" type="button" class="btn btn-primary btn-block" id="date_filter_graphical_report" value="filter"><i class="fa fa-search fa-fw"></i></button>
 				</div>
 			</div>
-		</div>	-->		
-					 
-			
-			
-			
+		</div>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">

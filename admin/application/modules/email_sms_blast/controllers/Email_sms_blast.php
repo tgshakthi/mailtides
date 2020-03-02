@@ -1718,9 +1718,6 @@ class Email_sms_blast extends MX_Controller
         $getOrderInfo = $this->Email_sms_blast_model->getOrders();
         $data = array();
         foreach ($getOrderInfo as $element) {   
-		  // print_r($element);die;
-           
-		
             $nestedData = array();			
             $nestedData[] = '<p><input type="checkbox" class="flat" id="table_records" name="product_records[]" value='.$element["id"].'"><input type="hidden" id="row_sort_order" name="row_sort_order[]" value='.$element["id"].'"></p>';
             $nestedData[] = '<p>'.$element["name"].'</p>';
