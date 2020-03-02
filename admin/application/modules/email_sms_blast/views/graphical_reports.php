@@ -90,12 +90,12 @@
                        echo $not_opened;
                       ?>
                     </textarea>
-            <textarea id="mail-comments-posted" style="display: none"><?php echo $posted;?></textarea>
-            <textarea id="mail-comments-not-posted" style="display: none"><?php echo $not_posted;?></textarea>
-            <textarea id="mail-txgidocs" style="display: none"><?php echo $txgidocs;?></textarea>
-            <textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
+            <textarea id="mail-comments-posted" style="display: none">Sent</textarea>
+            <textarea id="mail-comments-not-posted" style="display: none">Link Open</textarea>
+            <textarea id="mail-txgidocs" style="display: none">Link not open</textarea>
+           <!-- <textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
             <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
-            <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
+            <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea> -->
             <div class="row" id="barchart" style="display:table; width:100%;">
 				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" style="float:left;">
 					<h2 id="title">Send/Open/Unopen</h2>
