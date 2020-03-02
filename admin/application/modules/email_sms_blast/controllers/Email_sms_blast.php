@@ -1593,9 +1593,12 @@ class Email_sms_blast extends MX_Controller
 		$graphics_min = $this->input->post('graphics_min');
 		$graphics_max = $this->input->post('graphics_max');
 		$campaign_name_data_id = $this->input->post('campaign_name_data');
-		$start_date = date("m/d/Y", strtotime($graphics_min));
-		$end_date = date("m/d/Y", strtotime($graphics_max));
-		echo '<pre>';print_r($start_date);
+		$strDate = substr($graphics_min);
+		$start_date = date('m/d/Y', strtotime($strDate));
+		$endDate = substr($graphics_max);
+		$end_date = date('m/d/Y', strtotime($endDate));
+		echo'<pre>';
+		print_r($start_date);
 		print_r($end_date);die;
 	}
 }
