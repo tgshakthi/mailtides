@@ -891,16 +891,15 @@ $(document).ready(function () {
 if ($('#mybarChart').length) {
 	var f = document.getElementById('mybarChart').getContext("2d");
 	var p = document.getElementById('piechart').getContext("2d");
-	/* var opened = document.getElementById('mail-opened').value;
+	var opened = document.getElementById('mail-opened').value;
 	var notOpened = document.getElementById('mail-unopened').value;
 	var commentsPosted = document.getElementById('mail-comments-posted').value;
 	var commentsNotPosted = document.getElementById('mail-comments-not-posted').value;
 	var txgidocsReviews = document.getElementById('mail-txgidocs').value;
 	var googleReviews = document.getElementById('mail-google').value;
 	var facebookReviews = document.getElementById('mail-facebook').value;
-	var mailSent = document.getElementById('mail-sent').value; */
-
-	/* function campaign(e) {
+	var mailSent = document.getElementById('mail-sent').value;
+	function campaign(e) {
 		var baseUrl = $('#base_url').val();
 		var campaign_type = $('#campaign_type').val();
 		$.ajax({
@@ -1240,139 +1239,7 @@ if ($('#mybarChart').length) {
 				}
 			}
 		});
-	} */
-	function campaign(e) {
-		var baseUrl = $('#base_url').val();
-		var campaign_type = $('#campaign_type').val();
-		$.ajax({
-			method: 'POST',
-			url: baseUrl + 'email_sms_blast/graphical_campaign_id',
-			data: {
-				campaign_id: e
-			},
-			cache: false,
-			success: function (data) {
-				if(data != '')
-				{
-					var campaignData = JSON.parse(data);
-					var chartData = [];
-					var chartsData = [];
-					if (campaignData != '') {
-						$('#barchart').show();
-						$('#title').show();
-						$('#title-report').show();
-						var link_not_opened = (campaignData.sent - campaignData.link_open);
-						chartData.push(campaignData.sent);
-						chartData.push(campaignData.link_open);
-						chartData.push(link_not_opened);
-						// chartsData.push(campaignData.link_open);
-						// chartsData.push(campaignData.posted);
-						// chartsData.push(campaignData.not_posted);
-
-						if (window.bar != undefined) {
-							window.bar.destroy();
-						}
-						chart = new Chart(f, {
-							type: 'bar',
-							data: {
-								labels: [
-									'Sent',
-									'Opened',
-									'Unopened'
-								],
-								datasets: [{
-									backgroundColor: [
-										'#26B99A',
-										'#EE82EE',
-										'#DA70D6'
-									],
-									data: chartData
-								}]
-							},
-							options: {
-								legend: {
-									display: false
-								},
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: !0,
-											stepSize: 100
-										}
-									}]
-								}
-							},
-							options: {
-								responsive: true,
-								maintainAspectRatio: false,
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true,
-											stepSize: 100
-										}
-									}]
-								}
-							}
-						});
-
-						if (window.chart != undefined) {
-							window.chart.destroy();
-						}
-						charts = new Chart(p, {
-							type: 'bar',
-							data: {
-								labels: [
-									'Opened',
-									'Comments Posted'
-								],
-								datasets: [{
-									backgroundColor: [
-										'#CC0066',
-										'#000099'
-									],
-									data: chartsData
-								}]
-							},
-							options: {
-								legend: {
-									display: false
-								},
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: !0,
-											stepSize: 100
-										}
-									}]
-								}
-							},
-							options: {
-								responsive: true,
-								maintainAspectRatio: false,
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true,
-											stepSize: 100
-										}
-									}]
-								}
-							}
-						});
-
-						window.bar = chart;
-						window.chart = charts;
-					}
-				}else {
-					$('#barchart').hide();
-					$('#title').hide();
-					$('#title-report').hide();					
-				}	
-			}
-		});
-	}
-}
+	} 
 //onchage function for campaign id
  $(document).ready(function () {
 	var option = '<option value="">Select Campaign</option>';

@@ -76,7 +76,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_content">
-            <!--<div id="text_area"> </div>
+            <div id="text_area"> </div>
             <textarea id="mail-opened" style="display: none">
                       <?php
                          
@@ -95,7 +95,7 @@
             <textarea id="mail-txgidocs" style="display: none">Link not open</textarea>
 			<textarea id="mail-google" style="display: none"><?php echo $google;?></textarea>
             <textarea id="mail-facebook" style="display: none"><?php echo $facebook;?></textarea>
-            <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>-->
+            <textarea id="mail-sent" style="display: none"><?php echo $sent;?></textarea>
             <div class="row" id="barchart" style="display:table; width:100%;">
 				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" style="float:left;">
 					<h2 id="title">Send/Open/Unopen</h2>
