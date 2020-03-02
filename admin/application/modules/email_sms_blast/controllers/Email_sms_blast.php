@@ -1592,13 +1592,12 @@ class Email_sms_blast extends MX_Controller
 	function date_range_graphical_report(){
 		$graphics_min = $this->input->post('graphics_min');
 		$graphics_max = $this->input->post('graphics_max');
-		$campaign_name_data_id = $this->input->post('campaign_name_data');
-		$strDate = substr($graphics_min);
-		$start_date = date('m/d/Y', strtotime($strDate));
-		$endDate = substr($graphics_max);
-		$end_date = date('m/d/Y', strtotime($endDate));
-		echo'<pre>';
+		$campaign_name_data_id = $this->input->post('campaign_name_data');		  
+		$start_date = date("m-d-Y", strtotime($graphics_min));
+		$end_date = date("m-d-Y", strtotime($graphics_min));
 		print_r($start_date);
-		print_r($end_date);die;
+		print_r($end_date);
+		die;
+		$get_graphical_data = $this->Email_sms_blast_model->get_date_range_graphical_report($campaign_name_data_id,$graphics_min,$graphics_max);
 	}
 }
