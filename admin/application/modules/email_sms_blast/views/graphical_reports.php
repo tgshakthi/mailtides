@@ -52,7 +52,7 @@
 			<div class="email-blast-date">
 				<div>
 					<label>From Date:</label>
-					<input type="text" id="Graphics_min">
+					<input type="text" id="Graphics_min" value="">
 				</div>
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 			<div class="email-blast-date">
 				<div>
 					<label>To Date:</label>
-					<input type="text" id="Graphics_max">
+					<input type="text" id="Graphics_max" value="">
 				</div>
 			</div>
 		</div>	
