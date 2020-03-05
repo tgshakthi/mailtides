@@ -1631,11 +1631,7 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 	var base_url = $('#base_url').val();
 	var graphics_min = $('#Graphics_min').val();
 	var graphics_max = $('#Graphics_max').val();
-	var campaign_name_data_id = $('#campaign_name_data').val();
-	alert(base_url);
-	alert(graphics_min);
-	alert(graphics_max);
-	alert(campaign_name_data_id);
+	var campaign_name_data_id = $('#campaign_name_data').val();	
 	$.ajax({
 		type: 'POST',
 		url: base_url + 'email_sms_blast/date_range_graphical_report',
@@ -1644,11 +1640,217 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 			graphics_max: graphics_max,
 			campaign_name_data_id: campaign_name_data_id,
 		},
-		success: function (result) {
-			alert(result);
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			alert(errorThrown);
+		success: function (data) {			
+			var campaignData = JSON.parse(data);
+			var chartData = [];
+			var chartsData = [];
+			if (campaignData != "") {
+				$('#barchart').show();
+				$('#title').show();
+				$('#title-report').show();
+				var link_not_opened = (campaignData.sent - campaignData.link_open);
+				chartData.push(campaignData.sent);
+				chartData.push(campaignData.link_open);
+				chartData.push(link_not_opened);
+				chartsData.push(campaignData.link_open);
+				// chartsData.push(campaignData.posted);
+				// chartsData.push(campaignData.not_posted);
+				if (window.bar != undefined) {
+					window.bar.destroy();
+				}
+				chart = new Chart(f, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Sent',
+							'Opened',
+							'Unopened'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#26B99A',
+								'#EE82EE',
+								'#DA70D6'
+							],
+							data: chartData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0,
+									stepSize: 100
+								}
+							}]
+						}
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 100
+								}
+							}]
+						}
+					}
+				});
+				if (window.chart != undefined) {
+					window.chart.destroy();
+				}
+				charts = new Chart(p, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Opened',
+							'Comments Posted'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#CC0066',
+								'#000099'
+							],
+							data: chartsData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0,
+									stepSize: 100
+								}
+							}]
+						}
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 100
+								}
+							}]
+						}
+					}
+				});
+				window.bar = chart;
+				window.chart = charts;
+			} else {
+				$('#barchart').show();
+				$('#title').show();
+				$('#title-report').show();
+				var link_not_opened = (campaignData.not_opened - campaignData.sms_link);
+				chartData.push(campaignData.sent);
+				chartData.push(campaignData.sms_link);
+				chartData.push(link_not_opened);
+				chartsData.push(campaignData.sms_link);
+				chartsData.push(campaignData.posted);
+				// chartsData.push(campaignData.not_posted);
+				if (window.bar != undefined) {
+					window.bar.destroy();
+				}
+				var chart = new Chart(f, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Sent',
+							'Opened',
+							'Unopened'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#26B99A',
+								'#EE82EE',
+								'#DA70D6'
+							],
+							data: chartData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0,
+									stepSize: 100
+								}
+							}]
+						}
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 100
+								}
+							}]
+						}
+					}
+				});
+				if (window.chart != undefined) {
+					window.chart.destroy();
+				}
+				charts = new Chart(p, {
+					type: 'bar',
+					data: {
+						labels: [
+							'Opened',
+							'Comments Posted'
+						],
+						datasets: [{
+							backgroundColor: [
+								'#CC0066',
+								'#000099'
+							],
+							data: chartsData
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						},
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: !0,
+									stepSize: 100
+								}
+							}]
+						}
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true,
+									stepSize: 100
+								}
+							}]
+						}
+					}
+				});
+				window.bar = chart;
+				window.chart = charts;
+			}
 		}
 	});
 });

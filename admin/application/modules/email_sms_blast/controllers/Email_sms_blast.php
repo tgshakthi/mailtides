@@ -1593,7 +1593,24 @@ class Email_sms_blast extends MX_Controller
 		$graphics_min = $this->input->post('graphics_min');
 		$graphics_max = $this->input->post('graphics_max');
 		$campaign_name_data_id = $this->input->post('campaign_name_data_id');		 		
-		$get_graphical_data = $this->Email_sms_blast_model->get_date_range_graphical_report($campaign_name_data_id,$graphics_min,$graphics_max);
-		print_r($get_graphical_data);die;
+		$get_graphical_datas = $this->Email_sms_blast_model->get_date_range_graphical_report($campaign_name_data_id,$graphics_min,$graphics_max);
+		if(!empty($get_graphical_datas)){
+			foreach($get_graphical_datas as $get_graphical_data)		
+			{
+				if(!empty($get_graphical_datas)){
+					$sent = count($get_graphical_datas);
+				}
+				if($get_graphical_data->link_open == '1'){
+					$link[] = $get_graphical_data->link_open;
+				}			
+			}
+			$data['link_open'] = count($link); 
+			$data['sent'] = $sent; 
+			echo json_encode($data);
+		}else{
+			$data['link_open'] = ''; 
+			$data['sent'] = '';
+			echo json_encode($data);
+		}
 	}
 }
