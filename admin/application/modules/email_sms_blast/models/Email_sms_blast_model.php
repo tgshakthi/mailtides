@@ -1382,7 +1382,7 @@ class Email_sms_blast_model extends CI_Model
 	function get_date_range_graphical_report($campaign_name_data_id,$graphics_min,$graphics_max)
 	{
 		$sql           = "SELECT *";
-        $sql          .= " FROM zcms_import_data WHERE `campaign_category_id = '".$campaign_name_data_id."'  AND  `sent_date`   BETWEEN  '". $graphics_min ."'  AND  '". $graphics_max ."' ";
+        $sql          .= " FROM zcms_import_data WHERE `campaign_category_id` = '".$campaign_name_data_id."'  AND  `sent_date`   BETWEEN  '". $graphics_min ."'  AND  '". $graphics_max ."' ";
         $query         = $this->db->query($sql);        
         $totalData     = $query->num_rows();
 		return $totalData;
