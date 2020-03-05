@@ -44,7 +44,6 @@
 									</button>
 								</div>
 							</div>
-							
 							<div class="row">   
 								<div class="col-lg-1">                                        
 									<div class="form-group">
@@ -82,36 +81,12 @@
 									</div>
 								</div>                                        
 							</div>
-        <div class="row">
-        <div class="col-lg-12">      
-        <div id="render-list-of-order">
-        </div>
-        </div>        
-    </div>
-							<!--<div class="table_main_container">
-									<table id="table_grid1" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" width="100%" cellspacing="0">
-										<thead>
-										<tr>
-											<th><input type="checkbox" id="check-all" class="flat"></th>
-											<th>Name</th>
-											<th>Email</th>
-											<th>Phone Number</th>
-											<th>Provider Name</th>
-											<th>Facility Name</th>
-											<th>Visited Date</th>
-										</tr>
-										<!--<tr>
-											<th></th>	
-											<th class="searchbox">Name</th>
-											<th class="searchbox">Email</th>
-											<th class="searchbox">Phone Number</th>
-											<th class="searchbox">Provider Name</th>
-											<th class="searchbox">Facility Name</th>
-											<th class="searchbox">Visited Date</th>
-										</tr> 
-										</thead>
-									</table>
-								</div>-->
+							<div class="row">
+								<div class="col-lg-12">      
+									<div id="render-list-of-order">
+									</div>
+								</div>        
+							</div>							
 							<?php //echo $table;?>
 						</form>
 						<!-- Confirm Delete Modal -->
