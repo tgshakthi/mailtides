@@ -182,6 +182,7 @@ class Email_sms_blast extends MX_Controller
     //mutliple delete
     function delete_multiple_user()
     {
+		
         $this->form_validation->set_rules('product_records[]', 'Row', 'required', array(
             'required' => 'You must select at least one row!'
         ));
