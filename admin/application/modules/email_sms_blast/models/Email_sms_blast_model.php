@@ -135,7 +135,8 @@ class Email_sms_blast_model extends CI_Model
     // Delete multiple user
     function delete_multiple_user_data()
     {
-        $ids = $this->input->post('table_records');
+        $ids = $this->input->post('product_records');
+		print_r($ids);die;
         foreach ($ids as $media_id):
             $data = array(
                 'is_deleted' => '1'
