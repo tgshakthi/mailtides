@@ -1646,6 +1646,9 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 		},
 		success: function (result) {
 			alert(result);
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
 		}
 	});
 });
