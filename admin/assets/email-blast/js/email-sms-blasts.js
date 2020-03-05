@@ -1165,10 +1165,13 @@ function campaign_type(value)
 			if (data == "") {
 				$('#campaign_name_data').html(data);
 				$('#barchart').hide();
+				$('#Graphics_min').val('');
 				
 			} else {
 				$('#campaign_name_data').html(data);
 				$('#barchart').hide();
+				$('#Graphics_min').val('');
+				$('#Graphics_max').val('');
 			}
 		}
 	});
