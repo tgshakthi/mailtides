@@ -138,7 +138,6 @@ class Email_sms_blast_model extends CI_Model
         $ids = $this->input->post('product_records');
         foreach ($ids as $media_id):		
 			$patient_ids = str_replace('"',"",$media_id);
-			print_r($patient_ids);die;
             $data = array(
                 'is_deleted' => '1'
             );
