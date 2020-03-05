@@ -900,6 +900,8 @@ if ($('#mybarChart').length) {
 	var facebookReviews = document.getElementById('mail-facebook').value;
 	var mailSent = document.getElementById('mail-sent').value;
 	function campaign(e) {
+		$('#Graphics_min').val('');
+		$('#Graphics_max').val('');
 		var baseUrl = $('#base_url').val();
 		var campaign_type = $('#campaign_type').val();
 		$.ajax({
@@ -1166,6 +1168,7 @@ function campaign_type(value)
 				$('#campaign_name_data').html(data);
 				$('#barchart').hide();
 				$('#Graphics_min').val('');
+				$('#Graphics_max').val('');
 				
 			} else {
 				$('#campaign_name_data').html(data);
