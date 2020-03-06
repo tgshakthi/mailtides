@@ -1360,9 +1360,8 @@ class Email_sms_blast_model extends CI_Model
    
 	// get Orders List
     function getOrders() {        
-         $this->db->select('*');
-      //'id,product_name,product_price,product_image,status,created_at'
-	   $this->db->from($this->table_name);
+        $this->db->select('*');
+		$this->db->from($this->table_name);
 	    $this->db->where(array(
 					'is_deleted' => '0'
 	   ));

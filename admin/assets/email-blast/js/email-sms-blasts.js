@@ -1141,19 +1141,7 @@ if ($('#mybarChart').length) {
 		$('#campaign_name_data').html(option);
 		$('#barchart').hide();
 });
-//Onchange Function For Template
-/* function campaign_type(value) {
-	var baseUrl = $('#base_url').val();
-	if (value == "") {
-		var option = '<option value="">Select Provider Name</option>';
-		$('#campaign_name_data').html(option);
-		$('#barchart').hide();
-	}else{
-		var option = '<option value="">Select Provider Name</option><option value="dldc">DLDC</option><option value="reddy">REDDY</option><option value="hamat">HAMAT</option><option value="facebook">Facebook</option><option value="txgidocs">Txgidocs</option>';
-		$('#campaign_name_data').html(option);
-		$('#barchart').hide();
-	}	
-} */
+
 function campaign_type(value) 
 {
 	var baseUrl = $('#base_url').val();
@@ -1358,37 +1346,6 @@ $('#campaign-name').blur(function () {
 	}
 });
 
-/* $('#campaign_type').blur(function () {
-	$('#error').html('');
-	var base_url = $('#base-url').val();
-	var Name = $(this).val();
-	var website_id = $('#website_id').val();
-	if (Name.length != 0) {
-		$.ajax({
-			type: 'POST',
-			url: base_url + 'email_sms_blast/check_campaign_type_name',
-			data: {
-				campaign_name: Name,
-				website_id: website_id
-			},
-			success: function (data) {
-				if (data == 0) {
-					$('#error').html(
-						'<p style="color:green;font-size: 12px;position:absolute;font-weight:bold; top:0">Campaign Name is Available.</p>'
-					);
-				} else {
-					$('#error').html(
-						'<p  style="color:red;font-size: 12px;position:absolute;font-weight:bold; top:0"> Campaign Name Already Exists.</p>'
-					);
-					$('#campaign_type').val('');
-					$('#campaign_type').focus();
-				}
-			}
-		});
-	}
-}); */
-
-
 // User Reports
 if ($('#mybarChart_type').length) {
 	var f = document.getElementById('mybarChart_type');
@@ -1526,55 +1483,8 @@ $('#phone_number').blur(function () {
 		}
 	});
 });
-/* 
-$(document).ready(function () {
-	
-	var base_url = $('#base_url').val();
-	
-	var dataTable = $('#table_grid1').DataTable({
-		oLanguage: {
-			sProcessing: '<div class="load_first loadericon1"><div class="load_second loadericon2"><div class="load_third loadericon3"></div></div></div>'
-		},
-		"processing": true,
-		"serverSide": true,
-		"aLengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
-		"iDisplayLength": 100,
-		"dom": 'lBfrtip',       
-		"buttons": [{
-		    extend: 'collection',
-		    text: 'Export',
-		}],      
-		"ajax": {
-			url: base_url + 'email_sms_blast/test_datatable',
-			type: "post",  
-			error: function(){  
-				$(".employee-grid-error").html("");
-				$("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
-				$("#employee-grid_processing").css("display", "none");
-			}
-		},
-		initComplete:function(){ 
-			
-				var title = $(this).text();
-				if (title.length > 0 && title != 'S.No') {
-					$(this).html(
-						'<input type="text" placeholder="Search ' + title + '" />'
-					);
-					$('input', this).on('keyup change', function () {
-						if (dataTable.column(i).search() !== this.value) {
-							dataTable
-								.column(i)
-								.search(this.value)
-								.draw();
-						}
-					});
-				}
-			
-		} 
-	});
-}); */
 
-   
+  
    // default render page
   jQuery(document).ready(function() {
    var data = {name:"", email:"", phone_number:"", provider_name:"", facility_name:"", visited_date:""};
