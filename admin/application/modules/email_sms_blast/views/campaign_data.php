@@ -53,7 +53,7 @@
 			<?php
 				foreach($campaign_datas as $campaign_data):
 			?>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 						<a href='<?php echo base_url();?>email_sms_blast/campaign_import/<?php echo $campaign_data->id;?>' class="btn btn-warning">
 							<i class="fa fa-flag"></i><?php echo $campaign_data->category;?>
 						</a>
