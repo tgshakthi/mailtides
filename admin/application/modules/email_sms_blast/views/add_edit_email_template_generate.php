@@ -400,27 +400,27 @@
          const bothSideBarBtn = document.querySelector('#both-sidebar');
          
          leftSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
+		//	localStorage.clear();
 			window.location.reload();
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
          });
          
          noSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
+		//	localStorage.clear();
 			window.location.reload();
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
          });
          
          rightSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
+		//	localStorage.clear();
 			window.location.reload();
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
          });
          
          bothSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";
+		//	localStorage.clear();
 			window.location.reload();
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";
          });
          
          function openNav() {
