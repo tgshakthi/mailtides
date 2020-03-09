@@ -400,26 +400,23 @@
          const bothSideBarBtn = document.querySelector('#both-sidebar');
          
          leftSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";			
-         	window.location.reload();			
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
+         	window.location.reload();
          });
          
          noSideBarBtn.addEventListener('click', () => {
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
 			localStorage.clear();
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";		
          	window.location.reload();
          });
          
          rightSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";			
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
          	window.location.reload();
          });
          
          bothSideBarBtn.addEventListener('click', () => {
-			localStorage.clear();
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";			
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";
          	window.location.reload();
          });
          
@@ -430,6 +427,9 @@
          function closeNav() {
            document.getElementById("mySidenav").style.width = "0";
          }
+		 $( document ).ready(function() {
+			localStorage.clear();
+		});
       </script>
    </body>
 </html>
