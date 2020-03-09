@@ -2446,6 +2446,6 @@ $("#test").on('click',function(e){
 		})
 	});
 });
-// $( document ).ready(function() {
-    // localStorage.clear();
-// });
+$( document ).ready(function() {
+    sessionStorage.clear();
+});
