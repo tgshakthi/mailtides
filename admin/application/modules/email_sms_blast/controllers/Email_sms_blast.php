@@ -747,13 +747,14 @@ class Email_sms_blast extends MX_Controller
 								<meta content="telephone=no" name="format-detection">
 								<title></title>
 								<style>
+								.copy
+								 {
+									display : none; 
+								 }	
 								 .save-remove{
 									display : none; 
 								 }
-								 .copy
-								 {
-									display : none; 
-								 }								 
+								 							 
 								</style>
 							</head>
 							<body>
