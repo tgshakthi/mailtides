@@ -429,6 +429,7 @@
          }
 		 $( document ).ready(function() {
 			localStorage.clear();
+			window.location.reload();
 		});
       </script>
    </body>
