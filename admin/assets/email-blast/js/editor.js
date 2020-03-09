@@ -509,7 +509,7 @@
                                 var movedData = moved.html(),
 									type = moved.attr('data-id'),
 									finishing,
-									template = '<table align="center" cellpadding="10" border="0" class="ui-draggable ui-draggable-handle editable" style="width:100%; margin:0 auto;" width="100%" data-edit="'+idMoved+'" data-finishing="'+idMoved+'">'+
+									template = '<table id="'+idMoved+'" align="center" cellpadding="10" border="0" class="ui-draggable ui-draggable-handle editable" style="width:100%; margin:0 auto;" width="100%" data-edit="'+idMoved+'" data-finishing="'+idMoved+'">'+
 										'<tbody>'+
 											'<tr>'+
 												'<td align="left">'+
