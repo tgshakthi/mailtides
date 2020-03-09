@@ -2446,6 +2446,3 @@ $("#test").on('click',function(e){
 		})
 	});
 });
-// $( document ).ready(function() {
-    // localStorage.clear();
-// });
