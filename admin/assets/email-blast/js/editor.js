@@ -325,7 +325,7 @@
 		},
 		
 		/* Switch Theme */
-		chooseTheme : function(t, e, callback){
+		/* chooseTheme : function(t, e, callback){
 			var el = $(t),
 				id = el.data('id'),
 				link = 'http://txgidocs.mailtides.com/admin/assets/email-blast/themes/theme-' + id + '.html';
@@ -351,7 +351,7 @@
 					callback(false, a, b, c);
 				}
 			});
-		},
+		}, */
 		
 		/* Load theme */
 		loadTheme : function(callback){
@@ -1446,7 +1446,7 @@
     /**
      CLEAN DYNAMIC IMAGE EDITOR
     **/
-    $(document).on('click touchstart', '#img-editor-wrapper > .close', function(e){
+  /*   $(document).on('click touchstart', '#img-editor-wrapper > .close', function(e){
         e.preventDefault();
         var c = confirm('If you close without save, you will lost your data.');
         if(c)
@@ -1465,7 +1465,7 @@
                 $(this).remove();
             });
         }
-    });
+    }); */
     
     /**
      CREATE DYNAMIC IMAGE EDITOR
@@ -1532,14 +1532,14 @@
         });
     });
     
-    /***
+    
     for(var i in localStorage) {
         if(/editor_\d+/.test(i))
         {
             localStorage.removeItem(i);
         }
     }
-    ***/
+   
     
     /* DELETE AND RESET IMAGE */
     $(document).on('click touchstart', "#DeleteDynamicImage", function(e){
@@ -1622,7 +1622,7 @@
 		}
 	}));
 	
-	// Update Video
+	/* // Update Video
 	$(document).on('change paste keyup','.add-video',$.debounce(350,function(e){
 		
 		var $this = $(this),
@@ -1754,7 +1754,7 @@
 				});
 			}
 		}
-	}));
+	})); */
 	
 	// Update image
 	$(document).on('input change paste keyup','.add-image',$.debounce(350,function(e){
@@ -2133,7 +2133,7 @@
 			target.attr('background',null);
 	}));
 	
-	$(document).on('click', '.remove-attachments', function(e){
+/* 	$(document).on('click', '.remove-attachments', function(e){
 		e.preventDefault();
 		var currentAttachments = $.storage('attachments'),
 			id = $(this).attr('data-id');	
@@ -2179,7 +2179,7 @@
 				console.log('-----------------------');
 			});
 		}
-	});
+	}); */
 
 	/* Attachment */
 	$(document).on('change input',"#attachment",function(e){
