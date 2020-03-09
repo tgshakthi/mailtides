@@ -2447,5 +2447,5 @@ $("#test").on('click',function(e){
 	});
 });
 $( document ).ready(function() {
-    sessionStorage.clear();
+    localStorage.clear();
 });
