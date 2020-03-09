@@ -431,7 +431,7 @@
            document.getElementById("mySidenav").style.width = "0";
          }
 		$(document).ready(function() {
-			window.location.reload();
+		  window.location.reload();
 		});
       </script>
    </body>
