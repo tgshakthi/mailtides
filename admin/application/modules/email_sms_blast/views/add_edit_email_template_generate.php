@@ -430,7 +430,7 @@
          function closeNav() {
            document.getElementById("mySidenav").style.width = "0";
          }
-		$( document ).ready(function() {
+		$(document).ready(function() {
 			window.location.reload();
 		});
       </script>
