@@ -342,7 +342,7 @@
          });
 		 
          function refresh(){
-			 alert();
+			 alert('test');
 			window.location.href = "";
 		 }
          function openNav() {
