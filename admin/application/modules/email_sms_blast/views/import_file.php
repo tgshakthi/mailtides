@@ -41,6 +41,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/graphical_reports" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Graphical Reports
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
+							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
+						</a>
 						
 				<?php
 					elseif($admin_user_id == '7'):
@@ -72,6 +75,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/graphical_reports" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Graphical Reports
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
+							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
+						</a>
 						
 					<?php
 					else:
@@ -102,6 +108,9 @@
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/graphical_reports" class="btn btn-primary">
 							<i class="fa fa-bar-chart"></i> Graphical Reports
+						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
+							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
 						</a>
 						
 				<?php
