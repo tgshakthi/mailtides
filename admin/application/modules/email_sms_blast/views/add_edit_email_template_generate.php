@@ -343,7 +343,7 @@
 		 
          function refresh(){
 			 alert('test');
-			location.reload();
+			//location.reload();
 		 }
          function openNav() {
            document.getElementById("mySidenav").style.width = "260px";
