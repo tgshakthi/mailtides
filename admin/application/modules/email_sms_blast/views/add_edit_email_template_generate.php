@@ -342,7 +342,7 @@
          });
 		 
          function refresh(){
-			 // alert('test');
+			 alert('test');
 			 localStorage.clear();
 		 }
          function openNav() {
