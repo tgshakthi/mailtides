@@ -2440,7 +2440,7 @@ $("#test").on('click',function(e){
 			cache: false,
 			success: function(){
 				$("#test-input").val('');
-				$('#modal').modal('hide');
+				$("#modal").modal("hide");
 				//window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 				}		
 		})
