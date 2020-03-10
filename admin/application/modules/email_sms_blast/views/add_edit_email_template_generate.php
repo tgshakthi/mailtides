@@ -316,25 +316,25 @@
          leftSideBarBtn.addEventListener('click', () => {	
 			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
 			localStorage.clear();				
-			window.location.reload();
+			window.location.href
          });
          
          noSideBarBtn.addEventListener('click', () => {
          	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
 			localStorage.clear();				
-			window.location.reload();
+			window.location.href
          });
          
          rightSideBarBtn.addEventListener('click', () => {
 			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
 			localStorage.clear();				
-			window.location.reload();
+			window.location.href
          });
          
          bothSideBarBtn.addEventListener('click', () => {
 			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";	
 			localStorage.clear();				
-			window.location.reload();
+			window.location.href
          });
          
          function openNav() {
