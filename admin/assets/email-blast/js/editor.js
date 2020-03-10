@@ -325,7 +325,7 @@
 		},
 		
 		/* Switch Theme */
-		/* chooseTheme : function(t, e, callback){
+		chooseTheme : function(t, e, callback){
 			var el = $(t),
 				id = el.data('id'),
 				link = 'http://txgidocs.mailtides.com/admin/assets/email-blast/themes/theme-' + id + '.html';
@@ -351,7 +351,7 @@
 					callback(false, a, b, c);
 				}
 			});
-		}, */
+		},
 		
 		/* Load theme */
 		loadTheme : function(callback){
@@ -2441,11 +2441,11 @@ $("#test").on('click',function(e){
 			success: function(){
 				$("#test-input").val('');
 				$('#modal').modal('hide');
-				  // window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
+				window.location.href = "http://txgidocs.mailtides.com/admin/email_blasts/email_template_generate";
 				}		
 		})
 	});
 });
-/* $( document ).ready(function() {
-   window.location.href = "";
-}); */
+$( document ).ready(function() {
+  window.onload = window.localStorage.clear();
+});
