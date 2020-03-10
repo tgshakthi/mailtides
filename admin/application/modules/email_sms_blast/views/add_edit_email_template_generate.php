@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>MAIL EDITOR</title>
-   </head>
-   <body>
-      <div class="container-fullscreen">
+<div class="container-fullscreen">
          <div class="top-header">
             <a href="#" class="logo">Mail Template</a>
             <div class="mini-setting">
@@ -345,5 +336,4 @@
            document.getElementById("mySidenav").style.width = "0";
          }
       </script>
-   </body>
-</html>
+   
