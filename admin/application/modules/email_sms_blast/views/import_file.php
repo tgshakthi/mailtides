@@ -42,7 +42,7 @@
 							<i class="fa fa-bar-chart"></i> Graphical Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
+							<i class="fa fa-user" aria-hidden="true"></i>Email Template
 						</a>
 						
 				<?php
@@ -76,7 +76,7 @@
 							<i class="fa fa-bar-chart"></i> Graphical Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
+							<i class="fa fa-user" aria-hidden="true"></i>Email Template
 						</a>
 						
 					<?php
@@ -110,7 +110,7 @@
 							<i class="fa fa-bar-chart"></i> Graphical Reports
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
-							<i class="fa fa-bomb" aria-hidden="true"></i>Email Template
+							<i class="fa fa-user" aria-hidden="true"></i>Email Template
 						</a>
 						
 				<?php
