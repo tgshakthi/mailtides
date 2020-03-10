@@ -343,7 +343,7 @@
 		 
          function refresh(){
 			 alert('test');
-			 localStorage.clear();
+			 //localStorage.clear();
 		 }
          function openNav() {
            document.getElementById("mySidenav").style.width = "260px";
