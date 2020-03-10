@@ -343,7 +343,7 @@
 		 
          function refresh(){
 			 alert('test');
-			 window.location = window.location.href+'?eraseCache=true';
+			 window.history.forward(1);
 		 }
          function openNav() {
            document.getElementById("mySidenav").style.width = "260px";
