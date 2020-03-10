@@ -316,6 +316,7 @@
          leftSideBarBtn.addEventListener('click', () => {	
 			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
 			localStorage.clear();
+			refresh();
 			window.location.reload();
          });
          
@@ -336,7 +337,10 @@
 			localStorage.clear();
 			window.location.reload();
          });
-         
+		 
+         function refresh(){
+			 alert(test);
+		 }
          function openNav() {
            document.getElementById("mySidenav").style.width = "260px";
          }
