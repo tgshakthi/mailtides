@@ -314,36 +314,32 @@
          const bothSideBarBtn = document.querySelector('#both-sidebar');
          
          leftSideBarBtn.addEventListener('click', () => {	
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";
-			//localStorage.clear();
-			refresh();
+			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#left-sidebar";			
 			window.location.reload();
+			refresh();
          });
          
          noSideBarBtn.addEventListener('click', () => {
-         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";
-			//localStorage.clear();
-			refresh();
-			window.location.reload();			
+         	window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#no-sidebar";			
+			window.location.reload();	
+			refresh();			
          });
          
          rightSideBarBtn.addEventListener('click', () => {
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
-			//localStorage.clear();	
-			refresh();
+			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";		
 			window.location.reload();
+			refresh();
          });
          
-         bothSideBarBtn.addEventListener('click', () => {
-			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";	
-			//localStorage.clear();
-			refresh();
+         bothSideBarBtn.addEventListener('click', () => {			 
+			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#both-sidebar";				
 			window.location.reload();
+			refresh();
          });
 		 
          function refresh(){
 			 alert('test');
-			 //localStorage.clear();
+			 localStorage.clear();
 		 }
          function openNav() {
            document.getElementById("mySidenav").style.width = "260px";
