@@ -1782,5 +1782,9 @@ function get_email_template(value)
 		alert('test1');
 		document.getElementById("template_label").style.display = "none";
 		document.getElementById("templates").style.display = "none";		
+	}else{
+		alert('test2');
+		document.getElementById("template_label").style.display = "none";
+		document.getElementById("templates").style.display = "none";
 	}
 }
