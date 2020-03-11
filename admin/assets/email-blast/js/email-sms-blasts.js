@@ -1776,15 +1776,15 @@ function get_email_template(value)
 	alert(value);
 	if(value == 'email'){
 		alert('test');
-		document.getElementById("template_label").style.visibility = "block";
-		document.getElementById("templates").style.visibility = "block";
+		document.getElementById("template_label").style.display = "block";
+		document.getElementById("templates").style.display = "block";
 	}else if(value == 'sms'){
 		alert('test1');
 		document.getElementById("template_label").style.display = "none";
 		document.getElementById("templates").style.display = "none";		
 	}else{
 		alert('test2');
-		document.getElementById("template_label").style.display = "none";
-		document.getElementById("templates").style.display = "none";
+		document.getElementById("template_label").style.display = "block";
+		document.getElementById("templates").style.display = "block";
 	}
 }
