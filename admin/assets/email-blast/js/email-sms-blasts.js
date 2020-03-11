@@ -1774,7 +1774,7 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 function get_email_template(value)
 {
 	alert(value);
-	if(value = 'email'){
+	if(value == 'email'){
 		alert('test');
 	}
 }
