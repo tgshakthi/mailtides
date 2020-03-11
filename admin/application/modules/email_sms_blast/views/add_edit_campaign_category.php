@@ -171,7 +171,31 @@
 											Templates
 											<span class="required">*</span>
 										</label>
-										<div class="col-md-6 col-sm-6 col-xs-12">
+										<div class="col-md-6 col-sm-6 col-xs-12">										
+											<?php
+											$type_options  = array('' => 'Select Category');
+											$selected = array();
+											print_r($templates);die;
+											// foreach ($templates as $template) :											
+												// $type_options[$all_product_type->id] = $all_product_type->main_category;																				
+											// endforeach;
+																			
+											// $parent_attributes = array(
+												// 'id'        => 'templates',
+												// 'name'      => 'templates',
+												// 'class'     => 'form-control browser-default'
+											// );
+											
+											// $parent_attributes = ($parent_id != '' && $parent_id != 0) ? $parent_attributes: array_merge($parent_attributes, array('required'  => 'required'));
+																   
+											// //Dropdown Multiselect
+											// echo form_dropdown(
+												// $parent_attributes,
+												// $type_options,
+												// $product_type
+											// );
+											?>
+										
 											<?php
 											// Input
 											echo form_input(array(
