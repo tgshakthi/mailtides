@@ -1772,23 +1772,19 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 });
 
 $(document).ready(function () {
-	alert('test1');
 	document.getElementById("template_label").style.display = "none";
 	document.getElementById("templates").style.display = "none";	
 });
+
 function get_email_template(value)
 {
-	alert(value);
 	if(value == 'email'){
-		alert('test');
 		document.getElementById("template_label").style.display = "block";
 		document.getElementById("templates").style.display = "block";
 	}else if(value == 'sms'){
-		alert('test1');
 		document.getElementById("template_label").style.display = "none";
 		document.getElementById("templates").style.display = "none";		
 	}else{
-		alert('test2');
 		document.getElementById("template_label").style.display = "block";
 		document.getElementById("templates").style.display = "block";
 	}
