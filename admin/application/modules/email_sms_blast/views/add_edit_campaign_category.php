@@ -175,7 +175,6 @@
 											<?php
 												$type_options  = array('' => 'Select Category');
 												$selected = array();
-												print_r($templates);die;
 												foreach ($templates as $template) :											
 													$type_options[$template->id] = $template->template_name;																				
 												endforeach;
