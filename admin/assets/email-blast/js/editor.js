@@ -499,14 +499,13 @@
 						idDropped = $this.attr('id');
 						
 					$( "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right" ).removeClass('active');
-					var i = '0';
+					
 					if(typeof idMoved !== 'undefined' && idMoved !== 'undefined')
 					{
-						
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
-							
+							var i = '0';
 							moved.html(html).promise().done(function(){
-								
+								i++;
                                 var movedData = moved.html(),
 									type = moved.attr('data-id'),
 									finishing,
@@ -550,7 +549,7 @@
 						}).fail(function(a,b,c) {
 							console.log(a,b,c);
 						});
-						i++;
+						
 					}
 				}
 			});
