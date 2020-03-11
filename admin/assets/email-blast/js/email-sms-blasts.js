@@ -1775,8 +1775,8 @@ function get_email_template(value)
 {
 	alert(value);
 	if(value == 'email'){
-		document.getElementById("templates").style.visibility = "none";
+		alert('test');
 	}else(value == 'sms'){
-		document.getElementById("templates").style.display = "none";
+		alert('test1');
 	}
 }
