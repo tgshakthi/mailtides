@@ -159,7 +159,7 @@
 												'name' => 'campaign_type_name',
 												'id' => 'campaign_type_name',
 												'required' => 'required',
-												'onchange' =>'get_email_template()',
+												'onchange' =>'get_email_template(this.value)',
  												'class'	=> 'form-control col-md-7 col-xs-12'
 											);
 											echo form_dropdown($attributes, $options, $campaign_type);
