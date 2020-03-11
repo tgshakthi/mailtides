@@ -561,7 +561,7 @@ class Email_sms_blast_model extends CI_Model
 								'password' => $this->input->post('password'),
 								'provider_name' => $this->input->post('provider_name'),
 								'facility_name' => $this->input->post('facility_name'),
-								'template' => $this->input->post('template'),
+								'template' => $this->input->post('templates'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
 							);
@@ -581,7 +581,7 @@ class Email_sms_blast_model extends CI_Model
 								'password' => $this->input->post('password'),
 								'provider_name' => $this->input->post('provider_name'),
 								'facility_name' => $this->input->post('facility_name'),
-								'template' => $this->input->post('template'),
+								'template' => $this->input->post('templates'),
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
 							);
