@@ -78,18 +78,15 @@
           <div class="x_content">
             <div id="text_area"> </div>
             <textarea id="mail-opened" style="display: none">
-                      <?php
-                         
-
-                        echo $opened;
-                       ?>
-                    </textarea>
+			  <?php
+				   echo $opened;
+			  ?>
+			</textarea>
             <textarea id="mail-unopened" style="display: none">
-                      <?php
-                     
-                       echo $not_opened;
-                      ?>
-                    </textarea>
+			    <?php
+				   echo $not_opened;
+				?>
+			</textarea>
             <textarea id="mail-comments-posted" style="display: none">Sent</textarea>
             <textarea id="mail-comments-not-posted" style="display: none">Link Open</textarea>
             <textarea id="mail-txgidocs" style="display: none">Link not open</textarea>
