@@ -166,6 +166,25 @@
 										</div>
 									</div>
 									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="templates">
+											Templates
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<?php
+											// Input
+											echo form_input(array(
+												'id'       => 'templates',
+												'name'     => 'templates',
+												'required' => 'required',
+												'type' 	   => 'text',
+												'class'    => 'form-control col-md-7 col-xs-12'
+												//'value'    => $email
+											));
+											?>
+										</div>
+									</div>
+									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="menu-url">
 											User Email
 											<span class="required">*</span>
