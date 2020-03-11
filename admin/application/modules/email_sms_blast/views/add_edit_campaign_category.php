@@ -173,7 +173,7 @@
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">										
 											<?php
-												$options = 'Select';
+												$options[] = 'Select';
 												foreach ($templates as $template) :											
 													$options[$template->id] = $template->template_name;																				
 												endforeach;
