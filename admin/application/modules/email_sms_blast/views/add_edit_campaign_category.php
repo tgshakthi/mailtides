@@ -190,7 +190,7 @@
 												echo form_dropdown(
 													$parent_attributes,
 													$type_options,
-													''
+													$templates
 												);
 											?>
 										</div>
