@@ -1776,7 +1776,7 @@ function get_email_template(value)
 	alert(value);
 	if(value == 'email'){
 		alert('test');
-	}else(value == 'sms'){
+	}else if(value == 'sms'){
 		alert('test1');
 	}
 }
