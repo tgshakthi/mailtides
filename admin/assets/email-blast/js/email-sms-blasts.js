@@ -1778,5 +1778,6 @@ function get_email_template(value)
 		alert('test');
 	}else if(value == 'sms'){
 		alert('test1');
+		document.getElementById("templates").style.display = "none";
 	}
 }

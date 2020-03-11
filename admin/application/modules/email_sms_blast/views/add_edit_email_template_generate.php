@@ -319,7 +319,7 @@
          rightSideBarBtn.addEventListener('click', () => {
 			window.location.href = "http://txgidocs.mailtides.com/admin/email_sms_blast/add_edit_email_template_generate/#right-sidebar";
 			//localStorage.clear();
-			window.location.reload();
+			window.location.reload();  
          });
          
          bothSideBarBtn.addEventListener('click', () => {
