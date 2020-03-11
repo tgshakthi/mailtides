@@ -173,7 +173,7 @@
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">										
 											<?php
-												$type_options  = 'Select Category';
+												$type_options  = array('' =>'Select Template') ;
 												foreach ($templates as $template) :											
 													$type_options[$template->id] = $template->template_name;																				
 												endforeach;
