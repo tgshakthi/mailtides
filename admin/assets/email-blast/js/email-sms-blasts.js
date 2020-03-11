@@ -1772,6 +1772,8 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 });
 
 $(document).ready(function () {
+	var email_templates = $('#templates').val();
+	alert(email_templates);
 	document.getElementById("template_label").style.display = "none";
 	document.getElementById("templates").style.display = "none";	
 });
