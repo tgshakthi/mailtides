@@ -453,7 +453,7 @@ class Email_sms_blast extends MX_Controller
 			$data['campaign_type'] = $campaign_category[0]->campaign_type;
 			$data['email'] = $campaign_category[0]->send_email;
 			$data['password'] = $campaign_category[0]->password;
-			$data['templates'] = $campaign_category[0]->template;
+			$data['email_template'] = $campaign_category[0]->template;
 			$data['provider_name'] = $campaign_category[0]->provider_name;
 			$data['facility_name'] = $campaign_category[0]->facility_name;
 			$data['selected_template'] = $campaign_category[0]->template;
@@ -468,7 +468,7 @@ class Email_sms_blast extends MX_Controller
 			$data['campaign_type'] =  "";
 			$data['email'] = "";
 			$data['password'] = "";
-			$data['templates'] =  "";
+			$data['email_template'] =  "";
 			$data['provider_name'] = "";
 			$data['facility_name'] = "";
 			$data['selected_template'] = "";

@@ -172,14 +172,25 @@
 											<span class="required">*</span>
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">
-											<select id="templates" name="templates" class="form-control col-md-7 col-xs-12" >
-												<option value="">Select Template</option>
+											
 												<?php
-													foreach($templates as $template){ ?>
-														<option value="<?php echo $template->id;?>"><?php echo $template->template_name;?></option>	
-												<?php	}
+												if(!empty($templates)):
+
+													$selected ="";
+													$options = array('' => 'Select Main Category');
+													foreach($templates as $template):
+														$options[$template->id]= $template->template_name;
+													endforeach;
+												endif;
+												$attributes = array(
+																	'name' => 'templates',
+																	'id' => 'templates',
+																	'required' => 'required',
+																	'class' => 'form-control col-md-7 col-xs-12'
+																	);
+												echo form_dropdown($attributes, $options, $email_template);
 												?>
-											</select>	
+											
 										</div>
 									</div>
 									<div class="form-group">
