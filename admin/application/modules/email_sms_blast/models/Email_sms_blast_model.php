@@ -565,8 +565,6 @@ class Email_sms_blast_model extends CI_Model
 								'status' => $status,
 								'sort_order' => $this->input->post('sort_order')
 							);
-			echo '<pre>';print_r($update_array);die;
-
             $this->db->where('id', $id);
             $this->db->update('zcms_campaign_category', $update_array);
 
