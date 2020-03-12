@@ -173,7 +173,17 @@
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">										
 											<?php
-												$type_options  = array('' =>'Select Template') ;
+												foreach($templates as $template){
+													$options[$template->id] = $template->template_name;
+												}												
+												$attributes = array(
+																'id'       => 'templates',
+																'name'     => 'templates',
+																'class'    => 'form-control col-md-7 col-xs-12'
+																);
+												echo form_dropdown($attributes, $options, $templates);
+											
+												/* $type_options  = array('' =>'Select Template') ;
 												foreach ($templates as $template) :											
 													$type_options[$template->id] = $template->template_name;																				
 												endforeach;
@@ -190,7 +200,7 @@
 													$parent_attributes,
 													$type_options,
 													$templates
-												);
+												); */
 											?>
 										</div>
 									</div>
