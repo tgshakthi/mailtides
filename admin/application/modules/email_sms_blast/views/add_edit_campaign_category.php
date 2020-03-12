@@ -179,37 +179,7 @@
 														<option value="<?php echo $template->id;?>"><?php echo $template->template_name;?></option>	
 												<?php	}
 												?>
-											</select>										
-											<?php
-												// foreach($templates as $template){
-													// $options[$template->id] = $template->template_name;
-												// }												
-												// $attributes = array(
-																// 'id'       => 'templates',
-																// 'name'     => 'templates',
-																// 'class'    => 'form-control col-md-7 col-xs-12'
-																// );
-												// echo form_dropdown($attributes, $options, $templates);
-											
-												/* $type_options  = array('' =>'Select Template') ;
-												foreach ($templates as $template) :											
-													$type_options[$template->id] = $template->template_name;																				
-												endforeach;
-																				
-												$parent_attributes = array(
-																			'id'        => 'templates',
-																			'name'      => 'templates',
-																			'required' => 'required',
-																			'class'    => 'form-control col-md-7 col-xs-12'
-																		);
-																	   
-												//Dropdown Multiselect
-												echo form_dropdown(
-													$parent_attributes,
-													$type_options,
-													$templates
-												); */
-											?>
+											</select>	
 										</div>
 									</div>
 									<div class="form-group">
