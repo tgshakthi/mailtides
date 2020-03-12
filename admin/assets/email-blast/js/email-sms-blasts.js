@@ -1773,15 +1773,13 @@ jQuery(document).on('click','#date_filter_graphical_report', function(){
 
 $(document).ready(function () {
 	var email_template_type = $('#campaign_type_name').val();
-	alert(email_template_type);
 	if(email_template_type == 'email'){
 		document.getElementById("template_label").style.display = "block";
 		document.getElementById("templates").style.display = "block";
 	}else{
 		document.getElementById("template_label").style.display = "none";
 		document.getElementById("templates").style.display = "none";
-	}
-		
+	}		
 });
 
 function get_email_template(value)
