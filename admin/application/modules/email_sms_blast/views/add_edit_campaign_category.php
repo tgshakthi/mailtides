@@ -171,17 +171,25 @@
 											Templates
 											<span class="required">*</span>
 										</label>
-										<div class="col-md-6 col-sm-6 col-xs-12">										
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<select id="templates" name="templates" class="form-control col-md-7 col-xs-12" >
+												<option value="">Select Template</option>
+												<?php
+													foreach($templates as $template){ ?>
+														<option value="<?php echo $template->id;?>"><?php echo $template->template_name;?></option>	
+												<?php	}
+												?>
+											</select>										
 											<?php
-												foreach($templates as $template){
-													$options[$template->id] = $template->template_name;
-												}												
-												$attributes = array(
-																'id'       => 'templates',
-																'name'     => 'templates',
-																'class'    => 'form-control col-md-7 col-xs-12'
-																);
-												echo form_dropdown($attributes, $options, $templates);
+												// foreach($templates as $template){
+													// $options[$template->id] = $template->template_name;
+												// }												
+												// $attributes = array(
+																// 'id'       => 'templates',
+																// 'name'     => 'templates',
+																// 'class'    => 'form-control col-md-7 col-xs-12'
+																// );
+												// echo form_dropdown($attributes, $options, $templates);
 											
 												/* $type_options  = array('' =>'Select Template') ;
 												foreach ($templates as $template) :											
