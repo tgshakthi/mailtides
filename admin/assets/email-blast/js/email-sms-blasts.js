@@ -1776,9 +1776,6 @@ $(document).ready(function () {
 	if(email_template_type == 'email'){
 		document.getElementById("template_label").style.display = "block";
 		document.getElementById("templates").style.display = "block";
-	}else{
-		
-		document.getElementById("templates").style.display = "none";
 	}		
 });
 
