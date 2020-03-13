@@ -487,7 +487,7 @@
 				
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
-                     $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
+                    $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
                 },
 				stop: function(event, ui)
 				{
