@@ -507,6 +507,8 @@
 							moved.html(html).promise().done(function(){//
 								var i = '1';
 								if(moved !== ''){
+									alert(i);
+									console.log(moved.html());
 									var movedData = moved.html(),
 									type = moved.attr('data-id'),
 									finishing,
