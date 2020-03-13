@@ -415,7 +415,7 @@
 		
 		/* Activate Drag & Drop */
 		dragAndDrop : function(){
-			var i=1;
+			var i = 1;
 			// Activate draggable on buttons
 			$( "#get-options .choose" ).draggable({
 				connectToSortable: "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right",
