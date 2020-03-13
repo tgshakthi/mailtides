@@ -479,8 +479,6 @@
 					
 				},
                 drag: function( event, ui ) {
-					alert('test');
-					//var i = '1';
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
                      $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
