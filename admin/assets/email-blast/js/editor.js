@@ -478,12 +478,14 @@
 					
 				},
                 drag: function( event, ui ) {
+					alert('test');
 					var i = '1';
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
                      $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
                 },
 				create: function( event, ui ) {
+					alert('test1');
 					var i = '1';
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
@@ -491,6 +493,7 @@
                 },
 				stop: function(event, ui)
 				{
+					alert('test2');
 					var i = '1';
 					$(document.body).css( 'cursor', 'auto' );
 					
@@ -505,6 +508,7 @@
 					
 					if(typeof idMoved !== 'undefined' && idMoved !== 'undefined')
 					{
+						alert('test3');
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
 							
 							moved.html(html).promise().done(function(){//
