@@ -505,7 +505,7 @@
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
 							var i = '1';
 							moved.html(html).promise().done(function(){
-								
+								console.log(moved.html());
                                 var movedData = moved.html(),
 									type = moved.attr('data-id'),
 									finishing,
