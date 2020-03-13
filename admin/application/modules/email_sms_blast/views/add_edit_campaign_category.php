@@ -185,6 +185,7 @@
 												$attributes = array(
 																	'name' => 'templates',
 																	'id' => 'templates',
+																	'style' => 'display:none',
 																	'required' => 'required',
 																	'class' => 'form-control col-md-7 col-xs-12'
 																	);
