@@ -503,10 +503,11 @@
 					if(typeof idMoved !== 'undefined' && idMoved !== 'undefined')
 					{
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
-							var i = '1';
-							moved.html(html).promise().done(function(){
-								console.log(moved.html());
-                                var movedData = moved.html(),
+							
+							moved.html(html).promise().done(function(){//
+								var i = '1';
+								if(moved !== ''){
+									var movedData = moved.html(),
 									type = moved.attr('data-id'),
 									finishing,
 									template = '<table align="center" cellpadding="10" border="0" class="ui-draggable ui-draggable-handle editable" style="width:100%; margin:0 auto;" width="100%" data-edit="'+idMoved+'" data-finishing="'+idMoved+'">'+
@@ -520,7 +521,10 @@
 										'</tbody>'+
 									'</table>';
 									
-								moved.remove();
+									moved.remove();
+									i++;
+								}
+                               
 								
 								if(typeof next !== 'undefined' && false !== next && null !== next && '' !== next && next.length > 0)
 								{
@@ -545,7 +549,7 @@
 									}
 									$this.find('table[data-finishing^="'+idMoved+'"]').attr('data-finishing',null);
 								});
-								i++;
+								
 							});
 						}).fail(function(a,b,c) {
 							console.log(a,b,c);
