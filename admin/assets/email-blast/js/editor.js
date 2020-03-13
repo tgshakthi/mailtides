@@ -415,6 +415,8 @@
 		
 		/* Activate Drag & Drop */
 		dragAndDrop : function(){
+			alert('test4')
+			var i=1;
 			// Activate draggable on buttons
 			$( "#get-options .choose" ).draggable({
 				connectToSortable: "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right",
@@ -479,14 +481,14 @@
 				},
                 drag: function( event, ui ) {
 					alert('test');
-					var i = '1';
+					//var i = '1';
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
                      $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
                 },
 				create: function( event, ui ) {
 					alert('test1');
-					var i = '1';
+					//var i = '1';
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
                      $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
@@ -494,7 +496,7 @@
 				stop: function(event, ui)
 				{
 					alert('test2');
-					var i = '1';
+				//	var i = '1';
 					$(document.body).css( 'cursor', 'auto' );
 					
 					var $this = $(this),
