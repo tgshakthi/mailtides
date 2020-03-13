@@ -1777,7 +1777,7 @@ $(document).ready(function () {
 		document.getElementById("template_label").style.display = "block";
 		document.getElementById("templates").style.display = "block";
 	}else{
-		document.getElementById("template_label").style.display = "none";
+		
 		document.getElementById("templates").style.display = "none";
 	}		
 });
