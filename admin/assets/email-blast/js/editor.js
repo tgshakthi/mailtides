@@ -415,7 +415,6 @@
 		
 		/* Activate Drag & Drop */
 		dragAndDrop : function(){
-			alert('test4')
 			var i=1;
 			// Activate draggable on buttons
 			$( "#get-options .choose" ).draggable({
@@ -510,8 +509,7 @@
 					{
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
 							
-							moved.html(html).promise().done(function(){//
-								
+							moved.html(html).promise().done(function(){//								
 								alert(i);
 								console.log(moved.html());
 								var movedData = moved.html(),
