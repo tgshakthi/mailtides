@@ -554,9 +554,10 @@
 						}).fail(function(a,b,c) {
 							console.log(a,b,c);
 						});
-						i++;
+						
 					}
 				}
+				i++;
 			});
 		},
 	}
