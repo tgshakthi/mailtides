@@ -415,7 +415,7 @@
 		
 		/* Activate Drag & Drop */
 		dragAndDrop : function(){
-			var i = 1;
+            var i = 1;			
 			// Activate draggable on buttons
 			$( "#get-options .choose" ).draggable({
 				connectToSortable: "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right",
@@ -478,7 +478,7 @@
 				beforeStop: function( event, ui ) {
 					
 				},
-                drag: function( event, ui ) {
+                drag: function( event, ui ) {				
                     $(".editable-content").removeClass('editable-content');
                     $('.editable-open, .editable').parents('.ui-sortable').sortable({ disabled: false });
                      $('.editable-open, .editable').parents('.ui-draggable').draggable({ disabled: false });
@@ -491,9 +491,7 @@
                 },
 				stop: function(event, ui)
 				{
-					
 					$(document.body).css( 'cursor', 'auto' );
-					
 					var $this = $(this),
 						moved = $(".choose.ui-draggable",this),
 						prev = moved.prev('.ui-draggable') || false;
@@ -504,11 +502,10 @@
 					$( "#dd-head, #dd-body, #dd-footer, #dd-sidebar-left, #dd-sidebar-right" ).removeClass('active');
 					
 					if(typeof idMoved !== 'undefined' && idMoved !== 'undefined')
-					{
+					{						
 						$.get('http://txgidocs.mailtides.com/admin/assets/email-blast/themes/form-' + idMoved + '.html').done(function(html){
 							
-							moved.html(html).promise().done(function(){//								
-								alert(i);
+							moved.html(html).promise().done(function(){
 								console.log(moved.html());
 								var movedData = moved.html(),
 								type = moved.attr('data-id'),
@@ -525,7 +522,7 @@
 								'</table>';
 								
 								moved.remove();
-								
+								i++;
 								if(typeof next !== 'undefined' && false !== next && null !== next && '' !== next && next.length > 0)
 								{
 									finishing = next.before(template);
@@ -557,7 +554,6 @@
 						
 					}
 				}
-				i++;
 			});
 		},
 	}
