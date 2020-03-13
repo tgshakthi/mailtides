@@ -550,8 +550,7 @@
 							});
 						}).fail(function(a,b,c) {
 							console.log(a,b,c);
-						});
-						
+						});						
 					}
 				}
 			});
@@ -579,8 +578,7 @@
         init.editorLoad();
 		init.dragAndDrop();
 		init.loadOptions();
-    });
- 
+    }); 
 
 	var openEditor = true;
 
