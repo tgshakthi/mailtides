@@ -507,6 +507,7 @@
 							moved.html(html).promise().done(function(){//
 								var i = '1';
 								if(moved !== ''){
+									i++;
 									alert(i);
 									console.log(moved.html());
 									var movedData = moved.html(),
@@ -524,7 +525,7 @@
 									'</table>';
 									
 									moved.remove();
-									i++;
+									
 								}
                                
 								
