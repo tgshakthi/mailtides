@@ -177,7 +177,7 @@
 												if(!empty($templates)):
 
 													$selected ="";
-													$options = array('' => 'Select Main Category');
+													$options = array('' => 'Select Templates');
 													foreach($templates as $template):
 														$options[$template->id]= $template->template_name;
 													endforeach;
