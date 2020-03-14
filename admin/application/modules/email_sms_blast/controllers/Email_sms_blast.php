@@ -878,11 +878,11 @@ class Email_sms_blast extends MX_Controller
 		$data = array(
 					'0'=>'4813'
 				);
-		$user_data_bcc = array(
+		/* $user_data_bcc = array(
 					'0' => '4816'
-		);
-		$user_id = array_merge($user_ids_data,$data);
-		$user_ids = array_merge($user_id,$user_data_bcc);
+		); */
+		$user_ids = array_merge($user_ids_data,$data);
+		// $user_ids = array_merge($user_id,$user_data_bcc);
 		if(!empty($user_ids))
 		{
 			$patient_user_count = count($user_ids);
