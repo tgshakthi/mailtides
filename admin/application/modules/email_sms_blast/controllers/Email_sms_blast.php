@@ -756,14 +756,6 @@ class Email_sms_blast extends MX_Controller
 										 display : none; 
 									  }						 
 								</style>
-								<style>
-									 #copy{
-										 display : none; 
-									  }	
-									 #save-remove{
-										 display : none; 
-									  }						 
-								</style>
 							</head>
 							<body>
 							<div class="es-wrapper-color">
