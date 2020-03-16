@@ -953,7 +953,8 @@ class Email_sms_blast extends MX_Controller
 					// Email body content
 					if($campaign_category[0]->campaign_type == 'email'){
 						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
-						$mailContent = '<div><style>
+						$mailContent = '<div><style></style>
+											<style>
 										  .copy{
 											 display : none; 
 										  }	
