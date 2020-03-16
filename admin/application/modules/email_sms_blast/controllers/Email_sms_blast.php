@@ -752,7 +752,15 @@ class Email_sms_blast extends MX_Controller
 									 #copy{
 										 display : none; 
 									  }	
-									  #save-remove{
+									 #save-remove{
+										 display : none; 
+									  }						 
+								</style>
+								<style>
+									 #copy{
+										 display : none; 
+									  }	
+									 #save-remove{
 										 display : none; 
 									  }						 
 								</style>
