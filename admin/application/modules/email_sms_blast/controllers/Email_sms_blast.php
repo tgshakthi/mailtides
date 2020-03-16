@@ -953,7 +953,7 @@ class Email_sms_blast extends MX_Controller
 					// Email body content
 					if($campaign_category[0]->campaign_type == 'email'){
 						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
-						$mailContent = '<style type="text/css">
+						$mailContent = '<div><style type="text/css">
 										  .copy{
 											 display : none; 
 										  }	
@@ -965,7 +965,7 @@ class Email_sms_blast extends MX_Controller
 												$(document).ready(function(){
 													document.getElementById("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";
 												});
-										 </script>'.$mail_template;												
+										 </script>'.$mail_template'.</div>';												
 														
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
 						$mail->Subject= '';
@@ -978,6 +978,7 @@ class Email_sms_blast extends MX_Controller
 						$data = curl_exec($ch);
 						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $data;
 					}
+					print_r($mailContent;);die;
 					$mail->Body = $mailContent;
 					$mail->clearAddresses();
 					// Add a recipient
