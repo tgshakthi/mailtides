@@ -985,7 +985,14 @@ class Email_sms_blast extends MX_Controller
 													  <v:fill type="tile" color="#f6f6f6"></v:fill>
 												  </v:background>
 											<![endif]-->';
-										$mailContent .= $mail_template;												
+										$mailContent .= '<style type="text/css">
+											  .copy{
+												 display : none; 
+											  }	
+											  .save-remove{
+												 display : none; 
+											  }
+											  </style>'.$mail_template;												
 								$mailContent .= '</div>
 							</body>                  
 						</html>';
