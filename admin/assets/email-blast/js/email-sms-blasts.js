@@ -1793,3 +1793,5 @@ function get_email_template(value)
 	}
 }
 
+
+											
