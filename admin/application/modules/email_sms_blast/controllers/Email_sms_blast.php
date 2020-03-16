@@ -980,11 +980,7 @@ class Email_sms_blast extends MX_Controller
 										</head>
 										<body>
 											<div class="es-wrapper-color">
-											<script>
-												$(document).ready(function(){
-													document.getElementById("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";
-												});
-											</script>
+											
 											<!--[if gte mso 9]>
 												  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
 													  <v:fill type="tile" color="#f6f6f6"></v:fill>
