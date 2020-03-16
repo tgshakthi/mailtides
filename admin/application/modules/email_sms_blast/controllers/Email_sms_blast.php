@@ -993,7 +993,9 @@ class Email_sms_blast extends MX_Controller
 											  .save-remove{
 												 display : none; 
 											  }
-											  </style>'.$mail_template;												
+											  </style>
+											  <script>alert();</script>
+											  '.$mail_template;												
 								$mailContent .= '</div>
 							</body>                  
 						</html>';

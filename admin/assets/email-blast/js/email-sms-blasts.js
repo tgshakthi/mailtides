@@ -1793,7 +1793,3 @@ function get_email_template(value)
 	}
 }
 
-$(document).ready(function(){
-	document.getElementById("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";
-});
-											
