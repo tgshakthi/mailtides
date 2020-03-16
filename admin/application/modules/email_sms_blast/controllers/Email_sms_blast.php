@@ -953,7 +953,7 @@ class Email_sms_blast extends MX_Controller
 					// Email body content
 					if($campaign_category[0]->campaign_type == 'email'){
 						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
-						$mailContent = '<div><style type="text/css">
+						$mailContent = '<div><style>
 										  .copy{
 											 display : none; 
 										  }	
@@ -962,9 +962,7 @@ class Email_sms_blast extends MX_Controller
 										  }
 										 </style>
 										 <script>
-												$(document).ready(function(){
-													document.getElementsByClassName("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";
-												});
+											document.getElementsByClassName("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";												
 										 </script>'.$mail_template.'</div>';												
 														
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
