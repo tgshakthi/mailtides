@@ -969,7 +969,9 @@ class Email_sms_blast extends MX_Controller
 										  }
 										 </style>
 										 <script>
-											document.getElementsByClassName("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";												
+											 $(document).ready(function() {
+												document.getElementsByClassName("link-data-href").href = "http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'";												
+											 });
 										 </script>'.$mail_template.'</div>';												
 														
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
@@ -983,7 +985,7 @@ class Email_sms_blast extends MX_Controller
 						$data = curl_exec($ch);
 						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $data;
 					}
-					//print_r($mailContent);die;
+					print_r($mailContent);die;
 					$mail->Body = $mailContent;
 					$mail->clearAddresses();
 					// Add a recipient
