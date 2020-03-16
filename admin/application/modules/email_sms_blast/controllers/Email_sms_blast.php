@@ -978,7 +978,7 @@ class Email_sms_blast extends MX_Controller
 						$data = curl_exec($ch);
 						$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $data;
 					}
-					print_r($mailContent);die;
+					//print_r($mailContent);die;
 					$mail->Body = $mailContent;
 					$mail->clearAddresses();
 					// Add a recipient
