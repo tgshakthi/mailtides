@@ -985,7 +985,6 @@ class Email_sms_blast extends MX_Controller
 																  <v:fill type="tile" color="#f6f6f6"></v:fill>
 															  </v:background>
 														<![endif]-->';
-														$mailContent .= $mail_template;												
 														$mailContent .= '<style type="text/css">
 																  .copy{
 																	 display : none; 
@@ -994,8 +993,8 @@ class Email_sms_blast extends MX_Controller
 																	 display : none; 
 																  }
 																  </style>
-																  <script>alert();</script>
-													  </div>
+																  <script>alert();</script>'.$mail_template;												
+														$mailContent .= '</div>
 												</body>                  
 											</html>';
 					}elseif($campaign_category[0]->campaign_type == 'sms'){
