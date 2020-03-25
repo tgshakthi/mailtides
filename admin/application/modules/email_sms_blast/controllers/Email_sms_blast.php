@@ -872,6 +872,8 @@ class Email_sms_blast extends MX_Controller
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
 		$mail_template = $get_mail_template[0]->template;
+		print_r("http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'");
+		print_r($mail_template);die;
 		$data = array(
 					'0'=>'4813'
 				);
