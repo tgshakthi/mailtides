@@ -949,7 +949,7 @@ class Email_sms_blast extends MX_Controller
 					// Set email format to HTML
 					$mail->isHTML(true);
 					// Email body content
-					print_r("http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'");
+					print_r('http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'');
 					print_r($mail_template);die;
 					if($campaign_category[0]->campaign_type == 'email'){
 						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
