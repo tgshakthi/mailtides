@@ -872,8 +872,7 @@ class Email_sms_blast extends MX_Controller
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign_category_id);
 		$get_mail_template = $this->Email_sms_blast_model->get_email_template_by_id($campaign_category[0]->template);
 		$mail_template = $get_mail_template[0]->template;
-		print_r("http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'");
-		print_r($mail_template);die;
+		
 		$data = array(
 					'0'=>'4813'
 				);
@@ -882,6 +881,7 @@ class Email_sms_blast extends MX_Controller
 		); */
 		$user_ids = array_merge($user_ids_data,$data);
 		// $user_ids = array_merge($user_id,$user_data_bcc);
+		
 		if(!empty($user_ids))
 		{
 			$patient_user_count = count($user_ids);
@@ -949,6 +949,8 @@ class Email_sms_blast extends MX_Controller
 					// Set email format to HTML
 					$mail->isHTML(true);
 					// Email body content
+					print_r("http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'");
+					print_r($mail_template);die;
 					if($campaign_category[0]->campaign_type == 'email'){
 						$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 						$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
