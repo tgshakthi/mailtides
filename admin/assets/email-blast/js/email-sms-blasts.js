@@ -465,7 +465,7 @@ $(document).ready(function () {
 						if(data == '1') {
 							$("#myDiv").hide();
 							alert('Successfully sent mail.');
-							document.getElementById('send-email-sms-filter-data-import').disabled = true;
+							//document.getElementById('send-email-sms-filter-data-import').disabled = true;
 							// window.location.href = base_url+'email_sms_blast/campaign_data';
 						}else if(data == '0') {
 							$("#myDiv").hide();
@@ -474,7 +474,7 @@ $(document).ready(function () {
 						}else{
 							$("#myDiv").hide();
 							alert('Successfully sent mail.');
-							document.getElementById('send-email-sms-filter-data-import').disabled = true;
+							//document.getElementById('send-email-sms-filter-data-import').disabled = true;
 							// window.location.href = base_url+'email_sms_blast/campaign_data';
 						}
 					},
