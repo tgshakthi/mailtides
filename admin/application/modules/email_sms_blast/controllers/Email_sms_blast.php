@@ -1636,6 +1636,8 @@ class Email_sms_blast extends MX_Controller
 	}
 	
 	function insert_sms_email_blast_msg_patients(){
-		echo 'test';
+		
+		echo '<pre>';
+		print_r($_POST);die;
 	}
 }
