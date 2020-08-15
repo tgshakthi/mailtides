@@ -1651,7 +1651,7 @@ class Email_sms_blast extends MX_Controller
 		//print_r($patient_first_name);die;
 		if(!empty($patient_email)){
 			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-			print_r($mail_configurations);die;
+			//print_r($mail_configurations);die;
 			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 			$track_code = md5(rand());
 			$mail = new PHPMailer;
