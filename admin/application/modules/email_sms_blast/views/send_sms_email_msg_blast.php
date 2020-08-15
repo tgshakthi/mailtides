@@ -154,6 +154,25 @@
                   </div>
 				  <div class="form-group">
 							<label for="campaign-type" class="control-label col-md-3 col-sm-3 col-xs-12">
+								Campaign
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							<select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign" required="required" >
+								<option value="">Select campaign</option>
+								<?php
+								if(!empty($get_campaign_categorys)){
+									foreach($get_campaign_categorys as $get_campaign_category){
+									?>
+										<option value="<?php echo $get_campaign_categorys->id;?>"><?php echo $get_campaign_categorys->category;?></option>
+									<?php									
+									}
+								}
+								?>
+							</select>
+							</div>	
+						</div>
+				  <div class="form-group">
+							<label for="campaign-type" class="control-label col-md-3 col-sm-3 col-xs-12">
 								Location
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
@@ -168,7 +187,7 @@
 									
 								$facility_attributes = array(
 															'id'       => 'location',
-															'name'     => 'location',
+															'name'     => 'location',	
 															// 'required' => 'required',
 															'class'    => 'form-control'									
 															);

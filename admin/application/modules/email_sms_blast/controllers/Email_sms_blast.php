@@ -1625,6 +1625,7 @@ class Email_sms_blast extends MX_Controller
 		$data['website_id'] = $this->admin_header->website_id();
 		$data['heading']    = 'Add SMS Email Patient';
 		$data['title']      = "Add SMS Email New Patient | Administrator";
+		$data['get_campaign_categorys'] = $this->Email_sms_blast_model->get_campaign_category($data['website_id']);
 		$this->load->view('template/meta_head', $data);
 		$this->load->view('email_blast_header');
 		$this->admin_header->index();
