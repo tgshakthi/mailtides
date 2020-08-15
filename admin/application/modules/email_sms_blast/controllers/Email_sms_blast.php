@@ -1639,6 +1639,7 @@ class Email_sms_blast extends MX_Controller
 		
 		//echo '<pre>';
 		//print_r($_POST);
+		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
 		$patient_email = $this->input->post('patient_email');
