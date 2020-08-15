@@ -188,7 +188,7 @@
 								$facility_attributes = array(
 															'id'       => 'location',
 															'name'     => 'location',	
-															// 'required' => 'required',
+															'required' => 'required',
 															'class'    => 'form-control'									
 															);
 							

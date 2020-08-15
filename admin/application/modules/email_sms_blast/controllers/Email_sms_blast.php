@@ -1634,4 +1634,8 @@ class Email_sms_blast extends MX_Controller
 		$this->load->view('script');
 		$this->load->view('template/footer');
 	}
+	
+	function insert_sms_email_blast_msg_patients(){
+		echo 'test';
+	}
 }
