@@ -163,7 +163,7 @@
 								if(!empty($get_campaign_categorys)){
 									foreach($get_campaign_categorys as $get_campaign_category){
 									?>
-										<option value="<?php echo $get_campaign_categorys->id;?>"><?php echo $get_campaign_categorys->category;?></option>
+										<option value="<?php echo $get_campaign_category->id;?>"><?php echo $get_campaign_category->category;?></option>
 									<?php									
 									}
 								}
