@@ -1606,7 +1606,7 @@ class Email_sms_blast extends MX_Controller
 				if(!empty($get_graphical_datas)){
 					$sent = count($get_graphical_datas);
 				}
-				if($get_graphical_data->link_open == '1'){
+				if($get_graphical_data->link_open == '1'){send_sms_email_msg_blast
 					$link[] = $get_graphical_data->link_open;
 				}			
 			}
@@ -1618,5 +1618,19 @@ class Email_sms_blast extends MX_Controller
 			$data['sent'] = '';
 			echo json_encode($data);
 		}
+	}
+	
+	function send_sms_email_blast()
+	{
+		$data['website_id'] = $this->admin_header->website_id();
+		$data['heading']    = 'Add SMS Email Patient';
+		$data['title']      = "Add SMS Email New Patient | Administrator";
+		$this->load->view('template/meta_head', $data);
+		$this->load->view('email_blast_header');
+		$this->admin_header->index();
+		$this->load->view('send_sms_email_msg_blast', $data);
+		$this->load->view('template/footer_content');
+		$this->load->view('script');
+		$this->load->view('template/footer');
 	}
 }
