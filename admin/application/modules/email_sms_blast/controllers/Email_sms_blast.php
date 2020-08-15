@@ -1637,8 +1637,8 @@ class Email_sms_blast extends MX_Controller
 	
 	function insert_sms_email_blast_msg_patients(){
 		
-		echo '<pre>';
-		print_r($_POST);
+		//echo '<pre>';
+		//print_r($_POST);
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
 		$patient_email = $this->input->post('patient_email');
@@ -1647,8 +1647,8 @@ class Email_sms_blast extends MX_Controller
 		$location  = $this->input->post('location');
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
-		$patient_first_name = $first_name.$last_name;
-		print_r($patient_first_name);die;
+		$patient_first_name = $first_name. .$last_name;
+		//print_r($patient_first_name);die;
 		if(!empty($patient_email)){
 			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 			
@@ -1750,7 +1750,7 @@ class Email_sms_blast extends MX_Controller
 																			<table cellspacing="0" cellpadding="0">
 																			<tr>';								
 													$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																		<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																		<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/1/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																		'.$campaign_category[0]->category.'
 																		</a>
 																	 </td>';
@@ -1802,6 +1802,25 @@ class Email_sms_blast extends MX_Controller
 					</div>
 				</body>                  
 			</html>';
+			
+			$mail->Body = $mailContent;
+			$mail->clearAddresses();
+			// Add a recipient
+			$mail->addAddress($patient_email);
+								
+			if(!$mail->send()){
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+				echo '0';
+			} else {
+				/* if(empty($get_check_sms_data))
+				{
+					$this->Email_sms_blast_model->insert_sms_data($user_ids[$patient_user],$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
+				}					
+				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_ids[$patient_user],$campaign_category[0]->id,$track_code); */
+				echo 'Message sent.';
+				echo '1';
+			}	
 		}
 	}
 }
