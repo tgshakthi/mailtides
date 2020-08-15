@@ -1647,7 +1647,7 @@ class Email_sms_blast extends MX_Controller
 		$location  = $this->input->post('location');
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
-		$patient_first_name = $first_name. .$last_name;
+		$patient_first_name = $first_name.$last_name;
 		//print_r($patient_first_name);die;
 		if(!empty($patient_email)){
 			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
