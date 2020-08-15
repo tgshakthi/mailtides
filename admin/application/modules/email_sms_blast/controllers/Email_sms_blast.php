@@ -1606,7 +1606,7 @@ class Email_sms_blast extends MX_Controller
 				if(!empty($get_graphical_datas)){
 					$sent = count($get_graphical_datas);
 				}
-				if($get_graphical_data->link_open == '1'){send_sms_email_msg_blast
+				if($get_graphical_data->link_open == '1'){
 					$link[] = $get_graphical_data->link_open;
 				}			
 			}
