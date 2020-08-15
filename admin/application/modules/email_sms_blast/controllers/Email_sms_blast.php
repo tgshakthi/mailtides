@@ -1638,6 +1638,170 @@ class Email_sms_blast extends MX_Controller
 	function insert_sms_email_blast_msg_patients(){
 		
 		echo '<pre>';
-		print_r($_POST);die;
+		print_r($_POST);
+		$first_name = $this->input->post('first_name');
+		$last_name = $this->input->post('last_name');
+		$patient_email = $this->input->post('patient_email');
+		$phone_number = $this->input->post('phone_number');
+		$campaign  = $this->input->post('campaign');
+		$location  = $this->input->post('location');
+		
+		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
+		$patient_first_name = $first_name.$last_name;
+		print_r($patient_first_name);die;
+		if(!empty($patient_email)){
+			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+			
+			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+			$track_code = md5(rand());
+			$mail = new PHPMailer;
+			$mail->SMTPDebug = 0;
+			// SMTP configuration
+			$mail->isSMTP();
+			$mail->Host     = $mail_configurations[0]->host;
+			$mail->SMTPAuth = true;
+			$mail->Username = $campaign_category[0]->send_email;
+			$mail->Password = $campaign_category[0]->password;
+			$mail->Port     = $mail_configurations[0]->port;						 							
+			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
+			// Set email format to HTML
+			$mail->isHTML(true);
+			$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
+			
+			$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+							<html>
+							<head>
+								<meta charset="UTF-8">
+								<meta content="width=device-width, initial-scale=1" name="viewport">
+								<meta name="x-apple-disable-message-reformatting">
+								<meta http-equiv="X-UA-Compatible" content="IE=edge">
+								<meta content="telephone=no" name="format-detection">
+								<title></title>
+								<!--[if (mso 16)]>
+								  <style type="text/css">
+									a {text-decoration: none;}
+								  </style>
+								  <![endif]-->
+								<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+								<!--[if !mso]><!-- -->
+								<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+								<!--<![endif]-->
+							</head>
+							<body>
+								<div class="es-wrapper-color">
+								<!--[if gte mso 9]>
+									  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+										  <v:fill type="tile" color="#f6f6f6"></v:fill>
+									  </v:background>
+								<![endif]-->
+								<table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+								<tbody>
+								  <tr>
+								<td class="esd-email-paddings">
+								  <table class="es-content esd-footer-popover" cellspacing="0" cellpadding="0" align="center"
+									style="border: 5px solid #603;padding: 10px;background: #fff;">
+									<tbody>
+										<tr>
+											<td class="esd-stripe" align="center">
+												<table class="es-content-body" width="600" cellspacing="0" cellpadding="0" align="center"
+												style="border-left:3px solid transparent;">
+												<tbody>
+			  
+										<tr>
+											<td style="text-align: center;"><img
+												src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png"
+												width="100" />
+											  <h3
+												style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; text-align:center;font-size: 25px;font-weight: 300;">
+												Digestive & Liver Disease Consultants, P.A. </h3>
+												<br>
+											</td>
+										</tr>
+			  
+										<tr>
+										<td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left">
+										  <table width="100%" cellspacing="0" cellpadding="0">
+											<tbody>
+											  <tr>
+												<td class="esd-container-frame" width="557" valign="top" align="center">
+												  <table width="100%" cellspacing="0" cellpadding="0">
+													<tbody>
+													  <tr>
+														<td align="left" class="esd-block-text es-p15b">
+														  <h2
+															style="color: rgb(102, 0, 51); font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif;font-size: 21px;font-weight: 600;">
+															Dear '. $patient_first_name .',</h2>
+														</td>
+													  </tr>';
+														
+													$mailContent .= '<tr>
+																		<td class="esd-block-text es-p20t" align="left">
+																		  <p
+																			style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+																				'.$campaign_category[0]->mail_content.'
+																		  </pre>
+																		</td>
+																	  </tr>';
+													$mailContent .= ' <tr>
+																		  </tr>
+																		  <tr>
+																			<td align="center" esd-links-color="#ffffff" class="esd-block-text">
+																			<br>
+																			<table cellspacing="0" cellpadding="0">
+																			<tr>';								
+													$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
+																		<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_ids[$patient_user].'/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																		'.$campaign_category[0]->category.'
+																		</a>
+																	 </td>';
+														
+													$mailContent .= ' </tr>
+														</table>
+														<br> 
+															  </td>
+														  </tr>
+														  <tr>
+														<td class="esd-block-text es-p15t" align="left">
+														  
+														  <p
+															style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+															<br>
+														  </p>
+														  <p
+															style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+															Sincerely,</p>                                                              
+														  <p
+															style="font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; line-height:24px; font-size:15px;">
+															<img src="https://www.txgidocs.com/assets/images/txgidocs/logo/logo%20(1).png" width="90" />
+															<h3
+															  style="color:#003954; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 16px;font-weight: 300;">
+															  Digestive &amp; Liver Disease Consultants, P.A. </h3>
+														  </p>			
+														  <p><br>
+														  </p>
+														</td>
+													  </tr>                                                          
+													</tbody>
+												  </table>
+												</td>
+											  </tr>
+											</tbody>
+										  </table>
+										</td>
+									  </tr>
+									</tbody>
+								  </table>
+								</td>
+							  </tr>
+							</tbody>
+						  </table>
+						</td>
+					  </tr>
+					</tbody>
+					</table>
+					</div>
+				</body>                  
+			</html>';
+		}
 	}
 }
