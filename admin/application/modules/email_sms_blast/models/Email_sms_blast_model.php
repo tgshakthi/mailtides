@@ -1391,16 +1391,19 @@ class Email_sms_blast_model extends CI_Model
 	}
 	
 	function insert_sms_email_blast_msg_patients($email_send,$sms_send){
-		echo '<pre>';
-		print_r($_post);die;
-		/* $date = new DateTime("now", new DateTimeZone('America/New_York') );
+		
+		$date = new DateTime("now", new DateTimeZone('America/New_York') );
 		$insert_data = array(
-							'user_id' => $user_id,
-							'campaign_category_id' => $campaign_category_id,
-							'track_code' => $track_code,
-							'sent_date' => $date->format('m/d/Y')
+							'website_id' 	=> $this->input->post('website_id');
+							'first_name' 	=> $this->input->post('first_name');
+							'last_name' 	=> $this->input->post('last_name');
+							'patient_email' => $this->input->post('patient_email');
+							'phone_number' 	=> $this->input->post('phone_number');
+							'campaign'  	=> $this->input->post('campaign');
+							'location'  	=> $this->input->post('location');
+							'sent_date' 	=> $date->format('m/d/Y')
 						);
 		// Insert into Import Data
-		$this->db->insert('zcms_import_data', $insert_data);	 */	
+		$this->db->insert('zcms_sms_email_sent_data', $insert_data);
 	}
 }
