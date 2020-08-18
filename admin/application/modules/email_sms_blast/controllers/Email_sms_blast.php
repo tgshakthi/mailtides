@@ -1871,6 +1871,7 @@ class Email_sms_blast extends MX_Controller
 				echo '11';
 			}	
 		}
-		
+		$this->session->set_flashdata('success', 'Successfully Send Email And Sms Message');
+		redirect('email_sms_blast/send_sms_email_blast');
 	}
 }
