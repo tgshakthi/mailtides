@@ -1394,14 +1394,16 @@ class Email_sms_blast_model extends CI_Model
 		
 		$date = new DateTime("now", new DateTimeZone('America/New_York') );
 		$insert_data = array(
-							'website_id' 	=> $this->input->post('website_id');
-							'first_name' 	=> $this->input->post('first_name');
-							'last_name' 	=> $this->input->post('last_name');
-							'patient_email' => $this->input->post('patient_email');
-							'phone_number' 	=> $this->input->post('phone_number');
-							'campaign'  	=> $this->input->post('campaign');
-							'location'  	=> $this->input->post('location');
-							'sent_date' 	=> $date->format('m/d/Y')
+							'website_id' 	=> $this->input->post('website_id'),
+							'first_name' 	=> $this->input->post('first_name'),
+							'last_name' 	=> $this->input->post('last_name'),
+							'patient_email' => $this->input->post('patient_email'),
+							'phone_number' 	=> $this->input->post('phone_number'),
+							'campaign'  	=> $this->input->post('campaign'),
+							'location'  	=> $this->input->post('location'),
+							'sent_date' 	=> $date->format('m/d/Y'),
+							'email_send'	=> $email_send,
+							'sms_send'		=> $sms_send
 						);
 		// Insert into Import Data
 		$this->db->insert('zcms_sms_email_sent_data', $insert_data);
