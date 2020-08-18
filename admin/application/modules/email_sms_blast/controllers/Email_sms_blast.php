@@ -1831,7 +1831,7 @@ class Email_sms_blast extends MX_Controller
 					$sms_data_email = $result['response']['results'][0]['sms_address'];
 				}
 			}
-			$sms_send = '0'
+			$sms_send = '0';
 			if(!empty($sms_data_email)){
 				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
@@ -1867,7 +1867,7 @@ class Email_sms_blast extends MX_Controller
 					echo 'Mailer Error: ' . $mail->ErrorInfo;
 					echo '00';
 				} else {
-					$sms_send = '1'
+					$sms_send = '1';
 					echo 'Sms Message sent.';
 					echo '11';
 				}	
