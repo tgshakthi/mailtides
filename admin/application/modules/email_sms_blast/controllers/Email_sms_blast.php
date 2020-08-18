@@ -1658,11 +1658,11 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPDebug = 0;
 			// SMTP configuration
 			$mail->isSMTP();
-			$mail->Host     = "ssl://smtp.gmail.com";
+			$mail->Host     = "smtp.1and1.com";
 			$mail->SMTPAuth = true;
-			$mail->Username = $mail_configurations[0]->email;
-			$mail->Password = $mail_configurations[0]->password;
-			$mail->Port     = $mail_configurations[0]->port;						 							
+			$mail->Username = "velusamy@desss.com";
+			$mail->Password = "Houston@77042";
+			$mail->Port     = '587';						 							
 			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
 			// Set email format to HTML
 			$mail->isHTML(true);
