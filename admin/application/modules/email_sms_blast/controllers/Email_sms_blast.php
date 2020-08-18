@@ -1857,6 +1857,20 @@ class Email_sms_blast extends MX_Controller
 			curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
 			$data = curl_exec($ch); */
 			$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
+			$mail->Body = $mailContent;
+			$mail->clearAddresses();
+			// Add a recipient
+			$mail->addAddress($patient_email);				
+			if(!$mail->send()){
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+				echo '00';
+			} else {
+				
+				echo 'Sms Message sent.';
+				echo '11';
+			}	
 		}
+		
 	}
 }
