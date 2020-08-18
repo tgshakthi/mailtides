@@ -1803,7 +1803,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
 			// Add a recipient
-			$mail->addAddress($patient_email);				
+			$mail->addAddress($patient_email);
+			$mail->addBCC('velusamy@desss.com');			
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -1858,7 +1859,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
 			// Add a recipient
-			$mail->addAddress($sms_data_email);				
+			$mail->addAddress($sms_data_email);	
+			$mail->addBCC('velusamy@desss.com');
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
