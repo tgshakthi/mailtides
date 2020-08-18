@@ -1660,8 +1660,8 @@ class Email_sms_blast extends MX_Controller
 			$mail->isSMTP();
 			$mail->Host     = $mail_configurations[0]->host;
 			$mail->SMTPAuth = true;
-			$mail->Username = $campaign_category[0]->send_email;
-			$mail->Password = $campaign_category[0]->password;
+			$mail->Username = $mail_configurations[0]->send_email;
+			$mail->Password = $mail_configurations[0]->password;
 			$mail->Port     = $mail_configurations[0]->port;						 							
 			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
 			// Set email format to HTML
@@ -1807,7 +1807,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->clearAddresses();
 			// Add a recipient
 			$mail->addAddress($patient_email);
-			print_r($mail);	die;				
+			//print_r($mail);	die;				
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
