@@ -1807,7 +1807,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->clearAddresses();
 			// Add a recipient
 			$mail->addAddress($patient_email);
-								
+			print_r($mail);	die;				
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
