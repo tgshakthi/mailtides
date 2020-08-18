@@ -1658,7 +1658,7 @@ class Email_sms_blast extends MX_Controller
 			$mail->SMTPDebug = 0;
 			// SMTP configuration
 			$mail->isSMTP();
-			$mail->Host     = $mail_configurations[0]->host;
+			$mail->Host     = "ssl://smtp.gmail.com";
 			$mail->SMTPAuth = true;
 			$mail->Username = $mail_configurations[0]->email;
 			$mail->Password = $mail_configurations[0]->password;
