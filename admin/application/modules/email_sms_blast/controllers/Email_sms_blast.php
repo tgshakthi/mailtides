@@ -1646,7 +1646,7 @@ class Email_sms_blast extends MX_Controller
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
 		$patient_first_name = $first_name.' '.$last_name;
-		
+		$email_send = '0';
 		if(!empty($patient_email)){
 			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
@@ -1810,7 +1810,7 @@ class Email_sms_blast extends MX_Controller
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 				echo '0';
 			} else {
-				
+				$email_send = '1';
 				echo 'Message sent.';
 				echo '1';
 			}	
@@ -1831,46 +1831,49 @@ class Email_sms_blast extends MX_Controller
 					$sms_data_email = $result['response']['results'][0]['sms_address'];
 				}
 			}
-			
-			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
-			$track_code = md5(rand());
-			$mail = new PHPMailer;
-			$mail->SMTPDebug = 0;
-			// SMTP configuration
-			$mail->isSMTP();
-			$mail->Host     = "smtp.1and1.com";
-			$mail->SMTPAuth = true;
-			$mail->Username = "velusamy@desss.com";
-			$mail->Password = "Houston@77042";
-			$mail->Port     = '587';						 							
-			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
-			// Set email format to HTML
-			$mail->isHTML(true);
-			$mail->Subject= '';
-			//$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
-			/* $ch = curl_init();  
-			$timeout = '5';  
-			curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
-			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
-			curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
-			$data = curl_exec($ch); */
-			$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
-			$mail->Body = $mailContent;
-			$mail->clearAddresses();
-			// Add a recipient
-			$mail->addAddress($sms_data_email);	
-			$mail->addBCC('velusamy@desss.com');
-			if(!$mail->send()){
-				echo 'Message could not be sent.';
-				echo 'Mailer Error: ' . $mail->ErrorInfo;
-				echo '00';
-			} else {
-				
-				echo 'Sms Message sent.';
-				echo '11';
-			}	
+			$sms_send = '0'
+			if(!empty($sms_data_email)){
+				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+				$track_code = md5(rand());
+				$mail = new PHPMailer;
+				$mail->SMTPDebug = 0;
+				// SMTP configuration
+				$mail->isSMTP();
+				$mail->Host     = "smtp.1and1.com";
+				$mail->SMTPAuth = true;
+				$mail->Username = "velusamy@desss.com";
+				$mail->Password = "Houston@77042";
+				$mail->Port     = '587';						 							
+				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
+				// Set email format to HTML
+				$mail->isHTML(true);
+				$mail->Subject= '';
+				//$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
+				/* $ch = curl_init();  
+				$timeout = '5';  
+				curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+				curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+				curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+				$data = curl_exec($ch); */
+				$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
+				$mail->Body = $mailContent;
+				$mail->clearAddresses();
+				// Add a recipient
+				$mail->addAddress($sms_data_email);	
+				$mail->addBCC('velusamy@desss.com');
+				if(!$mail->send()){
+					echo 'Message could not be sent.';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+					echo '00';
+				} else {
+					$sms_send = '1'
+					echo 'Sms Message sent.';
+					echo '11';
+				}	
+			}
 		}
+		$this->Email_sms_blast_model->insert_sms_email_blast_msg_patients($email_send ,$sms_send);
 		$this->session->set_flashdata('success', 'Successfully Send Email And Sms Message');
 		redirect('email_sms_blast/send_sms_email_blast');
 	}
