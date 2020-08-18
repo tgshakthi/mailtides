@@ -1651,7 +1651,6 @@ class Email_sms_blast extends MX_Controller
 		//print_r($patient_first_name);die;
 		if(!empty($patient_email)){
 			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-			//print_r($mail_configurations);die;
 			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
 			$track_code = md5(rand());
 			$mail = new PHPMailer;
@@ -1750,7 +1749,7 @@ class Email_sms_blast extends MX_Controller
 																			<table cellspacing="0" cellpadding="0">
 																			<tr>';								
 													$mailContent .=' <td style="border-radius:4px; padding:10px" bgcolor="#660033">
-																		<a href="http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/1/'.$campaign_category[0]->id.'/'.$track_code.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
+																		<a href="'.$campaign_category[0]->tiny_url.'" target="_blank" style="padding: 8px 12px; border-radius: 2px; font-family: roboto, \'helvetica neue\', helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;text-decoration: none; display: inline-block;">
 																		'.$campaign_category[0]->category.'
 																		</a>
 																	 </td>';
@@ -1806,21 +1805,58 @@ class Email_sms_blast extends MX_Controller
 			$mail->Body = $mailContent;
 			$mail->clearAddresses();
 			// Add a recipient
-			$mail->addAddress($patient_email);
-			//print_r($mail);	die;				
+			$mail->addAddress($patient_email);				
 			if(!$mail->send()){
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 				echo '0';
 			} else {
-				/* if(empty($get_check_sms_data))
-				{
-					$this->Email_sms_blast_model->insert_sms_data($user_ids[$patient_user],$patient_first_name,$patient_email,$get_user[0]->phone_number,$sms_data_email);
-				}					
-				$this->Email_sms_blast_model->insert_send_email_sms_filter_data($user_ids[$patient_user],$campaign_category[0]->id,$track_code); */
+				
 				echo 'Message sent.';
 				echo '1';
 			}	
+		}
+		
+		if(!empty($phone_number)){
+			$phone_numbers = str_replace("-","",$phone_number);
+			$phone_id = "+1";
+			$phone_number_data = $phone_id.''.$phone_numbers;
+			// Replace key value with your own api key					
+			$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number_data.'';
+			$result = @file_get_contents($url);						
+			if ($result)
+			{
+				$result = @json_decode($result, true);
+				if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+				{	
+					$sms_data_email = $result['response']['results'][0]['sms_address'];
+				}
+			}
+			
+			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+			$track_code = md5(rand());
+			$mail = new PHPMailer;
+			$mail->SMTPDebug = 0;
+			// SMTP configuration
+			$mail->isSMTP();
+			$mail->Host     = "smtp.1and1.com";
+			$mail->SMTPAuth = true;
+			$mail->Username = "velusamy@desss.com";
+			$mail->Password = "Houston@77042";
+			$mail->Port     = '587';						 							
+			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
+			// Set email format to HTML
+			$mail->isHTML(true);
+			$mail->Subject= '';
+			//$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
+			/* $ch = curl_init();  
+			$timeout = '5';  
+			curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+			curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+			$data = curl_exec($ch); */
+			$mailContent = 'Dear '.$patient_first_name.','.$campaign_category[0]->mail_content .' '. $campaign_category[0]->tiny_url;
 		}
 	}
 }
