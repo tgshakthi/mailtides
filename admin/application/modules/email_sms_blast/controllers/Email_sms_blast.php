@@ -1645,6 +1645,8 @@ class Email_sms_blast extends MX_Controller
 		$phone_number = $this->input->post('phone_number');
 		$campaign  = $this->input->post('campaign');
 		$location  = $this->input->post('campaign_location');
+		$carrier_data  = $this->input->post('carrier_data');
+		
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
 		$patient_first_name = $first_name.' '.$last_name;
@@ -1867,11 +1869,19 @@ class Email_sms_blast extends MX_Controller
 					echo '00';
 				} else {
 					$sms_send = '1';
+					$carrier_data  = $this->input->post('carrier_data');
+					$get_carrier_data = $this->Email_sms_blast_model->get_exist_carrier_data($carrier_data);
+					if(empty($get_carrier_data))
+					{
+						$this->Email_sms_blast_model->insert_sms_data('',$patient_first_name,$patient_email,$phone_number,$sms_data_email);
+					}
 					echo 'Sms Message sent.';
 					echo '11';
+					
 				}	
 			}
 		}
+		
 		$this->Email_sms_blast_model->insert_sms_email_blast_msg_patients($email_send ,$sms_send);
 		$this->session->set_flashdata('success', 'Successfully Send Email And Sms Message');
 		redirect('email_sms_blast/send_sms_email_blast');

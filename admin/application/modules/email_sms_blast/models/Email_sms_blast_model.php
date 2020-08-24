@@ -1425,4 +1425,17 @@ class Email_sms_blast_model extends CI_Model
         endif;
         return $records; 
 	}
+	
+	function get_exist_carrier_data($carrier_data){
+		$this->db->select('*');
+        $this->db->where(array(
+			'sms_data_email' => $carrier_data
+        ));
+        $query   = $this->db->get('zcms_sms_data');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result_array();
+        endif;
+        return $records;
+	}
 }
