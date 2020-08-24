@@ -156,7 +156,7 @@
 				  <div class="form-group">
 					  <label for="campaign_type" class="control-label col-md-3 col-sm-3 col-xs-12"> Location </label>
 					  <div class="col-md-6 col-sm-6 col-xs-12">
-						<select name="campaign_location" class="form-control col-md-7 col-xs-12" id="campaign_location" required="required" onchange="campaign_location(this.value)">
+						<select name="campaign_location" class="form-control col-md-7 col-xs-12" id="campaign_location" required="required" onchange="location_campaign(this.value)">
 						  <option value="">Select Location</option>
 						  <option value="1">Houston</option>
 						  <option value="2">Humble</option>

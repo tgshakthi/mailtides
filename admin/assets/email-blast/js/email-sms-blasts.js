@@ -1793,7 +1793,7 @@ function get_email_template(value)
 	}
 }
 
-function campaign_location(value) 
+function location_campaign(value) 
 {
 	alert();
 	var baseUrl = $('#base_url').val();
