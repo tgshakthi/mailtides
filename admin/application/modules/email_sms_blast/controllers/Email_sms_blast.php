@@ -1648,23 +1648,26 @@ class Email_sms_blast extends MX_Controller
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
 		$patient_first_name = $first_name.' '.$last_name;
+		
+		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
+		require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
+		$track_code = md5(rand());
+		$mail = new PHPMailer;
+		$mail->SMTPDebug = 0;
+		// SMTP configuration
+		$mail->isSMTP();
+		$mail->Host     = "smtp.1and1.com";
+		$mail->SMTPAuth = true;
+		$mail->Username = "velusamy@desss.com";
+		$mail->Password = "Houston@77042";
+		$mail->Port     = '587';						 							
+		$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
+		// Set email format to HTML
+		$mail->isHTML(true);
+		
 		$email_send = '0';
 		if(!empty($patient_email)){
-			$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-			require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
-			$track_code = md5(rand());
-			$mail = new PHPMailer;
-			$mail->SMTPDebug = 0;
-			// SMTP configuration
-			$mail->isSMTP();
-			$mail->Host     = "smtp.1and1.com";
-			$mail->SMTPAuth = true;
-			$mail->Username = "velusamy@desss.com";
-			$mail->Password = "Houston@77042";
-			$mail->Port     = '587';						 							
-			$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
-			// Set email format to HTML
-			$mail->isHTML(true);
+			
 			$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 			
 			$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -1822,34 +1825,28 @@ class Email_sms_blast extends MX_Controller
 			$phone_numbers = str_replace("-","",$phone_number);
 			$phone_id = "+1";
 			$phone_number_data = $phone_id.''.$phone_numbers;
-			// Replace key value with your own api key					
-			$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number_data.'';
-			$result = @file_get_contents($url);						
-			if ($result)
+			
+			$get_check_sms_data = $this->Email_sms_blast_model->get_sms_data247_data($phone_number);
+			if(!empty($get_check_sms_data))
 			{
-				$result = @json_decode($result, true);
-				if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
-				{	
-					$sms_data_email = $result['response']['results'][0]['sms_address'];
+				$sms_data_email = $get_check_sms_data[0]['sms_data_email'];						
+			}else
+			{
+				// Replace key value with your own api key					
+				$url = 'https://api.data247.com/v3.0?key=262385da4166dc1dc5&api=MT&phone='.$phone_number_data.'';
+				$result = @file_get_contents($url);						
+				if ($result)
+				{
+					$result = @json_decode($result, true);
+					if (!empty($result['response']['status']) && $result['response']['status'] == 'OK')
+					{	
+						$sms_data_email = $result['response']['results'][0]['sms_address'];
+					}
 				}
 			}
+			
 			$sms_send = '0';
 			if(!empty($sms_data_email)){
-				$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
-				require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';
-				$track_code = md5(rand());
-				$mail = new PHPMailer;
-				$mail->SMTPDebug = 0;
-				// SMTP configuration
-				$mail->isSMTP();
-				$mail->Host     = "smtp.1and1.com";
-				$mail->SMTPAuth = true;
-				$mail->Username = "velusamy@desss.com";
-				$mail->Password = "Houston@77042";
-				$mail->Port     = '587';						 							
-				$mail->setFrom('reviewsdldc@gmail.com', 'Digestive & Liver Disease Consultants , P.A');			
-				// Set email format to HTML
-				$mail->isHTML(true);
 				$mail->Subject= '';
 				//$url = 'http://txgidocs.mailtides.com/admin/email_link_open/sms_email_status/'.$user_id.'/'.$campaign_category_id.'/'.$track_code.'';
 				/* $ch = curl_init();  
