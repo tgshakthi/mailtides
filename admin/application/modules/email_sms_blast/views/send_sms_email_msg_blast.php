@@ -66,7 +66,29 @@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-                
+                <div class="x_content">                	
+                    <div class="form-group">
+                      <?php
+                      echo form_label('Phone Number','phone_number','class="control-label col-md-3 col-sm-3 col-xs-12"');
+                      ?>
+
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <?php
+                          // Input tag
+                          echo form_input(array(
+						    'type'      => 'text',
+                            'id'        => 'phone_number',
+                            'name'      => 'phone_number',
+							'maxlength' => '12',
+							   
+                            'class'     => 'form-control col-md-7 col-xs-12',
+                            'value'     => '',
+                            'required'  => 'required'
+                          ));
+                        ?>
+                      </div>
+                    </div>
+                  </div>
 				  <div class="x_content">                	
                     <div class="form-group">
                       <?php
@@ -129,29 +151,7 @@
                         ?>
                       </div>
                     </div>
-					<div class="x_content">                	
-                    <div class="form-group">
-                      <?php
-                      echo form_label('Phone Number','phone_number','class="control-label col-md-3 col-sm-3 col-xs-12"');
-                      ?>
-
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <?php
-                          // Input tag
-                          echo form_input(array(
-						    'type'      => 'text',
-                            'id'        => 'phone_number',
-                            'name'      => 'phone_number',
-							'maxlength' => '12',
-							   
-                            'class'     => 'form-control col-md-7 col-xs-12',
-                            'value'     => '',
-                            'required'  => 'required'
-                          ));
-                        ?>
-                      </div>
-                    </div>
-                  </div>
+					
 				  
 				  <div class="form-group">
 					  <label for="campaign_type" class="control-label col-md-3 col-sm-3 col-xs-12"> Location </label>
