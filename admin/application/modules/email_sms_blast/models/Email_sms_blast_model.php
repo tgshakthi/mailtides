@@ -552,6 +552,7 @@ class Email_sms_blast_model extends CI_Model
 		{
             $update_array = array(
 								'website_id' => $this->input->post('website_id'),
+								'campaign_location' => $this->input->post('location'),
 								'category' => $this->input->post('category_name'),
 								'web_url' => $this->input->post('web_url'),
 								'tiny_url' => $this->input->post('tiny_url'),
@@ -571,6 +572,7 @@ class Email_sms_blast_model extends CI_Model
         } else {
             $insert_array = array(
 								'website_id' => $this->input->post('website_id'),
+								'campaign_location' => $this->input->post('location'),
 								'category' => $this->input->post('category_name'),
 								'web_url' => $this->input->post('web_url'),
 								'tiny_url' => $this->input->post('tiny_url'),

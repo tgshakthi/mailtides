@@ -446,6 +446,7 @@ class Email_sms_blast extends MX_Controller
 			
 			$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($id);
 			$data['campaign_category_id'] = $campaign_category[0]->id;
+			$data['campaign_location'] = $campaign_category[0]->campaign_location;
 			$data['category'] = $campaign_category[0]->category;
 			$data['web_url'] = $campaign_category[0]->web_url;
 			$data['tiny_url'] = $campaign_category[0]->tiny_url;
@@ -461,6 +462,7 @@ class Email_sms_blast extends MX_Controller
 			$data['sort_order'] = $campaign_category[0]->sort_order;
 		else:
 			$data['campaign_category_id'] = "";
+			$data['campaign_location'] = "";
 			$data['category'] = "";
 			$data['web_url'] = "";
 			$data['tiny_url'] = "";

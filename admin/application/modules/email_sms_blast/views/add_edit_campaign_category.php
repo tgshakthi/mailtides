@@ -89,6 +89,37 @@
                                     <div class="clearfix"></div>
                                 </div>
                 				<div class="x_content">
+									<div class="form-group">
+							<label for="campaign-type" class="control-label col-md-3 col-sm-3 col-xs-12">
+								Location
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							<?php
+								$location_options = array(
+														'' => 'Please Select',
+														'1'	=> 'Houston',
+														'2' => 'Humble',
+														'3' => 'Woodlands'
+													);
+							
+									
+								$location_attributes = array(
+															'id'       => 'location',
+															'name'     => 'location',	
+															'required' => 'required',
+															'class'    => 'form-control'									
+															);
+							
+								// Dropdown
+								echo form_dropdown(
+												  $location_attributes,
+												  $location_options,
+												  $campaign_location
+												);
+								?>
+								
+							</div>	
+						</div>
                                 	<div class="form-group">
 										<?php
                                       	echo form_label('Category <span class="required">*</span>','name','class="control-label col-md-3 col-sm-3 col-xs-12"');
