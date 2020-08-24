@@ -167,7 +167,7 @@
 				  <div class="form-group">
               <label for="campaign_type" class="control-label col-md-3 col-sm-3 col-xs-12"> Campaign Name </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_name_data" required="required" >
+                <select name="campaign" class="form-control col-md-7 col-xs-12" id="campaign_name" required="required" >
 					<option value="">Select Campaign </option>
                 </select>
               </div>

@@ -1805,10 +1805,10 @@ function campaign_location(value)
 		},
 		success: function (data) {
 			if (data == "") {
-				$('#campaign_name_data').html(data);
+				$('#campaign_name').html(data);
 				
 			} else {
-				$('#campaign_name_data').html(data);
+				$('#campaign_name').html(data);
 			}
 		}
 	});
