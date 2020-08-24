@@ -44,6 +44,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
 							<i class="fa fa-user" aria-hidden="true"></i>Email Template
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_email_blast" class="btn btn-primary">
+							<i class="fa fa-user"></i> Email SMS
+						</a>
 						
 				<?php
 					elseif($admin_user_id == '7'):
@@ -78,6 +81,9 @@
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
 							<i class="fa fa-user" aria-hidden="true"></i>Email Template
 						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_email_blast" class="btn btn-primary">
+							<i class="fa fa-user"></i> Email SMS
+						</a>
 						
 					<?php
 					else:
@@ -111,6 +117,9 @@
 						</a>
 						<a href="<?php echo base_url();?>email_sms_blast/email_template_generate" class="btn btn-dark">
 							<i class="fa fa-user" aria-hidden="true"></i>Email Template
+						</a>
+						<a href="<?php echo base_url();?>email_sms_blast/send_sms_email_blast" class="btn btn-primary">
+							<i class="fa fa-user"></i> Email SMS
 						</a>
 						
 				<?php
