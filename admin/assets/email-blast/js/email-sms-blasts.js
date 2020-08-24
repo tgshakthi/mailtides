@@ -1795,7 +1795,7 @@ function get_email_template(value)
 
 function location_campaign(value) 
 {
-	alert();
+	
 	var baseUrl = $('#base_url').val();
 	$.ajax({
 		method: 'POST',

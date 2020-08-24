@@ -139,10 +139,10 @@
                         <?php
                           // Input tag
                           echo form_input(array(
-						              	'type'      => 'text',
+						    'type'      => 'text',
                             'id'        => 'phone_number',
                             'name'      => 'phone_number',
-							              'maxlength' => '12',
+							'maxlength' => '12',
 							   
                             'class'     => 'form-control col-md-7 col-xs-12',
                             'value'     => '',
@@ -172,6 +172,31 @@
                 </select>
               </div>
             </div>
+			<div class="form-group">
+                      <?php
+                      echo form_label('Carrier','carrier_data','class="control-label col-md-3 col-sm-3 col-xs-12"');
+                      ?>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <?php
+                          // Input tag
+                          echo form_input(array(
+												'id'       => 'carrier_data',
+												'name'     => 'carrier_data',
+												'class'    => 'form-control col-md-7 col-xs-12',
+												// 'required' => 'required',
+												'value' =>''
+											  ));
+							// Input tag
+							echo form_input(array(
+												'type'     => 'hidden',
+												'id'       => 'hidden_carrier_data',
+												'name'     => 'carrier_data',
+												'class'    => 'form-control col-md-7 col-xs-12',
+												'value'    =>''
+											  ));
+                        ?>
+                      </div>
+                    </div>
 				  
 			    </div>
 						
