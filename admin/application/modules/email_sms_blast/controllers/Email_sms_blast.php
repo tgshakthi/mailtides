@@ -1644,7 +1644,7 @@ class Email_sms_blast extends MX_Controller
 		$patient_email = $this->input->post('patient_email');
 		$phone_number = $this->input->post('phone_number');
 		$campaign  = $this->input->post('campaign');
-		$location  = $this->input->post('location');
+		$location  = $this->input->post('campaign_location');
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
 		$patient_first_name = $first_name.' '.$last_name;
@@ -1878,5 +1878,20 @@ class Email_sms_blast extends MX_Controller
 		$this->Email_sms_blast_model->insert_sms_email_blast_msg_patients($email_send ,$sms_send);
 		$this->session->set_flashdata('success', 'Successfully Send Email And Sms Message');
 		redirect('email_sms_blast/send_sms_email_blast');
+	}
+	
+	function get_campaign_based_on_location()
+	{
+		$campaign_location = $this->input->post('value');		
+		$campaign_datas = $this->Email_sms_blast_model->get_campaign_based_on_location($campaign_location);
+		if(!empty($campaign_datas)){
+			$data[] = "<option value=''>Select Campaign</option>";
+			foreach($campaign_datas as $campaign_data){
+				$data[] = "<option value=".$campaign_data->id.">".$campaign_data->category."</option>";
+			}			
+		}else{
+			$data[] = "<option value=''>Select Campaign</option>";
+		}
+		print_r($data);
 	}
 }

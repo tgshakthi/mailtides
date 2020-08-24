@@ -1402,12 +1402,27 @@ class Email_sms_blast_model extends CI_Model
 							'patient_email' => $this->input->post('patient_email'),
 							'phone_number' 	=> $this->input->post('phone_number'),
 							'campaign'  	=> $this->input->post('campaign'),
-							'location'  	=> $this->input->post('location'),
+							'location'  	=> $this->input->post('campaign_location'),
 							'sent_date' 	=> $date->format('m/d/Y'),
 							'email_send'	=> $email_send,
 							'sms_send'		=> $sms_send
 						);
 		// Insert into Import Data
 		$this->db->insert('zcms_sms_email_sent_data', $insert_data);
+	}
+	
+	function get_campaign_based_on_location($campaign_type)
+	{
+		$this->db->select('*');
+        $this->db->where(array(
+			'campaign_location' => $campaign_type,
+            'is_deleted' => '0'
+        ));
+        $query   = $this->db->get('campaign_category');
+        $records = array();
+        if ($query->num_rows() > 0):
+            $records = $query->result();
+        endif;
+        return $records; 
 	}
 }

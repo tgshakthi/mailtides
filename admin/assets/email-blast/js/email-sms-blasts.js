@@ -1793,5 +1793,25 @@ function get_email_template(value)
 	}
 }
 
+function campaign_location(value) 
+{
+	var baseUrl = $('#base_url').val();
+	$.ajax({
+		method: 'POST',
+		url: baseUrl + 'email_sms_blast/get_campaign_based_on_location',
+		data: {
+			value: value
+		},
+		success: function (data) {
+			if (data == "") {
+				$('#campaign_name_data').html(data);
+				
+			} else {
+				$('#campaign_name_data').html(data);
+			}
+		}
+	});
+}
+
 
 											
