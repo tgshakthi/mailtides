@@ -1648,7 +1648,6 @@ class Email_sms_blast extends MX_Controller
 		$carrier_data  = $this->input->post('carrier_data');
 		$status  = $this->input->post('status');
 		$status              = (isset($status)) ? '1' : '0';
-		print_r($status);die;
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
 		$patient_first_name = $first_name;
