@@ -26,6 +26,31 @@ $(document).ready(function () {
 	});
 	
 	// Datatable - One ( Master Campaign )
+	if ($('#datatable-responsive').length) {
+		
+		var table = $('#datatable-responsive').DataTable({
+			pageLength: 100,
+			dom: 'Bfrtip',
+			buttons: [{
+				extend: 'csvHtml5',
+				text: 'Export CSV',
+				filename: 'patient-files',
+				className: 'btn-sm',
+				exportOptions: {
+					columns: [1, 2, 3]
+				}
+			}],
+			orderCellsTop: true,
+			responsive: !0
+		});
+		
+		// Event listener to the two range filtering inputs to redraw on input
+		$('#min, #max').change(function () {
+			table.draw();
+		});
+	}
+	
+	// Datatable - One ( Master Campaign )
 	if ($('#datatable-button-data').length) {
 		
 		var table = $('#datatable-button-data').DataTable({
