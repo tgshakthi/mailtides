@@ -110,27 +110,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="x_content">                	
-                    <div class="form-group">
-                      <?php
-                      echo form_label('Last Name','last_name','class="control-label col-md-3 col-sm-3 col-xs-12"');
-                      ?>
-
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <?php
-                          // Input tag
-                          echo form_input(array(
-                            'id'       => 'last_name',
-                            'name'     => 'last_name',
-                            'class'    => 'form-control col-md-7 col-xs-12',
-                            'value'    => '',
-                            'required' => 'required'
-                          ));
-						  
-                        ?>
-                      </div>
-                    </div>
-                  </div>
+                  
 				  <div class="x_content">                	
                     <div class="form-group">
                       <?php
@@ -197,6 +177,28 @@
                         ?>
                       </div>
                     </div>
+				<div class="form-group">
+					<?php
+						echo form_label(
+							'Status',
+							'status',
+							'class="control-label col-md-3 col-sm-3 col-xs-12"'
+						);
+					?>
+
+					<div class="col-md-6 col-sm-6 col-xs-12 center-align">
+						<?php
+							// Input checkbox
+							echo form_checkbox(array(
+								'id'      => 'status',
+								'name'    => 'status',
+								'class'   => 'js-switch',
+								//'checked' => ($status === '1') ? TRUE : FALSE,
+								//'value'   => $status
+							));
+						?>
+					</div>
+				</div>	
 				  
 			    </div>
 						

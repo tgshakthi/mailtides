@@ -1640,16 +1640,18 @@ class Email_sms_blast extends MX_Controller
 	function insert_sms_email_blast_msg_patients(){
 		$website_id = $this->input->post('website_id');
 		$first_name = $this->input->post('first_name');
-		$last_name = $this->input->post('last_name');
+		//$last_name = $this->input->post('last_name');
 		$patient_email = $this->input->post('patient_email');
 		$phone_number = $this->input->post('phone_number');
 		$campaign  = $this->input->post('campaign');
 		$location  = $this->input->post('campaign_location');
 		$carrier_data  = $this->input->post('carrier_data');
-		
+		$status  = $this->input->post('status');
+		$status              = (isset($status)) ? '1' : '0';
+		print_r($status);die;
 		
 		$campaign_category = $this->Email_sms_blast_model->get_campaign_category_by_id($campaign);
-		$patient_first_name = $first_name.' '.$last_name;
+		$patient_first_name = $first_name;
 		
 		$mail_configurations = $this->Email_sms_blast_model->get_mail_configuration($website_id);
 		require_once APPPATH.'third_party/PHPMailer/vendor/autoload.php';

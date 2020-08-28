@@ -1398,7 +1398,7 @@ class Email_sms_blast_model extends CI_Model
 		$insert_data = array(
 							'website_id' 	=> $this->input->post('website_id'),
 							'first_name' 	=> $this->input->post('first_name'),
-							'last_name' 	=> $this->input->post('last_name'),
+							'last_name' 	=> '',
 							'patient_email' => $this->input->post('patient_email'),
 							'phone_number' 	=> $this->input->post('phone_number'),
 							'campaign'  	=> $this->input->post('campaign'),
