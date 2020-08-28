@@ -1416,6 +1416,7 @@ class Email_sms_blast_model extends CI_Model
 		$this->db->select('*');
         $this->db->where(array(
 			'campaign_location' => $campaign_type,
+			'campaign_type' => 'sms',
             'is_deleted' => '0'
         ));
         $query   = $this->db->get('campaign_category');

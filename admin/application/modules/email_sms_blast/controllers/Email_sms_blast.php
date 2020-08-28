@@ -1668,7 +1668,7 @@ class Email_sms_blast extends MX_Controller
 		$mail->isHTML(true);
 		
 		$email_send = '0';
-		if(!empty($patient_email)){
+		/* if(!empty($patient_email)){
 			
 			$mail->Subject= 'Digestive & Liver Disease Consultants , P.A';
 			
@@ -1821,7 +1821,7 @@ class Email_sms_blast extends MX_Controller
 				echo 'Message sent.';
 				echo '1';
 			}	
-		}
+		} */
 		
 		if(!empty($phone_number)){
 			$phone_numbers = str_replace("-","",$phone_number);
